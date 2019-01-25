@@ -1,0 +1,3 @@
+[submodule "shortcut-sync"]
+	path = shortcut-sync
+	url = git@github.com:zzzdeb/shortcut-sync.git
