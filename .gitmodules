@@ -1,3 +1,15 @@
 [submodule "shortcut-sync"]
 	path = shortcut-sync
 	url = git@github.com:zzzdeb/shortcut-sync.git
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+[submodule "ranger/ranger_devicons"]
+	path = ranger/ranger_devicons
+	url = https://github.com/alexanderjeurissen/ranger_devicons
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh
+[submodule "st"]
+	path = st
+	url = https://github.com/zzzdeb/st
