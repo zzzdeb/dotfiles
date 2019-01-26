@@ -13,3 +13,9 @@
 [submodule "st"]
 	path = st
 	url = https://github.com/zzzdeb/st
+[submodule "pkgs/xurls"]
+	path = pkgs/xurls
+	url = https://github.com/mvdan/xurls
+[submodule "fzf"]
+	path = fzf
+	url = https://github.com/junegunn/fzf.git
