@@ -1,0 +1,5 @@
+fcix... install
+install languages 
+install mosc
+
+

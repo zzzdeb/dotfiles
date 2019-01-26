@@ -1,0 +1,4 @@
+xdg-settings set default-web-browser chromium-browser.desktop
+
+sudo update-alternatives --config x-www-browser
+sudo update-alternatives --config gnome-www-browser

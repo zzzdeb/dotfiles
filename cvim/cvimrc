@@ -1,0 +1,146 @@
+" Settings
+set nohud
+set nosmoothscroll
+set noautofocus " The opposite of autofocus; this setting stops
+                " sites from focusing on an input box when they load
+set typelinkhints
+let searchlimit = 30
+let scrollstep = 70
+let barposition = "bottom"
+
+set cncpcompletion
+" Sort link hint lettering by the link's distance from the top-left corner of the page	
+set sortlinkhints
+set autohidecursor
+set showtabindices
+
+" let locale = "uk" " Current choices are 'jp' and 'uk'. This allows cVim to use sites like google.co.uk
+                  " or google.co.jp to search rather than google.com. Support is currently limited.
+                  " Let me know if you need a different locale for one of the completion/search engines
+" let hintcharacters = "abc123"
+
+let searchengine dogpile = "http://www.dogpile.com/search/web?q=%s" " If you leave out the '%s' at the end of the URL,
+                                                                    " your query will be appended to the link.
+                                                                    " Otherwise, your query will replace the '%s'.
+
+" This will do the same thing as above, except typing ':tabnew withbase' into to command bar
+" without any search parameters will open 'http://www.dogpile.com'
+let searchengine withbase = ["http://www.dogpile.com", "http://www.dogpile.com/search/web?q=%s"]
+
+" alias ':g' to ':tabnew google'
+" command g tabnew google
+
+let defaultengine = "duckduckgo"
+let completionengines = ["google", "duckduckgo","amazon", "imdb", "dogpile"]
+
+let searchalias g = "google" " Create a shortcut for search engines.
+                             " For example, typing ':tabnew g example'
+                             " would act the same way as ':tabnew google example'
+
+let searchalias d = "duckduckgo" " Create a shortcut for search engines.
+
+" Open all of these in a tab with `gnb` or open one of these with <N>goa where <N>
+let qmark a = ["http://www.reddit.com", "http://www.google.com", "http://twitter.com"]
+
+" let blacklists = ["https://mail.google.com/*", "*://mail.google.com/*", "@https://mail.google.com/mail/*"]
+" blacklists prefixed by '@' act as a whitelist
+
+map ; :
+
+let mapleader = ","
+
+
+map J :call nextTab<cr>
+map K :call previousTab<cr>
+
+" Mappings
+
+map <Leader>r reloadTabUncached
+map <Leader>x :restore<Space>
+
+" This remaps the default 'j' mapping
+" map j scrollUp
+
+" You can use <Space>, which is interpreted as a
+" literal " " character, to enter buffer completion mode
+map <Leader>t = :tabnew<space>
+map <Leader>b :buffer<Space>
+map <Leader>j = :tabhistory<space>
+
+" This unmaps the default 'h', 'j', 'k', and 'l' mappings
+"unmap h j k l
+
+" This remaps the default 'f' mapping to the current 'F' mapping
+" map f F
+
+" Toggle the current HUD display value
+map <C-h> :set hud!<CR>
+
+" Switch between alphabetical hint characters and numeric hints
+" map <C-i> :set numerichints!<CR>
+
+" map <C-e> rootFrame
+map <M-h> previousTab
+map <C-d> scrollPageDown
+map <C-u> scrollPageUp
+iunmap <C-y>
+imap <C-m> deleteWord
+
+" Create a variable that can be used/referenced in the command bar
+let @@reddit_prog = 'http://www.reddit.com/r/programming'
+let @@top_all = 'top?sort=top&t=all'
+let @@top_day = 'top?sort=top&t=day'
+
+" TA binding opens 'http://www.reddit.com/r/programming/top?sort=top&t=all' in a new tab
+map TA :tabnew @@reddit_prog/@@top_all<CR>
+map TD :tabnew @@reddit_prog/@@top_day<CR>
+
+" Use paste buffer in mappings
+map T :tabnew wikipedia @"<CR>
+
+" Code blocks (see below for more info)
+getIP() -> {{
+httpRequest({url: 'http://api.ipify.org/?format=json', json: true},
+            function(res) { Status.setMessage('IP: ' + res.ip); });
+}}
+" Displays your public IP address in the status bar
+map ci :call getIP<CR>
+
+" Script hints
+echo(link) -> {{
+  alert(link.href);
+}}
+map <C-f> createScriptHint(echo)
+map <c-t> :tabnew 
+
+let homedirectory = '/home/zzz'
+let configpath = '~/.config/cvim/cvimrc'
+set localconfig " Update settings via a local file (and the `:source` command) rather
+                " than the default options page in chrome
+" As long as localconfig is set in the .cvimrc file. cVim will continue to read
+" settings from there
+
+site '*://www.facebook.com/*'{
+ call insertMode 
+}
+site '*://duckduckgo.com/*'{
+  unmap j
+  unmap k
+}
+
+site '*://*.reddit.com/*'{
+ call insertMode 
+}
+
+site '*://mail.google.com/*'{
+ call insertMode 
+}
+	" unmap j
+	" unmap k
+	" unmap gi
+	" unmap /
+	" unmap l
+	" unmap gl
+	" unmap c
+	" unmap r
+

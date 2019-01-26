@@ -1,0 +1,87 @@
+// based on a keyboard map from an 'xkb/symbols/de' file
+
+default
+xkb_symbols "basic" {
+  include "us"
+
+    name[Group1]="zzz";
+    key.type[Group1] = "EIGHT_LEVEL";
+
+    key <TAB> {	[ Tab, Tab,  grave,	grave]	};
+//    key <CAPS> {
+//       type= "ONE_LEVEL",
+//      symbols=[Hyper_L]
+//     };
+    //key  <LALT> {
+    //    type= "ONE_LEVEL",
+    //    actions[Group1] = [ SetControls(controls=overlay2)  ]
+    //};
+    //key  <TAB> {
+    //    type= "ONE_LEVEL",
+    //    actions[Group1] = [ SetControls(controls=overlay1)  ]
+    //};
+
+    key <AD01> {[	  	 q,	Q,		exclam		      ,		exclam,	1,		1      ]	};
+    key <AD02> {
+    //overlay2= <VOL->,
+	      symbols[Group1]	=[w,	W,		at		      ,		at,	 2,		2		      ]	};
+    key <AD03> {[	  e,	E,		numbersign	,		numbersign,		 3,		3]	};
+    key <AD04> {[	  r,	R,		dollar		  ,		dollar,		  	 4,		4]	};
+    key <AD05> {[	  t,	T,		percent		  ,		percent,		  	 5,		5]	};
+    key <AD07> {[	  u,	U,		ampersand	  ,		ampersand,	  	 7,		7]	};
+    key <AD08> {[	  i,	I,		asterisk	  ,		asterisk,	  	 8,		8]	};
+    key <AD09> {[	  o,	O,	 bracketleft, bracketleft, 9,		9]	};
+    key <AD10> {[	  p,	P,   bracketright, bracketright, 0,		0]	};
+    key <AD11> {[	  y,	Y,		asciicircum	,		asciicircum,		 6,		6]	};
+    key <ESC> {[ Escape, Escape, question,  question]	};
+    key <BKSP> {[ BackSpace, BackSpace, BackSpace,  Delete]	};
+
+    key <AC01> {[	  a,	A,	 less,		less,		F5,		F5	]	};
+    key <AC02> {[	  s,	S,	 greater,		greater,		F6,		F6	]	};
+    key <AC03> {[	  d,	D,	 parenleft,   parenleft,		F7,		F7]	};
+    key <AC04> {[	  f,	F,	 parenright,  parenright,		F8,		F8]	};
+    key <AC05> {[	  g,	G,	 minus,		minus	]	};
+    key <AC06> {[	  h,	H,	 plus,		plus,         Left 	,Left  ]	};
+    key <AC07> {[	  j,	J,	 braceleft,		braceleft, Down 	,Down  ]	};
+    key <AC08> {[	  k,	K,	 braceright,  braceright, Up 	,Up  ]	};
+    key <AC09> {[	  l,	L,	 equal,		equal, Right 	,Right  ]	};
+    key <AC10> {[	  colon,	semicolon,	 semicolon,		semicolon]	};
+    key <AC11> {[	  apostrophe,	quotedbl,	 quotedbl,		quotedbl]	};
+    key <RTRN> {[ Return, Return, asciitilde,  asciitilde]	};
+    //key <AC11> {[	  apostrophe,	quotedbl,	 backslash,		backslash,	bar		,		bar	]	};
+
+
+		//<LFSH> = 50;
+    key <AB01> {[	  z,	Z,	 8,		8]	};
+    key <AB02> {[	  x,	X, 6,	6]	};
+    key <AB03> {[	  c,	C,	 4,		4]	};
+    key <AB04> {[  v,	V,  2,   2]	};
+    key <AB05> {[	  b,	B,	0, 0]	};
+    key <AB06> {[	  n,	N,		1,	1, Next, Next]};
+    key <AB07> {[	  m,	M,	3,	3, Prior,		Prior		]	};
+    key <AB08> {[	  comma,	less		 ,	5,		5,	 Next,		Next]	};
+    key <AB09> {[	 period,	greater	, 7, 7]	};
+    key <AB10> {[	  slash,	question,  9,   9]	};
+    key <AB11> {[ backslash, backslash, bar, bar]	};
+
+    key <SPCE> {[ space, space, underscore, underscore	]	};
+
+
+		//key <RTSH> {	[	 XF86WakeUp		]	};
+		key <LSGT> {	[	 Control_L 	]	};
+    key <AA01> {	[	 XF86WakeUp 		]	};
+    //key <AA02> {	[	  Super_L		]	};
+    //key <AA03> {	[	  Control_R		]	};
+    //key <AA04> {	[	  space	]	};
+    key <AA05> {	[	  space	]	};
+    //key <AA06> {	[	  Alt_R 		]	};
+    //key <AA07> {	[	  Left	,Left 	,XF86AudioNext 	,XF86AudioNext 	,Left 	,Left  ]	};
+    key <AA08> {	[   Prior	,Prior 	,XF86AudioLowerVolume ,XF86AudioLowerVolume ,Down 	,Down  ]	};
+    key <AA09> {	[   Next		,Next	 		,XF86AudioRaiseVolume	 ,XF86AudioRaiseVolume	 	,Up	 		,Up	 	 ]	};
+    //key <AA10> {	[   Next,Next, XF86AudioPlay 	,XF86AudioPlay 	,Right 	,Right ]	};
+
+
+    include "level3(ralt_switch)"
+    include "level5(rctrl_switch)"
+};
+

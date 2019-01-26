@@ -1,0 +1,82 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+- link:
+    ~/.gitconfig:
+    ~/.gitignore_global:
+- shell:
+  # the following have to run after linking ~/.gitconfig
+  - git submodule update --init --recursive
+  - git submodule sync --recursive
+
+
+- clean: ['~', '~/.config']
+
+- link:
+    ~/.config/ranger/rifle.conf: ranger/rifle.conf
+    ~/.config/ranger/rc.conf: ranger/rc.conf
+    ~/.config/ranger/rc.conf: ranger/rc.conf
+    ~/.config/ranger/plugins/devicons.py: ranger/ranger_devicons/devicons.py
+    ~/.config/ranger/plugins/devicons_linemode.py: ranger/ranger_devicons/devicons_linemode.py
+    ~/.config/zathura/zathurarc: zathura/zathurarc
+    ~/.config/xfce4/terminal/terminalrc: xfce4/terminalrc
+    ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml: xfce4/xfce4-panel.xml
+    ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml: xfce4/xfce4-power-manager.xml
+    ~/.config/variety/variety.conf: variety/variety.conf
+    ~/.config/variety/ui.conf : variety/ui.conf
+    ~/.config/polybar/config: polybar/config
+    ~/.config/polybar/launch.sh: polybar/launch.sh
+    ~/.config/nvim : nvim 
+    ~/.config/mpv/input.conf : mpv/input.conf
+    ~/.config/mpv/mpv.conf : mpv/mpv.conf 
+    ~/.config/mpv/install_plugins.sh : mpv/install_plugins.sh
+    ~/.config/compton/compton.conf : compton/compton.conf
+    ~/.config/cvim/cvimrc : cvim/cvimrc
+    ~/.config/gtk-3.0/settings.ini : gtk-3.0/settings.ini
+
+    ~/.config/i3/config : i3/config
+    ~/.config/i3/scripts : i3/scripts
+    # ~/.aria2/aria2.conf:
+    # ~/.axelrc:
+    # ~/.bash:
+    ~/.bash_profile:
+    ~/.bashrc:
+    ~/.dotfiles: ''
+    # ~/.gnupg/gpg.conf:
+    # ~/.haskeline:
+    # ~/.hgrc:
+    # ~/.inputrc:
+    # ~/.ipython/profile_default/ipython_config.py: ipython/ipython_config.py
+    # ~/.ipython/profile_default/ipython_kernel_config.py: ipython/ipython_kernel_config.py
+    # ~/.ipython/profile_default/startup/disable_warnings.py: ipython/disable_warnings.py
+    # ~/.irssi:
+    # ~/.jupyter/jupyter_notebook_config.py: jupyter/jupyter_notebook_config.py
+    # ~/.jupyter/nbconfig/notebook.json: jupyter/notebook.json
+    # ~/.local/share/jupyter/nbextensions: jupyter/nbextensions
+    # ~/.pythonrc:
+    # ~/.rtorrent.rc:
+    # ~/.shell:
+    ~/.tmux.conf:
+    # ~/.vim:
+    ~/.vimrc:
+    # ~/.zsh:
+    ~/.zshrc:
+    ~/.oh-my-zsh: oh-my-zsh
+
+- shell:
+  # - mkdir -p ~/.rtorrent/session ~/.rtorrent/watch ~/.rtorrent/downloads
+
+    # git cleanall -f
+    # emacs.d/vendor/
+    # irssi/scripts/vendor/
+    # jupyter/nbextensions/
+    # shell/plugins/
+    # vim/bundle/
+    # zsh/plugins/
+    
+  - ./shortcut-sync/shortcuts.sh
+  - command: nvim +PlugUpdate +PlugUpgrade +qall
+    stdin: true
+    stdout: true
+    stderr: true
