@@ -164,3 +164,6 @@ alias cdhd='$ACPLT_HOME/dev'
 alias py3=python3
 source ~/.shortcuts
 alias sz="source ~/.zshrc"
+
+alias mv='mv -i'
+alias cp='cp -i'
