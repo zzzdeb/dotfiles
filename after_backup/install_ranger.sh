@@ -1,7 +1,8 @@
 #!/bin/sh
 
 
-sudo apt install ranger
+pip install ranger
+sudo apt install highlight
 
 cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf"
 https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20S

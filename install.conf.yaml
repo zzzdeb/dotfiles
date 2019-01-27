@@ -16,7 +16,7 @@
 - link:
     ~/.config/ranger/rifle.conf: ranger/rifle.conf
     ~/.config/ranger/rc.conf: ranger/rc.conf
-    ~/.config/ranger/rc.conf: ranger/rc.conf
+    ~/.config/ranger/commands.py: ranger/commands.py
     ~/.config/ranger/plugins/devicons.py: ranger/ranger_devicons/devicons.py
     ~/.config/ranger/plugins/devicons_linemode.py: ranger/ranger_devicons/devicons_linemode.py
     ~/.config/zathura/zathurarc: zathura/zathurarc
