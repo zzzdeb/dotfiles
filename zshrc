@@ -178,7 +178,7 @@ ranger() {
     fi
 }
 
-[ -f ~/.fzf.zsh ] && source ~/.zf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias cd..="cd .."
 alias cd...="cd ../.."
