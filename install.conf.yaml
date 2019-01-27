@@ -35,6 +35,8 @@
     ~/.config/cvim/cvimrc : cvim/cvimrc
     ~/.config/gtk-3.0/settings.ini : gtk-3.0/settings.ini
 
+    ~/.local/share/applications/qutebrowser.desktop : applications/qutebrowser.desktop
+
     ~/.config/i3/config : i3/config
     ~/.config/i3/scripts : i3/scripts
     # ~/.aria2/aria2.conf:
@@ -80,3 +82,5 @@
     stdin: true
     stdout: true
     stderr: true
+  - xdg-mime default zathura.desktop application/pdf
+  - xdg-settings set default-web-browser qutebrowser.desktop
