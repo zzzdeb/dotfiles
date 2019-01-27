@@ -51,11 +51,11 @@ bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 
-# alternatively, you can use the cursor keys:
-# bindsym $mod+Left focus left
-# bindsym $mod+Down focus down
-# bindsym $mod+Up focus up
-# bindsym $mod+Right focus right
+# easily resizing
+bindsym $mod+Left resize shrink width 10 px or 10 ppt
+bindsym $mod+Up resize grow height 10 px or 10 ppt
+bindsym $mod+Down resize shrink height 10 px or 10 ppt
+bindsym $mod+Right resize grow width 10 px or 10 ppt
 
 # move focused window
 bindsym $mod+Shift+$left move left
@@ -345,6 +345,7 @@ mode "$mode_run" {
     bindsym p exec pcmanfm --no-desktop, mode "default"
     bindsym d exec baobab, mode "default"
     bindsym q exec python3 -m qutebrowser, mode "default"
+    bindsym a exec arandr, mode "default"
     #  start a terminal, mode "default"
     bindsym $mod+ctrl+l exec gnome-screensaver-command -l, mode "default"
     bindsym e exec bash ~/hiwi/ACPLT-DevKit-linux64/acplt_dev, mode "default"
