@@ -8,13 +8,9 @@
 ! add shift = Shift_R
 
 clear control
-keycode 38 = Control_L 
 add control = Control_L
 add control = Control_R
-clear mod1
-add mod1 = Alt_L
-add mod1 = Meta_L
+add mod4 = Escape
 
 ! clear mod3
 ! clear mod5
-
