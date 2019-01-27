@@ -167,6 +167,40 @@ alias sz="source ~/.zshrc"
 
 alias mv='mv -i'
 alias cp='cp -i'
+alias open=xdg-open
+
+# preventing nested ranger opening with_$
+ranger() {
+    if [ -z "$RANGER_LEVEL" ]; then
+        ${HOME}/.local/bin/ranger "$@"
+    else
+        exit
+    fi
+}
 
 [ -f ~/.fzf.zsh ] && source ~/.zf.zsh
 
+alias cd..="cd .."
+alias cd...="cd ../.."
+alias cd....="cd ../../.."
+
+# Create a directory and cd into it
+mcd() {
+    mkdir "${1}" && cd "${1}"
+}
+
+# Jump to directory containing file
+jump() {
+    cd "$(dirname ${1})"
+}
+
+# Execute a command in a specific directory
+xin() {
+    (
+        cd "${1}" && shift && ${@}
+    )
+}
+# Mirror a website
+alias mirrorsite='wget -m -k -K -E -e robots=off'
+# Mirror stdout to stderr, useful for seeing data going through a pipe
+alias peek='tee >(cat 1>&2)'
