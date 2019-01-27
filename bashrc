@@ -132,3 +132,5 @@ MAIL=/var/spool/mail/zzz && export MAIL
 
 
 source ~/.shortcuts
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -167,3 +167,6 @@ alias sz="source ~/.zshrc"
 
 alias mv='mv -i'
 alias cp='cp -i'
+
+[ -f ~/.fzf.zsh ] && source ~/.zf.zsh
+
