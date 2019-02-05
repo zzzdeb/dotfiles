@@ -110,6 +110,18 @@ bindkey '^P' up-line-or-search
 bindkey '^N' down-line-or-search
 bindkey '^R' history-incremental-pattern-search-backward
 
+#
+bindkey -M vicmd "j" vi-backward-char
+bindkey -M vicmd "k" down-line-or-history
+bindkey -M vicmd "l" up-line-or-history
+bindkey -M vicmd ";" vi-forward-char
+bindkey -M vicmd "s" vi-repeat-find
+bindkey -M vicmd "S" vi-rev-repeat-find
+
+bindkey -M visual "j" vi-backward-char
+bindkey -M visual "k" down-line
+bindkey -M visual "l" up-line
+bindkey -M visual ";" vi-forward-char
 
 export PATH=$PATH::/home/zzz/softwares/node-v6.11.1-linux-x64/bin/
 
