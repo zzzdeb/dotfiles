@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Terminal
+Comment=Use the command line
+Keywords=shell;prompt;command;commandline;cmd;
+TryExec=st
+Exec=st
+Icon=utilities-terminal
+Type=Application
+Categories=GNOME;GTK;System;TerminalEmulator;
+StartupNotify=true

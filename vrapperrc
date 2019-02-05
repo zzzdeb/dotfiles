@@ -1,0 +1,38 @@
+noremap j h
+noremap k j
+noremap l k
+noremap ; l
+
+set clipboard+=unnamedplus
+
+set textwidth 78
+
+set scrolloff=3
+set sidescrolloff=5
+set sidescroll=1
+set display+=lastline " show the last line that fits in window (vs '@@@@')
+
+set number
+set relativenumber
+set ruler
+"search
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+
+" Vrapper specific
+set globalregisters
+set gvimpath=/home/zzz/.local/bin_shared/gnvim
+set gvimargs=+{line} -f -n {file}
+
+set contentassistmode
+set startnormalmode
+iset hlscope=local
+
+# vim:filetype=vim

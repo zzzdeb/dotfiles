@@ -8,6 +8,8 @@ let g:ruby_host_prog = '/usr/local/bin/neovim-ruby-host'
 set clipboard+=unnamedplus
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"Cursor shape in Insert Mode
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 set nocompatible              " be iMproved, required
 

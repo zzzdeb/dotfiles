@@ -17,6 +17,7 @@
     ~/.config/ranger/rifle.conf: ranger/rifle.conf
     ~/.config/ranger/rc.conf: ranger/rc.conf
     ~/.config/ranger/commands.py: ranger/commands.py
+    ~/.config/rofi/config: rofi/config
     ~/.config/ranger/plugins/devicons.py: ranger/ranger_devicons/devicons.py
     ~/.config/ranger/plugins/devicons_linemode.py: ranger/ranger_devicons/devicons_linemode.py
     ~/.config/zathura/zathurarc: zathura/zathurarc
@@ -36,7 +37,9 @@
     ~/.config/gtk-3.0/settings.ini : gtk-3.0/settings.ini
 
     ~/.local/share/applications/qutebrowser.desktop : applications/qutebrowser.desktop
+    ~/.local/share/applications/st.desktop : applications/st.desktop
 
+    ~/.screenlayout : screenlayout
     ~/.config/i3/config : i3/config
     ~/.config/i3/scripts : i3/scripts
     # ~/.aria2/aria2.conf:
@@ -45,6 +48,8 @@
     ~/.bash_profile:
     ~/.bashrc:
     ~/.dotfiles: ''
+    ~/.vrapperrc: vrapperrc
+    ~/.keynavrc: keynavrc
     # ~/.gnupg/gpg.conf:
     # ~/.haskeline:
     # ~/.hgrc:

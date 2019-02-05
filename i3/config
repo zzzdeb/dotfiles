@@ -109,11 +109,11 @@ set $workspace8 "8: "
 set $workspace9 "9: "
 set $workspace10 "10: "
 
-set $wsStoch    "S: sto"
-set $wsLa       "S: la"
-set $wsBus      "S: bus"
-set $wsDsal     "S: dsal"
-set $wsFosap    "S: fosap"
+set $wsBuK    "S: BuK"
+set $wsNumRe       "S: NumRe"
+set $wsST      "S: ST"
+set $wsCC     "S: CC"
+set $wsAS    "S: AS"
 
 set $1 q
 set $2 w
@@ -360,7 +360,9 @@ mode "$mode_run" {
 bindsym $mod+g mode "$mode_run"
 bindsym $mod+Return exec st 
 bindsym $mod+n exec st 
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 100 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+# bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 100 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+# bindsym $mod+d exec rofi -show combi -combi-modi "drun,run" -modi combi -show-icons -lines 4 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+bindsym --release $mod+d exec rofi -show combi -display-drun "" -display-run "" -combi-modi "drun#run" -modi combi -show-icons -terminal st -lines 4 -opacity "85" -bw 0 -bc "$b-color" -b "$b-color" -f "$text-color" -hlb "$b-color" -hlf "#9575cd" -font "System San Francisco Display 18"
 bindsym Print exec shutter -s -n -e
 # bindsym $mod+Shift+q kill
 #onstartup
@@ -373,7 +375,7 @@ exec_always --no-startup-id ~/.config/i3/polybar.sh &
 # exec_always --no-startup-id xmodmap ~/.xmodmaprc
 
 #on start
-exec --no-startup-id qutebrowser
+exec --no-startup-id i3msg '$workspace2; exec --no-startup-id qutebrowser'
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id compton --config "/home/zzz/.config/compton/compton.conf"
 exec --no-startup-id keynav
@@ -391,6 +393,7 @@ exec --no-startup-id variety
 exec --no-startup-id nm-applet
 exec --no-startup-id calise
 exec --no-startup-id devmon
+exec --no-startup-id xrdb ~/.Xdefaults
 
 # Keys
 #exec_always setxkbmap -layout us,mn -variant altgr-intl, -option grp:rctrl_rshift_toggle
@@ -418,10 +421,11 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+colon mode "$mode_system"
+bindsym $mod+apostrophe mode "$mode_system"
 
 set $mode_output (p)(h)(j)(f)
 mode "$mode_output" {
+
     bindsym p exec --no-startup-id ~/.screenlayout/panda.sh , mode "default"
     bindsym h exec --no-startup-id ~/.screenlayout/home.sh , mode "default"
     bindsym j exec --no-startup-id ~/.screenlayout/job2.sh , mode "default"
@@ -432,8 +436,13 @@ mode "$mode_output" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+ctrl+o mode "$mode_output"
+# bindsym $mod+ctrl+o mode "$mode_output"
 
+# bindsym $mod+ctrl+o exec "ls ~/.screenlayout | rofi -dmenu | read test; echo \"~/.screenlayout/\$test\" | bash"
+
+bindsym $mod+ctrl+o exec ~/.dotfiles/scripts/change_output.sh
+
+bindsym $mod+ctrl+v exec ~/.dotfiles/scripts/changeAudioOutput.sh
 
 set $mode_gaps Gaps: (o)uter, (i)nner, (h)orizontal, (v)ertical, (t)op, (r)ight, (b)ottom, (l)eft
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)

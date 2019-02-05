@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/zzz/.oh-my-zsh
+  export ZSH=/home/zzz/.dotfiles/oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -60,6 +60,9 @@ HIST_STAMPS="mm/dd/yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  zsh-autosuggestions
+  python
+  zsh-syntax-highlighting
 )
 # must come before sourcing zsh
 # source "$HOME/.homesick/repos/homeshick/homeshick.sh"
@@ -204,3 +207,8 @@ xin() {
 alias mirrorsite='wget -m -k -K -E -e robots=off'
 # Mirror stdout to stderr, useful for seeing data going through a pipe
 alias peek='tee >(cat 1>&2)'
+export TERMINAL=st
+
+
+  #Scripts for life logging
+ alias today='zsh ~/.dotfiles/scripts/open_logs_today.sh'
