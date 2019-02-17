@@ -19,13 +19,13 @@
 [submodule "fzf"]
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
-[submodule "dotbot_plugins/aptget"]
+[submodule "meta/dotbot_plugins/aptget"]
 	path = dotbot_plugins/aptget
 	url = https://github.com/dein0s/dotbot_plugin_aptget
-[submodule "dotbot_plugins/pip"]
+[submodule "meta/dotbot_plugins/pip"]
 	path = dotbot_plugins/pip
 	url = https://github.com/sobolevn/dotbot-pip
-[submodule "dotbot_plugins/env"]
+[submodule "meta/dotbot_plugins/env"]
 	path = dotbot_plugins/env
 	url = https://github.com/qobilidop/dotbot-env
 [submodule "meta/dotbot"]

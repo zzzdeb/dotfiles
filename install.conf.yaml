@@ -35,6 +35,7 @@
     ~/.config/compton/compton.conf : compton/compton.conf
     ~/.config/cvim/cvimrc : cvim/cvimrc
     ~/.config/gtk-3.0/settings.ini : gtk-3.0/settings.ini
+    ~/.config/ncmpcpp/config : ncmpcpp/config
 
     ~/.local/share/applications/qutebrowser.desktop : applications/qutebrowser.desktop
     ~/.local/share/applications/st.desktop : applications/st.desktop
@@ -66,10 +67,12 @@
     # ~/.shell:
     ~/.tmux.conf:
     # ~/.vim:
-    ~/.vimrc:
     # ~/.zsh:
     ~/.zshrc:
     ~/.oh-my-zsh: oh-my-zsh
+    # ~/.zplug: zplug
+    ~/.newsboat/urls: newsboat/urls
+    ~/.newsboat/config: newsboat/config
 
 - shell:
   # - mkdir -p ~/.rtorrent/session ~/.rtorrent/watch ~/.rtorrent/downloads

@@ -1,0 +1,12 @@
+- aptget:
+    i3:
+    i3blocks:
+    mutt:
+    urlview:
+    arandr:
+    rofi:
+    pcmanfm:
+    shutter:
+    pavucontrol:
+    feh:
+    xfce4-power-manager:

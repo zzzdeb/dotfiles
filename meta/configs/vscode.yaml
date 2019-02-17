@@ -1,0 +1,7 @@
+- link:
+    "~/AppData/Roaming/Code/User/snippets": editors/vscode/snippets
+    "~/AppData/Roaming/Code/User/settings.json": editors/vscode/settings.json
+    "~/AppData/Roaming/Code/User/keybindings.json": editors/vscode/keybindings.json
+
+- shell:
+  - [bash ./bin/vscode-extensions, Installing Visual Studio Code Extensions]
