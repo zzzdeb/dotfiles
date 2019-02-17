@@ -34,3 +34,6 @@
 [submodule "qutebrowser/nord-qutebrowser"]
 	path = qutebrowser/nord-qutebrowser
 	url = https://github.com/Linuus/nord-qutebrowser
+[submodule "config/qutebrowser/themes/dracula"]
+	path = config/qutebrowser/themes/dracula
+	url = https://github.com/evannagle/qutebrowser-dracula-theme
