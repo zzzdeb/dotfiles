@@ -23,7 +23,7 @@
 	path = meta/dotbot_plugins/aptget
 	url = https://github.com/dein0s/dotbot_plugin_aptget
 [submodule "meta/dotbot_plugins/pip"]
-	path = dotbot_plugins/pip
+	path = meta/dotbot_plugins/pip
 	url = https://github.com/sobolevn/dotbot-pip
 [submodule "meta/dotbot_plugins/env"]
 	path = meta/dotbot_plugins/env
@@ -34,6 +34,3 @@
 [submodule "qutebrowser/nord-qutebrowser"]
 	path = qutebrowser/nord-qutebrowser
 	url = https://github.com/Linuus/nord-qutebrowser
-[submodule "meta/dotbot_plugins/dotbot_plugins/pip"]
-	path = meta/dotbot_plugins/dotbot_plugins/pip
-	url = https://github.com/sobolevn/dotbot-pip
