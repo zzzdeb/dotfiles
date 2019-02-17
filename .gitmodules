@@ -19,3 +19,18 @@
 [submodule "fzf"]
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule "dotbot_plugins/aptget"]
+	path = dotbot_plugins/aptget
+	url = https://github.com/dein0s/dotbot_plugin_aptget
+[submodule "dotbot_plugins/pip"]
+	path = dotbot_plugins/pip
+	url = https://github.com/sobolevn/dotbot-pip
+[submodule "dotbot_plugins/env"]
+	path = dotbot_plugins/env
+	url = https://github.com/qobilidop/dotbot-env
+[submodule "meta/dotbot"]
+	path = meta/dotbot
+	url = https://github.com/anishathalye/dotbot
+[submodule "qutebrowser/nord-qutebrowser"]
+	path = qutebrowser/nord-qutebrowser
+	url = https://github.com/Linuus/nord-qutebrowser
