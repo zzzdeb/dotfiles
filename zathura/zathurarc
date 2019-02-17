@@ -1,4 +1,3 @@
-map ; feedkeys ":"
 set show-scrollbars
 "set show-v-scrollbaro
 set selection-clipboard clipboard
@@ -19,4 +18,18 @@ map = zoom in
 "map J scroll down
 "map K scroll up
 
+
+map d navigate next
+map u navigate previous
+
+map td toggle_page_mode
+
+
+" jk;
+map j scroll left
+map k scroll down
+map l scroll up
+map ; scroll right
+"map J scroll down
+"map K scroll up
 

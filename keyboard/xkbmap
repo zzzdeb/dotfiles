@@ -57,9 +57,9 @@ xkb_keymap {
 
     <LALT> = 53;
     <LFSH> = 54;
-    <RCTL> = 56;
     <SPCE> = 58;
-    <RWIN> = 59;
+    <RCTL> = 59;
+    <RWIN> = 60;
 
     <RALT> = 65;
 
@@ -98,18 +98,18 @@ partial modifier_keys
       //    actions[Group1] = [ SetControls(controls=overlay1)  ]
       //};
 
-      key <AD01> {[	  	 q,	Q,		exclam		      ,		exclam,	1,		1      ]	};
+      key <AD01> {[	  	 q,	Q,		exclam		      ,		exclam, F9, F9]	};
       key <AD02> {
       //overlay2= <VOL->,
-          symbols[Group1]	=[w,	W,		at		      ,		at,	 2,		2		      ]	};
-      key <AD03> {[	  e,	E,		numbersign	,		numbersign,		 3,		3]	};
-      key <AD04> {[	  r,	R,		dollar		  ,		dollar,		  	 4,		4]	};
+          symbols[Group1]	=[w,	W,		at		      ,		at,	 F10,		F10		      ]	};
+      key <AD03> {[	  e,	E,		numbersign	,		numbersign,		 F11,		F11]	};
+      key <AD04> {[	  r,	R,		dollar		  ,		dollar,		  	 F12,		F12]	};
       key <AD05> {[	  t,	T,		percent		  ,		percent,		  	 5,		5]	};
       key <AD07> {[	  u,	U,		ampersand	  ,		ampersand,	  	 7,		7]	};
-      key <AD08> {[	  i,	I,		asterisk	  ,		asterisk,	  	 8,		8]	};
-      key <AD09> {[	  o,	O,	 bracketleft, bracketleft, 9,		9]	};
-      key <AD10> {[	  p,	P,   bracketright, bracketright, 0,		0]	};
-      key <AD11> {[	  y,	Y,		asciicircum	,		asciicircum,		 6,		6]	};
+      key <AD08> {[	  i,	I,		asterisk	  ,		asterisk,	  	 Next,		Next]	};
+      key <AD09> {[	  o,	O,	 bracketleft, bracketleft, Prior,		Prior]	};
+      key <AD10> {[	  p,	P,   bracketright, bracketright]	};
+      key <AD11> {[	  y,	Y,		asciicircum	,		asciicircum]	};
       key <ESC> {[ Escape, Escape, question,  question]	};
       key <BKSP> {[ BackSpace, BackSpace, BackSpace,  Delete]	};
 
@@ -118,21 +118,21 @@ partial modifier_keys
       key <AC03> {[	  d,	D,	 parenleft,   parenleft,		F7,		F7]	};
       key <AC04> {[	  f,	F,	 parenright,  parenright,		F8,		F8]	};
       key <AC05> {[	  g,	G,	 minus,		minus	]	};
-      key <AC06> {[	  h,	H,	 plus,		plus,         Left 	,Left  ]	};
-      key <AC07> {[	  j,	J,	 braceleft,		braceleft, Down 	,Down  ]	};
-      key <AC08> {[	  k,	K,	 braceright,  braceright, Up 	,Up  ]	};
-      key <AC09> {[	  l,	L,	 equal,		equal, Right 	,Right  ]	};
-      key <AC10> {[	  semicolon,	colon,	 colon,		colon]	};
+      key <AC06> {[	  h,	H,	 plus,		plus]	};
+      key <AC07> {[	  j,	J,	 braceleft,		braceleft,   Left 	,Left ]	};
+      key <AC08> {[	  k,	K,	 braceright,  braceright , Down 	,Down]	};
+      key <AC09> {[	  l,	L,	 equal,		equal,   Up 	,Up ]	};
+      key <AC10> {[	  semicolon,	colon,	 colon,		colon,  Right 	,Right  ]	};
       key <AC11> {[	  apostrophe,	quotedbl,	 quotedbl,		quotedbl]	};
       key <RTRN> {[ Return, Return, asciitilde,  asciitilde]	};
       //key <AC11> {[	  apostrophe,	quotedbl,	 backslash,		backslash,	bar		,		bar	]	};
 
 
       //<LFSH> = 50;
-      key <AB01> {[	  z,	Z,	 1,		1]	};
-      key <AB02> {[	  x,	X, 2,	2]	};
-      key <AB03> {[	  c,	C,	 3,		3]	};
-      key <AB04> {[  v,	V,  4,   4]	};
+      key <AB01> {[	  z,	Z,	 1,		1, F1, F1]	};
+      key <AB02> {[	  x,	X, 2,	2, F2, F2]	};
+      key <AB03> {[	  c,	C,	 3,		3, F3, F3]	};
+      key <AB04> {[  v,	V,  4,   4, F4, F4]	};
       key <AB05> {[	  b,	B,	5, 5]	};
       key <AB06> {[	  n,	N,		6,	6, Next, Next]};
       key <AB07> {[	  m,	M,	7,	7, Prior,		Prior		]	};
@@ -154,7 +154,7 @@ partial modifier_keys
       //key <AA03> {	[	  Control_R		]	};
       //key <AA04> {	[	  space	]	};
       key <AA05> {	[	  space	]	};
-      //key <AA06> {	[	  Alt_R 		]	};
+      key <AA06> {	[	  Alt_R 		]	};
       //key <AA07> {	[	  Left	,Left 	,XF86AudioNext 	,XF86AudioNext 	,Left 	,Left  ]	};
       key <AA08> {	[   Prior	,Prior 	,XF86AudioLowerVolume ,XF86AudioLowerVolume ,Down 	,Down  ]	};
       key <AA09> {	[   Next		,Next	 		,XF86AudioRaiseVolume	 ,XF86AudioRaiseVolume	 	,Up	 		,Up	 	 ]	};

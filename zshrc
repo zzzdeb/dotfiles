@@ -58,12 +58,12 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  zsh-autosuggestions
-  python
-  zsh-syntax-highlighting
-)
+# plugins=(
+  # git
+  # zsh-autosuggestions
+  # python
+  # zsh-syntax-highlighting
+# )
 # must come before sourcing zsh
 # source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 # fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
@@ -71,7 +71,17 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export ZPLUG_HOME=$HOME/.zplug
+if [[ ! -d $ZPLUG_HOME ]];then
+    git clone https://github.com/b4b4r07/zplug $ZPLUG_HOME
+fi
+source $ZPLUG_HOME/init.zsh
 
+zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:3
+zplug "plugins/git", from:oh-my-zsh
+zplug "laurenkt/zsh-vimto"
+
+zplug load
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -172,6 +182,8 @@ alias ra=ranger
 
 alias suai='sudo apt install'
 alias suar='sudo apt remove'
+alias suau='sudo apt update'
+alias suaU='sudo apt upgrade'
 
 # export TERM=xterm-256color
 alias cdd='cd ~/Downloads'
@@ -193,7 +205,6 @@ ranger() {
     fi
 }
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias cd..="cd .."
 alias cd...="cd ../.."
@@ -224,3 +235,9 @@ export TERMINAL=st
 
   #Scripts for life logging
  alias today='zsh ~/.dotfiles/scripts/open_logs_today.sh'
+
+#has to come after zplug
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias nb="nvim -c 'set nonumber' -c 'set norelativenumber' -c 'set laststatus=0' term://newsboat"
+
+export BROWSER='qutebrowser'

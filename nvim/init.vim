@@ -9,7 +9,7 @@ set clipboard+=unnamedplus
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "Cursor shape in Insert Mode
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2
 
 set nocompatible              " be iMproved, required
 
@@ -105,12 +105,19 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/vim-plug'
 
 " General
+" Plug 'zzzdeb/vim-better-default'
 " fancy start
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-sleuth'
+
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-function'
+Plug 'idbrii/textobj-word-column.vim'
+Plug 'Julian/vim-textobj-variable-segment'
 
+" Plug 'lucapette/vim-textobj-underscore' " variable object handles this
+Plug 'jceb/vim-textobj-uri'
 " Utility
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
@@ -137,6 +144,12 @@ Plug 'tpope/vim-surround'
 " for easy 
 Plug 'tpope/vim-unimpaired'
 
+" Note taking
+Plug 'jceb/vim-orgmode'
+Plug 'tpope/vim-speeddating'
+Plug 'mattn/calendar-vim'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'vim-scripts/utl.vim'
 " Generic Programming Support
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all'}
 
@@ -203,12 +216,16 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 
 " test python
 Plug 'vim-scripts/indentpython.vim'
-" Plug 'ivanov/vim-ipython'
+" Plug 'w0rp/ale'
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
+Plug 'ivanov/vim-ipython'
 Plug 'Vigemus/iron.nvim'
 
 Plug 'fabi1cazenave/suckless.vim'
 Plug 'mboughaba/i3config.vim'
-
+" test spellcheck
+" Plug 'kamykn/CCSpellCheck.vim'
+" Plug 'dhruvasagar/vim-highlight-word'
 
 " Initialize plugin system
 call plug#end()
@@ -270,6 +287,7 @@ set smartcase
 
 " Set Proper Tabs
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set smarttab
 set expandtab
@@ -280,6 +298,34 @@ set showcmd
 set showtabline=1
 
 set wildmenu
+set virtualedit=block,insert,all,onemore
+" set digraph
+"
+set report=0
+
+set winminheight=0
+set wildmode=list:longest,full
+set wildignore+=*swp,*.class,*.pyc,*.png,*.jpg,*.gif,*.zip
+set wildignore+=*/tmp/*,*.o,*.obj,*.so     " Unix
+set wildignore+=*\\tmp\\*,*.exe            " Windows
+
+set foldenable
+set foldmarker={,}
+set foldlevel=0
+set foldmethod=marker
+" set foldcolumn=3
+set foldlevelstart=99
+
+nnoremap <Leader>f0 :set foldlevel=0<CR>
+nnoremap <Leader>f1 :set foldlevel=1<CR>
+nnoremap <Leader>f2 :set foldlevel=2<CR>
+nnoremap <Leader>f3 :set foldlevel=3<CR>
+nnoremap <Leader>f4 :set foldlevel=4<CR>
+nnoremap <Leader>f5 :set foldlevel=5<CR>
+nnoremap <Leader>f6 :set foldlevel=6<CR>
+nnoremap <Leader>f7 :set foldlevel=7<CR>
+nnoremap <Leader>f8 :set foldlevel=8<CR>
+nnoremap <Leader>f9 :set foldlevel=9<CR>
 
 " The semicolon will cause Vim to search back (up) in the directory tree
 if has('path_extra')
@@ -301,7 +347,7 @@ let g:elite_mode=1
 
 " Theme and Styling 
 set t_Co=256
-set background=dark
+set background=light
 
 if (has("termguicolors"))
   set termguicolors
@@ -329,9 +375,10 @@ endif
 " }}}
 let base16colorspace=256  " Access colors present in 256 colorspace
 let g:solarized_termcolors=256
-colorscheme apprentice
+colorscheme solarized8_high
 "
 "
+set textwidth=78
 " split
 set splitbelow
 set splitright
@@ -392,9 +439,15 @@ autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType htmldjango setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
+function! AutoRelativeNumber()
+  if &number
+    set relativenumber
+  endif
+endfunction
+
 augroup numbertoggle
  autocmd!
- autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+ autocmd BufEnter,FocusGained,InsertLeave * call AutoRelativeNumber()
  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 "
@@ -424,6 +477,8 @@ set statusline+=\ (%P)  "escaped space, percent through file
 """""""""""""""""""""""""""""""""""""
 " Plugin config
 """""""""""""""""""""""""""""""""""""
+" better default
+
 " Nerd Tree file manager
 let g:NERDTreeWinSize=40 
 " Nerd Commenter
@@ -461,7 +516,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_always_populate_location_list = 1
-let g:ycm_autoclose_preview_window_after_completion=1
+" let g:ycm_autoclose_preview_window_after_completion=1
 " Ultisnips
 let g:UltiSnipsEditSplit = "vertical"
 
@@ -471,16 +526,18 @@ let g:clang_format#code_style="llvm"
 
 "Git
 "git-gutter
-"
+let g:gitgutter_map_keys = 0
+
 
 " Ack
 let g:ackprg = 'ag --skip-vcs-ignore --nogroup --nocolor --column'
 
 " Startify
-let g:startify_bookmarks = [{'c': '~/.config/nvim/init.vim'}, 
-      \ {'d': '~/hiwi/ACPLT-DevKit-linux64/acplt/dev/'},
+let g:startify_bookmarks = [{'C': '~/.config/nvim/init.vim'}, 
+      \ {'D': '~/hiwi/ACPLT-DevKit-linux64/acplt/dev/'},
       \'~/.zshrc',
-      \{'l': '~/.vim/commandsToLearn.txt'}]
+      \{'O': '~/Owncloud/Notes/test.org'},
+      \{'L': '~/.vim/commandsToLearn.txt'}]
 let g:startify_relative_path = 1
 let g:startify_change_to_dir = 1
 let g:startify_update_oldfiles     = 1
@@ -492,7 +549,42 @@ let g:startify_session_before_save = [
         \ 'silent! NERDTreeTabsClose'
         \ ]
 let g:startify_session_dir = '~/.config/nvim/session'
+" suckless 
+let g:suckless_mappings = {
+\        '<c-[QQf]>'      :   'SetTilingMode("[sdf]")'    ,
+\        '<m-[hjkl]>'     :    'SelectWindow("[hjkl]")'   ,
+\        '<M-[HJKL]>'     :      'MoveWindow("[hjkl]")'   ,
+\      '<C-M-[hjkl]>'     :    'ResizeWindow("[hjkl]")'   ,
+\        'v[ov]'       :    'CreateWindow("[sv]")'     ,
+\        '<c-w>'          :     'CloseWindow()'           ,
+\   'gt[123456789]' :       'SelectTab([123456789])',
+\  'Mt[123456789]' : 'MoveWindowToTab([123456789])',
+\  'MT[123456789]' : 'CopyWindowToTab([123456789])',
+\}
 
+" Pythonmode
+let g:pymode_python = 'python3'
+let g:pymode = 1
+let g:pymode_options = 1
+let g:pymode_folding = 1
+let g:pymode_run_bind = '<f10>'
+let g:pymode_breakpoint_bind = '<f9>'
+" let g:pymode_rope = 1
+hi Folded guibg=Black
+hi Folded guifg=White
+
+" Vimwiki
+let g:vimwiki_list = [{'path': '~/Owncloud/Notes'}]
+let g:notes_list_bullets=['-','•', '▸', '▹', '▪', '▫']
+
+" Org
+let g:org_agenda_files=['~/Owncloud/Notes/test.org']
+
+" Tablemode
+let g:table_mode_map_prefix= '<localleader>t'
+let g:table_mode_tableize_d_map= '<localleader>T'
+" Highlight
+" let g:highlight_cursor=1
 """""""""""""""""""""""""""""""""""""
 " Custom functions
 """""""""""""""""""""""""""""""""""""
@@ -539,6 +631,10 @@ endfunction
 """""""""""""""""""""""""""""""""""""
 " Autocommands for filetypes
 """""""""""""""""""""""""""""""""""""
+augroup xdefaults 
+au BufWritePost .Xdefaults !xrdb ~/.Xdefaults
+augroup END
+
 augroup python 
 au BufNewFile,BufRead *.py:
     \ set tabstop=4
@@ -579,7 +675,8 @@ augroup END
 """""""""""""""""""""""""""""""""""""
 let mapleader = ","
 let maplocalleader =" "
-nnoremap ; :
+noremap s ;
+noremap <s-s> ,
 
 nnoremap <leader>xl :exe getline(".")<cr>
 vnoremap <leader>x join(getline("'<","'>"),'<bar>')<cr>
@@ -615,8 +712,8 @@ nmap <expr> k (v:count == 0 ? 'gk' : 'k')
 " Expand %% into the directory of the current file
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-nnoremap <c-w> :q<cr>
-nnoremap <a-w> <c-w>
+" nnoremap <c-w> :q<cr>
+" nnoremap <a-w> <c-w>
 nnoremap <a-t> <c-t>
 "simulating ctrl
 nnoremap <a-j> :join<cr>
@@ -627,14 +724,14 @@ imap <c-a> <c-o>^
 
 " Key repeat hack for resizing splits, i.e., <C-w>+++- vs <C-w>+<C-w>+<C-w>-
 " see: http://www.vim.org/scripts/script.php?script_id=2223
-nmap <C-w>+ <C-w>+<SID>ws
-nmap <C-w>- <C-w>-<SID>ws
-nmap <C-w>> <C-w>><SID>ws
-nmap <C-w>< <C-w><<SID>ws
-nnoremap <script> <SID>ws+ <C-w>+<SID>ws
-nnoremap <script> <SID>ws- <C-w>-<SID>ws
-nnoremap <script> <SID>ws> <C-w>><SID>ws
-nnoremap <script> <SID>ws< <C-w><<SID>ws
+nmap <a-w>+ <C-w>+<SID>ws
+nmap <a-w>- <C-w>-<SID>ws
+nmap <a-w>> <C-w>><SID>ws
+nmap <a-w>< <C-w><<SID>ws
+nnoremap <script> <SID>ws+ <a-w>+<SID>ws
+nnoremap <script> <SID>ws- <a-w>-<SID>ws
+nnoremap <script> <SID>ws> <a-w>><SID>ws
+nnoremap <script> <SID>ws< <a-w><<SID>ws
 nmap <SID>ws <Nop>
 
 "clipboard
@@ -709,6 +806,7 @@ nnoremap <leader>gps :Gpush<cr>
 nnoremap <leader>gpl :Gpull<cr>
 " git-gutter
 nmap <leader>gh :GitGutterLineHighlightsToggle<cr>
+nmap <leader>gf :GitGutterFold<cr>
 " gitv
 nmap <leader>gv :Gitv<cr> 
 
@@ -721,7 +819,7 @@ nnoremap <leader>k :Ack 'fix(me)?\|todo'<cr>
 
 " Editor mapping """""""""""""""""""""""""""""""""""""
 
-nnoremap <c-x> <C-W>c
+" nnoremap <c-x> <C-W>c
 " Tabs
 map <a-s-p> :<c-u>tabp<cr>
 map <a-s-n> :<c-u>tabn<cr>
@@ -741,33 +839,33 @@ nnoremap <silent> <C-S> :<C-u>Update<CR>
 inoremap <silent> <C-S> <ESC>:Update<CR>
 
 " window size toggle
-map <s-w> :call MaxRestoreWindow()<CR>
+" map <s-w> :call MaxRestoreWindow()<CR>
 " Disable arrow movement, resize splits instead.
 if get(g:, 'elite_mode')
     nnoremap <Up>    :resize +2<CR>
     nnoremap <Down>  :resize -2<CR>
-    nnoremap <Left>  :vertical resize +2<CR>
-    nnoremap <Right> :vertical resize -2<CR>
+    nnoremap <Left>  :vertical resize -2<CR>
+    nnoremap <Right> :vertical resize +2<CR>
 endif
 
 " Easier split navigation
 tnoremap <s-space> <C-\><C-N>
-" tnoremap <A-h> <C-\><C-N><C-w>h
-" tnoremap <A-j> <C-\><C-N><C-w>j
-" tnoremap <A-k> <C-\><C-N><C-w>k
-" tnoremap <A-l> <C-\><C-N><C-w>l
+tnoremap <c-j> <C-\><C-N><C-w>h
+tnoremap <c-k> <C-\><C-N><C-w>j
+tnoremap <c-l> <C-\><C-N><C-w>k
+tnoremap <c-;> <C-\><C-N><C-w>l
 " inoremap <A-h> <C-\><C-N><C-w>h
 " inoremap <A-j> <C-\><C-N><C-w>j
 " inoremap <A-k> <C-\><C-N><C-w>k
 " inoremap <A-l> <C-\><C-N><C-w>l
-nnoremap <c-s-h> <C-w><s-h>
-nnoremap <c-s-j> <C-w><s-j>
-nnoremap <c-s-k> <C-w><s-k>
-nnoremap <c-s-l> <C-w><s-l>
-nnoremap <c-h> <C-w>h
-nnoremap <c-j> <C-w>j
-nnoremap <c-k> <C-w>k
-nnoremap <c-l> <C-w>l
+" nnoremap <c-s-h> <C-w><s-h>
+" nnoremap <c-s-j> <C-w><s-j>
+" nnoremap <c-s-k> <C-w><s-k>
+" nnoremap <c-s-l> <C-w><s-l>
+" nnoremap <c-h> <C-w>h
+" nnoremap <c-j> <C-w>j
+" nnoremap <c-k> <C-w>k
+" nnoremap <c-l> <C-w>l
 
 tnoremap <a-x> <C-\><C-N>
 
@@ -797,3 +895,42 @@ autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 
 " Ultisnips
 nmap <leader>eu :UltiSnipsEdit<cr>
+
+" Vim-Notes
+augroup notes 
+  au FileType notes imap <buffer> <2-LeftMouse> <C-o>:SearchNotes<CR>
+  au FileType notes nmap <buffer> <2-LeftMouse> :SearchNotes<CR>
+augroup END
+
+" test
+
+"For my life/dev logging purposes
+
+"type nlog followed by space to start new log
+iab <expr> nlog strftime("---\n\n%H:%M:%S")
+
+noremap j h
+noremap k j
+noremap l k
+noremap ; l
+noremap k gj
+noremap l gk
+" suckless 
+let g:suckless_mappings = {
+\        '<c-[QQf]>'      :   'SetTilingMode("[sdf]")'    ,
+\        '<c-[jkl;]>'     :    'SelectWindow("[hjkl]")'   ,
+\        '<M-[left,down,up,right]>'     :      'MoveWindow("[hjkl]")'   ,
+\      '<C-M-[jkl;]>'     :    'ResizeWindow("[hjkl]")'   ,
+\        'v[ov]'       :    'CreateWindow("[sv]")'     ,
+\        '<c-w>'          :     'CloseWindow()'           ,
+\   'gt[123456789]' :       'SelectTab([123456789])',
+\  'gT[123456789]' : 'MoveWindowToTab([123456789])',
+\  'gTT[123456789]' : 'CopyWindowToTab([123456789])',
+\}
+nnoremap <c-left> :call MoveWindow("h")<cr>
+nnoremap <c-down> :call MoveWindow("j")<cr>
+nnoremap <c-up> :call MoveWindow("k")<cr>
+nnoremap <c-right> :call MoveWindow("l")<cr>
+noremap <a-w> <c-w>
+
+inoremap {<cr> {<cr>}<esc>O
