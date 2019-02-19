@@ -4,8 +4,8 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
-[submodule "ranger/ranger_devicons"]
-	path = ranger/ranger_devicons
+[submodule "config/ranger/ranger_devicons"]
+	path = config/ranger/ranger_devicons
 	url = https://github.com/alexanderjeurissen/ranger_devicons
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
