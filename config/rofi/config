@@ -137,3 +137,4 @@ run-shell-command: "{terminal} -e {cmd}";
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
+rofi.theme: /usr/share/rofi/themes/DarkBlue.rasi
