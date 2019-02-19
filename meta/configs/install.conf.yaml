@@ -42,6 +42,7 @@
 
     ~/.screenlayout : screenlayout
     ~/.config/i3/config : i3/config
+    ~/.config/qutebrowser : config/qutebrowser
     ~/.config/i3/scripts : i3/scripts
     # ~/.aria2/aria2.conf:
     # ~/.axelrc:
