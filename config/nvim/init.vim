@@ -108,7 +108,7 @@ Plug 'junegunn/vim-plug'
 " Plug 'zzzdeb/vim-better-default'
 " fancy start
 Plug 'mhinz/vim-startify'
-Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-sleuth' "autoshiftwidth
 
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
