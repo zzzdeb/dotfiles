@@ -14,42 +14,41 @@
 - clean: ['~', '~/.config']
 
 - link:
-    ~/.config/ranger/rifle.conf: ranger/rifle.conf
-    ~/.config/ranger/rc.conf: ranger/rc.conf
-    ~/.config/ranger/commands.py: ranger/commands.py
-    ~/.config/rofi/config: rofi/config
-    ~/.config/ranger/plugins/devicons.py: ranger/ranger_devicons/devicons.py
-    ~/.config/ranger/plugins/devicons_linemode.py: ranger/ranger_devicons/devicons_linemode.py
-    ~/.config/zathura/zathurarc: zathura/zathurarc
-    ~/.config/xfce4/terminal/terminalrc: xfce4/terminalrc
-    ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml: xfce4/xfce4-panel.xml
-    ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml: xfce4/xfce4-power-manager.xml
-    ~/.config/variety/variety.conf: variety/variety.conf
-    ~/.config/variety/ui.conf : variety/ui.conf
-    ~/.config/polybar/config: polybar/config
-    ~/.config/polybar/launch.sh: polybar/launch.sh
-    ~/.config/nvim : nvim 
-    ~/.config/mpv/input.conf : mpv/input.conf
-    ~/.config/mpv/mpv.conf : mpv/mpv.conf 
-    ~/.config/mpv/install_plugins.sh : mpv/install_plugins.sh
-    ~/.config/compton/compton.conf : compton/compton.conf
-    ~/.config/cvim/cvimrc : cvim/cvimrc
-    ~/.config/gtk-3.0/settings.ini : gtk-3.0/settings.ini
-    ~/.config/ncmpcpp/config : ncmpcpp/config
+    ~/.config/ranger/rifle.conf: config/ranger/rifle.conf
+    ~/.config/ranger/rc.conf: config/ranger/rc.conf
+    ~/.config/ranger/commands.py: config/ranger/commands.py
+    ~/.config/rofi: config/rofi
+    ~/.config/ranger/plugins/devicons.py: config/ranger/ranger_devicons/devicons.py
+    ~/.config/ranger/plugins/devicons_linemode.py: config/ranger/ranger_devicons/devicons_linemode.py
+    ~/.config/zathura/zathurarc: config/zathura/zathurarc
+    ~/.config/xfce4/terminal/terminalrc: config/xfce4/terminalrc
+    ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml: config/xfce4/xfce4-panel.xml
+    ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml: config/xfce4/xfce4-power-manager.xml
+    ~/.config/variety/variety.conf: config/variety/variety.conf
+    ~/.config/variety/ui.conf : config/variety/ui.conf
+    ~/.config/polybar/config: config/polybar/config
+    ~/.config/polybar/launch.sh: config/polybar/launch.sh
+    ~/.config/nvim : config/nvim 
+    ~/.config/mpv/input.conf : config/mpv/input.conf
+    ~/.config/mpv/mpv.conf : config/mpv/mpv.conf 
+    ~/.config/mpv/install_plugins.sh : config/mpv/install_plugins.sh
+    ~/.config/compton/compton.conf : config/compton/compton.conf
+    ~/.config/cvim/cvimrc : config/cvim/cvimrc
+    ~/.config/gtk-3.0/settings.ini : config/gtk-3.0/settings.ini
+    ~/.config/ncmpcpp/config : config/ncmpcpp/config
 
     ~/.local/share/applications/qutebrowser.desktop : applications/qutebrowser.desktop
     ~/.local/share/applications/st.desktop : applications/st.desktop
 
     ~/.screenlayout : screenlayout
-    ~/.config/i3/config : i3/config
+    ~/.config/i3/config : config/i3/config
     ~/.config/qutebrowser : config/qutebrowser
-    ~/.config/i3/scripts : i3/scripts
+    ~/.config/i3/scripts : config/i3/scripts
     # ~/.aria2/aria2.conf:
     # ~/.axelrc:
     # ~/.bash:
     ~/.bash_profile:
     ~/.bashrc:
-    ~/.dotfiles: ''
     ~/.vrapperrc: vrapperrc
     ~/.keynavrc: keynavrc
     # ~/.gnupg/gpg.conf:
