@@ -50,6 +50,8 @@
     ~/.bash_profile:
     ~/.bashrc:
     ~/.profile:
+    ~/.bmdirs:
+    ~/.bmfiles:
     ~/.vrapperrc: vrapperrc
     ~/.keynavrc: keynavrc
     # ~/.gnupg/gpg.conf:
