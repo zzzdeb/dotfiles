@@ -49,6 +49,7 @@
     # ~/.bash:
     ~/.bash_profile:
     ~/.bashrc:
+    ~/.profile:
     ~/.vrapperrc: vrapperrc
     ~/.keynavrc: keynavrc
     # ~/.gnupg/gpg.conf:
