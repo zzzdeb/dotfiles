@@ -9,7 +9,6 @@ ad ~/hiwi/ACPLT-DevKit-linux64/acplt/dev
 M	~/Music
 P	~/Pictures
 V	~/Videos
-S	~/.dotfiles/shortcut-sync
 c	~/.config
 sb	~/Owncloud/Studium/ws18/Berechenbarkeit und Komplexität
 sa	~/Owncloud/Studium/ws18/Automatic Speech Recognition

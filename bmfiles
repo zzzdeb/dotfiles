@@ -3,7 +3,7 @@
 
 ,ess	~/.dotfiles/shortcut-sync/shortcuts.sh
 ,eI	~/.dotfiles/install.conf.yaml
-,eo ~/Owncloud/Studium/Notes/test.org
+,eo ~/Owncloud/Notes/test.org
 ,eb	~/.bashrc
 ,ez	~/.zshrc
 ,ev	~/.config/nvim/init.vim
