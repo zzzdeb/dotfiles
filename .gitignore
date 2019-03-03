@@ -1,1 +1,5 @@
 ./tmp
+config/qutebrowser/autoconfig.yml
+config/qutebrowser/quickmarks
+config/qutebrowser/bookmarks
+config/qutebrowser/shortcuts.py
