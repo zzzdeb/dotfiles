@@ -25,7 +25,7 @@ font pango:System San Francisco Display, FontAwesome 10
 smart_gaps on
 
 #bindsym $mod+comma border none
-# bindsym $mod+comma bar mode toggl
+# bindsym $mod+comma bar mode toggle
 
 
 set $mod        Mod4
@@ -57,6 +57,14 @@ bindsym $mod+Up resize grow height 10 px or 10 ppt
 bindsym $mod+Down resize shrink height 10 px or 10 ppt
 bindsym $mod+Right resize grow width 10 px or 10 ppt
 
+bindsym button3 kill
+bindsym $mod+button4 --whole-window resize grow height 5 px or 5 ppt
+bindsym $mod+button5 --whole-window resize  shrink height 5 px or 5 ppt
+bindsym $mod+button6 --whole-window resize  shrink width 5 px or 5 ppt
+bindsym $mod+button7 --whole-window resize   grow width 5 px or 5 ppt
+bindsym $mod+button8 --whole-window resize shrink width 5 px or 5 ppt
+bindsym $mod+button9 --whole-window resize  grow width 5 px or 5 ppt
+
 # move focused window
 bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
@@ -75,7 +83,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+c split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+v split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -363,7 +371,7 @@ bindsym $mod+n exec st
 # bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 100 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 # bindsym $mod+d exec rofi -show combi -combi-modi "drun,run" -modi combi -show-icons -lines 4 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 bindsym  $mod+d exec rofi -show combi -display-drun "" -display-run "" -combi-modi "drun#run" -modi combi -show-icons -terminal st -lines 4 -opacity "85" -bw 0 -bc "$b-color" -b "$b-color" -f "$text-color" -hlb "$b-color" -hlf "#9575cd" -font "System San Francisco Display 18"
-bindsym Print exec shutter -s -n -e
+bindsym Print exec shutter -r
 # bindsym $mod+Shift+q kill
 #onstartup
 # exec_always ~/.config/xrandr/home.sh
@@ -375,8 +383,8 @@ exec_always --no-startup-id ~/.config/i3/polybar.sh &
 # exec_always --no-startup-id xmodmap ~/.xmodmaprc
 
 #on start
-exec --no-startup-id i3msg '$workspace2; exec --no-startup-id qutebrowser'
-exec --no-startup-id st -e nvim term://newsboat
+exec --no-startup-id i3-msg 'workspace $workspace2; exec --no-startup-id qutebrowser'
+exec --no-startup-id st -e nb
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id compton --config "/home/zzz/.config/compton/compton.conf"
 exec --no-startup-id keynav
@@ -388,7 +396,7 @@ exec --no-startup-id st
 # exec --no-startup-id redshift-gtk
 exec --no-startup-id owncloud
 # exec --no-startup-id pia.sh
-exec --no-startup-id i3msg '$workspace10; exec --no-startup-id telegram-desktop'
+exec --no-startup-id i3-msg 'workspace $workspace10; exec --no-startup-id telegram-desktop'
 
 exec --no-startup-id variety
 exec --no-startup-id nm-applet
@@ -424,8 +432,8 @@ mode "$mode_system" {
 }
 bindsym $mod+apostrophe mode "$mode_system"
 
-bindsym $mod+m move workspace to output $hdminame, mode "default"
-bindsym $mod+shift+m move workspace to output $edpname, mode "default"
+bindsym $mod+m move workspace to output right
+bindsym $mod+shift+m move workspace to output up
 
 set $mode_output (p)(h)(j)(f)
 mode "$mode_output" {
@@ -447,6 +455,16 @@ mode "$mode_output" {
 bindsym $mod+ctrl+o exec ~/.dotfiles/scripts/change_output.sh
 
 bindsym $mod+ctrl+v exec ~/.dotfiles/scripts/changeAudioOutput.sh
+
+#leader
+set $mode_leader leader
+mode "$mode_leader" {
+    bindsym b exec rofi -show windowcd -lines 10, mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+comma mode "$mode_leader"
 
 set $mode_gaps Gaps: (o)uter, (i)nner, (h)orizontal, (v)ertical, (t)op, (r)ight, (b)ottom, (l)eft
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -570,12 +588,12 @@ mode "$mode_gaps_left" {
 }
 # test
 
-	#scratchpad
-	bindsym $mod+Shift+minus move scratchpad
-	bindsym $mod+minus scratchpad show
-	bindsym $mod+equal resize set 1440 px 900 px, move absolute position center
-	floating_modifier $mod
-	bindsym $mod+Shift+equal resize set 960 px 900 px, move absolute position center
-	floating_modifier $mod
+#scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+bindsym $mod+equal resize set 1440 px 900 px, move absolute position center
+floating_modifier $mod
+bindsym $mod+Shift+equal resize set 960 px 900 px, move absolute position center
+floating_modifier $mod
 
 # vim:filetype=i3config
