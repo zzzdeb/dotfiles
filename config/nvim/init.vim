@@ -536,7 +536,7 @@ let g:ackprg = 'ag --skip-vcs-ignore --nogroup --nocolor --column'
 let g:startify_bookmarks = [{'C': '~/.config/nvim/init.vim'}, 
       \ {'D': '~/hiwi/ACPLT-DevKit-linux64/acplt/dev/'},
       \'~/.zshrc',
-      \{'O': '~/Owncloud/Notes/test.org'},
+      \{'O': '~/Owncloud/Notes'},
       \{'L': '~/.vim/commandsToLearn.txt'}]
 let g:startify_relative_path = 1
 let g:startify_change_to_dir = 1
