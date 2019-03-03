@@ -36,6 +36,8 @@
     ~/.config/gtk-3.0/settings.ini : config/gtk-3.0/settings.ini
     ~/.config/ncmpcpp/config : config/ncmpcpp/config
     ~/.config/dunst: config/dunst
+    ~/.config/newsboat/urls: config/newsboat/urls
+    ~/.config/newsboat/config: config/newsboat/config
 
     ~/.local/share/applications/qutebrowser.desktop : applications/qutebrowser.desktop
     ~/.local/share/applications/st.desktop : applications/st.desktop
@@ -75,8 +77,6 @@
     ~/.zshrc:
     ~/.oh-my-zsh: oh-my-zsh
     # ~/.zplug: zplug
-    ~/.newsboat/urls: newsboat/urls
-    ~/.newsboat/config: newsboat/config
 
 - shell:
   # - mkdir -p ~/.rtorrent/session ~/.rtorrent/watch ~/.rtorrent/downloads
