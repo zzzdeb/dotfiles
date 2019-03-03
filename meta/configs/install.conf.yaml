@@ -28,7 +28,6 @@
     ~/.config/variety/ui.conf : config/variety/ui.conf
     ~/.config/polybar/config: config/polybar/config
     ~/.config/polybar/launch.sh: config/polybar/launch.sh
-    ~/.config/nvim : config/nvim 
     ~/.config/mpv/input.conf : config/mpv/input.conf
     ~/.config/mpv/mpv.conf : config/mpv/mpv.conf 
     ~/.config/mpv/install_plugins.sh : config/mpv/install_plugins.sh
@@ -90,10 +89,6 @@
     # vim/bundle/
     # zsh/plugins/
     
-  - ./shortcut-sync/shortcuts.sh
-  - command: nvim +PlugUpdate +PlugUpgrade +qall
-    stdin: true
-    stdout: true
-    stderr: true
+  - ~/.scripts/tools/shortcuts
   - xdg-mime default zathura.desktop application/pdf
   - xdg-settings set default-web-browser qutebrowser.desktop

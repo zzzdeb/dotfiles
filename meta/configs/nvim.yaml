@@ -1,0 +1,19 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+- shell:
+  # the following have to run after linking ~/.gitconfig
+  - git submodule update --init --recursive
+  - git submodule sync --recursive
+
+- clean: ['~', '~/.config']
+
+- link:
+    ~/.config/nvim : config/nvim 
+
+- shell:
+  - command: nvim +PlugUpdate +PlugUpgrade +qall
+    stdin: true
+    stdout: true
+    stderr: true
