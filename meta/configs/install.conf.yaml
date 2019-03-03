@@ -36,6 +36,7 @@
     ~/.config/cvim/cvimrc : config/cvim/cvimrc
     ~/.config/gtk-3.0/settings.ini : config/gtk-3.0/settings.ini
     ~/.config/ncmpcpp/config : config/ncmpcpp/config
+    ~/.config/dunst: config/dunst
 
     ~/.local/share/applications/qutebrowser.desktop : applications/qutebrowser.desktop
     ~/.local/share/applications/st.desktop : applications/st.desktop
