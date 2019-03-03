@@ -14,7 +14,7 @@ printf "\" vim: filetype=vim\\n" > "$vifm_shortcuts"
 
 # Format the `bmdirs` file in the correct syntax and sent it to all three configs.
 sed "s/\s*#.*$//;/^\s*$/d" "$HOME/.bmdirs" | tee >(awk '{tmp=$1; $1 = ""; print "alias ,"tmp"=\"cd \\\""$0"\\\" && ls -a\""}' | sed 's/ ~/$HOME/'>> $shell_shortcuts) \
-	>(awk '{tmp=$1; $1 = ""; print "config.bind(\","tmp"\", \"set downloads.location.directory \\\""$0"\\\" ;; hint links download\")"}' >> "$qute_shortcuts") \
+	>(awk '{tmp=$1; $1 = ""; print "config.bind(\","tmp"\", \"set downloads.location.directory \\\""$0"\\\" ;; hint links download\")"}' | sed 's/ ~/~/' >> "$qute_shortcuts") \
 	>(awk '{tmp=$1; $1=""; print "map ,"tmp" cd "$0"\nmap t"tmp" tab_new "$0}' >> "$ranger_shortcuts")\
 	>(awk '{tmp=$1; $1=""; print "map m"tmp" chain cut; cd "$0"; paste; cd -"}'>> "$ranger_shortcuts" )\
 	>(awk '{tmp=$1; $1=""; print "map Y"tmp" chain copy; cd "$0"; paste; cd -"}'>> "$ranger_shortcuts")
