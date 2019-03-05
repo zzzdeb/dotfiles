@@ -13,6 +13,11 @@ alias ka="killall" \
 	sdn="sudo shutdown -h now" \
 	gua="git remote | xargs -L1 git push --all" \
 	ls="ls -hN --color=auto --group-directories-first" \
+	ls="lsd --group-dirs first" \
+	la="ls -a" \
+	l="ls -l" \
+	lla="ls -la" \
+	lt="ls --tree" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi" \
