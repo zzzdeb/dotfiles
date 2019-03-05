@@ -38,9 +38,6 @@ if [ -d "$HOME/.local/bin_shared" ] ; then
     PATH="$HOME/.local/bin_shared:$PATH"
 fi
 
-export TERMINAL=st
-export EDITOR=nvim
-
 if [ -d "$HOME/.Xdefaults" ]; then
     xrdb $HOME/.Xdefaults
 fi
@@ -69,7 +66,7 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
 
 # Start graphical server if i3 not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
+# [ "$(tty)" = "/dev/tty1" && ! pgrep -x i3 >/dev/null && exec startx
 
 # Change Keyboard Layout
 xkbcomp ~/.dotfiles/keyboard/xkbmap $DISPLAY; xmodmap ~/.dotfiles/keyboard/xmodmaprc
