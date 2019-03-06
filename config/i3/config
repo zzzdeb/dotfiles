@@ -371,7 +371,9 @@ bindsym $mod+n exec st
 # bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 100 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 # bindsym $mod+d exec rofi -show combi -combi-modi "drun,run" -modi combi -show-icons -lines 4 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 bindsym  $mod+d exec rofi -show combi -display-drun "" -display-run "" -combi-modi "drun#run" -modi combi -show-icons -terminal st -lines 4 -opacity "85" -bw 0 -bc "$b-color" -b "$b-color" -f "$text-color" -hlb "$b-color" -hlf "#9575cd" -font "System San Francisco Display 18"
-bindsym Print exec shutter -r
+bindsym Print exec shutter -s
+bindsym shift+Print exec shutter -r
+bindsym ctrl+Print exec shutter -f
 # bindsym $mod+Shift+q kill
 #onstartup
 # exec_always ~/.config/xrandr/home.sh
