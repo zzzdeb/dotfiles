@@ -75,7 +75,7 @@
     # ~/.vim:
     # ~/.zsh:
     ~/.zshrc:
-    ~/.oh-my-zsh: oh-my-zsh
+    ~/.aliasrc:
     # ~/.zplug: zplug
 
 - shell:
