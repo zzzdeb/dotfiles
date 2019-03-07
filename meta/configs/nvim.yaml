@@ -13,6 +13,7 @@
     ~/.config/nvim : config/nvim 
 
 - shell:
+  - command: curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   - command: nvim +PlugUpdate +PlugUpgrade +qall
     stdin: true
     stdout: true
