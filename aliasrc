@@ -28,9 +28,35 @@ alias ka="killall" \
 	upc="sudo pacman -Syu; pkill -RTMIN+8 i3blocks" \
 	lsp="pacman -Qett --color=always | less"
 	
-command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
+alias cp="cp -i"                          # confirm before overwriting something
+alias mv='mv -i'
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+alias suai='sudo apt install'
+alias suar='sudo apt remove'
+alias suau='sudo apt update'
+alias suaU='sudo apt upgrade'
+
+# export TERM=xterm-256color
+alias py3=python3
+
+alias open=xdg-open
+
+alias cd..="cd .."
+alias cd...="cd ../.."
+alias cd....="cd ../../.."
+
+# Mirror a website
+alias mirrorsite='wget -m -k -K -E -e robots=off'
+# Mirror stdout to stderr, useful for seeing data going through a pipe
+alias peek='tee >(cat 1>&2)'
+
+
+command -v nvim >/dev/null && alias vim="nvim" v="nvim" vimdiff="nvim -d" vd="nvim -d" # Use neovim for vim if present.
 
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
 se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
 sv() { vcopy "$(du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf)" ;}
 vf() { fzf | xargs -r -I % $EDITOR % ;}
+
+alias r=ranger
