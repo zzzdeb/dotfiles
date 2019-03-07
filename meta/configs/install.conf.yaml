@@ -49,9 +49,11 @@
     # ~/.aria2/aria2.conf:
     # ~/.axelrc:
     # ~/.bash:
-    ~/.bash_profile:
     ~/.bashrc:
     ~/.profile:
+    ~/.bash_profile: profile
+    ~/.zprofile: profile
+    ~/.xprofile: profile
     ~/.bmdirs:
     ~/.bmfiles:
     ~/.scripts:
