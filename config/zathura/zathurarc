@@ -18,6 +18,13 @@ map = zoom in
 "map J scroll down
 "map K scroll up
 
+map D toggle_page_mode
+
+map r reload
+map R rotate
+
+map i recolor
+map p print
 
 map d navigate next
 map u navigate previous

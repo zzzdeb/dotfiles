@@ -43,6 +43,10 @@ config.bind('k', 'scroll down')
 config.bind('l', 'scroll up')
 config.bind(';', 'scroll right')
 
+config.bind('q', 'tab-close')
+
+config.bind(',b', 'set-cmd-text -s :buffer')
+
 config.bind('T', 'config-cycle tabs.width 40 400')
 
 c.tabs.width = 40
