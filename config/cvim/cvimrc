@@ -135,12 +135,10 @@ site '*://*.reddit.com/*'{
 site '*://mail.google.com/*'{
  call insertMode 
 }
-	" unmap j
-	" unmap k
-	" unmap gi
-	" unmap /
-	" unmap l
-	" unmap gl
-	" unmap c
-	" unmap r
+map j scrollleft
+map k scrolldown
+map l scrollup
+map ; scrollright
 
+map K :call nextTab<cr>
+map L :call previousTab<cr>
