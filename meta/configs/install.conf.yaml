@@ -78,7 +78,7 @@
     # ~/.zsh:
     ~/.zshrc:
     ~/.aliasrc:
-    # ~/.zplug: zplug
+    ~/.Xdefaults:
 
 - shell:
   # - mkdir -p ~/.rtorrent/session ~/.rtorrent/watch ~/.rtorrent/downloads
