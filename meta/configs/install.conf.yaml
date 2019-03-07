@@ -79,6 +79,7 @@
     ~/.zshrc:
     ~/.aliasrc:
     ~/.Xdefaults:
+    ~/.inputrc:
 
 - shell:
   # - mkdir -p ~/.rtorrent/session ~/.rtorrent/watch ~/.rtorrent/downloads
@@ -90,7 +91,7 @@
     # shell/plugins/
     # vim/bundle/
     # zsh/plugins/
-    
   - ~/.scripts/tools/shortcuts
   - xdg-mime default zathura.desktop application/pdf
   - xdg-settings set default-web-browser qutebrowser.desktop
+  - "[ ! -f ~/.fzf.zsh ] || [ ! -f ~/.fzf.bash ] && ~/.dotfiles/fzf/install"
