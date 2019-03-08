@@ -285,21 +285,8 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 bar {
-        # i3bar_command i3bar -t
-         status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
-        # status_command i3blocks
-        # status_command i3status -c ~/.config/i3status/config | dzen2 -fg white -bg gray -sa r -fn "-misc-fixed-medium-r-normal--13-120-75-75-C-70-iso8859-1"
-        # status_command i3status -c ~/.config/i3status/config
+        status_command i3blocks
         tray_output             primary
-        # output                  HDMI-1
-	 # colors {
-		# background $bg-color
-		    # separator #757575
-		#                  border             background         text
-		# focused_workspace  $bg-color          $focus-color          $focus-text-color
-		# inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		# urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	# }
 }
 
 # bindsym --release $mod+x exec --no-startup-id xdotool key --clearmodifiers ctrl+v
