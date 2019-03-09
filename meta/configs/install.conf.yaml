@@ -42,6 +42,7 @@
     ~/.config/bmdirs: config/bmdirs
     ~/.config/bmfiles: config/bmfiles
     ~/.config/i3/config : config/i3/config
+    ~/.config/i3blocks/config : config/i3blocks/config
     ~/.config/qutebrowser : config/qutebrowser
     ~/.config/mpd : config/mpd
     # ~/.aria2/aria2.conf:
