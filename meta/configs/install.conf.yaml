@@ -34,6 +34,7 @@
     ~/.config/compton/compton.conf : config/compton/compton.conf
     ~/.config/cvim/cvimrc : config/cvim/cvimrc
     ~/.config/gtk-3.0/settings.ini : config/gtk-3.0/settings.ini
+    ~/.config/gtk-2.0 : config/gtk-2.0
     ~/.config/ncmpcpp/config : config/ncmpcpp/config
     ~/.config/dunst: config/dunst
     ~/.config/newsboat/urls: config/newsboat/urls
