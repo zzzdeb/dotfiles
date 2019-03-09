@@ -39,11 +39,8 @@
     ~/.config/dunst: config/dunst
     ~/.config/newsboat/urls: config/newsboat/urls
     ~/.config/newsboat/config: config/newsboat/config
-
-    ~/.local/share/applications/qutebrowser.desktop : applications/qutebrowser.desktop
-    ~/.local/share/applications/st.desktop : applications/st.desktop
-
-    ~/.screenlayout : screenlayout
+    ~/.config/bmdirs: config/bmdirs
+    ~/.config/bmfiles: config/bmfiles
     ~/.config/i3/config : config/i3/config
     ~/.config/qutebrowser : config/qutebrowser
     ~/.config/mpd : config/mpd
