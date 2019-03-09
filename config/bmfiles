@@ -1,5 +1,5 @@
-,ebd	~/.bmdirs
-,ebf	~/.bmfiles
+,ebd	~/.config/bmdirs
+,ebf	~/.config/bmfiles
 
 ,ess	~/.dotfiles/shortcut-sync/shortcuts.sh
 ,eI	~/.dotfiles/install.conf.yaml
