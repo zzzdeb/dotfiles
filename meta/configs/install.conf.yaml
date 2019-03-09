@@ -78,6 +78,12 @@
     ~/.aliasrc:
     ~/.Xdefaults:
     ~/.inputrc:
+    ~/.emoji:
+    ~/.icons:
+    ~/.local/share/applications: local/share/applications
+
+    ~/.config/mimeapps.list: config/mimeapps.list
+    ~/.config/user-dirs.dirs: config/user-dirs.dirs
 
 - shell:
   # - mkdir -p ~/.rtorrent/session ~/.rtorrent/watch ~/.rtorrent/downloads
