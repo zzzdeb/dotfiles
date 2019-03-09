@@ -46,7 +46,7 @@
     ~/.screenlayout : screenlayout
     ~/.config/i3/config : config/i3/config
     ~/.config/qutebrowser : config/qutebrowser
-    ~/.config/i3/scripts : config/i3/scripts
+    ~/.config/mpd : config/mpd
     # ~/.aria2/aria2.conf:
     # ~/.axelrc:
     # ~/.bash:
