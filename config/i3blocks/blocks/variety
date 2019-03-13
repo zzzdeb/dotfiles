@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Left click
+if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
+  variety -n &> /dev/null
+  echo "Good Luck!"
+  echo "Good Luck!"
+  echo ""
+elif [[ "${BLOCK_BUTTON}" -eq 3 ]]; then
+  variety -p &> /dev/null
+  echo "Good Luck!"
+  echo "Good Luck!"
+  echo ""
+fi
+
+echo "Good Luck!"
+echo "Good Luck!"
+echo ""
+# statusLine=$(amixer get Master | tail -n 1)
+# status=$(echo "${statusLine}" | grep -wo "on")
+# volume=$(echo "${statusLine}" | awk -F ' ' '{print $4}' | tr -d '[]%')
+
+# if [[ "${status}" == "on" ]]; then
+  # echo "${volume}%"
+  # echo "${volume}%"
+  # echo ""
+# else
+#   echo "off"
+#   echo "off"
+#   echo ""
+# fi

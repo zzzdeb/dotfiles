@@ -1,0 +1,43 @@
+#!/bin/bash
+
+function update() {
+  conffile='/tmp/.calise-on'
+  if [[ -f "${conffile}" ]]; then
+    stat=$(cat "${conffile}")
+  else
+    stat='on'
+  fi
+
+  if [[ "$stat" = "on" ]]; then
+    # FORMAT="${BLOCK_INSTANCE: -%H:%M}"
+    BACKLIGHT_MAX=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+    BACKLIGHT=$(cat /sys/class/backlight/intel_backlight/brightness)
+    let "BLP=80*${BACKLIGHT}/${BACKLIGHT_MAX}+20"
+    xrandr --output HDMI1 --brightness 0.${BLP}
+  else
+    let "BLP="
+  fi
+  #/${BACKLIGHT_MAX}
+  # COLOR = "#FFFFFF";
+
+  echo "${BLP}/$stat"
+  echo "${BLP}/$stat"
+  echo "#FFFFFF"
+}
+
+if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
+  conffile='/tmp/.calise-on'
+  if [[ -f "${conffile}" ]]; then
+    stat=$(cat "${conffile}")
+  else
+    stat="on"
+  fi
+
+  if [[ "$stat" = "on" ]]; then
+    echo "off" > "${conffile}"
+  else
+    echo "on" > "${conffile}"
+  fi
+fi
+
+update

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Left click
+if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
+  pacmd set-card-profile alsa_card.pci-0000_00_1f.3 output:hdmi-stereo
+# Middle click
+# elif [[ "${BLOCK_BUTTON}" -eq 2 ]]; then
+  # amixer -q sset Master toggle
+# # Right click
+elif [[ "${BLOCK_BUTTON}" -eq 3 ]]; then
+  pavucontrol
+fi
+
+# statusLine=$(amixer get Master | tail -n 1)
+# status=$(echo "${statusLine}" | grep -wo "on")
+# volume=$(echo "${statusLine}" | awk -F ' ' '{print $4}' | tr -d '[]%')
+/usr/share/i3blocks/volume 5 pulse
+
+# if [[ "${status}" == "on" ]]; then
+  # echo "${volume}%"
+  # echo "${volume}%"
+  # echo ""
+# else
+#   echo "off"
+#   echo "off"
+#   echo ""
+# fi

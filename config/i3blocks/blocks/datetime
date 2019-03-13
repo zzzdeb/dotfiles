@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
+   gnome-calendar
+fi
+
+FORMAT="${BLOCK_INSTANCE:-%m-%d %a}"
+DATETIME=$(date "+${FORMAT}")
+
+echo "${DATETIME}"
+echo "${DATETIME}"
+echo ""

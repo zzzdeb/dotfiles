@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Left click
+if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
+  # python /home/zzz/.script/unread_to_kindle.py
+  echo "test1"
+  echo "test1"
+  echo ""
+  /home/zzz/projects/memrise-editor/scripts/googleSheet.py
+fi
+
+  echo "test"
+  echo "test"
+  echo ""
+
+
