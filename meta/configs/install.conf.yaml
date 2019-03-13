@@ -44,6 +44,7 @@
 
     ~/.screenlayout : screenlayout
     ~/.config/i3/config : config/i3/config
+    ~/.config/i3blocks : config/i3blocks
     ~/.config/qutebrowser : config/qutebrowser
     ~/.config/i3/scripts : config/i3/scripts
     # ~/.aria2/aria2.conf:
