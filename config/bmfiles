@@ -24,5 +24,6 @@
 ,emc	~/.config/ncmpcpp/config
 ,empd	~/.config/mpd/mpd.conf
 ,eM	~/.config/mpd/mpd.conf
+,ef ~/.config/vifm/vifmrc
 
 ,ec ~/.dotfiles/meta/configs
