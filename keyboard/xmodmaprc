@@ -10,7 +10,7 @@
 clear control
 add control = Control_L
 add control = Control_R
-add mod4 = Escape
+! add mod4 = Escape
 
 ! clear mod3
 ! clear mod5

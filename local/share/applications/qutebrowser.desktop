@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=surf
-Comment=Surf minimal web browser
+Name=qutebrowser
+Comment=Keyboard driven web-browser
 Terminal=false
 Exec=qutebrowser
 Categories=Network;WebBrowser

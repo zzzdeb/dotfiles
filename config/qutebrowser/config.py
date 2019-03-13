@@ -90,3 +90,11 @@ config.source('themes/nord-qutebrowser/nord-qutebrowser.py')
         #  'size': 10
     #  }
 #  })
+
+
+#Test
+config.bind(',yd', "spawn ytMusic '{url}'")
+config.bind('<ctrl-b>', "set-cmd-text -s :quickmark-add {url}")
+config.bind('<ctrl-shift-j>', "tab-focus 1")
+config.bind('<ctrl-shift-k>', "tab-move +")
+config.bind('<ctrl-shift-l>', "tab-move -")

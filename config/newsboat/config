@@ -1,6 +1,6 @@
 external-url-viewer "urlview"
 # general settings
-auto-reload yes
+# auto-reload yes
 max-items 50
 
 # unbind keys

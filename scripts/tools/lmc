@@ -15,7 +15,7 @@ case "$1" in
 	p*) mpc pause ; pauseallmpv ;;
 	f*) mpc seek +"$num" ;;
 	b*) mpc seek -"$num" ;;
-	r*) mpc seek 0% ;;
+	r*) mpc seek 00:00:01 ;;
 	*) cat << EOF
 lmc: cli music interface for mpd and pulse for those with divine intellect too
 grand to remember the mpc/pamixer commands.

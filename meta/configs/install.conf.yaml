@@ -2,6 +2,7 @@
     link:
       create: true
       relink: true
+      # force: true
 - link:
     ~/.gitconfig:
     ~/.gitignore_global:
@@ -35,7 +36,7 @@
     ~/.config/cvim/cvimrc : config/cvim/cvimrc
     ~/.config/gtk-3.0/settings.ini : config/gtk-3.0/settings.ini
     ~/.config/gtk-2.0 : config/gtk-2.0
-    ~/.config/ncmpcpp/config : config/ncmpcpp/config
+    ~/.config/ncmpcpp: config/ncmpcpp
     ~/.config/dunst: config/dunst
     ~/.config/newsboat/urls: config/newsboat/urls
     ~/.config/newsboat/config: config/newsboat/config
@@ -44,7 +45,11 @@
     ~/.config/i3/config : config/i3/config
     ~/.config/i3blocks/config : config/i3blocks/config
     ~/.config/qutebrowser : config/qutebrowser
+    ~/.config/calcurse : config/calcurse
+    ~/.config/fontconfig : config/fontconfig
     ~/.config/mpd : config/mpd
+
+    ~/.screenlayout : screenlayout
     # ~/.aria2/aria2.conf:
     # ~/.axelrc:
     # ~/.bash:
@@ -53,8 +58,6 @@
     ~/.bash_profile: profile
     ~/.zprofile: profile
     ~/.xprofile: profile
-    ~/.bmdirs:
-    ~/.bmfiles:
     ~/.scripts:
     ~/.vrapperrc: vrapperrc
     ~/.keynavrc: keynavrc
@@ -79,12 +82,15 @@
     ~/.aliasrc:
     ~/.Xdefaults:
     ~/.inputrc:
+    ~/.xinitrc:
     ~/.emoji:
+    ~/.fontawesome:
     ~/.icons:
     ~/.local/share/applications: local/share/applications
 
     ~/.config/mimeapps.list: config/mimeapps.list
     ~/.config/user-dirs.dirs: config/user-dirs.dirs
+    ~/.config/vifm: config/vifm
 
 - shell:
   # - mkdir -p ~/.rtorrent/session ~/.rtorrent/watch ~/.rtorrent/downloads
@@ -97,6 +103,6 @@
     # vim/bundle/
     # zsh/plugins/
   - ~/.scripts/tools/shortcuts
-  - xdg-mime default zathura.desktop application/pdf
-  - xdg-settings set default-web-browser qutebrowser.desktop
+  # - xdg-mime default zathura.desktop application/pdf
+  # - xdg-settings set default-web-browser qutebrowser.desktop
   - "[ ! -f ~/.fzf.zsh ] || [ ! -f ~/.fzf.bash ] && ~/.dotfiles/fzf/install"
