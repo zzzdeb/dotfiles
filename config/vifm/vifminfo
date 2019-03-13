@@ -1,0 +1,101 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+
+# Bookmarks:
+
+# TUI:
+al
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/zzz/.config/sxiv
+	exec
+1
+d/home/zzz/.config/sxiv/exec
+	key-handler
+1
+d/home/zzz/.config/sxiv
+	..
+0
+d/home/zzz/.config
+	sxiv
+33
+d/home/zzz/.config/sxiv
+	exec
+1
+d/home/zzz/.config/sxiv/exec
+	key-handler
+1
+d/home/zzz/.config/i3blocks
+	config
+1
+d/home/zzz/.config/newsboat
+	config
+1
+d/home/zzz/.config/mpd
+	mpd.conf
+3
+d/home/zzz/.config
+	mpd
+21
+d/home/zzz/.config/mpd
+	..
+0
+d/home/zzz/.config
+	mpd
+21
+d/home/zzz/.config/mpd
+	database
+2
+d/home/zzz/.dotfiles/meta/configs
+	install.conf.yaml
+4
+d/home/zzz/.config/ncmpcpp
+	bindings
+1
+
+# Right window history (oldest to newest):
+D/home/zzz/.dotfiles
+	..
+0
+D/home/zzz/.local/share/nvim/plugged/neovim-vifm/doc
+	..
+0
+D/home/zzz/.dotfiles/config/nvim
+	..
+0
+D/home/zzz
+	..
+0
+D/mnt/all/home/zzz/Music
+	..
+0
+D/home/zzz
+	..
+0
+D/home/zzz/.dotfiles
+	..
+0
+D/home/zzz
+	..
+0
+
+# Command line history (oldest to newest):
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+
+# Directory stack (oldest to newest):
+
+# Trash content:
