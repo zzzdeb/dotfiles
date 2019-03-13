@@ -1,6 +1,6 @@
 #!/bin/sh
 lock() {
-    # i3lock -u -t -i /tmp/test.png
+    # i3lock -t -i ~/.config/wall.png
     gnome-screensaver-command -l
     # scrot /tmp/screen_locked.png
     # convert /tmp/screen_locked.png -scale 10% -scale 1000% /tmp/screen_locked2.png
