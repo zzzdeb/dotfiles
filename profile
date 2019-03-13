@@ -48,8 +48,10 @@ export TERMINAL="st"
 export BROWSER="qutebrowser"
 export READER="zathura"
 export FILE="ranger"
-# export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
-export PIX="$HOME/.pix/"
+export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
+export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
+export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
+export DMENU="rofi -dmenu"
 
 # less/man colors
 export LESS=-R
@@ -66,7 +68,10 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
 
 # Start graphical server if i3 not already running.
-# [ "$(tty)" = "/dev/tty1" && ! pgrep -x i3 >/dev/null && exec startx
+[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
+
+# Switch escape and caps if tty:
+sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
 
 # Change Keyboard Layout
 xkbcomp ~/.dotfiles/keyboard/xkbmap $DISPLAY; xmodmap ~/.dotfiles/keyboard/xmodmaprc
