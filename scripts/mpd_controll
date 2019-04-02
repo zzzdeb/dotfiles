@@ -5,11 +5,16 @@
 ESC_ACTION="break"
 # source configuration file for dmenu if exists
 
-if [ -f $HOME/.dmenurc ]; then
-  . $HOME/.dmenurc
-else
+if [ !-v $DMENU ]
+then
   DMENU='dmenu -i -l 20'
 fi
+# if [ -f $HOME/.dmenurc ]; then
+  # . $HOME/.dmenurc
+# else
+  # DMENU='dmenu -i -l 20'
+# fi
+
 
 addaftercurrent(){
 	
@@ -237,6 +242,9 @@ case $1 in
 	done
 	;;
 
+	-o|--online)
+	  music.sh
+	;;
 	-h|--help)
 	echo -e "-a, --artist		search for artist, then album, then title"
     echo -e "-t, --track		search for a single track in the whole database"

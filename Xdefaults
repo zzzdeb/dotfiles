@@ -50,5 +50,5 @@
 *.color15:    #E6E6E6
 *.color16:     #00ffff
 
-st.alpha: 220
+st.alpha: 170
 st.xfps: 390

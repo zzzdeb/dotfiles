@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if ifconfig tun0 | grep -q "00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00"; then
+   notify-send -a "VPN" "VPN IS ON"
+   # espeak -p30 -s130 -k18 -a300 -v female5 "VPN Status ON"
+   exit
+fi
+# robot "VPN not found"

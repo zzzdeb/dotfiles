@@ -3,7 +3,7 @@ let &packpath = &runtimepath
 
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
-let g:ruby_host_prog = '/usr/local/bin/neovim-ruby-host'
+let g:ruby_host_prog = '/usr/bin/neovim-ruby-host'
 
 set clipboard+=unnamedplus
 
@@ -227,7 +227,9 @@ Plug 'mboughaba/i3config.vim'
 " Plug 'kamykn/CCSpellCheck.vim'
 " Plug 'dhruvasagar/vim-highlight-word'
 
-" Initialize plugin system
+" Test vifm
+Plug 'vifm/neovim-vifm'
+
 call plug#end()
 
 
@@ -678,6 +680,9 @@ let maplocalleader =" "
 noremap s ;
 noremap <s-s> ,
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
 nnoremap <leader>xl :exe getline(".")<cr>
 vnoremap <leader>x join(getline("'<","'>"),'<bar>')<cr>
 
@@ -686,7 +691,7 @@ let MYVIMRCTMP="~/.vim/vimrctmp"
 nmap <leader>ez :vsplit ~/.zshrc<cr>
 " Edit my vimrc file through <leader>ev default leader is 
 nmap <leader>en :vsplit $MYVIMRC<cr>
-nmap <leader>ev :vsplit ~/.vim/vimrc<cr>
+nmap <leader>ev :vsplit $MYVIMRC<cr>
 nmap <leader>et :vsplit ~/.vim/vimrctmp<cr>
 let MYVIMRCTMP="~/.vim/vimrctmp"
 " Take the contents of given file and execute it in Vimscript, default $MYVIMRC is ~/.vimrc
@@ -721,7 +726,6 @@ nnoremap <a-j> :join<cr>
 " Emacs-like beginning and end of line.
 imap <c-e> <c-o>$
 imap <c-a> <c-o>^
-
 " Key repeat hack for resizing splits, i.e., <C-w>+++- vs <C-w>+<C-w>+<C-w>-
 " see: http://www.vim.org/scripts/script.php?script_id=2223
 nmap <a-w>+ <C-w>+<SID>ws
@@ -738,7 +742,7 @@ nmap <SID>ws <Nop>
 vnoremap <a-y> "+y
 nnoremap <a-y> "+y
 
-nnoremap <f2> :NERDTreeToggle<CR>
+nnoremap <f2> :Vifm .<CR>
 nnoremap <f4> :TagbarToggle<CR>
 
 " nnoremap <leader>crl :<c-u>cl<CR>

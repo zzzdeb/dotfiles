@@ -1,0 +1,97 @@
+ 8260  sudo pacman -S blueman
+ 8265  sudo pacman -S rofi
+ 8269  sudo pacman -S gnonem-screensaver
+ 8270  sudo pacman -S gnone-screensaver
+ 8271  sudo pacman -S gnone-screemsaver
+ 8272  sudo pacman -S gnome-screemsaver
+ 8273  sudo pacman -S gnome-screensaver
+ 8276  sudo pacman -S xscreensaver
+ 8306  sudo pacman -S lastpass
+ 8308  sudo pacman -S pass
+ 8316  sudo pacman -S python-tldextract
+ 8320  sudo pacman -S gnupg
+ 8332  sudo pacman -S code
+ 8360  sudo pacman -S neofetch
+ 8366  sudo pacman -S wget
+ 8372  sudo pacman -S clightd
+ 8419  pacman -Sc
+ 8420  sudo pacman -Sc
+ 8427  sudo pacman -S telegram-desktop
+ 8454  sudo pacman -S crontab
+ 8455  sudo pacman -S cron
+ 8465  sudo pacman -S cronie
+ 8481  pacman -Ss google
+ 8495  sudo pacman -S transmission-remote-cli
+ 8496  sudo pacman -S transmission-cli
+ 8526  pacman -Syuw --noconfirm && pkill -RTMIN+8 i3blocks
+ 8527  sudo pacman -Syuw --noconfirm && pkill -RTMIN+8 i3blocks
+ 8580  sudo pacman -S ruby
+ 8585  sudo pacman -S ruby-neovim
+ 8588  sudo pacman -Sy yaourt
+ 8590  sudo pacman -Syu yaourt
+ 8591  sudo pacman -S --needed base-devel git wget\n
+ 8598  yaourt -S ruby-neovim
+ 8601  p -S owncloud
+ 8602  yaourt -S owncloud
+ 8603  p -S Owncloud
+ 8604  yaourt -Ss owncloud
+ 8605  p -S owncloud-client
+ 8656  p -S mesa
+ 8669  yaourt -S obinslab-starter
+ 8686  p -S adobe-source-han-sans-jp-fonts
+ 8709  pacman -Syu awesome-terminal-fonts
+ 8710  sudo pacman -Syu awesome-terminal-fonts
+ 8711  yaourt -S system-san-francisco-font
+ 8712  yaourt -S system-san-francisco-font-git
+ 8729  yaourt -S python-ueberzug
+ 8731  yaourt -S sync-my-l2p
+ 8733  p -S ag
+ 8734  p -S the_silver_searcher
+ 8757  p -S pdfgrep
+ 8762  sudo pacman -S variety
+ 8781  p -S feh
+ 8784  p -S xwallpaper
+ 8788  p -S vcopy
+ 8827  p -S neomutt
+ 8828  p -S offlineimap
+ 8832  p -S msmtp
+ 9343  p -S anki
+ 9450  p -S python-pywal
+ 9579  p -S jdk8-openjdk
+ 9837  p -S powerline-fonts
+ 9842  p -S fonts-powerline
+ 9901  p -S ddgr
+ 9902  yaourt -S ddgr
+ 9929  p -S jq
+10060  p -S compton
+10166  p -S adobe-source-han-sans-ch-fonts
+10167  p -S adobe-source-han-sans-cn-fonts
+10184  p -S googlemaps
+10203  yaourt -S zx-git\n\n
+10312  p -S laptop-mode-tools
+10313  yaourt -S laptop-mode-tools
+10314  history | grep yaourt -S
+10315  history | grep "yaourt -S"
+10316  history | grep "p -S"
+10317  history | grep "p -S" > .dotfiles/after_backup/arch/packages.txt
+10318  history | grep "yaourt -S" >> .dotfiles/after_backup/arch/packages.txt
+10319  history | grep "pacman -S" 
+10320  history | grep "pacman -S" >> .dotfiles/after_backup/arch/packages.txt
+10335  history | grep "pacman -S|p" 
+10336  history | grep -e "pacman -S|a" 
+10339  history | grep -e '.*pacman -S.*'
+10340  history | grep -e '.*pacman -S.*|.*p -S.*'
+10341  history | grep -e '.*pacman -S.*||.*p -S.*'
+10342  history | grep -e '[.*pacman -S.*]|.*p -S.*'
+10343  history | grep -e '(.*pacman -S.*)|.*p -S.*'
+10344  history | grep -e '.*pacman -S.*|.*p -S.*'
+10346  history | grep '.*pacman -S.*|.*p -S.*'
+10347  history | grep -G '.*pacman -S.*|.*p -S.*'
+10348  history | grep -G -e '.*pacman -S.*|.*p -S.*'
+10349  history | grep -G -e '.*pacman -S.*\|.*p -S.*'
+10350  history | grep -E -e '.*pacman -S.*|.*p -S.*'
+10351  history | grep -E -e '.*pacman -S.*|.*p -S.*|.*yaourt.* -S'
+10352  history | grep -E -e '.*pacman -S|.*p -S|.*yaourt.* -S'
+10353  history | grep -E -e '.*pacman -S|.*p -S|.*yaourt.* -S' > .dotfiles/after_backup/arch/packages.txt
+10356  history | grep -E -e '.[^history]*pacman -S|.*p -S|.*yaourt.* -S' > .dotfiles/after_backup/arch/packages.txt
+10357  history | grep -E -e '.[^history]*pacman -S|.*p -S|.*yaourt.* -S'

@@ -1,0 +1,11 @@
+#!/usr/bin/sh
+
+notify-send "VPN toggle"
+if ifconfig tun0 | grep -q "00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00"; then
+    status=$(nmcli con down A\ FRANKFURT)
+else
+    status=$(nmcli con up A\ FRANKFURT)
+fi
+notify-send "VPN toggle" "$status"
+
+pkill -RTMIN+13 i3blocks
