@@ -1,10 +1,12 @@
 #!/usr/bin/sh
 
 notify-send "VPN toggle"
+interface=${1:vpn-default}
+notify-send $interface
 if ifconfig tun0 | grep -q "00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00"; then
-    status=$(nmcli con down A\ FRANKFURT)
+    status=$(nmcli con down "$interface")
 else
-    status=$(nmcli con up A\ FRANKFURT)
+    status=$(nmcli con up "$interface")
 fi
 notify-send "VPN toggle" "$status"
 

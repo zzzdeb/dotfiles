@@ -34,7 +34,7 @@
     ~/.config/mpv/install_plugins.sh : config/mpv/install_plugins.sh
     ~/.config/compton/compton.conf : config/compton/compton.conf
     ~/.config/cvim/cvimrc : config/cvim/cvimrc
-    ~/.config/gtk-3.0/settings.ini : config/gtk-3.0/settings.ini
+    ~/.config/gtk-3.0 : config/gtk-3.0
     ~/.config/gtk-2.0 : config/gtk-2.0
     ~/.config/ncmpcpp: config/ncmpcpp
     ~/.config/dunst: config/dunst
@@ -47,7 +47,8 @@
     ~/.config/qutebrowser : config/qutebrowser
     ~/.config/calcurse : config/calcurse
     ~/.config/fontconfig : config/fontconfig
-    ~/.config/mpd : config/mpd
+    ~/.config/mpd/mpd.conf : config/mpd/mpd.conf
+    ~/.config/aliasrc: config/aliasrc
 
     ~/.screenlayout : screenlayout
     # ~/.aria2/aria2.conf:
@@ -79,7 +80,6 @@
     # ~/.vim:
     # ~/.zsh:
     ~/.zshrc:
-    ~/.aliasrc:
     ~/.Xdefaults:
     ~/.inputrc:
     ~/.xinitrc:

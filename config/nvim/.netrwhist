@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/zzz/.config/fontconfig'
+let g:netrw_dirhist_2='/home/zzz/.config/fontconfig/conf.d'
+let g:netrw_dirhist_3='/home/zzz/.dotfiles/meta/configs'
+let g:netrw_dirhist_4='/home/zzz/.config/vifm'

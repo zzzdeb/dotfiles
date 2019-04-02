@@ -1,6 +1,14 @@
 # You can edit this file by hand, but it's recommended not to do that.
 
 # Marks:
+'k
+	/home/zzz
+	Documents
+1554054584
+'l
+	/mnt/all/home/zzz/Documents/Anki
+	4000 Essential English Words (all books) [en-en] M4R4M.apkg
+1554054621
 
 # Bookmarks:
 
@@ -14,69 +22,90 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home/zzz/.config/sxiv
-	exec
+d/home/zzz/.config
+	transmission
+37
+d/home/zzz/.config/transmission
+	blocklists
 1
-d/home/zzz/.config/sxiv/exec
-	key-handler
-1
-d/home/zzz/.config/sxiv
+d/home/zzz/.config/transmission/blocklists
 	..
 0
-d/home/zzz/.config
-	sxiv
-33
-d/home/zzz/.config/sxiv
-	exec
-1
-d/home/zzz/.config/sxiv/exec
-	key-handler
-1
-d/home/zzz/.config/i3blocks
-	config
-1
-d/home/zzz/.config/newsboat
-	config
-1
-d/home/zzz/.config/mpd
-	mpd.conf
-3
-d/home/zzz/.config
-	mpd
-21
-d/home/zzz/.config/mpd
-	..
-0
-d/home/zzz/.config
-	mpd
-21
-d/home/zzz/.config/mpd
-	database
+d/home/zzz/.config/transmission
+	resume
 2
+d/home/zzz/.config/transmission/resume
+	..
+0
+d/home/zzz/.config/transmission
+	torrents
+3
+d/home/zzz/.config/transmission/torrents
+	..
+0
+d/home/zzz/.config/transmission
+	settings.json
+4
+d/home/zzz/.config/transmission-daemon
+	settings.json
+5
+d/mnt/all/home/zzz/Documents/Anki
+	collection.anki2
+14
 d/home/zzz/.dotfiles/meta/configs
 	install.conf.yaml
 4
-d/home/zzz/.config/ncmpcpp
-	bindings
+d/home/zzz
+	..
+0
+d/home
+	zzz
 1
+d/home/zzz
+	Mail
+3
+d/home/zzz/.dotfiles/local/share/applications
+	transmission-remote.desktop
+11
 
 # Right window history (oldest to newest):
-D/home/zzz/.dotfiles
-	..
-0
-D/home/zzz/.local/share/nvim/plugged/neovim-vifm/doc
-	..
-0
-D/home/zzz/.dotfiles/config/nvim
+D/home/zzz/.dotfiles/screenlayout
 	..
 0
 D/home/zzz
+	..
+0
+D/home/zzz/.dotfiles/scripts
 	..
 0
 D/mnt/all/home/zzz/Music
 	..
 0
+D/mnt/all/home/zzz/Owncloud/Studium/ws18/Compilerbau
+	..
+0
 D/home/zzz
+	..
+0
+D/mnt/all/home/zzz/Owncloud/Studium/ws18/Compilerbau/LA_SolutionDocuments/A09/RegexGrammar/RegexGrammar/src
+	..
+0
+D/home/zzz
+	..
+0
+D/mnt/all/home/zzz/projects/memrise-editor/scripts
+	..
+0
+D/home/zzz
+	..
+0
+D/home/zzz/.dotfiles
+	..
+0
+D/home/zzz
+	..
+0
+D/mnt/all/home/zzz/Documents/Anki
 	..
 0
 D/home/zzz/.dotfiles
@@ -87,14 +116,27 @@ D/home/zzz
 0
 
 # Command line history (oldest to newest):
+:command
+:commands
+:e
+:q
+:shell
 
 # Search history (oldest to newest):
 
 # Prompt history (oldest to newest):
+pDocuments
+pimg.desktop
+pmail.desktop
+ppdf.desktop
+pvim.desktop
+prss.desktop
+ptext.desktop
 
 # Local filter history (oldest to newest):
 
 # Registers:
+""/home/zzz/.dotfiles/local/share/applications/vim.desktop
 
 # Directory stack (oldest to newest):
 

@@ -6,8 +6,10 @@
 new_window pixel
 # set default_border normal
 
-font pango:System San Francisco Display, FontAwesome 10
-
+# font pango:System San Francisco Display, FontAwesome 10
+# font pango:Hack 10
+# font pango:ProFont 11
+font pango:Hack, FontAwesome, Ubuntu Nerd Font 10
 gaps inner 10
 gaps outer 5
 smart_gaps on
@@ -23,15 +25,15 @@ set $shutdown sudo -A shutdown -h now
 set $reboot sudo -A reboot
 set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
 set $hibernate sudo -A systemctl suspend
-set $hdminame   HDMI1
-set $edpname    eDP1
+set $hdminame   HDMI-1
+set $edpname    eDP-1
 set $left       j
 set $right      semicolon
 set $up         l
 set $down       k
 
 # Same logic applied to everything else.
-set_from_resource $term_background background
+set_from_resource $term_background background #000000
 set_from_resource $term_foreground foreground
 set_from_resource $term_color0     color0
 set_from_resource $term_color1     color1
@@ -50,34 +52,25 @@ set_from_resource $term_color13    color13
 set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
-set $bg-color 	         #000000
-set $inactive-bg-color   #000000
-set $text-color          #ffffff
-set $inactive-text-color #ffffff
-set $urgent-bg-color     #E53935
+set_from_resource $bg-color 	         background #000000
+set_from_resource $inactive-bg-color   background #000000
+set_from_resource $text-color          color4 #ffffff
+set_from_resource $inactive-text-color color12 #ffffff
+set_from_resource $urgent-bg-color     background #E53935
+set_from_resource $urgent-text-color     color2 #E53935
 # set $focus-color        #4B088A
-set $focus-color        #00cccc
-set $focus-text-color   #000000
+set_from_resource $focus-color        background #00cccc
+set_from_resource $focus-text-color   color4 #000000
 
-set $ind-color          #6699ff
-set $focus-ind-color    #6699ff
+set_from_resource $ind-color          color6 #6699ff
 # Theme colors
-# class                   border  backgr. text    indic.   child_border
-client.focused          #556064 #556063 #80FFF9 #FDF6E3 $term_color4
-client.focused_inactive #2F3D44 #2F3D44 #AD69AF #454948 
-client.unfocused        #2F3D44 #2F3D44 #AD69AF #454948 
-client.urgent           #CB4B16 #FDF6E3 #AD69AF #268BD2 
-client.placeholder      #000000 #0c0c0c #ffffff #000000 
-
-client.background       #2B2C2B
-
-
-# window colors
 # class                 border  backgr. text    indicator child_border
-# client.focused          $bg-color          $focus-color       $focus-text-color    $focus-ind-color $focus-color
+client.focused          $focus-text-color          $focus-color $focus-text-color    $ind-color $focus-text-color
 # client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $ind-color #000000
-# client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $ind-color #000000
-# client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $ind-color #000000
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $ind-color #000000
+client.urgent           $urgent-text-color   $urgent-bg-color   $urgent-text-color          $ind-color
+
+client.background       $bg-color
 
 # #---Dropdown Windows---# #
 
@@ -115,15 +108,17 @@ for_window [title="mpvfloat"] border pixel 0
 no_focus [title="mpvfloat"]
 
 # #---Starting External Scripts---# #
+exec --no-startup-id autorandr -c
+exec --no-startup-id blueman-applet
 exec --no-startup-id compton --config "/home/zzz/.config/compton/compton.conf"
-exec --no-startup-id calise
+exec --no-startup-id clight
 exec --no-startup-id dunst
 exec --no-startup-id devmon
 exec --no-startup-id gmail
 exec --no-startup-id gcalendar
 exec --no-startup-id gnome-screensaver
-exec --no-startup-id i3-msg 'workspace $workspace10; exec --no-startup-id telegram-desktop'
-exec --no-startup-id i3-msg 'workspace $workspace2; exec --no-startup-id qutebrowser'
+exec --no-startup-id telegram-desktop
+exec --no-startup-id qutebrowser
 exec --no-startup-id keynav
 exec --no-startup-id mpd
 exec --no-startup-id nm-applet
@@ -133,7 +128,6 @@ exec --no-startup-id setbg
 exec --no-startup-id st
 exec --no-startup-id unclutter # mouse invinsible
 exec --no-startup-id variety
-exec --no-startup-id xcompmgr
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xrdb ~/.Xdefaults
 # exec --no-startup-id redshift-gtk
@@ -150,17 +144,37 @@ exec_always xkbcomp "~/.xkbmap $DISPLAY"
 exec_always xmodmap "~/.xmodmaprc"
 
 bar {
-        font pango:System San Francisco Display, FontAwesome 10
-        status_command i3blocks
+        output primary
         position top
-        mode dock
-        modifier none
         tray_output             primary
+        colors {
+                background $term_background
+                statusline $term_color12
+                focused_workspace   $term_color5  $term_background $term_color5
+                active_workspace  $term_color4 $term_background $term_color4
+                inactive_workspace $term_background $term_background $term_color8
+                urgent_workspace   $term_color1 $term_background $term_color1
+            }
+        status_command i3blocks
 }
+# bar {
+        # output eDP-1
+        # position top
+        # colors {
+                # background $term_background
+                # statusline $term_color12
+                # focused_workspace   $term_color5  $term_background $term_color5
+                # active_workspace  $term_color4 $term_background $term_color4
+                # inactive_workspace $term_background $term_background $term_color8
+                # urgent_workspace   $term_color1 $term_background $term_color1
+            # }
+# }
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # #---Basic Bindings---# #
-bindsym button3 kill
+bindsym button3 --border kill
+bindsym $mod+button1 --whole-window floating toggle
+bindsym $mod+button3 --whole-window resize grow height 5 px or 5 ppt
 bindsym $mod+button4 --whole-window resize grow height 5 px or 5 ppt
 bindsym $mod+button5 --whole-window resize  shrink height 5 px or 5 ppt
 bindsym $mod+button6 --whole-window resize  shrink width 5 px or 5 ppt
@@ -187,7 +201,6 @@ bindsym $mod+a split vertical
 bindsym $mod+b layout toggle tabbed splith splitv
 bindsym $mod+shift+b layout tabbed
 
-# bindsym $mod+c split h
 # bindsym $mod+shift+c split h
 bindsym $mod+ctrl+c reload
 
@@ -200,8 +213,9 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+g mode "$mode_run"
 # bindsym $mod+shift+g mode "$mode_run"
 
-bindsym $mod+q kill
+bindsym $mod+q exec --no-startup-id  i3kill
 bindsym $mod+shift+q mode "$mode_system"
+bindsym $mod+ctrl+q kill
 
 bindsym $mod+m mode "$mode_music"
 bindsym $mod+shift+m move workspace to output right
@@ -209,9 +223,11 @@ bindsym $mod+shift+m move workspace to output right
 bindsym $mod+n exec $term  -e nvim
 # bindsym $mod+shift+n
 
+bindsym $mod+o split v
 bindsym $mod+ctrl+o exec ~/.dotfiles/scripts/change_output.sh
 
 bindsym $mod+ctrl+p focus parent
+bindsym $mod+ctrl+shift+p focus child
 
 bindsym $mod+ctrl+r restart
 
@@ -226,7 +242,7 @@ bindsym $mod+x			gaps inner current plus 5
 bindsym $mod+Shift+x		gaps inner current minus 5
 
 bindsym $mod+z			gaps outer current plus 5
-bindsym $mod+Shift+z		gaps oute current minus 5
+bindsym $mod+Shift+z		gaps outer current minus 5
 
 # bindsym $mod+apostrophe mode "$mode_system"
 # bindsym $mod+shift+apostrophe kill
@@ -254,7 +270,7 @@ bindsym $mod+bracketright 	exec --no-startup-id lmc forward 10
 bindsym $mod+Shift+bracketright exec --no-startup-id lmc forward 120
 
 # For screenshots and recording
-bindsym Print 			exec --no-startup-id maim pic-full-"$(date '+%y%m%d-%H%M-%S').png"
+bindsym Print 			exec --no-startup-id maim Pictures/screenshot-"$(date '+%y%m%d-%H%M-%S').png"
 bindsym Shift+Print 		exec --no-startup-id maimpick
 bindsym $mod+Print		exec --no-startup-id dmenurecord
 bindsym $mod+Shift+Print		exec --no-startup-id maim -s | xclip -selection clipboard -t image/png ;
@@ -370,15 +386,24 @@ bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 
+bindsym $mod+Shift+ctrl+$left move up; move left, move right
+bindsym $mod+Shift+ctrl+$right move up; move right, move left
+
+bindsym $mod+ctrl+$left focus parent; focus left
+bindsym $mod+ctrl+$right focus parent; focus right
+
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+bindsym $mod+ctrl+Left move up; move left
+bindsym $mod+ctrl+Right move up; move right
 
 
-set $workspace1 "1: "
+
+# set $workspace1 "1: "
 # set $workspace2 w: "
 set $workspace2 "2: "
 set $workspace3 "3: "
@@ -386,9 +411,11 @@ set $workspace4 "4: "
 set $workspace5 "5: "
 set $workspace6 "6: "
 set $workspace7 "7: "
-set $workspace8 "8: "
-set $workspace9 "9: "
-set $workspace10 "10: "
+set $workspace8 "8: "
+# set $workspace9 "9: "
+set $workspace10 "10: "
+
+exec i3-msg "workspace $workspace2"
 
 set $wsBuK    "S: BuK"
 set $wsNumRe       "S: NumRe"
@@ -396,7 +423,7 @@ set $wsST      "S: ST"
 set $wsCC     "S: CC"
 set $wsAS    "S: AS"
 
-set $1 q
+# set $1 q
 set $2 w
 set $3 e
 set $4 r
@@ -404,7 +431,7 @@ set $5 t
 set $6 y
 set $7 u
 set $8 i
-set $9 o
+set $9 [
 set $0 p
 
 # switch to workspace
@@ -416,7 +443,7 @@ bindsym $mod+$5 workspace $workspace5
 bindsym $mod+$6 mode "Studium"
 bindsym $mod+$7 workspace $workspace7
 bindsym $mod+$8 workspace $workspace8
-bindsym $mod+$9 workspace $workspace9
+# bindsym $mod+$9 workspace $workspace9
 bindsym $mod+$0 workspace $workspace10
 
 mode "Studium" {
@@ -449,14 +476,14 @@ bindsym $mod+Shift+$9 move container to workspace $workspace9
 bindsym $mod+Shift+$0 move container to workspace $workspace10
 
 # assign [class="Chromium-browser"] 7
-assign [class="Firefox"] $workspace2
-assign [class="Thunderbird"] $workspace10
+# assign [class="Firefox"] $workspace2
+assign [class="Thunderbird"] $workspace8
 assign [class="Calise" instance="calise" title="Calise"] $workspace7
-assign [class="Chromium-browser" instance="mail.google.com"] $workspace10
-assign [class="Chromium-browser" instance="calendar.google.com"] $workspace10
+assign [class="Chromium-browser" instance="mail.google.com"] $workspace8
+assign [class="Chromium-browser" instance="calendar.google.com"] $workspace8
 assign [class="Chromium-browser" instance="home_zzz_hiwi_henson_index.html" window_role="pop-up"] $workspace8
 
-workspace $workspace1 output $hdminame
+# workspace $workspace1 output primary
 workspace $workspace2 output $hdminame
 workspace $workspace3 output $hdminame
 workspace $workspace4 output $hdminame
@@ -464,8 +491,8 @@ workspace $workspace5 output $hdminame
 workspace $workspace6 output $hdminame
 workspace $workspace7 output $edpname
 workspace $workspace8 output $edpname
-workspace $workspace9 output $hdminame
-workspace $workspace10 output $hdminame
+workspace $workspace9 output primary
+workspace $workspace10 output primary
 
 # #---Modes ---# #
 mode "resize" {
@@ -485,16 +512,23 @@ mode "resize" {
 
 set $mode_leader leader
 mode "$mode_leader" {
-    bindsym b exec rofi -show windowcd -lines 10, mode "default"
+    bindsym b exec rofi -show windowcd -lines 15, mode "default"
     bindsym k sticky toggle, mode "default"
     bindsym m move workspace to output right, mode "default"
     bindsym shift+m move workspace to output up, mode "default"
     # bindsym m exec --no-startup-id dmenumount, mode "default"
     # bindsym shift+m exec --no-startup-id dmenuumount, mode "default"
     # scratchpad
-    bindsym shift+s move scratchpad
-    bindsym s scratchpad show
+    bindsym d bar mode hide, mode "default"
+    bindsym shift+d bar mode dock, mode "default"
+    # bindsym r bar mode toggle, mode "default"
+    bindsym shift+s move scratchpad, mode "default"
+    bindsym s scratchpad show, mode "default"
+    bindsym t exec rofi -show window -lines 15, mode "default"
     bindsym u exec --no-startup-id dmenuunicode, mode "default"
+    bindsym v exec --no-startup-id vpntoggle 'vpn-default', mode "default"
+    bindsym shift+v exec --no-startup-id vpntoggle 'PIA - Switzerland', mode "default"
+    bindsym w exec --no-startup-id networkmanager_dmenu -i -sb '$term_background' -sf '$term_color2', mode "default"
     bindsym slash exec --no-startup-id ducksearch, mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -528,15 +562,17 @@ mode "$mode_run" {
     bindsym c exec $term -e calcurse -D ~/.config/calcurse, mode "default"
     bindsym d exec baobab, mode "default"
     bindsym e exec $term -e neomutt && pkill -RTMIN+12 i3blocks, mode "default"
-    bindsym f exec firefox , mode "default"
+    bindsym f exec firefox --private-window, mode "default"
+    bindsym shift+f exec firefox , mode "default"
     bindsym h exec $term -e htop, mode "default"
     bindsym m 			exec --no-startup-id $term -e ncmpcpp, mode "default"
     # bindsym n exec nautilus --no-desktop, mode "default"
-    bindsym n			exec $term -e nb && pkill -RTMIN+6 i3blocks
-    bindsym p exec pcmanfm --no-desktop, mode "default"
+    bindsym n			exec $term -e nb && pkill -RTMIN+6 i3blocks, mode "default"
+    # bindsym p exec pcmanfm --no-desktop, mode "default"
+    bindsym p exec $term -e pulsemixer, mode "default"
     bindsym q exec python3 -m qutebrowser, mode "default"
     bindsym r exec $term -e $FILE, mode "default"
-    bindsym t exec xfce4-terminal, mode "default"
+    bindsym t exec telegram-desktop, mode "default"
     bindsym v exec code, mode "default"
     bindsym w exec $term -e nmtui, mode "default"
     bindsym x exec bash ~/hiwi/ACPLT-DevKit-linux64/acplt_dev, mode "default"
@@ -577,17 +613,21 @@ mode "$mode_output" {
 set $mode_music Music
 mode "$mode_music" {
 
-    bindsym t exec --no-startup-id mpd_controll -t, mode "default"
     bindsym a exec --no-startup-id mpd_controll -a, mode "default"
     bindsym j exec --no-startup-id lmc backward
+    bindsym o exec --no-startup-id mpd_controll -o, mode "default"
     bindsym p exec --no-startup-id mpd_controll -p, mode "default"
     # bindsym j exec --no-startup-id mpd_controll -j, mode "default"
     bindsym l exec --no-startup-id mpd_controll -l, mode "default"
     bindsym n		exec --no-startup-id lmc next, mode "default"
+    bindsym t exec --no-startup-id mpd_controll -t, mode "default"
+    bindsym q exec --no-startup-id mpc stop, mode "default"
     bindsym space		exec --no-startup-id lmc toggle, mode "default"
     bindsym shift+n		exec --no-startup-id lmc prev, mode "default"
     bindsym r		exec --no-startup-id lmc replay, mode "default"
     bindsym semicolon exec --no-startup-id lmc forward
+    bindsym XF86AudioLowerVolume	exec --no-startup-id mpc volume -5
+    bindsym XF86AudioRaiseVolume	exec --no-startup-id mpc volume +5
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }

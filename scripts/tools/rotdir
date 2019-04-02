@@ -1,0 +1,9 @@
+#!/bin/sh
+# Give this script a filename argument. Returns PWD rotated with that file first.
+[ -z "$1" ] && echo "usage: rotdir regex 2>&1" && exit 1
+ed -s <<EOF
+r !find "$PWD" -maxdepth 1
+g/$1/m0
+,p
+Q
+EOF

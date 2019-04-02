@@ -8,8 +8,7 @@ interval=once
 signal=9
 
 [music]
-label=🎼
-interval=once
+interval=1
 signal=11
 
 [news]
@@ -27,8 +26,9 @@ interval=20
 signal=7
 
 [weather]
-interval=3600
+interval=18000
 signal=5
+command=weather Berlin
 
 [mailbox]
 label=📬
@@ -57,7 +57,7 @@ command=disk /mnt/all 
 
 [disk]
 interval=60
-command=disk /media/sdcard 
+command=disk /media/sdcard 
 
 [battery]
 command=battery BAT0
@@ -70,5 +70,6 @@ interval=30
 [internet]
 interval=10
 
-[help]
-interval=once
+[vpn]
+interval=10
+signal=13

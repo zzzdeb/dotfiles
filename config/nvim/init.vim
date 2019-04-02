@@ -21,6 +21,8 @@ if exists('+breakindent')
   set wrap        " wrapping with breakindent is tolerable
 endif
 
+set formatoptions+=l
+
 set encoding=utf8
 set clipboard^=unnamed " This sets the clipboard as the default register. Useful for copy paste from tmux
 
@@ -218,7 +220,7 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'vim-scripts/indentpython.vim'
 " Plug 'w0rp/ale'
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
-Plug 'ivanov/vim-ipython'
+" Plug 'ivanov/vim-ipython'
 Plug 'Vigemus/iron.nvim'
 
 Plug 'fabi1cazenave/suckless.vim'
@@ -229,7 +231,8 @@ Plug 'mboughaba/i3config.vim'
 
 " Test vifm
 Plug 'vifm/neovim-vifm'
-
+" Test language check
+Plug 'dpelle/vim-LanguageTool'
 call plug#end()
 
 
@@ -240,6 +243,7 @@ filetype indent off                  " required
 " Configuration Section
 """""""""""""""""""""""""""""""""""""
 
+set title titlestring=%f%m titlelen=70
 " better backup, swap and undos storage
 set directory=~/.vim/dirs/tmp     " directory to place swap files in
 if has("vms")
@@ -633,8 +637,11 @@ endfunction
 """""""""""""""""""""""""""""""""""""
 " Autocommands for filetypes
 """""""""""""""""""""""""""""""""""""
+au BufNewFile,BufRead,BufEnter   *.mail    setlocal spell    spelllang=de_de
+" auto BufEnter * let &titlestring = expand("%:p")
 augroup xdefaults 
-au BufWritePost .Xdefaults !xrdb ~/.Xdefaults
+au BufWritePost *Xdefaults !xrdb %
+au BufWritePost *Xresources !xrdb %
 augroup END
 
 augroup python 

@@ -1,8 +1,14 @@
 #!/bin/sh
 
 filter() {
-	sed "/^volume:/d" | tac | sed -e "s/\\&/&amp;/g;s/\\[paused\\].*/<span color=\"gray\" font_style=\"italic\">/g;s/\\[playing\\].*/<span>/g" | tr -d '\n' | sed -e "s/$/<\\/span>/g"
-	}
+    read -r line1;
+    read -r line2;
+    time=$(echo $line2 | awk '{print $3}')
+    cuted=${line1:0:40}
+    line=$cuted' ['$time']'
+        echo -e "$line\n$line2" | sed "/^volume:/d" | tac | sed -e "s/\\&/&amp;/g;s/\\[paused\\].*/<span color=\"gray\" font_style=\"italic\">⏸ /g;s/\\[playing\\].*/<span>  /g" | tr -d '\n' | sed -e "s/$/<\\/span>/g"
+    # echo $line1'\n'$line2'\n'$line3'\n'
+}
 
 case $BLOCK_BUTTON in
     1) mpc status | filter && setsid "$TERMINAL" -e ncmpcpp & ;;  # right click, pause/unpause
