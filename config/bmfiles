@@ -12,7 +12,7 @@
 ,ercommands	~/.config/ranger/commands.py
 ,ei	~/.config/i3/config
 ,eq	~/.config/qutebrowser/config.py
-,em	~/.config/mutt/muttrc
+,em	~/mail.mail
 ,es	~/.dotfiles/st/config.h
 ,ep	~/.config/polybar/config
 ,ed	~/.dotfiles/install.conf.yaml
