@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#changes window in fullscreen modus
+activeGeometry=$(xdotool getactivewindow getwindowgeometry | sed -n 2,2p | awk '{print $2}')
+
+if [[ "$activeGeometry" == "0,0" ]]
+then
+    i3-msg "fullscreen; focus $1; fullscreen"
+else
+    i3-msg "focus $1"
+fi
