@@ -111,7 +111,7 @@ no_focus [title="mpvfloat"]
 exec --no-startup-id autorandr -c
 exec --no-startup-id blueman-applet
 exec --no-startup-id compton --config "/home/zzz/.config/compton/compton.conf"
-exec --no-startup-id clight
+# exec --no-startup-id clight
 exec --no-startup-id dunst
 exec --no-startup-id devmon
 exec --no-startup-id gmail
@@ -145,7 +145,7 @@ exec_always xmodmap "~/.xmodmaprc"
 
 bar {
         output primary
-        position top
+        # position top
         tray_output             primary
         colors {
                 background $term_background
@@ -183,6 +183,7 @@ bindsym $mod+button8 --whole-window resize shrink width 5 px or 5 ppt
 bindsym $mod+button9 --whole-window resize  grow width 5 px or 5 ppt
 
 # keyboard
+bindsym $mod+apostrophe		split horizontal ;; exec $term
 bindsym $mod+Return 		exec $term
 bindsym $mod+Shift+Return	exec --no-startup-id samedir
 
@@ -198,7 +199,7 @@ bindsym $mod+Tab		workspace back_and_forth
 bindsym $mod+a split vertical
 # bindsym $mod+shift+a
 
-bindsym $mod+b layout toggle tabbed splith splitv
+bindsym $mod+b layout toggle tabbed splith splitv stacked
 bindsym $mod+shift+b layout tabbed
 
 # bindsym $mod+shift+c split h
@@ -347,8 +348,8 @@ bindsym XF86Search		exec $BROWSER https://duckduckgo.com
 ##bindsym XF86Finance		exec
 ##bindsym XF86Game		exec
 bindsym XF86Shop		exec $BROWSER https://ebay.com
-bindsym XF86MonBrightnessDown	exec --no-startup-id xbacklight -dec 15
-bindsym XF86MonBrightnessUp	exec --no-startup-id xbacklight -inc 15
+bindsym XF86MonBrightnessUp exec sudo backlight up; exec notify-send -t 1000 "Brightness: $(backlight current)%"
+bindsym XF86MonBrightnessDown exec sudo backlight down; exec notify-send -t 1000 "Brightness: $(backlight current)%"
 bindsym XF86AudioMedia		exec --no-startup-id $term -e ncmpcpp
 bindsym XF86Display		exec --no-startup-id displayselect
 #bindsym XF86KbdLightOnOff	exec
@@ -369,10 +370,10 @@ bindsym XF86WLAN		exec $netrefresh
 bindsym $mod+XF86AudioPlay mode "$mode_MediaPlayer"
 
 # change focus
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
+bindsym $mod+$left exec i3fullscreenDirections left
+bindsym $mod+$down exec i3fullscreenDirections down
+bindsym $mod+$up exec i3fullscreenDirections up
+bindsym $mod+$right exec i3fullscreenDirections right
 
 # easily resizing
 bindsym $mod+Left resize shrink width 10 px or 10 ppt
@@ -482,6 +483,7 @@ assign [class="Calise" instance="calise" title="Calise"] $workspace7
 assign [class="Chromium-browser" instance="mail.google.com"] $workspace8
 assign [class="Chromium-browser" instance="calendar.google.com"] $workspace8
 assign [class="Chromium-browser" instance="home_zzz_hiwi_henson_index.html" window_role="pop-up"] $workspace8
+assign [class="VirtualBox Machine"] $workspace4
 
 # workspace $workspace1 output primary
 workspace $workspace2 output $hdminame
@@ -513,14 +515,14 @@ mode "resize" {
 set $mode_leader leader
 mode "$mode_leader" {
     bindsym b exec rofi -show windowcd -lines 15, mode "default"
+    bindsym d bar mode hide, mode "default"
+    bindsym shift+d bar mode dock, mode "default"
     bindsym k sticky toggle, mode "default"
     bindsym m move workspace to output right, mode "default"
     bindsym shift+m move workspace to output up, mode "default"
     # bindsym m exec --no-startup-id dmenumount, mode "default"
     # bindsym shift+m exec --no-startup-id dmenuumount, mode "default"
     # scratchpad
-    bindsym d bar mode hide, mode "default"
-    bindsym shift+d bar mode dock, mode "default"
     # bindsym r bar mode toggle, mode "default"
     bindsym shift+s move scratchpad, mode "default"
     bindsym s scratchpad show, mode "default"
@@ -528,7 +530,8 @@ mode "$mode_leader" {
     bindsym u exec --no-startup-id dmenuunicode, mode "default"
     bindsym v exec --no-startup-id vpntoggle 'vpn-default', mode "default"
     bindsym shift+v exec --no-startup-id vpntoggle 'PIA - Switzerland', mode "default"
-    bindsym w exec --no-startup-id networkmanager_dmenu -i -sb '$term_background' -sf '$term_color2', mode "default"
+    # bindsym w exec --no-startup-id networkmanager_dmenu -i -sb '$term_background' -sf '$term_color2', mode "default"
+    bindsym w floating enable ;; exec --no-startup-id 21_9_width
     bindsym slash exec --no-startup-id ducksearch, mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -558,11 +561,12 @@ mode "$mode_MediaPlayer" {
 set $mode_run RUN
 mode "$mode_run" {
     bindsym a exec arandr, mode "default"
-    bindsym b exec chromium-browser --incognito, mode "default"
+    bindsym b exec firefox --private-window, mode "default"
+    # bindsym b exec chromium-browser --incognito, mode "default"
     bindsym c exec $term -e calcurse -D ~/.config/calcurse, mode "default"
     bindsym d exec baobab, mode "default"
     bindsym e exec $term -e neomutt && pkill -RTMIN+12 i3blocks, mode "default"
-    bindsym f exec firefox --private-window, mode "default"
+    bindsym f exec $term -e $FILE, mode "default"
     bindsym shift+f exec firefox , mode "default"
     bindsym h exec $term -e htop, mode "default"
     bindsym m 			exec --no-startup-id $term -e ncmpcpp, mode "default"
@@ -571,7 +575,6 @@ mode "$mode_run" {
     # bindsym p exec pcmanfm --no-desktop, mode "default"
     bindsym p exec $term -e pulsemixer, mode "default"
     bindsym q exec python3 -m qutebrowser, mode "default"
-    bindsym r exec $term -e $FILE, mode "default"
     bindsym t exec telegram-desktop, mode "default"
     bindsym v exec code, mode "default"
     bindsym w exec $term -e nmtui, mode "default"
@@ -589,7 +592,7 @@ mode "$mode_system" {
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
     bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id ~/.config/i3/scripts/i3exit shutdown, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
