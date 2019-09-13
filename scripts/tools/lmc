@@ -4,7 +4,9 @@
 [ -z "$2" ] && num="2" || num="$2"
 
 case "$1" in
-	u*) pulsemixer --change-volume +"$num" ;;
+	v*) pulsemixer --get-volume | awk '{print $1}';;
+	u*) pulsemixer --max-volume 100 --change-volume +"$num" ;;
+	U*) pulsemixer --change-volume +"$num" ;;
 	d*) pulsemixer --change-volume -"$num" ;;
 	m*) pulsemixer --toggle-mute ;;
 	truemute) pulsemixer --mute ;;
