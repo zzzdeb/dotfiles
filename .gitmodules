@@ -16,9 +16,6 @@
 [submodule "meta/dotbot_plugins/pip"]
 	path = meta/dotbot_plugins/pip
 	url = https://github.com/sobolevn/dotbot-pip
-[submodule "meta/dotbot_plugins/env"]
-	path = meta/dotbot_plugins/env
-	url = https://github.com/qobilidop/dotbot-env
 [submodule "meta/dotbot"]
 	path = meta/dotbot
 	url = https://github.com/anishathalye/dotbot
@@ -31,3 +28,6 @@
 [submodule "config/qutebrowser/themes/nord-qutebrowser"]
 	path = config/qutebrowser/themes/nord-qutebrowser
 	url = https://github.com/Linuus/nord-qutebrowser
+[submodule "scripts/i3cmds/i3-layout-manager"]
+	path = scripts/i3-layout-manager
+	url = https://github.com/klaxalk/i3-layout-manager
