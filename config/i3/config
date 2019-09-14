@@ -286,7 +286,7 @@ bindsym XF86AudioLowerVolume	exec --no-startup-id lmc down 5
 bindsym Shift+XF86AudioLowerVolume	exec --no-startup-id lmc down 10
 bindsym Control+XF86AudioLowerVolume	exec --no-startup-id lmc down 1
 bindsym XF86AudioRaiseVolume	exec --no-startup-id lmc up 5
-bindsym Shift+XF86AudioRaiseVolume	exec --no-startup-id lmc up 10
+bindsym Shift+XF86AudioRaiseVolume	exec --no-startup-id lmc Up 5; exec dunstify --replace=91284 -t 1000 "🔊: $(lmc volume)%"
 bindsym Control+XF86AudioRaiseVolume	exec --no-startup-id lmc up 1
 bindsym XF86PowerOff		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
 ##bindsym XF86Copy		exec
@@ -348,8 +348,10 @@ bindsym XF86Search		exec $BROWSER https://duckduckgo.com
 ##bindsym XF86Finance		exec
 ##bindsym XF86Game		exec
 bindsym XF86Shop		exec $BROWSER https://ebay.com
-bindsym XF86MonBrightnessUp exec sudo backlight up; exec notify-send -t 1000 "Brightness: $(backlight current)%"
-bindsym XF86MonBrightnessDown exec sudo backlight down; exec notify-send -t 1000 "Brightness: $(backlight current)%"
+bindsym XF86MonBrightnessUp exec sudo backlight up; exec dunstify --replace=11 history_ignore=yes -t 2000 "Brightness: $(backlight current)% $(progressString.sh 10  ⚪ ⚫ $(backlight current))"
+bindsym $mod+XF86MonBrightnessUp exec xbacklight.py $hdminame +0.1
+bindsym XF86MonBrightnessDown exec sudo backlight down; exec dunstify --replace=11 -t 2000 "Brightness: $(backlight current)% $(progressString.sh 10  ⚪ ⚫ $(backlight current))"
+bindsym $mod+XF86MonBrightnessDown exec xbacklight.py $hdminame -0.1
 bindsym XF86AudioMedia		exec --no-startup-id $term -e ncmpcpp
 bindsym XF86Display		exec --no-startup-id displayselect
 #bindsym XF86KbdLightOnOff	exec
@@ -515,8 +517,7 @@ mode "resize" {
 set $mode_leader leader
 mode "$mode_leader" {
     bindsym b exec rofi -show windowcd -lines 15, mode "default"
-    bindsym d bar mode hide, mode "default"
-    bindsym shift+d bar mode dock, mode "default"
+    bindsym d bar mode toggle, mode "default"
     bindsym k sticky toggle, mode "default"
     bindsym m move workspace to output right, mode "default"
     bindsym shift+m move workspace to output up, mode "default"
@@ -524,6 +525,7 @@ mode "$mode_leader" {
     # bindsym shift+m exec --no-startup-id dmenuumount, mode "default"
     # scratchpad
     # bindsym r bar mode toggle, mode "default"
+    bindsym r exec sudo systemctl restart NetworkManager.service, mode "default"
     bindsym shift+s move scratchpad, mode "default"
     bindsym s scratchpad show, mode "default"
     bindsym t exec rofi -show window -lines 15, mode "default"
@@ -563,23 +565,24 @@ mode "$mode_run" {
     bindsym a exec arandr, mode "default"
     bindsym b exec firefox --private-window, mode "default"
     # bindsym b exec chromium-browser --incognito, mode "default"
-    bindsym c exec $term -e calcurse -D ~/.config/calcurse, mode "default"
+    # bindsym c exec $term -e calcurse -D ~/.config/calcurse, mode "default"
+    bindsym c exec gcalendar, mode "default"
     bindsym d exec baobab, mode "default"
-    bindsym e exec $term -e neomutt && pkill -RTMIN+12 i3blocks, mode "default"
+    # bindsym e exec $term -e neomutt && pkill -RTMIN+12 i3blocks, mode "default"
+    bindsym e exec gmail, mode "default"
     bindsym f exec $term -e $FILE, mode "default"
     bindsym shift+f exec firefox , mode "default"
     bindsym h exec $term -e htop, mode "default"
     bindsym m 			exec --no-startup-id $term -e ncmpcpp, mode "default"
     # bindsym n exec nautilus --no-desktop, mode "default"
-    bindsym n			exec $term -e nb && pkill -RTMIN+6 i3blocks, mode "default"
+    bindsym n exec $term -e nmtui, mode "default"
     # bindsym p exec pcmanfm --no-desktop, mode "default"
     bindsym p exec $term -e pulsemixer, mode "default"
     bindsym q exec python3 -m qutebrowser, mode "default"
     bindsym t exec telegram-desktop, mode "default"
     bindsym v exec code, mode "default"
-    bindsym w exec $term -e nmtui, mode "default"
-    bindsym x exec bash ~/hiwi/ACPLT-DevKit-linux64/acplt_dev, mode "default"
-    bindsym plus exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
+    # bindsym x exec bash ~/hiwi/ACPLT-DevKit-linux64/acplt_dev, mode "default"
+    bindsym x exec --no-startup-id ddspawn genius -f mono:pixelsize=24, mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"

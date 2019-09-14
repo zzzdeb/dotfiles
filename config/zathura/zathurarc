@@ -33,3 +33,5 @@ map ; scroll right
 "map J scroll down
 "map K scroll up
 
+set recolor-lightcolor "#ffeecc"
+set recolor-darkcolor "#000000"

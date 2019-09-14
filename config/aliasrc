@@ -1,6 +1,6 @@
 #!/bin/sh
 alias ka="killall" \
-	mkd="mkdir -pv"
+	mkd="mkdir -pv" \
 	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
 	calcurse="calcurse -D ~/.config/calcurse" \
 	magit="nvim -c Magit" \
@@ -55,3 +55,5 @@ se() { du -a ~/.scripts/* ~/.config/* ~/.dotfiles/* | awk '{print $2}' | fzf | x
 sv() { vcopy "$(du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf)" ;}
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 
+sa() { du -a ~/hiwi/ACPLT-DevKit-linux64/acplt/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
+st() { du -a ~/Downloads/Torrent/* | awk '{print $2}' | fzf | chdir;}

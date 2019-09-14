@@ -4,6 +4,7 @@ h	~/
 .c	~/.config
 D	~/Documents
 d	~/Downloads
+o ~/Owncloud
 v	~/softwares/voidrice
 a ~/hiwi/ACPLT-DevKit-linux64/acplt
 ad ~/hiwi/ACPLT-DevKit-linux64/acplt/dev
@@ -12,8 +13,7 @@ P	~/Pictures
 V	~/Videos
 c	~/.config
 t ~/Downloads/Torrent
-sb	~/Owncloud/Studium/ws18/Berechenbarkeit und Komplexität
-sa	~/Owncloud/Studium/ws18/Automatic Speech Recognition
-sn	~/Owncloud/Studium/ws18/Numerisches Rechnen
-sc	~/Owncloud/Studium/ws18/Compilerbau
-ss	~/Owncloud/Studium/ws18/Softwaretechnik
+sc	~/Owncloud/Studium/ss19/Datenkommunikation und Sicherheit (VO) [12.20359]
+si	~/Owncloud/Studium/ss19/Datenbanken und Informationssysteme (VO) [12.07565]
+sm	~/Owncloud/Studium/ss19/malo
+S	~/VirtualBox VMs/shared

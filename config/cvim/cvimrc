@@ -50,11 +50,12 @@ map ; :
 let mapleader = ","
 
 
-map J :call nextTab<cr>
-map K :call previousTab<cr>
+map K :call nextTab<cr>
+map L :call previousTab<cr>
 
 " Mappings
 
+map q closeTab
 map <Leader>r reloadTabUncached
 map <Leader>x :restore<Space>
 
@@ -142,3 +143,4 @@ map ; scrollright
 
 map K :call nextTab<cr>
 map L :call previousTab<cr>
+map O :tabnew <cr>

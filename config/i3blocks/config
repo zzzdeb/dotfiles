@@ -11,10 +11,10 @@ signal=9
 interval=1
 signal=11
 
-[news]
-label=📰
-interval=once
-signal=6
+#[news]
+#label=📰
+#interval=once
+#signal=6
 
 [pacpackages]
 label=📦
@@ -28,7 +28,7 @@ signal=7
 [weather]
 interval=18000
 signal=5
-command=weather Berlin
+command=weather Aachen
 
 [mailbox]
 label=📬
@@ -63,12 +63,16 @@ command=disk /media/sdcard 
 command=battery BAT0
 interval=5
 
+[pomodoro]
+command=python ~/.dotfiles/config/i3blocks/i3-pomodoro/pomodoro.py
+interval=1
+
 [clock]
 label=📅
 interval=30
 
-[internet]
-interval=10
+#[internet]
+#interval=10
 
 [vpn]
 interval=10
