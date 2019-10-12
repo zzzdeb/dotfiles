@@ -104,8 +104,8 @@ partial modifier_keys
           symbols[Group1]	=[w,	W,		at		      ,		at,	 F10,		F10		      ]	};
       key <AD03> {[	  e,	E,		numbersign	,		numbersign,		 F11,		F11]	};
       key <AD04> {[	  r,	R,		dollar		  ,		dollar,		  	 F12,		F12]	};
-      key <AD05> {[	  t,	T,		percent		  ,		percent,		  	 5,		5]	};
-      key <AD07> {[	  u,	U,		ampersand	  ,		ampersand,	  	 7,		7]	};
+      key <AD05> {[	  t,	T,		percent		  ,		percent,		  	 adiaeresis,		Adiaeresis]	};
+      key <AD07> {[	  u,	U,		ampersand	  ,		ampersand,	  	 udiaeresis,		Udiaeresis]	};
       key <AD08> {[	  i,	I,		asterisk	  ,		asterisk,	  	 Next,		Next]	};
       key <AD09> {[	  o,	O,	 bracketleft, bracketleft, Prior,		Prior]	};
       key <AD10> {[	  p,	P,   bracketright, bracketright]	};
@@ -113,13 +113,13 @@ partial modifier_keys
       key <ESC> {[ Escape, Escape, question,  question]	};
       key <BKSP> {[ BackSpace, BackSpace, BackSpace,  Delete]	};
 
-      key <AC01> {[	  a,	A,	 less,		less,		F5,		F5	]	};
-      key <AC02> {[	  s,	S,	 greater,		greater,		F6,		F6	]	};
+      key <AC01> {[	  a,	A,	 bracketleft,		bracketleft,		F5,		F5	]	};
+      key <AC02> {[	  s,	S,	 bracketright,		bracketright,		F6,		F6	]	};
       key <AC03> {[	  d,	D,	 parenleft,   parenleft,		F7,		F7]	};
       key <AC04> {[	  f,	F,	 parenright,  parenright,		F8,		F8]	};
-      key <AC05> {[	  g,	G,	 minus,		minus	]	};
-      key <AC06> {[	  h,	H,	 plus,		plus]	};
-      key <AC07> {[	  j,	J,	 braceleft,		braceleft,   Left 	,Left ]	};
+      key <AC05> {[	  g,	G,	 minus,		minus	,odiaeresis, Odiaeresis]	};
+      key <AC06> {[	  h,	H,	 plus,		plus, ssharp,          Ssharp ]	};
+      key <AC07> {[	  j,	J,	 braceleft, braceleft,   Left 	,Left ]	};
       key <AC08> {[	  k,	K,	 braceright,  braceright , Down 	,Down]	};
       key <AC09> {[	  l,	L,	 equal,		equal,   Up 	,Up ]	};
       key <AC10> {[	  semicolon,	colon,	 colon,		colon,  Right 	,Right  ]	};
@@ -139,7 +139,7 @@ partial modifier_keys
       key <AB08> {[	  comma,	less		 ,	8,		8,	 Next,		Next]	};
       key <AB09> {[	 period,	greater	, 9, 9]	};
       key <AB10> {[	  slash,	question,  0,   0]	};
-      key <AB11> {[ backslash, backslash, bar, bar]	};
+      key <AB11> {[ backslash, bar, bar, bar]	};
 
       key <SPCE> {[ space, space, underscore, underscore	]	};
 

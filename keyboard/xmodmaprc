@@ -4,13 +4,10 @@
 ! clear shift
 
 ! keycode 55 = Shift_L
-! add shift = Shift_L
-! add shift = Shift_R
-
 clear control
 add control = Control_L
 add control = Control_R
-! add mod4 = Escape
 
-! clear mod3
-! clear mod5
+clear shift
+add shift = Shift_L
+

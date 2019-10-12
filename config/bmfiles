@@ -4,7 +4,7 @@
 ,ess	~/.dotfiles/shortcut-sync/shortcuts.sh
 ,eI	~/.dotfiles/install.conf.yaml
 ,eo ~/Owncloud/Notes/test.org
-,eb	~/.bashrc
+,eb ~/Owncloud/Studium/Schriftliche_Arbeiten/BachelorArbeitInformatik/process.org
 ,ez	~/.zshrc
 ,ev	~/.config/nvim/init.vim
 ,er	~/.config/ranger/rc.conf

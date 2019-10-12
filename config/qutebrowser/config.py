@@ -36,6 +36,7 @@ config.bind('xx', 'set tabs.show always;; later 5000 set tabs.show switching')
 config.bind('xg', 'tab-give')
 config.bind('xb', 'config-cycle statusbar.hide')
 config.bind('xh', 'config-cycle content.user_stylesheets /home/hexdsl/.config/qutebrowser/styles/solarized-dark-all-sites.css ""')
+config.bind('xs', 'spawn --userscript tts.py replay')
 config.bind('B', 'set-cmd-text -s :bookmark-load')
 config.bind('sc', 'config-source')
 
@@ -165,6 +166,7 @@ config.bind('hh','hint all hover')
 config.bind('hi','hint images')
 config.bind('ho','hint links fill :open {hint-url}')
 config.bind('hr','hint --rapid links tab-bg')
+config.bind('hs','hint div userscript tts.py')
 config.bind('ht','hint inputs')
 config.bind('hv','hint video yank')
 config.bind('hy','hint links yank')
@@ -181,6 +183,12 @@ c.hints.selectors["video"] = [
 
 c.hints.selectors["iframe"] = [
     "iframe",
+]
+c.hints.selectors["*"] = [
+    "*",
+]
+c.hints.selectors["div"] = [
+    "div",
 ]
 #colours
 #  c.colors.completion.fg = "#ffffff"

@@ -51,9 +51,8 @@ alias peek='tee >(cat 1>&2)'
 command -v nvim >/dev/null && alias vim="nvim" v="nvim" vimdiff="nvim -d" vd="nvim -d" # Use neovim for vim if present.
 
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
-se() { du -a ~/.scripts/* ~/.config/* ~/.dotfiles/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
-sv() { vcopy "$(du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf)" ;}
-vf() { fzf | xargs -r -I % $EDITOR % ;}
+se() { du -a ~/.scripts/* ~/.config/* ~/.dotfiles/* /var/lib/transmission/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
+ef() { fzf | xargs -r -I % $EDITOR % ;}
+cdf() { cd -- "$(fzf)"}
 
-sa() { du -a ~/hiwi/ACPLT-DevKit-linux64/acplt/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
-st() { du -a ~/Downloads/Torrent/* | awk '{print $2}' | fzf | chdir;}
+st() { cd -- "$HOME/Downloads/Torrent/$(/usr/bin/ls -C --format=single-column ~/Downloads/Torrent | fzf;)"}

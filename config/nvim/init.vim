@@ -31,28 +31,6 @@ set clipboard^=unnamed " This sets the clipboard as the default register. Useful
 set cpoptions+=$
 
 set updatetime=1000
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
-
-if has('langmap') && exists('+langnoremap')
-  " Prevent that the langmap option applies to characters that result from a
-  " mapping.  If unset (default), this may break plugins (but it's backward
-  " compatible).
-  set langnoremap
-endif
-
-" erase everything
-set backspace=indent,eol,start
-
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -84,6 +62,30 @@ if has("autocmd")
 else
   set autoindent		" always set autoindenting on
 endif " has("autocmd")
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+
+" In many terminal emulators the mouse works just fine, thus enable it.
+if has('mouse')
+  set mouse=a
+endif
+
+if has('langmap') && exists('+langnoremap')
+  " Prevent that the langmap option applies to characters that result from a
+  " mapping.  If unset (default), this may break plugins (but it's backward
+  " compatible).
+  set langnoremap
+endif
+
+" erase everything
+set backspace=indent,eol,start
+
+
 
 
 " neovim
@@ -162,10 +164,14 @@ Plug 'gregsexton/gitv'
 
 " C/Cpp
 Plug 'rhysd/vim-clang-format'
+
+" Latex
+Plug 'lervag/vimtex'
 " test
 Plug 'craigemery/vim-autotag'
 
 Plug 'robertbasic/snipbar'
+
 
 "doesntworsemantichihliht
 "Plug 'davits/DyeVim'
@@ -591,6 +597,11 @@ let g:table_mode_map_prefix= '<localleader>t'
 let g:table_mode_tableize_d_map= '<localleader>T'
 " Highlight
 " let g:highlight_cursor=1
+"
+"  Languagetool
+let g:languagetool_jar = '/home/zzz/softwares/LanguageTool-4.5-SNAPSHOT/languagetool-commandline.jar'
+" Tex Preview
+let g:livepreview_previewer = 'zathura'
 """""""""""""""""""""""""""""""""""""
 " Custom functions
 """""""""""""""""""""""""""""""""""""
@@ -673,6 +684,15 @@ augroup END
 augroup sh 
   au FileType sh nnoremap <buffer> <leader>i :! bashbeautify %<cr>:e<cr>
   au FileType sh nnoremap <buffer> <c-b> :!bash %<cr>
+augroup END
+
+augroup org 
+  au FileType org:
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set expandtab
+    \ set autoindent
 augroup END
 
 augroup term
@@ -945,3 +965,6 @@ nnoremap <c-right> :call MoveWindow("l")<cr>
 noremap <a-w> <c-w>
 
 inoremap {<cr> {<cr>}<esc>O
+
+nnoremap q :q<cr>
+nnoremap Q q

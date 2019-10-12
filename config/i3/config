@@ -114,6 +114,7 @@ exec --no-startup-id compton --config "/home/zzz/.config/compton/compton.conf"
 # exec --no-startup-id clight
 exec --no-startup-id dunst
 exec --no-startup-id devmon
+exec --no-startup-id deja-dup
 exec --no-startup-id gmail
 exec --no-startup-id gcalendar
 exec --no-startup-id gnome-screensaver
@@ -130,7 +131,7 @@ exec --no-startup-id unclutter # mouse invinsible
 exec --no-startup-id variety
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xrdb ~/.Xdefaults
-# exec --no-startup-id redshift-gtk
+exec --no-startup-id redshift-gtk
 
 # Run the script to update the mpd i3block on change.
 exec_always --no-startup-id mpdupdate
@@ -140,8 +141,8 @@ exec_always --no-startup-id podentr
 
 # Keys
 #exec_always setxkbmap -layout us,mn -variant altgr-intl, -option grp:rctrl_rshift_toggle
-exec_always xkbcomp "~/.xkbmap $DISPLAY"
-exec_always xmodmap "~/.xmodmaprc"
+# exec_always xkbcomp "~/.xkbmap $DISPLAY"
+# exec_always xmodmap "~/.xmodmaprc"
 
 bar {
         output primary
@@ -282,11 +283,11 @@ bindsym XF86Launch1		exec --no-startup-id xset dpms force off
 # #---Extra XF86 Keys---# #
 # These are the extra media keys that some keyboards have.
 bindsym XF86AudioMute		exec --no-startup-id lmc mute
-bindsym XF86AudioLowerVolume	exec --no-startup-id lmc down 5
+bindsym XF86AudioLowerVolume	exec --no-startup-id lmc down 5; exec dunstify --replace=91284 -t 1000 ": $(lmc volume)% $(progressString.sh 10  - $(lmc volume))"
 bindsym Shift+XF86AudioLowerVolume	exec --no-startup-id lmc down 10
 bindsym Control+XF86AudioLowerVolume	exec --no-startup-id lmc down 1
-bindsym XF86AudioRaiseVolume	exec --no-startup-id lmc up 5
-bindsym Shift+XF86AudioRaiseVolume	exec --no-startup-id lmc Up 5; exec dunstify --replace=91284 -t 1000 "🔊: $(lmc volume)%"
+bindsym XF86AudioRaiseVolume	exec --no-startup-id lmc up 5; exec dunstify --replace=91284 -t 1000 ": $(lmc volume)% $(progressString.sh 10  - $(lmc volume))"
+bindsym Shift+XF86AudioRaiseVolume	exec --no-startup-id lmc Up 5; exec dunstify --replace=91284 -t 1000 "🔊: $(lmc volume)% $(progressString.sh 10  - $(lmc volume))"
 bindsym Control+XF86AudioRaiseVolume	exec --no-startup-id lmc up 1
 bindsym XF86PowerOff		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
 ##bindsym XF86Copy		exec
@@ -348,9 +349,9 @@ bindsym XF86Search		exec $BROWSER https://duckduckgo.com
 ##bindsym XF86Finance		exec
 ##bindsym XF86Game		exec
 bindsym XF86Shop		exec $BROWSER https://ebay.com
-bindsym XF86MonBrightnessUp exec sudo backlight up; exec dunstify --replace=11 history_ignore=yes -t 2000 "Brightness: $(backlight current)% $(progressString.sh 10  ⚪ ⚫ $(backlight current))"
+bindsym XF86MonBrightnessUp exec sudo backlight up; exec dunstify --replace=11 -t 2000 ": $(backlight current)% $(progressString.sh 10  - $(backlight current))"
 bindsym $mod+XF86MonBrightnessUp exec xbacklight.py $hdminame +0.1
-bindsym XF86MonBrightnessDown exec sudo backlight down; exec dunstify --replace=11 -t 2000 "Brightness: $(backlight current)% $(progressString.sh 10  ⚪ ⚫ $(backlight current))"
+bindsym XF86MonBrightnessDown exec sudo backlight down; exec dunstify --replace=11 -t 2000 ": $(backlight current)% $(progressString.sh 10   - $(backlight current))"
 bindsym $mod+XF86MonBrightnessDown exec xbacklight.py $hdminame -0.1
 bindsym XF86AudioMedia		exec --no-startup-id $term -e ncmpcpp
 bindsym XF86Display		exec --no-startup-id displayselect
@@ -362,7 +363,7 @@ bindsym XF86Display		exec --no-startup-id displayselect
 ##bindsym XF86Save		exec
 bindsym XF86Documents		exec $term -e $FILE ~/Documents
 ##bindsym XF86Battery		exec
-##bindsym XF86Bluetooth		exec
+bindsym XF86Bluetooth		exec btmenu
 bindsym XF86WLAN		exec $netrefresh
 # Media player controls
 # bindsym XF86AudioPlay exec qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
@@ -486,6 +487,7 @@ assign [class="Chromium-browser" instance="mail.google.com"] $workspace8
 assign [class="Chromium-browser" instance="calendar.google.com"] $workspace8
 assign [class="Chromium-browser" instance="home_zzz_hiwi_henson_index.html" window_role="pop-up"] $workspace8
 assign [class="VirtualBox Machine"] $workspace4
+assign [class="Org.gnome.DejaDup" title="Déjà Dup Backup Tool"] $workspace7
 
 # workspace $workspace1 output primary
 workspace $workspace2 output $hdminame
@@ -519,6 +521,7 @@ mode "$mode_leader" {
     bindsym b exec rofi -show windowcd -lines 15, mode "default"
     bindsym d bar mode toggle, mode "default"
     bindsym k sticky toggle, mode "default"
+    bindsym l exec layout_manager.sh, mode "default"
     bindsym m move workspace to output right, mode "default"
     bindsym shift+m move workspace to output up, mode "default"
     # bindsym m exec --no-startup-id dmenumount, mode "default"
@@ -564,21 +567,25 @@ set $mode_run RUN
 mode "$mode_run" {
     bindsym a exec arandr, mode "default"
     bindsym b exec firefox --private-window, mode "default"
+    bindsym shift+b exec btmenu, mode "default"
     # bindsym b exec chromium-browser --incognito, mode "default"
     # bindsym c exec $term -e calcurse -D ~/.config/calcurse, mode "default"
     bindsym c exec gcalendar, mode "default"
-    bindsym d exec baobab, mode "default"
+    bindsym d exec mode "$mode_dmenu", mode "default"
     # bindsym e exec $term -e neomutt && pkill -RTMIN+12 i3blocks, mode "default"
     bindsym e exec gmail, mode "default"
     bindsym f exec $term -e $FILE, mode "default"
     bindsym shift+f exec firefox , mode "default"
     bindsym h exec $term -e htop, mode "default"
+    bindsym k exec anki -p zzz1, mode "default"
     bindsym m 			exec --no-startup-id $term -e ncmpcpp, mode "default"
     # bindsym n exec nautilus --no-desktop, mode "default"
-    bindsym n exec $term -e nmtui, mode "default"
+    bindsym n exec networkmanager_dmenu, mode "default"
+    bindsym N exec $term -e nmtui, mode "default"
     # bindsym p exec pcmanfm --no-desktop, mode "default"
     bindsym p exec $term -e pulsemixer, mode "default"
     bindsym q exec python3 -m qutebrowser, mode "default"
+    bindsym s exec baobab, mode "default"
     bindsym t exec telegram-desktop, mode "default"
     bindsym v exec code, mode "default"
     # bindsym x exec bash ~/hiwi/ACPLT-DevKit-linux64/acplt_dev, mode "default"

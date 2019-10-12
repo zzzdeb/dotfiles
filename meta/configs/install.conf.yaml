@@ -49,6 +49,8 @@
     ~/.config/fontconfig : config/fontconfig
     ~/.config/mpd/mpd.conf : config/mpd/mpd.conf
     ~/.config/aliasrc: config/aliasrc
+    ~/.config/onedrive: config/onedrive
+    ~/.config/redshift.conf: config/redshift.conf
 
     ~/.screenlayout : screenlayout
     # ~/.aria2/aria2.conf:
@@ -106,3 +108,5 @@
   # - xdg-mime default zathura.desktop application/pdf
   # - xdg-settings set default-web-browser qutebrowser.desktop
   - "[ ! -f ~/.fzf.zsh ] || [ ! -f ~/.fzf.bash ] && ~/.dotfiles/fzf/install"
+  - "wget https://raw.githubusercontent.com/LaurenceWarne/qute-code-hint/master/code_select.py -O ~/.local/share/qutebrowser/userscripts/code_select.py"
+  - "chmod +x .local/share/qutebrowser/userscripts/code_select.py"
