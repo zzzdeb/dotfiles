@@ -119,8 +119,8 @@ partial modifier_keys
       key <AC04> {[	  f,	F,	 parenright,  parenright,		F8,		F8]	};
       key <AC05> {[	  g,	G,	 minus,		minus	,odiaeresis, Odiaeresis]	};
       key <AC06> {[	  h,	H,	 plus,		plus, ssharp,          Ssharp ]	};
-      key <AC07> {[	  j,	J,	 braceleft, braceleft,   Left 	,Left ]	};
-      key <AC08> {[	  k,	K,	 braceright,  braceright , Down 	,Down]	};
+      key <AC07> {[	  j,	J,	 braceright, braceright,   Left 	,Left ]	};
+      key <AC08> {[	  k,	K,	 braceleft,  braceleft , Down 	,Down]	};
       key <AC09> {[	  l,	L,	 equal,		equal,   Up 	,Up ]	};
       key <AC10> {[	  semicolon,	colon,	 colon,		colon,  Right 	,Right  ]	};
       key <AC11> {[	  apostrophe,	quotedbl,	 quotedbl,		quotedbl]	};

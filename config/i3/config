@@ -145,6 +145,7 @@ exec_always --no-startup-id podentr
 # exec_always xmodmap "~/.xmodmaprc"
 
 bar {
+        font pango:Hack, FontAwesome, Ubuntu Nerd Font 10
         output primary
         # position top
         tray_output             primary
@@ -410,7 +411,7 @@ bindsym $mod+ctrl+Right move up; move right
 # set $workspace1 "1: "
 # set $workspace2 w: "
 set $workspace2 "2: "
-set $workspace3 "3: "
+set $workspace3 "3: 日本"
 set $workspace4 "4: "
 set $workspace5 "5: "
 set $workspace6 "6: "
@@ -536,7 +537,9 @@ mode "$mode_leader" {
     bindsym v exec --no-startup-id vpntoggle 'vpn-default', mode "default"
     bindsym shift+v exec --no-startup-id vpntoggle 'PIA - Switzerland', mode "default"
     # bindsym w exec --no-startup-id networkmanager_dmenu -i -sb '$term_background' -sf '$term_color2', mode "default"
-    bindsym w floating enable ;; exec --no-startup-id 21_9_width
+    bindsym w exec --no-startup-id sxiv -t "$HOME/.config/variety/Downloaded/reddit_www_reddit_com_r_MinimalWallpaper_top__sort_top_t_year/", mode "default"
+    bindsym shift+w floating enable ;; exec --no-startup-id 21_9_width, mode "default"
+
     bindsym slash exec --no-startup-id ducksearch, mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -577,16 +580,17 @@ mode "$mode_run" {
     bindsym f exec $term -e $FILE, mode "default"
     bindsym shift+f exec firefox , mode "default"
     bindsym h exec $term -e htop, mode "default"
-    bindsym k exec anki -p zzz1, mode "default"
-    bindsym m 			exec --no-startup-id $term -e ncmpcpp, mode "default"
+    bindsym k exec anki -p 'User 1', mode "default"
+    bindsym m exec --no-startup-id $term -e ncmpcpp, mode "default"
     # bindsym n exec nautilus --no-desktop, mode "default"
     bindsym n exec networkmanager_dmenu, mode "default"
-    bindsym N exec $term -e nmtui, mode "default"
+    bindsym shift+n exec $term -e nmtui, mode "default"
     # bindsym p exec pcmanfm --no-desktop, mode "default"
     bindsym p exec $term -e pulsemixer, mode "default"
     bindsym q exec python3 -m qutebrowser, mode "default"
     bindsym s exec baobab, mode "default"
-    bindsym t exec telegram-desktop, mode "default"
+    bindsym t exec $term -e tg, mode "default"
+    bindsym shift+t exec telegram-desktop, mode "default"
     bindsym v exec code, mode "default"
     # bindsym x exec bash ~/hiwi/ACPLT-DevKit-linux64/acplt_dev, mode "default"
     bindsym x exec --no-startup-id ddspawn genius -f mono:pixelsize=24, mode "default"

@@ -49,7 +49,6 @@
     ~/.config/fontconfig : config/fontconfig
     ~/.config/mpd/mpd.conf : config/mpd/mpd.conf
     ~/.config/aliasrc: config/aliasrc
-    ~/.config/onedrive: config/onedrive
     ~/.config/redshift.conf: config/redshift.conf
 
     ~/.screenlayout : screenlayout

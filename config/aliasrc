@@ -1,19 +1,18 @@
 #!/bin/sh
 alias ka="killall" \
+	find="fd" \
+	fzf="fzf --preview=\"bat {} --color=always\"" \
 	mkd="mkdir -pv" \
 	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
-	calcurse="calcurse -D ~/.config/calcurse" \
 	magit="nvim -c Magit" \
 	p="sudo pacman" \
 	y="yaourt" \
 	SS="sudo systemctl" \
 	f="$FILE" \
 	g="git" \
-	trem="transmission-remote" \
 	e="$EDITOR" \
 	v="$EDITOR" \
 	x="sxiv -ft *" \
-	sdn="sudo shutdown -h now" \
 	gua="git remote | xargs -L1 git push --all" \
 	ls="ls -hN --color=auto --group-directories-first" \
 	ls="lsd --group-dirs first" \
@@ -22,16 +21,17 @@ alias ka="killall" \
 	lla="ls -la" \
 	lt="ls --tree" \
 	grep="grep --color=auto" \
-	diff="diff --color=auto" \
+	diff="diff-so-fancy" \
 	ccat="highlight --out-format=ansi" \
+	cat="bat" \
 	yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
 	yta="yt -x -f bestaudio/best" \
 	YT="youtube-viewer" \
-	ref="shortcuts >/dev/null; source ~/.shortcuts" \
 	upc="sudo pacman -Syu; pkill -RTMIN+8 i3blocks" \
 	lsp="pacman -Qett --color=always | less" \
 	ffmpeg="ffmpeg -hide_banner" \
-	speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
+	speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -" \
+	ipython="ipython --TerminalInteractiveShell.editing_mode=vi"
 	
 alias cp="cp -i"                          # confirm before overwriting something
 alias mv='mv -i'
@@ -52,6 +52,7 @@ command -v nvim >/dev/null && alias vim="nvim" v="nvim" vimdiff="nvim -d" vd="nv
 
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
 se() { du -a ~/.scripts/* ~/.config/* ~/.dotfiles/* /var/lib/transmission/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
+so() { du -a ~/Owncloud/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
 ef() { fzf | xargs -r -I % $EDITOR % ;}
 cdf() { cd -- "$(fzf)"}
 

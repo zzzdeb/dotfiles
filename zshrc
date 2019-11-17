@@ -44,6 +44,8 @@ zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 zplug load
 #has to come after zplug
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 ###############################################################
 # Settings
@@ -119,11 +121,6 @@ ranger() {
 # Create a directory and cd into it
 mcd() {
     mkdir "${1}" && cd "${1}"
-}
-
-# Jump to directory containing file
-jump() {
-    cd "$(dirname ${1})"
 }
 
 # Execute a command in a specific directory
