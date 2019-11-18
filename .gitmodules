@@ -16,9 +16,6 @@
 [submodule "meta/dotbot_plugins/pip"]
 	path = meta/dotbot_plugins/pip
 	url = https://github.com/sobolevn/dotbot-pip
-[submodule "meta/dotbot_plugins/env"]
-	path = meta/dotbot_plugins/env
-	url = https://github.com/qobilidop/dotbot-env
 [submodule "meta/dotbot"]
 	path = meta/dotbot
 	url = https://github.com/anishathalye/dotbot
