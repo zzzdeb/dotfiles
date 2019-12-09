@@ -1,3 +1,4 @@
+export LANG="en_US.UTF-8"
 ###############################################################
 # PlugIns
 ###############################################################
@@ -14,22 +15,27 @@ POWERLEVEL9K_STATUS_OK_BACKGROUND='8'
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND='11'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='8'
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='10'
+# POWERLEVEL9K_MODE='awesome-fontconfig'
+POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status root_indicator background_jobs)
 # User configuration
 export ZPLUG_HOME=$HOME/.zplug
 if [[ ! -d $ZPLUG_HOME ]];then
-    git clone https://github.com/b4b4r07/zplug $ZPLUG_HOME
+     git clone https://github.com/b4b4r07/zplug $ZPLUG_HOME
 fi
 source $ZPLUG_HOME/init.zsh
 
 zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:3
-zplug "lib/git", from:oh-my-zsh
+# zplug "lib/git", from:oh-my-zsh
 
 zplug "lib/completion", from:oh-my-zsh
 zplug "lib/correction", from:oh-my-zsh
 zplug "lib/directories", from:oh-my-zsh
 zplug "lib/history", from:oh-my-zsh
 zplug "lib/theme-and-appearance", from:oh-my-zsh
-
+zplug "lib/termsupport", from:oh-my-zsh
+zplug "lib/compfix", from:oh-my-zsh
+zplug "plugins/vi-mode", from:oh-my-zsh
 # zplug "laurenkt/zsh-vimto"
 
 # zplug "mafredri/zsh-async", from:github, defer:0
@@ -38,6 +44,8 @@ zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 zplug load
 #has to come after zplug
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 ###############################################################
 # Settings
@@ -46,7 +54,7 @@ stty -ixon # Disable ctrl-s and ctrl-q.
 # HISTSIZE= HISTFILESIZE= # Infinite history.
 
 [ -f "$HOME/.shortcuts" ] && source "$HOME/.shortcuts" # Load shortcut aliases
-[ -f "$HOME/.aliasrc" ] && source "$HOME/.aliasrc"
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 export CONFIG_DIR=~/.config
 
@@ -56,10 +64,11 @@ alias sz="source ~/.zshrc"
 # binding
 ###############################################################
 #vimlike
-bindkey -v
-bindkey '^P' up-line-or-search
-bindkey '^N' down-line-or-search
-
+# bindkey -v
+# set show-mode-in-prompt on
+# bindkey '^P' up-line-or-search
+# bindkey '^N' down-line-or-search
+set -s escape-time 0
 #
 bindkey -M vicmd "j" vi-backward-char
 bindkey -M vicmd "k" down-line-or-history
@@ -112,11 +121,6 @@ ranger() {
 # Create a directory and cd into it
 mcd() {
     mkdir "${1}" && cd "${1}"
-}
-
-# Jump to directory containing file
-jump() {
-    cd "$(dirname ${1})"
 }
 
 # Execute a command in a specific directory

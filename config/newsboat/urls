@@ -1,9 +1,26 @@
-https://lukesmith.xyz/rss.xml
-https://youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "yt"
+------------------------
+-------NEWSFEEDS--------
+------------------------
+https://www.linuxjournal.com/news/feed "~NEWSFEED: Linux Journal"
+https://www.networkworld.com/category/linux/index.rss "~NEWSFEED: Network World (Linux)"
+https://itsfoss.com/feed/ "~NEWSFEED: It's Foss"
+https://opensource.com/feed "~NEWSFEED: Opensource.com"
+http://feeds.feedburner.com/fossbytes "~NEWSFEED: FossBytes"
+https://www.techrepublic.com/rssfeeds/topic/open-source/ "~NEWSFEED: Tech Republic (Open Source)"
+https://www.theinquirer.net/feeds/rss/tag/open-source "~NEWSFEED: The Inquirer (Open Source)"
+http://feeds.arstechnica.com/arstechnica/open-source "~NEWSFEED: ArsTechnica (Open Source)"
+https://www.linuxinsider.com/perl/syndication/rssfull.pl "~NEWSFEED: Linux Insider"
+-------------------------
+-------GIT_REPOS---------
+-------------------------
+https://gitlab.com/dwt1.atom "~GITLAB: dwt1 (distrotube)"
+https://github.com/LukeSmithxyz.atom "~GITHUB: LukeSmithxyz"
+-------------------------
+-------BLOGS---------
+-------------------------
 https://youtube.com/feeds/videos.xml?channel_id=UCkbPk0OHdeOnjciSgdzxuzQ "yt"
-https://youtube.com/feeds/videos.xml?channel_id=UCL_f53ZEJxp8TtlOkHwMV9Q "yt"
 https://youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw "yt"
 https://youtube.com/feeds/videos.xml?channel_id=UC4xKdmAXFh4ACyhpiQ_3qBw "yt" "tech"
+https://lukesmith.xyz/rss.xml
 https://blog.qutebrowser.org/feeds/all.rss.xml
 http://thealternativehypothesis.org/index.php/feed/ "~Alt"
-

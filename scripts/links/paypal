@@ -1,0 +1,3 @@
+#!/bin/sh
+
+chromium-browser --app="https://www.paypal.com"

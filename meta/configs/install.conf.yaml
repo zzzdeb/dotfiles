@@ -2,6 +2,7 @@
     link:
       create: true
       relink: true
+      # force: true
 - link:
     ~/.gitconfig:
     ~/.gitignore_global:
@@ -14,6 +15,7 @@
 - clean: ['~', '~/.config']
 
 - link:
+    ~/.config/coc/ultisnips: config/coc/ultisnips
     ~/.config/ranger/rifle.conf: config/ranger/rifle.conf
     ~/.config/ranger/rc.conf: config/ranger/rc.conf
     ~/.config/ranger/commands.py: config/ranger/commands.py
@@ -33,20 +35,24 @@
     ~/.config/mpv/install_plugins.sh : config/mpv/install_plugins.sh
     ~/.config/compton/compton.conf : config/compton/compton.conf
     ~/.config/cvim/cvimrc : config/cvim/cvimrc
-    ~/.config/gtk-3.0/settings.ini : config/gtk-3.0/settings.ini
-    ~/.config/ncmpcpp/config : config/ncmpcpp/config
+    ~/.config/gtk-3.0 : config/gtk-3.0
+    ~/.config/gtk-2.0 : config/gtk-2.0
+    ~/.config/ncmpcpp: config/ncmpcpp
     ~/.config/dunst: config/dunst
     ~/.config/newsboat/urls: config/newsboat/urls
     ~/.config/newsboat/config: config/newsboat/config
-
-    ~/.local/share/applications/qutebrowser.desktop : applications/qutebrowser.desktop
-    ~/.local/share/applications/st.desktop : applications/st.desktop
+    ~/.config/bmdirs: config/bmdirs
+    ~/.config/bmfiles: config/bmfiles
+    ~/.config/i3/config : config/i3/config
+    ~/.config/i3blocks/config : config/i3blocks/config
+    ~/.config/qutebrowser : config/qutebrowser
+    ~/.config/calcurse : config/calcurse
+    ~/.config/fontconfig : config/fontconfig
+    ~/.config/mpd/mpd.conf : config/mpd/mpd.conf
+    ~/.config/aliasrc: config/aliasrc
+    ~/.config/redshift.conf: config/redshift.conf
 
     ~/.screenlayout : screenlayout
-    ~/.config/i3/config : config/i3/config
-    ~/.config/i3blocks : config/i3blocks
-    ~/.config/qutebrowser : config/qutebrowser
-    ~/.config/i3/scripts : config/i3/scripts
     # ~/.aria2/aria2.conf:
     # ~/.axelrc:
     # ~/.bash:
@@ -55,8 +61,6 @@
     ~/.bash_profile: profile
     ~/.zprofile: profile
     ~/.xprofile: profile
-    ~/.bmdirs:
-    ~/.bmfiles:
     ~/.scripts:
     ~/.vrapperrc: vrapperrc
     ~/.keynavrc: keynavrc
@@ -78,9 +82,17 @@
     # ~/.vim:
     # ~/.zsh:
     ~/.zshrc:
-    ~/.aliasrc:
     ~/.Xdefaults:
     ~/.inputrc:
+    ~/.xinitrc:
+    ~/.emoji:
+    ~/.fontawesome:
+    ~/.icons:
+    ~/.local/share/applications: local/share/applications
+
+    ~/.config/mimeapps.list: config/mimeapps.list
+    ~/.config/user-dirs.dirs: config/user-dirs.dirs
+    ~/.config/vifm: config/vifm
 
 - shell:
   # - mkdir -p ~/.rtorrent/session ~/.rtorrent/watch ~/.rtorrent/downloads
@@ -93,6 +105,8 @@
     # vim/bundle/
     # zsh/plugins/
   - ~/.scripts/tools/shortcuts
-  - xdg-mime default zathura.desktop application/pdf
-  - xdg-settings set default-web-browser qutebrowser.desktop
+  # - xdg-mime default zathura.desktop application/pdf
+  # - xdg-settings set default-web-browser qutebrowser.desktop
   - "[ ! -f ~/.fzf.zsh ] || [ ! -f ~/.fzf.bash ] && ~/.dotfiles/fzf/install"
+  - "wget https://raw.githubusercontent.com/LaurenceWarne/qute-code-hint/master/code_select.py -O ~/.local/share/qutebrowser/userscripts/code_select.py"
+  - "chmod +x ~/.local/share/qutebrowser/userscripts/code_select.py"

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+nvim -c 'set cmdheight=1' -c 'set signcolumn=no' -c 'set nonumber' -c 'set norelativenumber' -c 'set laststatus=0' -c 'au TermClose * quit' term://"python /home/zzz/softwares/TelegramTUI/telegramtui/__main__.py"

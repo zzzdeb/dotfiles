@@ -1,0 +1,14 @@
+__pycache__
+*.py~
+*.pyc
+*.swp
+/.venv*
+/.coverage
+/coverage.xml
+/.coverage.*
+/.tox
+/.cache
+/.pytest_cache
+/.testmondata
+/.hypothesis
+/.mypy_cache

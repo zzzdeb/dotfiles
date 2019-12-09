@@ -1,0 +1,3 @@
+#!/bin/bash
+
+nvim -c 'set nonumber' -c 'set norelativenumber' -c 'set laststatus=0' -c 'au TermClose * quit' term://newsboat

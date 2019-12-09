@@ -1,6 +1,6 @@
 external-url-viewer "urlview"
 # general settings
-auto-reload yes
+# auto-reload yes
 max-items 50
 
 # unbind keys
@@ -31,7 +31,7 @@ bind-key ENTER open
 bind-key a toggle-article-read
 bind-key n next-unread
 bind-key N prev-unread
-bind-key D pd-download
+# bind-key D pd-download
 bind-key U show-urls
 bind-key x pb-delete
 

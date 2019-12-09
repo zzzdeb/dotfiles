@@ -33,11 +33,6 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin_shared" ] ; then
-    PATH="$HOME/.local/bin_shared:$PATH"
-fi
-
 if [ -d "$HOME/.Xdefaults" ]; then
     xrdb $HOME/.Xdefaults
 fi
@@ -48,8 +43,11 @@ export TERMINAL="st"
 export BROWSER="qutebrowser"
 export READER="zathura"
 export FILE="ranger"
-# export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
-export PIX="$HOME/.pix/"
+export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
+export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
+export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
+export DMENU="rofi -dmenu -i"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # less/man colors
 export LESS=-R
@@ -66,7 +64,10 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
 
 # Start graphical server if i3 not already running.
-# [ "$(tty)" = "/dev/tty1" && ! pgrep -x i3 >/dev/null && exec startx
+[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
+
+# Switch escape and caps if tty:
+sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
 
 # Change Keyboard Layout
 xkbcomp ~/.dotfiles/keyboard/xkbmap $DISPLAY; xmodmap ~/.dotfiles/keyboard/xmodmaprc

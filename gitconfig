@@ -3,3 +3,7 @@
 	name = Zolboo
 [push]
 	default = simple
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[diff]
+	tool = vcode

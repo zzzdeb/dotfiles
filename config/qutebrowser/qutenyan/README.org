@@ -1,0 +1,59 @@
+#+AUTHOR: Jay Kamat
+
+* qutenyan
+
+Putting the qute in qutebrowser!
+
+qutenyan is a [[https://github.com/TeMPOraL/nyan-mode][nyan-mode]] "plugin" for [[https://github.com/qutebrowser/qutebrowser][qutebrowser]], displaying and controlling
+scroll position in webpages.
+
+[[https://i.imgur.com/DYx0eEB.gif]]
+
+* Important Warning
+
+qutenyan uses undocumented qutebrowser APIs to overwrite qutebrowser internal
+state. This means its prone to break and may cause qutebrowser crashes. Use at your
+own risk!
+
+When the plugin api gets exposed, I will port this to the plugin api.
+
+* Installation
+
+qutenyan uses the ~config.py~ system to (improperly) inject itself into
+qutebrowser. It will replace the ~scroll~ widget in ~statusbar.widgets~ with a nyan
+instead (so it should work on a default installation).
+
+1. Clone this repo into your configuration directory
+   - See [[http://qutebrowser.org/doc/help/configuring.html][the configuration docs for more information]]. The directory can be
+     found in the output of ~:version~.
+     #+BEGIN_SRC sh
+       git clone https://gitlab.com/jgkamat/qutenyan.git ~/.config/qutebrowser/qutenyan
+     #+END_SRC
+
+   - If you manage your config with git, you should add a submodule to this repo instead.
+2. Add this line to your ~config.py~
+   #+BEGIN_SRC python
+     # point this to where you cloned qutenyan
+     config.source('qutenyan/nyan.py')
+   #+END_SRC
+3. Enjoy your new nyan!
+
+* Troubleshooting
+
+1. If you see an empty space where the nyan should be, please make sure you have
+   the svg qt module installed. On Arch, this is [[https://www.archlinux.org/packages/extra/x86_64/qt5-svg/][qt5-svg]].
+
+* Configuration
+
+Right now, there's only one configuration option, a ~NYAN_WIDTH~ constant at
+the top of the file. If you have a better idea for how to expose configuration
+options (or options you want exposed), please let me know.
+
+* Related Projects
+For more traditional nyan scrollbars, please [[https://gist.github.com/olmokramer/5eabbce5dfbfbdafcbcbd497b02ffb17][use this user stylesheet]]!
+
+* Contributing
+
+Please report bugs or feature requests to this repository, and happy nyan-ing!
+
+qutenyan is released under the GPLv3.

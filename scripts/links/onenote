@@ -1,0 +1,3 @@
+#!/bin/sh
+
+google-chrome-stable --app="https://www.onenote.com"

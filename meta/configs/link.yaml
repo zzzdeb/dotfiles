@@ -1,16 +1,14 @@
 - env:
     DATAPATH: /mnt/all/home/zzz
+    SDCARD: /media/sdcard
 - link:
    ~/.zshrc:
-   ~/Downloads: $DATAPATH/Downloads
    ~/Videos: $DATAPATH/Videos
    ~/Pictures: $DATAPATH/Pictures
-   ~/Documents: $DATAPATH/Documents
-   ~/Music: $DATAPATH/Music
-   ~/Music: $DATAPATH/Music
+   ~/Music: $SDCARD/Music
    ~/Desktop: $DATAPATH/Desktop
    ~/Documents: $DATAPATH/Documents
-   ~/Downloads: $DATAPATH/Downloads
+   ~/Downloads: $SDCARD/Downloads
    ~/eclipse-workspace: $DATAPATH/eclipse-workspace
    ~/git: $DATAPATH/git
    ~/hiwi: $DATAPATH/hiwi

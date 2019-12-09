@@ -1,16 +1,12 @@
 set show-scrollbars
-"set show-v-scrollbaro
 set selection-clipboard clipboard
 set first-page-column 1:1
 set window-title-basename
 set window-title-home-tilde
-"set zoom-center
 
-"set adjust-open
-"set statusbar-basename
 set statusbar-home-tilde
-map w best-fit width
-map h best-fit
+map w adjust_window width
+map W adjust_window best-fit
 
 map = zoom in
 "map j navigate next
@@ -29,9 +25,6 @@ map p print
 map d navigate next
 map u navigate previous
 
-map td toggle_page_mode
-
-
 " jk;
 map j scroll left
 map k scroll down
@@ -40,3 +33,5 @@ map ; scroll right
 "map J scroll down
 "map K scroll up
 
+set recolor-lightcolor "#ffeecc"
+set recolor-darkcolor "#000000"

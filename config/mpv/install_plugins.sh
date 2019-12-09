@@ -30,18 +30,6 @@ fi
 cp ./$pluginDirs/mpv-youtube-quality/*.lua ./$scriptsDir
 cp ./$pluginDirs/mpv-youtube-quality/*.conf ./$scriptsOptsDir
 
-# find sub
-pluginName="find_subtitles"
-if [ -d $pluginDirs/$pluginName ]; then
-    echo "pulling"
-    cd $pluginDirs/$pluginName git pull; cd ../..
-else
-    echo "cloning"
-    git clone https://github.com/directorscut82/$pluginName $pluginDirs/$pluginName
-fi
-
-cp ./$pluginDirs/$pluginName/*.lua ./$scriptsDir
-cp ./$pluginDirs/$pluginName/*.conf ./$scriptsOptsDir
 
 # sub translation
 gitName="oltodosel/interSubs"
@@ -58,21 +46,6 @@ cp ./$pluginDirs/$pluginName/*.lua ./$scriptsDir
 cp ./$pluginDirs/$pluginName/*.py ./$scriptsDir
 cp ./$pluginDirs/$pluginName/*.conf ./$scriptsOptsDir
 
-# sub translation
-gitName="Eisa01/mpv-scripts"
-pluginName="mpv-scripts"
-if [ -d $pluginDirs/$pluginName ]; then
-    echo "pulling"
-    cd $pluginDirs/$pluginName git pull; cd ../..
-else
-    echo "cloning"
-    git clone https://github.com/$gitName $pluginDirs/$pluginName
-fi
-
-cp ./$pluginDirs/$pluginName/scripts/*.lua ./$scriptsDir
-cp ./$pluginDirs/$pluginName/scripts/*.py ./$scriptsDir
-cp ./$pluginDirs/$pluginName/*.conf ./$scriptsOptsDir
-
 # reload if stuck
 gitName="4e6/mpv-reload"
 pluginName="mpv-reload"
@@ -86,17 +59,10 @@ fi
 
 cp ./$pluginDirs/$pluginName/*.lua ./$scriptsDir
 
+cd ./$scriptsDir
+# autosub
+wget https://raw.githubusercontent.com/DavidDeprost/mpv-autosub/master/autosub.lua
+pip3 install --user subliminal
 
-# sub menu
-gitName="nezumisama/mpvmenu"
-pluginName="mpvmenu"
-if [ -d $pluginDirs/$pluginName ]; then
-    echo "pulling"
-    cd $pluginDirs/$pluginName git pull; cd ../..
-else
-    echo "cloning"
-    git clone https://github.com/$gitName $pluginDirs/$pluginName
-fi
-
-sudo apt install python-gobject
-pip3 install --user subdownloader
+# nextfile
+wget https://raw.githubusercontent.com/jonniek/mpv-nextfile/master/nextfile.lua

@@ -4,7 +4,9 @@
 [ -z "$2" ] && num="2" || num="$2"
 
 case "$1" in
-	u*) pulsemixer --change-volume +"$num" ;;
+	v*) pulsemixer --get-volume | awk '{print $1}';;
+	u*) pulsemixer --max-volume 100 --change-volume +"$num" ;;
+	U*) pulsemixer --change-volume +"$num" ;;
 	d*) pulsemixer --change-volume -"$num" ;;
 	m*) pulsemixer --toggle-mute ;;
 	truemute) pulsemixer --mute ;;
@@ -15,7 +17,7 @@ case "$1" in
 	p*) mpc pause ; pauseallmpv ;;
 	f*) mpc seek +"$num" ;;
 	b*) mpc seek -"$num" ;;
-	r*) mpc seek 0% ;;
+	r*) mpc seek 00:00:01 ;;
 	*) cat << EOF
 lmc: cli music interface for mpd and pulse for those with divine intellect too
 grand to remember the mpc/pamixer commands.

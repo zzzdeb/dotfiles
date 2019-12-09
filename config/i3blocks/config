@@ -1,0 +1,79 @@
+command=~/.scripts/statusbar/$BLOCK_NAME
+separator_block_width=15
+markup=pango
+
+[record]
+command=cat /tmp/recordingicon
+interval=once
+signal=9
+
+[music]
+interval=1
+signal=11
+
+#[news]
+#label=📰
+#interval=once
+#signal=6
+
+[pacpackages]
+label=📦
+interval=once
+signal=8
+
+[torrent]
+interval=20
+signal=7
+
+[weather]
+interval=18000
+signal=5
+command=weather Aachen
+
+#[mailbox]
+#label=📬
+#interval=180
+#signal=12
+
+#[memory]
+#interval=30
+#label=🧠
+
+#[cpu]
+#interval=15
+#label=💻
+
+[volume]
+interval=once
+signal=10
+
+[disk]
+interval=60
+command=disk / 
+
+[disk]
+interval=60
+command=disk /mnt/all 
+
+[disk]
+interval=60
+command=disk /media/sdcard 
+
+[battery]
+command=battery BAT0
+interval=5
+
+[pomodoro]
+command=python ~/.dotfiles/config/i3blocks/i3-pomodoro/pomodoro.py
+interval=1
+
+[clock]
+label=📅
+interval=30
+
+#[internet]
+#interval=10
+
+[vpn]
+interval=10
+signal=13

@@ -1,0 +1,19 @@
+# You can add comments to these files with #
+h	~/
+.d	~/.dotfiles
+.c	~/.config
+D	~/Documents
+d	~/Downloads
+o ~/Owncloud
+v	~/softwares/voidrice
+a ~/hiwi/ACPLT-DevKit-linux64/acplt
+ad ~/hiwi/ACPLT-DevKit-linux64/acplt/dev
+M	~/Music
+P	~/Pictures
+V	~/Videos
+c	~/.config
+t ~/Downloads/Torrent
+sp	~/Owncloud/Studium/ws19/ProcessDiscovery
+ss	~/Owncloud/Studium/ws19/Systemprogrammierung (PR) [12.11939]
+sj ~/Owncloud/Studium/japanese
+S	~/VirtualBox VMs/shared
