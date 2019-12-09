@@ -1,0 +1,189 @@
+* jblock - j's adblocker
+
+~jblock~ is a WIP adblocking library for python, created for learning and for
+necessity. It was created because [[https://github.com/scrapinghub/adblockparser][adblockparser]] was inefficiently designed, and
+because adblocking is a lot more interesting than you might think! Eventually,
+this aims to be a possible option for more powerful adblocking for [[https://github.com/qutebrowser/qutebrowser][qutebrowser]].
+
+If you are interested in adblocking, let me know (I hang out in ~#qutebrowser~),
+and I might make a blog post talking about adblocking strategies. Unfortunately,
+there's very little good recent documentation, and the ubo/abp codebases aren't
+very well documented either.
+
+- [[https://gitlab.com/jgkamat/jblock/uploads/cd3b925f7fe1330a643291ebd5c2449f/JBlock.pdf][Here is a presentation I gave in 2019 about JBlock, covering a history of adblocking and internals]]
+
+- [[https://www.youtube.com/watch?v=Bd29bqfuCSc&feature=youtu.be][Here's a demo, but expect it to be outdated very quickly]].
+
+The API is subject to change, but shouldn't require large changes to your
+application if you depend on this as a library.
+
+* Performance
+
+Currently (with easylist), it seems like the average performance is somewhere
+in-between adblock plus and ublock origin (about an overhead of ~0.2 ms per
+request).
+
+However, if you care about performance at all, you shouldn't be using a abp
+style adblocker at all. even ~0.1ms overhead per request is extremely high,
+considering that a trivial inefficient python host blocker is an order of
+magnitude faster for almost the same results.
+
+Here's an example of the overhead added for token generation (the absolute
+minimum for every request), an optimal match, a pathalogical case, a profile
+against the requests contained in the abp/ubo comparison test (with a total of
+6655 requests), and initialization.
+
+#+begin_example
+--------------------------------------------------------------------------------------------------------- benchmark: 6 tests ---------------------------------------------------------------------------------------------------------
+Name (time in us)                             Min                     Max                    Mean                 StdDev                  Median                    IQR            Outliers          OPS            Rounds  Iterations
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+test_token_str_bench                      10.6700 (1.0)           34.9400 (1.0)           11.1656 (1.0)           0.4435 (1.0)           11.1200 (1.0)           0.1300 (1.0)      720;1106  89,561.1696 (1.0)       51520           1
+test_block[0]                             31.0200 (2.91)          62.5700 (1.79)          32.1354 (2.88)          1.2028 (2.71)          31.9700 (2.88)          0.2800 (2.15)      423;746  31,118.3445 (0.35)      12454           1
+test_pass[0]                             227.1400 (21.29)        286.2100 (8.19)         236.6732 (21.20)         4.4532 (10.04)        235.6950 (21.20)         2.4290 (18.68)     189;175   4,225.2357 (0.05)       2006           1
+test_benchmark_no_options[True]      184,861.7600 (>1000.0)  187,288.0560 (>1000.0)  185,462.5000 (>1000.0)     919.3131 (>1000.0)  185,115.8180 (>1000.0)     488.3500 (>1000.0)       1;1       5.3919 (0.00)          6           1
+test_benchmark_no_options[False]     384,976.0640 (>1000.0)  394,462.3870 (>1000.0)  390,141.6378 (>1000.0)   4,323.8709 (>1000.0)  391,685.0479 (>1000.0)   7,863.0238 (>1000.0)       1;0       2.5632 (0.00)          5           1
+test_bulk_bucket_creation            775,251.3300 (>1000.0)  802,635.5010 (>1000.0)  785,362.7060 (>1000.0)  11,730.4218 (>1000.0)  781,275.9990 (>1000.0)  18,864.4838 (>1000.0)       1;0       1.2733 (0.00)          5           1
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#+end_example
+
+pypy currently performs slightly better than cpython.
+
+Performance of loading lists is abysmal currently, with loading easylist taking
+several seconds.
+
+** Tricks
+
+I'm using a couple tricks which aren't widely used. Hopefully other projects can
+become faster using some of these tricks.
+
+*** Picking Optimal Tokens
+
+Since we pay a large cost for every token matched, we should strive as
+hard as possible to pick tokens which are infrequently matched. We can do this
+by counting tokens while processing them, and later on rebuilding rules to
+prefer infrequently seen rules. This is dependent on the user's browsing
+history, so in order to have the best possible performance, this index will need
+to be updated somewhat frequently.
+
+*** Filtering Options in Batch
+
+Most other blockers loop through rules one by one to determine which one hits.
+Unfortunately, there are many rules under the 'http' and 'https' token which are
+domain rules, which thankfully don't need to be executed very often. uBO
+optimizes this by using a trie to match domains, but I'm using a dictionary of
+whitelist/blacklist domains. On most requests, this leads to a couple failed
+hashtable lookups (which are very cheap), but when we do hit, it can be painful.
+
+*** Multiple Matchers
+
+uBO has a host of blockers to vastly speed up host matching. In order to improve
+performance even more, they use the location of the found token to speed up
+matches (turning a string search into a string comparison). Unfortunately, for
+us, the overhead of function calls dwarfs the time spent matching, so we must
+avoid calling matchers entirely at all cost. To do this, we ensure every match
+is only checked for once (rather than being triggered every time a token appears
+in the url). This means the cost of checking for a match is higher, but we do
+less overall matches (and avoid python's huge function call overhead).
+
+* Correctness
+
+Honestly, I have no clue. There's not much in large datasets to compare against,
+but this (at least) passes the examples in the abp spec.
+
+** qutebrowser
+- We miss the [[https://testpages.adblockplus.org/en/exceptions/document][exception document test]] as qtwebengine tells us inline images are
+  still images.
+- All ~blob~ and ~data~ urls are passed by default (blocking them would hurt
+  performance a lot).
+
+* Features
+
+Currently, I'm targeting a subset of the adblockplus filter spec. Right now, we
+don't support (not an exhaustive list)
+
+- ALL Element Hiding
+- ~donottrack~
+- ~match-case~
+- ~rewrite~
+
+I don't do any work to automatically detect host style lists at the moment
+either.
+
+Unsupported rules are silently ignored.
+
+* Installation
+** Dependencies
+- ~python3~ or ~pypy3~ at language spec ~3.5~.
+
+** Tests
+- ~pytest-benchmark~
+- ~mypy~
+
+If you pass pep8, you fail the style tests.
+
+There are make targets for common operations.
+
+** qutebrowser
+
+DO NOT EXPECT THIS TO 'JUST WORK'.
+
+This snippet in config.py seems to work for now on the git version of
+qutebrowser, if you clone this repo in the config directory. If you use this,
+please read all the quirks below.
+
+#+begin_src python
+  import sys, os
+  sys.path.append(os.path.join(sys.path[0], 'jblock'))
+  config.source("jblock/jblock/integrations/qutebrowser.py")
+#+end_src
+
+*** Quirks
+
+- If you run ~:config-source~ it will reinit everything, causing double latency
+  and memory usage (so don't do it).
+- We use a lot of memory at the moment. Expect your memory usage to increase
+  over 100 mb.
+- Frequencies of certain parts of URLs are recorded and saved to disk in order
+  to optimize the bucket layout to your browsing habits.
+- Performance on versions of python ~>=~ 3.7 are much better.
+
+* Usage (qutebrowser)
+
+- Set ~content.host_blocking.enabled~ to false, to avoid complications
+- Populate ~content.host_blocking.lists~ with abp style lists.
+- Run ~:jblock-update~. This will generate ~<datadir>/jblock-rules~
+- Run ~:jblock-reload~
+- In order to achieve optimal performance, you will need to build a frequency
+  database. This is done every hour automatically, but needs a restart.
+  - To do this manually, browse normally for a while, then run
+    ~:jblock-save-frequency~. On next start or ~:jblock-reload~, the frequency
+    will be applied.
+  - The frequency file will be saved, pickled, in ~<datadir>/jblock-freq~
+- The file ~<datadir>/jblock-whitelist~ will be read as a whitelist for
+  *contexts*. If ~eve.kerbin~ is placed into this file, all requests originating
+  from ~eve.kerbin~ and ~moho.eve.kerbin~ are whitelisted, but requests from
+  ~kerbin~ and other domains are not.
+
+* Inspiration/Sources
+- [[https://github.com/scrapinghub/adblockparser][adblockparser]]
+- [[https://adblockplus.org/filter-cheatsheet#options][adblock filter cheatsheet]]
+- [[http://www.brave.com/improved-ad-blocker-performance/][Brave adblocking strategies]]
+- [[https://adblockplus.org/en/filters][ABP filter doc]]
+- [[https://adblockplus.org/blog/investigating-filter-matching-algorithms][(ABP) Investigating filter matching algorithms]]
+- [[https://adblockplus.org/forum/viewtopic.php?t=6118][ABP faster filter matching]]
+- [[https://github.com/ZhukovAlexander/triegex][triegex]]
+- [[https://bitbucket.org/birkenfeld/pygments-main/src/default/pygments/regexopt.py][pygments regexopt]]
+- [[https://github.com/gorhill/uBlock/blob/master/src/js/static-net-filtering.js][uBlock filtering code]]
+- [[https://github.com/gorhill/uBlock/wiki/Overview-of-uBlock's-network-filtering-engine][uBlock design doc]]
+- [[https://github.com/adblockplus/adblockpluscore/blob/master/lib/matcher.js][ABP filtering code]]
+- [[https://adblockplus.org/faq_internal][ABP internal faq]]
+- [[https://www.loggly.com/blog/five-invaluable-techniques-to-improve-regex-performance/][Regexp performance tips]]
+- [[https://github.com/gorhill/uBlock/blob/261ef8c510fd91ead57948d1f7793a7a5e2a25fd/src/js/utils.js][uBlock tokenizer]]
+- [[https://github.com/gorhill/uBlock/wiki/uBlock-vs.-ABP:-efficiency-compared][ABP vs uBO latency]]
+- [[https://whotracks.me/blog/adblockers_performance_study.html][Ghostery Adblock Performance Study]]
+
+* License
+jblock is licensed under the GPLv3+.
+
+Some work was adapted from scrapinghub/adblockparser (which has almost all been
+completely rewritten), but the combined work is GPLv3+.

@@ -30,6 +30,8 @@ config.unbind('q')
 #  config.unbind('z')
 config.unbind('<Ctrl-v>')
 
+config.bind('<ctrl-o>', 'tab-focus stack-prev')
+config.bind('<ctrl-i>', 'tab-focus stack-next')
 # X configs change options / QB features
 config.bind('xc', 'config-cycle tabs.show always never')
 config.bind('xx', 'set tabs.show always;; later 5000 set tabs.show switching')
@@ -42,10 +44,10 @@ config.bind('sc', 'config-source')
 
 
 # configs are for downloading videos and music
-config.bind('zy', 'hint links spawn ~/.bin/ytdv {hint-url}')
+config.bind(',yD', 'hint links spawn yt "{hint-url}"')
+config.bind(',ym', "spawn ytMusic '{url}'")
 #  config.bind('zp', 'hint links spawn ~/.bin/ytdlp {hint-url} ~/Downloads/qbdownloads')
-config.bind('zv', 'spawn ~/.bin/ytdv {url}')
-config.bind('qr', 'spawn ~/.bin/qr {url}')
+config.bind(',yv', 'spawn cd $HOME/Videos; yt "{url}"')
 
 # Ctrl shortcuts run scripts / applications
 config.bind(',m', 'spawn --detach mpv --force-window yes {url}')
@@ -129,7 +131,6 @@ config.source('themes/nord-qutebrowser/nord-qutebrowser.py')
 config.bind('<Ctrl-m>', "prompt-yank -s;;spawn uget-gtk --quiet --folder=Downloads '{primary}';;enter-mode normal", mode='prompt')
 config.bind('<Ctrl-shift-m>', "prompt-yank -s;;spawn uget-gtk '{primary}';;enter-mode normal", mode='prompt')
 
-config.bind(',yd', "spawn ytMusic '{url}'")
 config.bind('gd', 'spawn uget-gtk')
 config.bind('gD', 'spawn st -e ranger /home/zzz/Downloads')
 config.bind('<ctrl-b>', "set-cmd-text -s :quickmark-add {url}")
@@ -215,4 +216,27 @@ c.hints.selectors["div"] = [
 #  c.colors.hints.bg = "#000000"
 #  c.colors.hints.match.fg = "#ffffff"
 #  c.colors.downloads.bar.bg = "#000000"
+
+
+# jblock
+#  import sys, os
+
+#  sys.path.append(os.path.join(sys.path[0], "jblock"))
+#  config.source("jblock/jblock/integrations/qutebrowser.py")
+#  config.set(
+    #  "content.host_blocking.lists",
+    #  [
+        #  "https://easylist.to/easylist/easylist.txt",
+        #  "https://easylist.to/easylist/easyprivacy.txt",
+        #  "https://easylist.to/easylist/fanboy-annoyance.txt",
+        #  "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt",
+        #  "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/annoyances.txt",
+        #  "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/badware.txt",
+        #  "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt",
+        #  "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/resource-abuse.txt",
+        #  "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt",
+        #  "https://www.malwaredomainlist.com/hostslist/hosts.txt",
+        #  "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext",
+    #  ],
+#  )
 

@@ -9,7 +9,7 @@ import clipboard
 import ast
 
 DMENU = ['rofi','-dmenu','-theme',"/usr/share/rofi/themes/DarkBlue.rasi"]
-FBUSERSPATH = '/tmp/fbusers.list'
+FBUSERSPATH = '/home/zzz/.config/fbexpress/fbusers.list'
 
 import os.path
 

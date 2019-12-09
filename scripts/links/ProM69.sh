@@ -1,0 +1,1 @@
+/home/zzz/softwares/prom-6.9-all-platforms.tar/ProM69.sh

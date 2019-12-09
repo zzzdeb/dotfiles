@@ -9,7 +9,7 @@ new_window pixel
 # font pango:System San Francisco Display, FontAwesome 10
 # font pango:Hack 10
 # font pango:ProFont 11
-font pango:Hack, FontAwesome, Ubuntu Nerd Font 10
+font pango:Hack, FontAwesome, Ubuntu Nerd Font 13
 gaps inner 10
 gaps outer 5
 smart_gaps on
@@ -145,7 +145,6 @@ exec_always --no-startup-id podentr
 # exec_always xmodmap "~/.xmodmaprc"
 
 bar {
-        font pango:Hack, FontAwesome, Ubuntu Nerd Font 10
         output primary
         # position top
         tray_output             primary
@@ -216,6 +215,8 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+g mode "$mode_run"
 # bindsym $mod+shift+g mode "$mode_run"
 
+bindsym $mod+ctrl+i exec dark_mode.sh
+
 bindsym $mod+q exec --no-startup-id  i3kill
 bindsym $mod+shift+q mode "$mode_system"
 bindsym $mod+ctrl+q kill
@@ -284,7 +285,8 @@ bindsym XF86Launch1		exec --no-startup-id xset dpms force off
 # #---Extra XF86 Keys---# #
 # These are the extra media keys that some keyboards have.
 bindsym XF86AudioMute		exec --no-startup-id lmc mute
-bindsym XF86AudioLowerVolume	exec --no-startup-id lmc down 5; exec dunstify --replace=91284 -t 1000 ": $(lmc volume)% $(progressString.sh 10  - $(lmc volume))"
+# bindsym XF86AudioLowerVolume	exec --no-startup-id lmc down 5; exec dunstify --replace=91284 -t 1000 ": $(lmc volume)% $(progressString.sh 10  - $(lmc volume))"
+bindsym XF86AudioLowerVolume	exec --no-startup-id lmc down 5; exec dunstify --replace=91284 -t 1000 ": $(lmc volume)% $(bar 10 $(lmc volume))"
 bindsym Shift+XF86AudioLowerVolume	exec --no-startup-id lmc down 10
 bindsym Control+XF86AudioLowerVolume	exec --no-startup-id lmc down 1
 bindsym XF86AudioRaiseVolume	exec --no-startup-id lmc up 5; exec dunstify --replace=91284 -t 1000 ": $(lmc volume)% $(progressString.sh 10  - $(lmc volume))"
@@ -351,8 +353,10 @@ bindsym XF86Search		exec $BROWSER https://duckduckgo.com
 ##bindsym XF86Game		exec
 bindsym XF86Shop		exec $BROWSER https://ebay.com
 bindsym XF86MonBrightnessUp exec sudo backlight up; exec dunstify --replace=11 -t 2000 ": $(backlight current)% $(progressString.sh 10  - $(backlight current))"
+bindsym $mod+PageUp exec sudo backlight up; exec dunstify --replace=11 -t 2000 ": $(backlight current)% $(progressString.sh 10  - $(backlight current))"
 bindsym $mod+XF86MonBrightnessUp exec xbacklight.py $hdminame +0.1
 bindsym XF86MonBrightnessDown exec sudo backlight down; exec dunstify --replace=11 -t 2000 ": $(backlight current)% $(progressString.sh 10   - $(backlight current))"
+bindsym $mod+PageDown exec sudo backlight down; exec dunstify --replace=11 -t 2000 ": $(backlight current)% $(progressString.sh 10   - $(backlight current))"
 bindsym $mod+XF86MonBrightnessDown exec xbacklight.py $hdminame -0.1
 bindsym XF86AudioMedia		exec --no-startup-id $term -e ncmpcpp
 bindsym XF86Display		exec --no-startup-id displayselect
@@ -376,8 +380,8 @@ bindsym $mod+XF86AudioPlay mode "$mode_MediaPlayer"
 # change focus
 bindsym $mod+$left exec i3fullscreenDirections left
 bindsym $mod+$down exec i3fullscreenDirections down
-bindsym $mod+$up exec i3fullscreenDirections up
-bindsym $mod+$right exec i3fullscreenDirections right
+bindsym $mod+$up exec i3fullscreenDirections.py up
+bindsym $mod+$right exec i3fullscreenDirections.py right
 
 # easily resizing
 bindsym $mod+Left resize shrink width 10 px or 10 ppt
@@ -580,7 +584,7 @@ mode "$mode_run" {
     bindsym f exec $term -e $FILE, mode "default"
     bindsym shift+f exec firefox , mode "default"
     bindsym h exec $term -e htop, mode "default"
-    bindsym k exec anki -p 'User 1', mode "default"
+    bindsym k exec anki -p 'zzz1', mode "default"
     bindsym m exec --no-startup-id $term -e ncmpcpp, mode "default"
     # bindsym n exec nautilus --no-desktop, mode "default"
     bindsym n exec networkmanager_dmenu, mode "default"

@@ -6,3 +6,4 @@ config/qutebrowser/shortcuts.py
 
 config/nvim/dirs
 Session.vim
+config/nvim/tags
