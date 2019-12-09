@@ -1,0 +1,3 @@
+#!/bin/sh
+
+google-chrome-stable --app="file:///home/zzz/hiwi/henson/index.html"
