@@ -109,4 +109,4 @@
   # - xdg-settings set default-web-browser qutebrowser.desktop
   - "[ ! -f ~/.fzf.zsh ] || [ ! -f ~/.fzf.bash ] && ~/.dotfiles/fzf/install"
   - "wget https://raw.githubusercontent.com/LaurenceWarne/qute-code-hint/master/code_select.py -O ~/.local/share/qutebrowser/userscripts/code_select.py"
-  - "chmod +x .local/share/qutebrowser/userscripts/code_select.py"
+  - "chmod +x ~/.local/share/qutebrowser/userscripts/code_select.py"
