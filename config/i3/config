@@ -217,14 +217,9 @@ bindsym $mod+g mode "$mode_run"
 
 bindsym $mod+ctrl+i exec dark_mode.sh
 
-bindsym $mod+q exec --no-startup-id  i3kill
-bindsym $mod+shift+q mode "$mode_system"
-bindsym $mod+ctrl+q kill
-
-bindsym $mod+m mode "$mode_music"
+# bindsym $mod+m mode "$mode_music"
 bindsym $mod+shift+m move workspace to output right
 
-bindsym $mod+n exec $term  -e nvim
 # bindsym $mod+shift+n
 
 bindsym $mod+o split v

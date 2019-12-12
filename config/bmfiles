@@ -11,6 +11,7 @@
 ,errifle	~/.config/ranger/rifle.conf
 ,ercommands	~/.config/ranger/commands.py
 ,ei	~/.config/i3/config
+,ek ~/.config/sxhkd/sxhkdrc
 ,eq	~/.config/qutebrowser/config.py
 ,em	~/Owncloud/mail.mail
 ,es	~/.dotfiles/st/config.h

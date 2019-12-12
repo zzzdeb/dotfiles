@@ -1,0 +1,68 @@
+# The Simple X Hotkey Daemon is the program used by LARBS to map most of the
+# dwm-independent commands.  This file is pretty readable, so I'll let you read
+# it.
+
+# The keys NOT bound here by sxhkd, but by dwm or i3 are:
+# The t thru p keys on the top row
+# The f thru ; keys on the home row
+# The b key on the bottom row (hides the bar in either case)
+
+# Basic binds
+# Basic binds
+
+super+Return
+	$TERMINAL
+super+d
+	rofi -show combi -display-drun "" -display-run "" -combi-modi "drun#run" -modi combi -show-icons
+super+ctrl+i
+	dark_mode.sh
+super+q
+	window_kill
+super+ctrl+q
+	kill -9 `xdotool getwindowfocus getwindowpid`
+super+n 
+	$TERMINAL -e nvim
+super+ctrl+o
+	~/.dotfiles/scripts/change_output.sh
+super+ctrl+v
+	changeAudioOutput.sh
+
+super + g; {a, b, B, c, e, f, h, k, m, n, N, p, P, q, s, t, T, v, x}
+	{arandr, firefox --private-window, btmenu, gcalendar, gmail, $TERMINAL -e $FILE, $TERMINAL -e htop, anki -p 'zzz1', $TERMINAL -e ncmpcpp, networkmanager_dmenu, $TERMINAL -e nmtui, $TERMINAL -e pulsemixer,~/softwares/pycharm-professional-2019.1.tar/pycharm-2019.1/bin/pycharm.sh, python3 -m qutebrowser, baobab, $TERMINAL -e tg, telegram-desktop, code, ddspawn genius -f mono:pixelsize=24}
+
+super + Q; {l, e, s, h, r, S}
+	window_kill {lock, logout, suspend, hibernate, reboot, shutdown}
+
+super + comma; {b, d, k, l, m, M, r, S, s, t, u, v, V, w, W, slash}
+	{rofi -show windowcd -lines 15, i3-msg "bar mode toggle", i3-msg 'sticky toggle', layout_manager.sh, i3-msg 'move workspace to output right', i3-msg 'move workspace to output up', sudo systemctl restart NetworkManager.service, i3-msg 'move scratchpad', i3-msg 'scratchpad show', rofi -show window -lines 15, dmenuunicode, vpntoggle 'vpn-default', vpntoggle 'PIA - Switzerland', sxiv -t "$HOME/.config/variety/Downloaded/reddit_www_reddit_com_r_MinimalWallpaper_top__sort_top_t_year/", i3-msg 'floating enable ;; exec --no-startup-id 21_9_width', ducksearch}
+
+
+super + m; {a, j, o, p, l, n, t, q, space, N, r, semicolon, XF86AudioLowerVolume, XF86AudioRaiseVolume}
+	{mpd_controll -a, lmc backward, mpd_controll -o, mpd_controll -p, mpd_controll -l, lmc next, mpd_controll -t, mpc stop, lmc toggle, lmc prev, lmc replay, lmc forward, mpc volume -5, mpc volume +5}
+
+# Audiokeys
+XF86AudioMute
+	amixer sset Master toggle; pkill -RTMIN+10 $STATUSBAR
+# XF86Audio{Raise,Lower}Volume
+	# amixer sset Master 5%{+,-}; pkill -RTMIN+10 $STATUSBAR
+XF86Audio{Next,Prev}
+	mpc {next,prev}
+XF86Audio{Pause,Play,Stop}
+	mpc {pause,play,stop}
+XF86Audio{Rewind,Forward}
+	mpc seek {-,+}10
+XF86AudioRecord
+	dmenurecord
+XF86AudioMedia
+	$TERMINAL -e ncmpcpp
+
+XF86PowerOff
+	prompt "Shutdown computer?" "$shutdown"
+XF86TouchpadToggle
+	toggletouchpad
+XF86TouchpadOn
+	synclient TouchpadOff=0
+XF86TouchpadOff
+	synclient TouchpadOff=1
+XF86Suspend
+	lockscreen

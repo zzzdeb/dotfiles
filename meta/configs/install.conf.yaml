@@ -15,6 +15,7 @@
 - clean: ['~', '~/.config']
 
 - link:
+    ~/.config/sxhkd/sxhkdrc: config/sxhkd/sxhkdrc
     ~/.config/coc/ultisnips: config/coc/ultisnips
     ~/.config/ranger/rifle.conf: config/ranger/rifle.conf
     ~/.config/ranger/rc.conf: config/ranger/rc.conf
