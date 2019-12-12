@@ -235,6 +235,7 @@ Plug 'Vigemus/iron.nvim'
 
 Plug 'fabi1cazenave/suckless.vim'
 Plug 'mboughaba/i3config.vim'
+Plug 'kovetskiy/sxhkd-vim'
 " test spellcheck
 " Plug 'kamykn/CCSpellCheck.vim'
 
