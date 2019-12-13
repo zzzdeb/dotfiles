@@ -20,10 +20,11 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status root_indicator background_jobs)
 # User configuration
 # load zgen
-if [[ ! -f "${HOME}/.zgen/zgen.zsh" ]];then
-     git clone https://github.com/b4b4r07/zplug $ZPLUG_HOME
+export ZGEN_DIR=${HOME}/.zgen
+if [[ ! -d "$ZGEN_DIR" ]];then
+     git clone https://github.com/tarjoilija/zgen $ZGEN_DIR
 fi
-source "${HOME}/.zgen/zgen.zsh"
+source "$ZGEN_DIR/zgen.zsh"
 
 # if the init scipt doesn't exist
 if ! zgen saved; then
@@ -51,7 +52,8 @@ if ! zgen saved; then
 
     # theme
     # zgen oh-my-zsh themes/arrow
-    zgen load bhilburn/powerlevel9k powerlevel9k
+    # zgen load bhilburn/powerlevel9k powerlevel9k
+    zgen load romkatv/powerlevel10k powerlevel9k
 
     # save all to init script
     zgen save
@@ -112,12 +114,6 @@ mcd() {
     mkdir "${1}" && cd "${1}"
 }
 
-# Execute a command in a specific directory
-xin() {
-    (
-        cd "${1}" && shift && ${@}
-    )
-}
 ###############################################################
 # Software settings
 ###############################################################
