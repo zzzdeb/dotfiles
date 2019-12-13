@@ -132,6 +132,7 @@ exec --no-startup-id variety
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xrdb ~/.Xdefaults
 exec --no-startup-id redshift-gtk
+exec --no-startup-id sxhkd
 
 # Run the script to update the mpd i3block on change.
 exec_always --no-startup-id mpdupdate

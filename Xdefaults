@@ -12,7 +12,7 @@ st.alpha: 0.92
 !! Set the background, foreground and cursor colors as below:
 *.background: #282828
 *.foreground: white
-*.cursorColor: white
+*.cursorColor: red
 
 !! drakula:
 *.foreground: #F8F8F2
