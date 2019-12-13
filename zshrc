@@ -19,33 +19,46 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='10'
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status root_indicator background_jobs)
 # User configuration
-export ZPLUG_HOME=$HOME/.zplug
-if [[ ! -d $ZPLUG_HOME ]];then
+# load zgen
+if [[ ! -f "${HOME}/.zgen/zgen.zsh" ]];then
      git clone https://github.com/b4b4r07/zplug $ZPLUG_HOME
 fi
-source $ZPLUG_HOME/init.zsh
+source "${HOME}/.zgen/zgen.zsh"
 
-zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:3
-# zplug "lib/git", from:oh-my-zsh
+# if the init scipt doesn't exist
+if ! zgen saved; then
+    echo "Creating a zgen save"
 
-zplug "lib/completion", from:oh-my-zsh
-zplug "lib/correction", from:oh-my-zsh
-zplug "lib/directories", from:oh-my-zsh
-zplug "lib/history", from:oh-my-zsh
-zplug "lib/theme-and-appearance", from:oh-my-zsh
-zplug "lib/termsupport", from:oh-my-zsh
-zplug "lib/compfix", from:oh-my-zsh
-zplug "plugins/vi-mode", from:oh-my-zsh
-# zplug "laurenkt/zsh-vimto"
+    zgen oh-my-zsh
 
-# zplug "mafredri/zsh-async", from:github, defer:0
-# zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
-zplug load
+    # plugins
+    zgen oh-my-zsh plugins/git
+    zgen oh-my-zsh plugins/vi-mode
+    zgen load laurenkt/zsh-vimto
+    zgen oh-my-zsh plugins/extract
+    # zgen oh-my-zsh plugins/command-not-found
+    zgen load zsh-users/zsh-syntax-highlighting
+
+    # bulk load
+    # zgen loadall <<EOPLUGINS
+        # zsh-users/zsh-history-substring-search
+        # /path/to/local/plugin
+# EOPLUGINS
+    # ^ can't indent this EOPLUGINS
+
+    # completions
+    zgen load zsh-users/zsh-completions src
+
+    # theme
+    # zgen oh-my-zsh themes/arrow
+    zgen load bhilburn/powerlevel9k powerlevel9k
+
+    # save all to init script
+    zgen save
+fi
+
 #has to come after zplug
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 ###############################################################
 # Settings
@@ -85,30 +98,6 @@ bindkey -M visual ";" vi-forward-char
 ###############################################################
 # Custom functions
 ###############################################################
-# # ex - archive extractor
-# # usage: ex <file>
-ex ()
-{
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
-
 # preventing nested ranger opening with_$
 ranger() {
     if [ -z "$RANGER_LEVEL" ]; then
