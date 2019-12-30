@@ -19,12 +19,15 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='10'
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status root_indicator background_jobs)
 # User configuration
-# load zgen
+# Load zgen only if a user types a zgen command
 export ZGEN_DIR=${HOME}/.zgen
-if [[ ! -d "$ZGEN_DIR" ]];then
-     git clone https://github.com/tarjoilija/zgen $ZGEN_DIR
-fi
-source "$ZGEN_DIR/zgen.zsh"
+zgen () {
+  if [[ ! -s ${ZGEN_DIR}/zgen.zsh ]]; then
+    git clone --recursive https://github.com/tarjoilija/zgen.git ${ZGEN_DIR}
+  fi
+  source ${ZGEN_DIR}/zgen.zsh
+  zgen "$@"
+}
 
 # if the init scipt doesn't exist
 if ! zgen saved; then
@@ -57,6 +60,7 @@ if ! zgen saved; then
 
     # save all to init script
     zgen save
+    zcompile ${ZGEN_DIR}/init.zsh
 fi
 
 #has to come after zplug
@@ -136,3 +140,5 @@ export ACPLT_HOME=~/hiwi/ACPLT-DevKit-linux64/acplt
 export ACPLT_GIT=$ACPLT_HOME/git
 export LD_LIBRARY_PATH=$ACPLT_HOME/system/addonlibs:$ACPLT_HOME/system/syslibs:$LD_LIBRARY_PATH
 export PATH=$ACPLT_HOME/system/sysbin:$PATH
+
+source /opt/ros/melodic/setup.zsh

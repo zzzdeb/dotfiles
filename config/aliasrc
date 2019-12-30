@@ -6,7 +6,7 @@ alias ka="killall" \
 	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
 	magit="nvim -c Magit" \
 	p="sudo pacman" \
-	y="yaourt" \
+	y="yay" \
 	SS="sudo systemctl" \
 	f="$FILE" \
 	g="git" \

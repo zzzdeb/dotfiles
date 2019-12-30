@@ -1,7 +1,7 @@
 st.xfps: 390
 
 !! Transparency (0-1):
-st.alpha: 0.92
+st.alpha: 0.82
 
 !! Set a default font and font size as below:
 !! st.font: Monospace-11;

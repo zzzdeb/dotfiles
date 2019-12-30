@@ -12,7 +12,8 @@ new_window pixel
 font pango:Hack, FontAwesome, Ubuntu Nerd Font 13
 gaps inner 10
 gaps outer 5
-smart_gaps on
+gaps right 25
+# smart_gaps on
 
 #bindsym $mod+comma border none
 # bindsym $mod+comma bar mode toggle
@@ -138,6 +139,7 @@ exec --no-startup-id sxhkd
 exec_always --no-startup-id mpdupdate
 # Podboat automatic queue and download
 exec_always --no-startup-id podentr
+exec_always --no-startup-id launch_polybar
 # exec_always --no-startup-id ~/.config/i3/polybar.sh &
 
 # Keys
@@ -145,20 +147,21 @@ exec_always --no-startup-id podentr
 # exec_always xkbcomp "~/.xkbmap $DISPLAY"
 # exec_always xmodmap "~/.xmodmaprc"
 
-bar {
-        output primary
+# bar {
+    # launch_polybar
+        # output primary
         # position top
-        tray_output             primary
-        colors {
-                background $term_background
-                statusline $term_color12
-                focused_workspace   $term_color5  $term_background $term_color5
-                active_workspace  $term_color4 $term_background $term_color4
-                inactive_workspace $term_background $term_background $term_color8
-                urgent_workspace   $term_color1 $term_background $term_color1
-            }
-        status_command i3blocks
-}
+        # tray_output             primary
+        # colors {
+                # background $term_background
+                # statusline $term_color12
+                # focused_workspace   $term_color5  $term_background $term_color5
+                # active_workspace  $term_color4 $term_background $term_color4
+                # inactive_workspace $term_background $term_background $term_color8
+                # urgent_workspace   $term_color1 $term_background $term_color1
+            # }
+        # status_command i3blocks
+# }
 # bar {
         # output eDP-1
         # position top
@@ -280,22 +283,6 @@ bindsym $mod+Delete		exec $stoprec
 # bindsym Control+XF86AudioLowerVolume	exec --no-startup-id lmc down 1
 # bindsym XF86AudioRaiseVolume	exec --no-startup-id lmc up 5; exec dunstify --replace=91284 -t 1000 ": $(lmc volume)% $(progressString.sh 10  - $(lmc volume))"
 # bindsym Shift+XF86AudioRaiseVolume	exec --no-startup-id lmc Up 5; exec dunstify --replace=91284 -t 1000 "🔊: $(lmc volume)% $(progressString.sh 10  - $(lmc volume))"
-# bindsym Control+XF86AudioRaiseVolume	exec --no-startup-id lmc up 1
-##bindsym XF86Sleep		This binding is typically mapped by systemd automatically.
-##bindsym XF86WakeUp		exec
-# bindsym XF86AudioNext		exec --no-startup-id lmc next
-# bindsym XF86AudioPlay		exec --no-startup-id lmc toggle
-# bindsym XF86AudioPrev		exec --no-startup-id lmc prev
-# bindsym XF86AudioStop		exec --no-startup-id lmc toggle
-##bindsym XF86AudioRecord
-# bindsym XF86AudioRewind		exec --no-startup-id lmc back 10
-# bindsym XF86AudioForward	exec --no-startup-id lmc forward 10
-bindsym XF86MonBrightnessUp exec sudo backlight up; exec dunstify --replace=11 -t 2000 ": $(backlight current)% $(progressString.sh 10  - $(backlight current))"
-bindsym $mod+PageUp exec sudo backlight up; exec dunstify --replace=11 -t 2000 ": $(backlight current)% $(progressString.sh 10  - $(backlight current))"
-bindsym $mod+XF86MonBrightnessUp exec xbacklight.py $hdminame +0.1
-bindsym XF86MonBrightnessDown exec sudo backlight down; exec dunstify --replace=11 -t 2000 ": $(backlight current)% $(progressString.sh 10   - $(backlight current))"
-bindsym $mod+PageDown exec sudo backlight down; exec dunstify --replace=11 -t 2000 ": $(backlight current)% $(progressString.sh 10   - $(backlight current))"
-bindsym $mod+XF86MonBrightnessDown exec xbacklight.py $hdminame -0.1
 # bindsym XF86AudioPlay exec qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 # bindsym XF86AudioNext exec qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 # bindsym XF86AudioPrev exec qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
@@ -305,35 +292,28 @@ bindsym $mod+$left exec i3fullscreenDirections left
 bindsym $mod+$down exec i3fullscreenDirections down
 bindsym $mod+$up exec i3fullscreenDirections.py up
 bindsym $mod+$right exec i3fullscreenDirections.py right
-
-# easily resizing
-bindsym $mod+Left resize shrink width 10 px or 10 ppt
-bindsym $mod+Up resize grow height 10 px or 10 ppt
-bindsym $mod+Down resize shrink height 10 px or 10 ppt
-bindsym $mod+Right resize grow width 10 px or 10 ppt
-
 # move focused window
 bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 
+# easily resizing
+bindsym $mod+Left resize shrink width 10 px or 10 ppt
+bindsym $mod+Up resize grow height 10 px or 10 ppt
+bindsym $mod+Down resize shrink height 10 px or 10 ppt
+bindsym $mod+Right resize grow width 10 px or 10 ppt
+bindsym $mod+shift+Left resize shrink width 1 px or 1 ppt
+bindsym $mod+shift+Up resize grow height 1 px or 1 ppt
+bindsym $mod+shift+Down resize shrink height 1 px or 1 ppt
+bindsym $mod+shift+Right resize grow width 1 px or 1 ppt
+
+
 bindsym $mod+Shift+ctrl+$left move up; move left, move right
 bindsym $mod+Shift+ctrl+$right move up; move right, move left
 
 bindsym $mod+ctrl+$left focus parent; focus left
 bindsym $mod+ctrl+$right focus parent; focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-bindsym $mod+ctrl+Left move up; move left
-bindsym $mod+ctrl+Right move up; move right
-
-
 
 # set $workspace1 "1: "
 # set $workspace2 w: "
@@ -363,7 +343,7 @@ set $5 t
 set $6 y
 set $7 u
 set $8 i
-set $9 [
+set $9 o
 set $0 p
 
 # switch to workspace
