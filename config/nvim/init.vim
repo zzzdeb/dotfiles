@@ -591,6 +591,16 @@ function! AutoRelativeNumber()
   endif
 endfunction
 
+function! Retab(count)
+  exe 'set tabstop='. a:count
+  exe 'set tabstop='.a:count
+  exe 'set softtabstop='.a:count
+  exe 'set shiftwidth='.a:count
+  set smarttab
+  set expandtab
+  retab
+endfunction
+
 augroup numbertoggle
  autocmd!
  autocmd BufEnter,FocusGained,InsertLeave * call AutoRelativeNumber()

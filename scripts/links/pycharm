@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+${HOME}/softwares/pycharm-professional-2019.1.tar/pycharm-2019.1/bin/pycharm.sh &

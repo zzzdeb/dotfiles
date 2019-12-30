@@ -548,9 +548,9 @@
 #	find_item_forward
 
 def_key "+"
-    show_clock
-def_key "="
     volume_up
+def_key "-"
+    volume_down
 
 def_key "k"
     scroll_down
@@ -569,9 +569,9 @@ def_key "u"
 def_key "d"
     page_down
 #push_characters "jjjjjjjjjjjjjjj"
-def_key "h"
+def_key "j"
     previous_column
-def_key "l"
+def_key ";"
     next_column
 
 def_key "."

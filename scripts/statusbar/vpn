@@ -1,7 +1,12 @@
 #!/bin/sh
+# nmcli -t connection show --active | awk -F ':' '
+# /tun0/{color="#5AF78E"} /vpn/{name=" "$1}
+# END{if(!color) color="#FF6E67"; if(name==" vpn-default") name=""; printf("廬%s\n%s\n%s\n", name, "廬", color)}'
+#polybar
 nmcli -t connection show --active | awk -F ':' '
-/tun0/{color="#5AF78E"} /vpn/{name=" "$1}
-END{if(!color) color="#FF6E67"; if(name==" vpn-default") name=""; printf("廬%s\n%s\n%s\n", name, "廬", color)}'
+/tun|tun0/{color="#5AF78E"} /vpn/{name=" "$1}
+END{if(!color) color="#FF6E67"; if(name==" vpn-default") name=""; printf("%{F%s}廬%s%{F-}", color, name)}'
+
 
 # if ifconfig tun0 | grep -q "00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00"; then
    # echo ''

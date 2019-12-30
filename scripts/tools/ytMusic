@@ -1,5 +1,5 @@
 #!/bin/bash
 
 notify-send 'yt'
-youtube-dl --add-metadata -i -o '/home/zzz/Music/%(title)s.%(ext)s' -x -f bestaudio/best $1
+youtube-dl --download-archive ~/Music/downloaded.txt --no-post-overwrites --embed-thumbnail --add-metadata -i -o '/home/zzz/Music/%(title)s.%(ext)s' -x -f bestaudio/best --audio-format mp3 $@
 notify-send 'yt done'
