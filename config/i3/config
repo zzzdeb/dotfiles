@@ -186,10 +186,7 @@ bindsym $mod+button9 --whole-window resize  grow width 5 px or 5 ppt
 
 # keyboard
 bindsym $mod+apostrophe		split horizontal ;; exec $term
-bindsym $mod+Return 		exec $term
 bindsym $mod+Shift+Return	exec --no-startup-id samedir
-
-bindsym $mod+backspace mode "$mode_system"
 
 bindsym $mod+slash		split vertical ;; exec $term
 
@@ -198,7 +195,7 @@ bindsym $mod+Shift+space floating toggle
 
 bindsym $mod+Tab		workspace back_and_forth
 
-bindsym $mod+a split vertical
+# bindsym $mod+a split vertical
 # bindsym $mod+shift+a
 
 bindsym $mod+b layout toggle tabbed splith splitv stacked
@@ -207,16 +204,14 @@ bindsym $mod+shift+b layout tabbed
 # bindsym $mod+shift+c split h
 bindsym $mod+ctrl+c reload
 
-bindsym  $mod+d exec rofi -show combi -display-drun "" -display-run "" -combi-modi "drun#run" -modi combi -show-icons
 # bindsym $mod+shift+d
 
 bindsym $mod+f fullscreen toggle
 # bindsym $mod+shift+f fullscreen toggle
 
-bindsym $mod+g mode "$mode_run"
+# bindsym $mod+g mode "$mode_run"
 # bindsym $mod+shift+g mode "$mode_run"
 
-bindsym $mod+ctrl+i exec dark_mode.sh
 
 # bindsym $mod+m mode "$mode_music"
 bindsym $mod+shift+m move workspace to output right
@@ -224,7 +219,6 @@ bindsym $mod+shift+m move workspace to output right
 # bindsym $mod+shift+n
 
 bindsym $mod+o split v
-bindsym $mod+ctrl+o exec ~/.dotfiles/scripts/change_output.sh
 
 bindsym $mod+ctrl+p focus parent
 bindsym $mod+ctrl+shift+p focus child
@@ -236,7 +230,6 @@ bindsym $mod+shift+s mode "$mode_system"
 
 bindsym $mod+v split horizontal
 # bindsym $mod+shift+v split toggle
-bindsym $mod+ctrl+v exec changeAudioOutput.sh
 
 bindsym $mod+x			gaps inner current plus 5
 bindsym $mod+Shift+x		gaps inner current minus 5
@@ -247,7 +240,7 @@ bindsym $mod+Shift+z		gaps outer current minus 5
 # bindsym $mod+apostrophe mode "$mode_system"
 # bindsym $mod+shift+apostrophe kill
 
-bindsym $mod+comma mode "$mode_leader"
+# bindsym $mod+comma mode "$mode_leader"
 
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
@@ -276,102 +269,36 @@ bindsym $mod+Print		exec --no-startup-id dmenurecord
 bindsym $mod+Shift+Print		exec --no-startup-id maim -s | xclip -selection clipboard -t image/png ;
 bindsym $mod+Scroll_Lock	exec --no-startup-id "killall screenkey || screenkey"
 bindsym $mod+Delete		exec $stoprec
-bindsym XF86Launch1		exec --no-startup-id xset dpms force off
+# bindsym XF86Launch1		exec --no-startup-id xset dpms force off
 
 # #---Extra XF86 Keys---# #
 # These are the extra media keys that some keyboards have.
-bindsym XF86AudioMute		exec --no-startup-id lmc mute
+# bindsym XF86AudioMute		exec --no-startup-id lmc mute
 # bindsym XF86AudioLowerVolume	exec --no-startup-id lmc down 5; exec dunstify --replace=91284 -t 1000 ": $(lmc volume)% $(progressString.sh 10  - $(lmc volume))"
-bindsym XF86AudioLowerVolume	exec --no-startup-id lmc down 5; exec dunstify --replace=91284 -t 1000 ": $(lmc volume)% $(bar 10 $(lmc volume))"
-bindsym Shift+XF86AudioLowerVolume	exec --no-startup-id lmc down 10
-bindsym Control+XF86AudioLowerVolume	exec --no-startup-id lmc down 1
-bindsym XF86AudioRaiseVolume	exec --no-startup-id lmc up 5; exec dunstify --replace=91284 -t 1000 ": $(lmc volume)% $(progressString.sh 10  - $(lmc volume))"
-bindsym Shift+XF86AudioRaiseVolume	exec --no-startup-id lmc Up 5; exec dunstify --replace=91284 -t 1000 "🔊: $(lmc volume)% $(progressString.sh 10  - $(lmc volume))"
-bindsym Control+XF86AudioRaiseVolume	exec --no-startup-id lmc up 1
-bindsym XF86PowerOff		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
-##bindsym XF86Copy		exec
-##bindsym XF86Open		exec
-##bindsym XF86Paste		exec
-##bindsym XF86Cut		exec
-##bindsym XF86MenuKB		exec
-bindsym XF86Calculator		exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
+# bindsym XF86AudioLowerVolume	exec --no-startup-id lmc down 5; exec dunstify --replace=91284 -t 1000 ": $(lmc volume)% $(bar 10 $(lmc volume))"
+# bindsym Shift+XF86AudioLowerVolume	exec --no-startup-id lmc down 10
+# bindsym Control+XF86AudioLowerVolume	exec --no-startup-id lmc down 1
+# bindsym XF86AudioRaiseVolume	exec --no-startup-id lmc up 5; exec dunstify --replace=91284 -t 1000 ": $(lmc volume)% $(progressString.sh 10  - $(lmc volume))"
+# bindsym Shift+XF86AudioRaiseVolume	exec --no-startup-id lmc Up 5; exec dunstify --replace=91284 -t 1000 "🔊: $(lmc volume)% $(progressString.sh 10  - $(lmc volume))"
+# bindsym Control+XF86AudioRaiseVolume	exec --no-startup-id lmc up 1
 ##bindsym XF86Sleep		This binding is typically mapped by systemd automatically.
 ##bindsym XF86WakeUp		exec
-bindsym XF86Explorer		exec $term -e $FILE
-##bindsym XF86Send		exec
-##bindsym XF86Xfer		exec
-bindsym XF86WWW			exec --no-startup-id $BROWSER
-##bindsym XF86DOS		exec
-bindsym XF86ScreenSaver		exec exec --no-startup-id lockscreen
-##bindsym XF86RotateWindows	exec
-##bindsym XF86TaskPane		exec
-##bindsym XF86Favorites		exec
-bindsym XF86MyComputer		exec $term -e $FILE
-##bindsym XF86Back		exec
-##bindsym XF86Forward		exec
-bindsym XF86Eject		exec --no-startup-id dmenuumount
-bindsym XF86AudioNext		exec --no-startup-id lmc next
-bindsym XF86AudioPlay		exec --no-startup-id lmc toggle
-bindsym XF86AudioPrev		exec --no-startup-id lmc prev
-bindsym XF86AudioStop		exec --no-startup-id lmc toggle
+# bindsym XF86AudioNext		exec --no-startup-id lmc next
+# bindsym XF86AudioPlay		exec --no-startup-id lmc toggle
+# bindsym XF86AudioPrev		exec --no-startup-id lmc prev
+# bindsym XF86AudioStop		exec --no-startup-id lmc toggle
 ##bindsym XF86AudioRecord
-bindsym XF86AudioRewind		exec --no-startup-id lmc back 10
-bindsym XF86AudioForward	exec --no-startup-id lmc forward 10
-##bindsym XF86Phone		exec
-##bindsym XF86Tools		exec
-bindsym XF86HomePage		exec $BROWSER https://lukesmith.xyz
-bindsym XF86Reload		restart
-##bindsym XF86ScrollUp		exec
-##bindsym XF86ScrollDown		exec
-##bindsym XF86New		exec
-##bindsym XF86LaunchA		exec
-##bindsym XF86LaunchB		exec
-##bindsym XF86Launch2		exec
-##bindsym XF86Launch3		exec
-##bindsym XF86Launch4		exec
-##bindsym XF86Launch5		exec
-##bindsym XF86Launch6		exec
-##bindsym XF86Launch7		exec
-##bindsym XF86Launch8		exec
-##bindsym XF86Launch9		exec
-#bindsym XF86AudioMicMute	exec $micmute
-bindsym XF86TouchpadToggle	exec --no-startup-id toggletouchpad
-bindsym XF86TouchpadOn		exec --no-startup-id synclient TouchpadOff=0
-bindsym XF86TouchpadOff		exec --no-startup-id synclient TouchpadOff=1
-bindsym XF86Suspend		exec --no-startup-id lockscreen
-bindsym XF86Close		kill
-bindsym XF86WebCam		exec --no-startup-id camtoggle
-bindsym XF86Mail		exec $term -e neomutt && pkill -RTMIN+12 i3blocks
-bindsym XF86Messenger		exec $term -e weechat
-bindsym XF86Search		exec $BROWSER https://duckduckgo.com
-##bindsym XF86Go			exec
-##bindsym XF86Finance		exec
-##bindsym XF86Game		exec
-bindsym XF86Shop		exec $BROWSER https://ebay.com
+# bindsym XF86AudioRewind		exec --no-startup-id lmc back 10
+# bindsym XF86AudioForward	exec --no-startup-id lmc forward 10
 bindsym XF86MonBrightnessUp exec sudo backlight up; exec dunstify --replace=11 -t 2000 ": $(backlight current)% $(progressString.sh 10  - $(backlight current))"
 bindsym $mod+PageUp exec sudo backlight up; exec dunstify --replace=11 -t 2000 ": $(backlight current)% $(progressString.sh 10  - $(backlight current))"
 bindsym $mod+XF86MonBrightnessUp exec xbacklight.py $hdminame +0.1
 bindsym XF86MonBrightnessDown exec sudo backlight down; exec dunstify --replace=11 -t 2000 ": $(backlight current)% $(progressString.sh 10   - $(backlight current))"
 bindsym $mod+PageDown exec sudo backlight down; exec dunstify --replace=11 -t 2000 ": $(backlight current)% $(progressString.sh 10   - $(backlight current))"
 bindsym $mod+XF86MonBrightnessDown exec xbacklight.py $hdminame -0.1
-bindsym XF86AudioMedia		exec --no-startup-id $term -e ncmpcpp
-bindsym XF86Display		exec --no-startup-id displayselect
-#bindsym XF86KbdLightOnOff	exec
-#bindsym XF86KbdBrightnessDown	exec
-#bindsym XF86KbdBrightnessUp	exec
-##bindsym XF86Reply		exec
-##bindsym XF86MailForward	exec
-##bindsym XF86Save		exec
-bindsym XF86Documents		exec $term -e $FILE ~/Documents
-##bindsym XF86Battery		exec
-bindsym XF86Bluetooth		exec btmenu
-bindsym XF86WLAN		exec $netrefresh
-# Media player controls
 # bindsym XF86AudioPlay exec qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 # bindsym XF86AudioNext exec qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 # bindsym XF86AudioPrev exec qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-
-bindsym $mod+XF86AudioPlay mode "$mode_MediaPlayer"
 
 # change focus
 bindsym $mod+$left exec i3fullscreenDirections left
@@ -517,34 +444,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-set $mode_leader leader
-mode "$mode_leader" {
-    bindsym b exec rofi -show windowcd -lines 15, mode "default"
-    bindsym d bar mode toggle, mode "default"
-    bindsym k sticky toggle, mode "default"
-    bindsym l exec layout_manager.sh, mode "default"
-    bindsym m move workspace to output right, mode "default"
-    bindsym shift+m move workspace to output up, mode "default"
-    # bindsym m exec --no-startup-id dmenumount, mode "default"
-    # bindsym shift+m exec --no-startup-id dmenuumount, mode "default"
-    # scratchpad
-    # bindsym r bar mode toggle, mode "default"
-    bindsym r exec sudo systemctl restart NetworkManager.service, mode "default"
-    bindsym shift+s move scratchpad, mode "default"
-    bindsym s scratchpad show, mode "default"
-    bindsym t exec rofi -show window -lines 15, mode "default"
-    bindsym u exec --no-startup-id dmenuunicode, mode "default"
-    bindsym v exec --no-startup-id vpntoggle 'vpn-default', mode "default"
-    bindsym shift+v exec --no-startup-id vpntoggle 'PIA - Switzerland', mode "default"
-    # bindsym w exec --no-startup-id networkmanager_dmenu -i -sb '$term_background' -sf '$term_color2', mode "default"
-    bindsym w exec --no-startup-id sxiv -t "$HOME/.config/variety/Downloaded/reddit_www_reddit_com_r_MinimalWallpaper_top__sort_top_t_year/", mode "default"
-    bindsym shift+w floating enable ;; exec --no-startup-id 21_9_width, mode "default"
-
-    bindsym slash exec --no-startup-id ducksearch, mode "default"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
 mode "moveit" {
     bindsym Up move up 20px
     bindsym Left move left 20px
@@ -553,99 +452,18 @@ mode "moveit" {
     bindsym Mod4+m mode "default"
 }
 
-set $mode_MediaPlayer (s)(u)(d)(n) next, (p) prev, (space) play
-mode "$mode_MediaPlayer" {
-    bindsym s exec flatpak run eu.tiliado.NuvolaAppAmazonCloudPlayer ; mode "default"
-    bindsym space exec --no-startup-id qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause 	; mode "default"
-    bindsym n exec --no-startup-id qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next		; mode "default"
-    bindsym p exec --no-startup-id qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous	; mode "default"
-	bindsym u exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +5% & pactl set-sink-volume alsa_output.pci-0000_00_1f.3.hdmi-stereo +5%
-	bindsym d exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -5% & pactl set-sink-volume alsa_output.pci-0000_00_1f.3.hdmi-stereo -5%
+# set $mode_MediaPlayer (s)(u)(d)(n) next, (p) prev, (space) play
+# mode "$mode_MediaPlayer" {
+    # bindsym s exec flatpak run eu.tiliado.NuvolaAppAmazonCloudPlayer ; mode "default"
+    # bindsym space exec --no-startup-id qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause 	; mode "default"
+    # bindsym n exec --no-startup-id qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next		; mode "default"
+    # bindsym p exec --no-startup-id qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous	; mode "default"
+	# bindsym u exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +5% & pactl set-sink-volume alsa_output.pci-0000_00_1f.3.hdmi-stereo +5%
+	# bindsym d exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -5% & pactl set-sink-volume alsa_output.pci-0000_00_1f.3.hdmi-stereo -5%
     # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+    # bindsym Return mode "default"
+    # bindsym Escape mode "default"
+# }
 
-set $mode_run RUN
-mode "$mode_run" {
-    bindsym a exec arandr, mode "default"
-    bindsym b exec firefox --private-window, mode "default"
-    bindsym shift+b exec btmenu, mode "default"
-    # bindsym b exec chromium-browser --incognito, mode "default"
-    # bindsym c exec $term -e calcurse -D ~/.config/calcurse, mode "default"
-    bindsym c exec gcalendar, mode "default"
-    bindsym d exec mode "$mode_dmenu", mode "default"
-    # bindsym e exec $term -e neomutt && pkill -RTMIN+12 i3blocks, mode "default"
-    bindsym e exec gmail, mode "default"
-    bindsym f exec $term -e $FILE, mode "default"
-    bindsym shift+f exec firefox , mode "default"
-    bindsym h exec $term -e htop, mode "default"
-    bindsym k exec anki -p 'zzz1', mode "default"
-    bindsym m exec --no-startup-id $term -e ncmpcpp, mode "default"
-    # bindsym n exec nautilus --no-desktop, mode "default"
-    bindsym n exec networkmanager_dmenu, mode "default"
-    bindsym shift+n exec $term -e nmtui, mode "default"
-    # bindsym p exec pcmanfm --no-desktop, mode "default"
-    bindsym p exec $term -e pulsemixer, mode "default"
-    bindsym q exec python3 -m qutebrowser, mode "default"
-    bindsym s exec baobab, mode "default"
-    bindsym t exec $term -e tg, mode "default"
-    bindsym shift+t exec telegram-desktop, mode "default"
-    bindsym v exec code, mode "default"
-    # bindsym x exec bash ~/hiwi/ACPLT-DevKit-linux64/acplt_dev, mode "default"
-    bindsym x exec --no-startup-id ddspawn genius -f mono:pixelsize=24, mode "default"
 
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-set $mode_output (p)(h)(j)(f)
-mode "$mode_output" {
-
-    bindsym p exec --no-startup-id ~/.screenlayout/panda.sh , mode "default"
-    bindsym h exec --no-startup-id ~/.screenlayout/home.sh , mode "default"
-    bindsym j exec --no-startup-id ~/.screenlayout/job2.sh , mode "default"
-    bindsym f exec --no-startup-id ~/.screenlayout/fat.sh , mode "default"
-    # back to normal: Enter or Escape
-    bindsym m move workspace to output $hdminame, mode "default"
-    bindsym shift+m move workspace to output eDP1, mode "default"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-set $mode_music Music
-mode "$mode_music" {
-
-    bindsym a exec --no-startup-id mpd_controll -a, mode "default"
-    bindsym j exec --no-startup-id lmc backward
-    bindsym o exec --no-startup-id mpd_controll -o, mode "default"
-    bindsym p exec --no-startup-id mpd_controll -p, mode "default"
-    # bindsym j exec --no-startup-id mpd_controll -j, mode "default"
-    bindsym l exec --no-startup-id mpd_controll -l, mode "default"
-    bindsym n		exec --no-startup-id lmc next, mode "default"
-    bindsym t exec --no-startup-id mpd_controll -t, mode "default"
-    bindsym q exec --no-startup-id mpc stop, mode "default"
-    bindsym space		exec --no-startup-id lmc toggle, mode "default"
-    bindsym shift+n		exec --no-startup-id lmc prev, mode "default"
-    bindsym r		exec --no-startup-id lmc replay, mode "default"
-    bindsym semicolon exec --no-startup-id lmc forward
-    bindsym XF86AudioLowerVolume	exec --no-startup-id mpc volume -5
-    bindsym XF86AudioRaiseVolume	exec --no-startup-id mpc volume +5
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
 # vim:filetype=i3config
