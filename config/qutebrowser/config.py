@@ -155,6 +155,7 @@ except ImportError:
     pass
 
 config.unbind('h')
+config.unbind('hy')
 config.bind('hI','hint images tab')
 config.bind('hO','hint links fill :open -t -r {hint-url}')
 config.bind('hR','hint --rapid links window')
@@ -170,7 +171,8 @@ config.bind('hr','hint --rapid links tab-bg')
 config.bind('hs','hint div userscript tts.py')
 config.bind('ht','hint inputs')
 config.bind('hv','hint video yank')
-config.bind('hy','hint links yank')
+config.bind('hyy','hint links yank')
+config.bind('hyd','hint div userscript code_select.py')
 
 c.hints.selectors["code"] = [
     # Selects all code tags whose direct parent is not a pre tag

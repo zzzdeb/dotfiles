@@ -33,6 +33,7 @@
     ~/.config/polybar/launch.sh: config/polybar/launch.sh
     ~/.config/mpv/input.conf : config/mpv/input.conf
     ~/.config/mpv/mpv.conf : config/mpv/mpv.conf
+    ~/.config/mpv/scripts : config/mpv/scripts
     ~/.config/mpv/install_plugins.sh : config/mpv/install_plugins.sh
     ~/.config/compton/compton.conf : config/compton/compton.conf
     ~/.config/cvim/cvimrc : config/cvim/cvimrc

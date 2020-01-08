@@ -25,6 +25,7 @@ local languages = {
 --          { 'French', 'fr', 'fre' },
             { 'German', 'de', 'ger' },
             { 'Korean', 'ko', 'kor' },
+            { 'Japanese', 'ja', 'jap' },
 --          { 'Italian', 'it', 'ita' },
 --          { 'Portuguese', 'pt', 'por' },
 --          { 'Polish', 'pl', 'pol' },
@@ -75,7 +76,7 @@ local utils = require 'mp.utils'
 function download_subs(language)
     language = language or languages[1]
     local filename = mp.get_property('media-title')
-    log('Searching ' .. filename .. ' ' .. language, 3)
+    log('Searching ' .. filename .. ' ' .. language[1], 3)
 
     -- Build the `subliminal` command, starting with the executable:
     local table = { args = { subliminal } }
@@ -125,10 +126,8 @@ end
 -- Manually download second language subs by pressing 'n':
 function download_subs2()
     download_subs(languages[2])
-end
-
-function download_subs3()
     download_subs(languages[3])
+    download_subs(languages[4])
 end
 
 -- Control function: only download if necessary
@@ -236,7 +235,6 @@ function log(string, secs)
 end
 
 
-mp.add_key_binding('b', 'download_subs', download_subs)
-mp.add_key_binding('n', 'download_subs2', download_subs2)
-mp.add_key_binding('N', 'download_subs3', download_subs3)
+mp.add_key_binding('Ctrl+s', 'download_subs', download_subs)
+mp.add_key_binding('Ctrl+Shift+s', 'download_subs2', download_subs2)
 mp.register_event('file-loaded', control_downloads)
