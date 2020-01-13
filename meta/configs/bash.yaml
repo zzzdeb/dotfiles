@@ -1,3 +1,11 @@
+- defaults:
+    link:
+      create: true
+      relink: true
 - link:
-    ~/.bash_profile: config/bash_profile
-    ~/.bash_completion: config/bash_completion
+    ~/.config/aliasrc: config/aliasrc
+    ~/.scripts:
+    ~/.profile:
+    ~/.bashrc:
+- shell:
+        - xkbcomp ~/.config/keyboard/xkbmap $DISPLAY; xmodmap ~/.config/keyboard/xmodmaprc
