@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]
+then
+  echo "Usage example: ./bashscript src.pdf [src1.pdf, ]"
+  exit $E_BADARGS
+else
+  for var in "$@"
+	do
+	  echo "$var"
+	  NUM=$(pdftk "$var" dump_data | grep 'NumberOfPages' | awk '{split($0,a,": "); print a[2]}')
+	  COMMSTR=''
+	  UNITESTR=''
+
+	  for i in $(seq 1 $NUM);
+	  do
+	    COMMSTR="$COMMSTR A$i B$i " 
+	    UNITESTR="$UNITESTR pageblanche.pdf" 
+	  done
+	  $(echo "" | ps2pdf14 -sPAPERSIZE=a4 - pageblanche.pdf)
+
+	  $(pdfunite $UNITESTR united.pdf)
+	  $(pdftk A="$var" B=united.pdf cat $COMMSTR output "mod_$var")
+	  (pdfnup "mod_$var" --nup 2x1 --landscape --outfile "print_$var")
+	  $(rm united.pdf pageblanche.pdf "mod_$var")
+	done
+
+fi

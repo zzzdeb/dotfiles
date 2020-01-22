@@ -1,0 +1,3 @@
+ #!/usr/bin/env sh
+
+ "/mnt/c/Program Files (x86)/Microsoft Office/root/Office16/WINWORD.EXE" "$@"

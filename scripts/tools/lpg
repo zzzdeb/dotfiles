@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+( lpass show -c --password $1/$2 2>/dev/null && echo 'exists. now in clipboard' ) || ( lpass generate -c --username=$2 --url=$1 $1/$2 10 && echo 'generated. now in clipboard' )
