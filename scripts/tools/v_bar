@@ -1,0 +1,97 @@
+#!/usr/bin/env python
+import sys
+from termcolor import colored, cprint
+
+if __name__ == "__main__":
+  length = int(sys.argv[1])
+  prec = int(sys.argv[2])
+  full = int(length*prec/100)
+  empty = length-full
+  fsym = '|'
+  esym = '|'
+
+import time
+import curses
+
+def vertbar(length, perc, fsym, esym):
+  res = ''
+  full = int(length*prec/100)
+  empty = length-full
+  for i in range(0, length):
+    if i <= full:
+      res = res + fsym #colored(fsym, 'blue')
+      res = res + '\n'
+    else:
+      res = res + esym
+      res = res + '\n'
+
+  return res
+
+
+def pbar(window):
+  length = int(sys.argv[1])
+  prec = int(sys.argv[2])
+  full = int(length*prec/100)
+  empty = length-full
+  while 1:
+    #  window.addstr(0, 0, vertbar(10, 30, '+', '-'), curses.color_pair(1))
+    # volume
+    window.addstr(0, 0, '')
+    window.addstr('37')
+    window.addstr('\n')
+    for i in range(1, length+1):
+      if i < empty:
+        window.addstr(esym, curses.color_pair(0))
+        window.addstr('\n')
+      else:
+        window.addstr(fsym, curses.color_pair(1))
+        window.addstr('\n')
+
+    window.addstr('🔊')
+    window.addstr('\n')
+
+    window.addstr('\n')
+    window.addstr('\n')
+
+    # brightness
+    window.addstr('10')
+    window.addstr('\n')
+    for i in range(1, length+1):
+      if i < empty:
+        window.addstr(esym, curses.color_pair(0))
+        window.addstr('\n')
+      else:
+        window.addstr(fsym, curses.color_pair(1))
+        window.addstr('\n')
+
+    window.addstr('☀')
+    window.addstr('\n')
+    window.addstr('\n')
+
+    # battery
+    full = full + 1
+    empty = empty- 1
+    window.addstr(str(prec))
+    window.addstr('\n')
+    for i in range(1, length+1):
+      if i < empty:
+        window.addstr(esym, curses.color_pair(0))
+        window.addstr('\n')
+      else:
+        window.addstr(fsym, curses.color_pair(1))
+        window.addstr('\n')
+
+    window.addstr('')
+    window.addstr('\n')
+    window.addstr('\n')
+
+    window.refresh()
+    time.sleep(0.5)
+
+curses.initscr()
+curses.start_color()
+curses.use_default_colors()
+curses.init_pair(1, curses.COLOR_BLUE, curses.COLOR_BLUE)
+curses.wrapper(pbar)
+
+print(vertbar(10, 30, '+', '-'))
