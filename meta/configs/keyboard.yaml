@@ -1,0 +1,8 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+- link:
+        ~/.config/keyboard: config/keyboard
+- shell:
+        - ["xkbcomp ~/.config/keyboard/xkbmap $DISPLAY; xmodmap ~/.config/keyboard/xmodmaprc"]

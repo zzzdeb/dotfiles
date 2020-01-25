@@ -5,7 +5,7 @@
 xset r rate 300 50
 # Map the caps lock key to super...
 # setxkbmap -option caps:super
-xkbcomp ~/.dotfiles/keyboard/xkbmap $DISPLAY; xmodmap ~/.dotfiles/keyboard/xmodmaprc
+xkbcomp -w 0 ~/.config/keyboard/xkbmap $DISPLAY; xmodmap ~/.config/keyboard/xmodmaprc
 # But when it is pressed only once, treat it as escape.
 killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape'
 # Map the menu button to right super as well.

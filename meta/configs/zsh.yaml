@@ -1,0 +1,11 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+- link:
+    ~/.config/aliasrc: config/aliasrc
+    ~/.scripts:
+    ~/.zprofile:
+    ~/.zshrc:
+- shell:
+        - xkbcomp ~/.config/keyboard/xkbmap $DISPLAY; xmodmap ~/.config/keyboard/xmodmaprc
