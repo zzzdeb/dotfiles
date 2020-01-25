@@ -91,6 +91,8 @@
     ~/.fontawesome:
     ~/.icons:
     ~/.local/share/applications: local/share/applications
+    ~/.local/share/qutebrowser/userscripts: local/share/qutebrowser/userscripts
+    ~/.local/share/qutebrowser/greasemonkey: local/share/qutebrowser/greasemonkey
 
     ~/.config/mimeapps.list: config/mimeapps.list
     ~/.config/user-dirs.dirs: config/user-dirs.dirs

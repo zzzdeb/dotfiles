@@ -5,6 +5,9 @@ config.load_autoconfig()
 
 # Config
 config.source('shortcuts.py')
+#Theme
+config.source('themes/base16-qutebrowser/themes/minimal/base16-dracula.config.py')
+
 # c.? are options set at launch.
 c.auto_save.session = True
 c.tabs.favicons.scale = 1
@@ -43,11 +46,20 @@ config.bind('B', 'set-cmd-text -s :bookmark-load')
 config.bind('sc', 'config-source')
 
 
+config.unbind(',t')
+config.bind(',tt', 'spawn --userscript translate.py auto en')
+config.bind(',tk', 'spawn --userscript translate.py auto ko')
+config.bind(',tj', 'spawn --userscript translate.py auto ja')
+config.bind(',td', 'spawn --userscript translate.py auto de')
+config.bind(',tt', 'spawn --userscript translate.py auto en', mode='caret')
+config.bind(',tk', 'spawn --userscript translate.py auto ko', mode='caret')
+config.bind(',tj', 'spawn --userscript translate.py auto ja', mode='caret')
+config.bind(',td', 'spawn --userscript translate.py auto de', mode='caret')
 # configs are for downloading videos and music
 config.bind(',yD', 'hint links spawn yt "{hint-url}"')
-config.bind(',ym', "spawn ytMusic '{url}'")
+config.bind(',ym', "spawn ytMusic m '{url}'")
 #  config.bind('zp', 'hint links spawn ~/.bin/ytdlp {hint-url} ~/Downloads/qbdownloads')
-config.bind(',yv', 'spawn cd $HOME/Videos; yt "{url}"')
+config.bind(',yv', 'spawn ytMusic v "{url}"')
 
 # Ctrl shortcuts run scripts / applications
 config.bind(',m', 'spawn --detach mpv --force-window yes {url}')
@@ -90,41 +102,22 @@ c.tabs.close_mouse_button = "right"
 
 # search engine shortneners
 c.url.searchengines = {
-"DEFAULT": "https://duckduckgo.com/?q={}",
+"DEFAULT": "https://www.google.com/search?q={}",
 "!g": "https://www.google.de/search?&q={}",
-"!w": "https://en.wikipedia.org/w/index.php?search={}",
-"!steam": "http://store.steampowered.com/search/?term={}",
-"!ddg": "https://duckduckgo.com/?q={}",
+"!w": "http://www.wikiwand.com/en/{}",
+"!d": "https://duckduckgo.com/?q={}",
 "!aur": "https://aur.archlinux.org/packages/?O=0&K={}",
 "!arch": "https://wiki.archlinux.org/index.php?title=Special%3ASearch&search={}",
-"!imdb": "http://www.imdb.com/find?ref_=nv_sr_fn&s=all&q={}",
+"!gt":
+    "https://translate.google.com/#view=home&op=translate&sl=auto&tl=en&text={}",
 "!dic": "http://www.dictionary.com/browse/{}",
-"!ety": "http://www.etymonline.com/index.php?allowed_in_frame=0&search={}",
 "!urban": "http://www.urbandictionary.com/define.php?term={}",
 "!yt": "https://www.youtube.com/results?search_query={}",
-"!ddgi": "https://duckduckgo.com/?q={}&iar=images",
-"!lutris": "https://lutris.net/games/?q={}",
-"!deal": "https://isthereanydeal.com/search/?q={}",
-"!gog": "https://www.gog.com/games?sort=popularity&search={}&page=1",
-"!proton": "https://www.protondb.com/search?q={}",
-"!qwant": "https://www.qwant.com/?q={}",
+"!maps": "https://www.google.com/maps/place/{}",
 "!sp": "https://www.startpage.com/do/dsearch?query={}",
-"!itch": "https://itch.io/search?q={}"}
-
-#Theme
-config.source('themes/nord-qutebrowser/nord-qutebrowser.py')
-#  import themes.dracula.draw
-
-#  themes.dracula.draw.blood(c, {
-    #  'spacing': {
-        #  'vertical': 6,
-        #  'horizontal': 8
-    #  },
-    #  'font': {
-        #  'family': 'Menlo, Terminus, Monaco, Monospace',
-        #  'size': 10
-    #  }
-#  })
+"!pirate": "https://www.pirate-bay.net/search?q={}",
+"!torrent": "https://www.pirate-bay.net/search?q={}",
+}
 
 
 #Test
@@ -149,19 +142,18 @@ config.bind('zol', 'spawn --userscript qute-pass --otp-only')
 try:
     from qutebrowser.api import message
 
-    config.source('qutenyan/nyan.py')
     config.source('pyconfig/redirectors.py')
 except ImportError:
     pass
 
 config.unbind('h')
-config.unbind('hy')
+#  config.unbind('hy')
 config.bind('hI','hint images tab')
 config.bind('hO','hint links fill :open -t -r {hint-url}')
 config.bind('hR','hint --rapid links window')
 config.bind('hY','hint links yank-primary')
 config.bind('hb','hint all tab-bg')
-config.bind('hc','hint code userscript code_select.py')
+config.bind('hc','hint code userscript copy_selected.py')
 config.bind('hd','hint all delete')
 config.bind('hf','hint iframe fill :open -t {hint-url}')
 config.bind('hh','hint all hover')
@@ -169,10 +161,10 @@ config.bind('hi','hint images')
 config.bind('ho','hint links fill :open {hint-url}')
 config.bind('hr','hint --rapid links tab-bg')
 config.bind('hs','hint div userscript tts.py')
-config.bind('ht','hint inputs')
+config.bind('ht','hint all userscript translate.py')
 config.bind('hv','hint video yank')
 config.bind('hyy','hint links yank')
-config.bind('hyd','hint div userscript code_select.py')
+config.bind('hyd','hint div userscript copy_selected.py')
 
 c.hints.selectors["code"] = [
     # Selects all code tags whose direct parent is not a pre tag
@@ -187,38 +179,12 @@ c.hints.selectors["video"] = [
 c.hints.selectors["iframe"] = [
     "iframe",
 ]
-c.hints.selectors["*"] = [
+c.hints.selectors["*"]= [
     "*",
 ]
 c.hints.selectors["div"] = [
     "div",
 ]
-#colours
-#  c.colors.completion.fg = "#ffffff"
-#  c.colors.completion.even.bg = "#262626"
-#  c.colors.completion.odd.bg = "#000000"
-#  c.colors.completion.category.fg = "#ffffff"
-#  c.colors.completion.category.bg = "#000000"
-#  c.colors.completion.category.border.top = "#8c8c8c"
-#  c.colors.completion.item.selected.fg = "#ffffff"
-#  c.colors.completion.item.selected.bg = "#cc00cc"
-#  c.colors.completion.item.selected.border.top = c.colors.completion.item.selected.bg
-#  c.colors.completion.item.selected.border.bottom = c.colors.completion.category.border.top
-#  c.colors.completion.match.fg = "#ccb3ff"
-#  c.colors.statusbar.insert.bg = "#cc0099"
-#  c.colors.tabs.odd.fg = "#ffffff"
-#  c.colors.tabs.odd.bg = "#000000"
-#  c.colors.tabs.even.fg = c.colors.tabs.odd.fg
-#  c.colors.tabs.even.bg = c.colors.tabs.odd.bg
-#  c.colors.tabs.selected.odd.bg = "#cc00cc"
-#  c.colors.tabs.selected.even.bg = c.colors.tabs.selected.odd.bg
-#  c.colors.tabs.bar.bg = "#000000"
-#  c.hints.border = "#000000"
-#  c.colors.hints.fg = "#cc00cc"
-#  c.colors.hints.bg = "#000000"
-#  c.colors.hints.match.fg = "#ffffff"
-#  c.colors.downloads.bar.bg = "#000000"
-
 
 # jblock
 #  import sys, os

@@ -560,23 +560,6 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" Using CocList
-" Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " setting indent markers-------------------------------------------------------------------
 set list " Show invisible characters
 let &listchars = "tab:.,trail:\u2591,extends:>,precedes:<,nbsp:\u00b7"
@@ -938,6 +921,7 @@ nnoremap <a-j> :join<cr>
 nnoremap gp :pu<cr>
 nnoremap gP :pu!<cr>
 inoremap <c-v> <c-r>*
+cnoremap <c-v> <c-r>"
 
 " Emacs-like beginning and end of line.
 imap <c-e> <c-o>$
@@ -1034,6 +1018,16 @@ nnoremap <localLeader>ro :<C-u>lop<CR>
 nnoremap <localLeader>rc :<C-u>lcl<CR>
 nnoremap <localLeader>rw :<C-u>lw<CR>
 
+" Using CocList
+nnoremap <silent> <leader>la  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <leader>le  :<C-u>CocList extensions<cr>
+nnoremap <silent> <leader>lc  :<C-u>CocList commands<cr>
+nnoremap <silent> <leader>lo  :<C-u>CocList outline<cr>
+nnoremap <silent> <leader>lr  :<C-u>CocListResume<CR>
+nnoremap <silent> <leader>lS  :<C-u>CocList snippets<CR>
+
+nnoremap <silent> <leader>lj  :<C-u>CocNext<CR>
+nnoremap <silent> <leader>lk  :<C-u>CocPrev<CR>
 
 " Git
 " tpope

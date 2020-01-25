@@ -18,6 +18,7 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='10'
 # POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status root_indicator background_jobs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context dir vcs)
 # User configuration
 # Load zgen only if a user types a zgen command
 export ZGEN_DIR=${HOME}/.zgen
@@ -40,6 +41,8 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/vi-mode
     zgen load laurenkt/zsh-vimto
     zgen oh-my-zsh plugins/extract
+    zgen oh-my-zsh plugins/virtualenv
+    zgen oh-my-zsh plugins/virtualenvwrapper
     # zgen oh-my-zsh plugins/command-not-found
     zgen load zsh-users/zsh-syntax-highlighting
 
