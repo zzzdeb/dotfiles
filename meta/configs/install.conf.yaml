@@ -53,6 +53,7 @@
     ~/.config/mpd/mpd.conf : config/mpd/mpd.conf
     ~/.config/aliasrc: config/aliasrc
     ~/.config/redshift.conf: config/redshift.conf
+    ~/.config/keyboard: config/keyboard
 
     ~/.screenlayout : screenlayout
     # ~/.aria2/aria2.conf:
