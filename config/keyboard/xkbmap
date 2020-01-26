@@ -7,7 +7,7 @@ xkb_keymap {
     <AC09> = 33;
     <AC10> = 34;
     <AC11> = 35;
-    <AB11> = 36;
+    <RTRN> = 36;
     //<AC12> = 35;
     <TAB> = 49;
     <AD01> = 10;
@@ -53,7 +53,7 @@ xkb_keymap {
     <AB08> = 46;
     <AB09> = 47;
     <AB10> = 48;
-    <RTRN> = 51;
+    <AB11> = 51;
 
     <LALT> = 53;
     <LFSH> = 54;
@@ -145,7 +145,7 @@ partial modifier_keys
 
 
       //key <RTSH> {	[	 XF86WakeUp		]	};
-      key <LSGT> {
+      key <LSGT> {		 
           type= "ONE_LEVEL",
           symbols= [ Control_L ]
           };
