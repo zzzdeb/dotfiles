@@ -1,0 +1,13 @@
+!keycode 9 = colon
+!keycode 94 = backslash
+!keycode 51 = Escape 
+! clear shift
+
+! keycode 55 = Shift_L
+clear control
+add control = Control_L
+add control = Control_R
+
+clear shift
+add shift = Shift_L
+
