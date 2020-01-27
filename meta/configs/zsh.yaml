@@ -5,7 +5,7 @@
 - link:
     ~/.config/aliasrc: config/aliasrc
     ~/.scripts:
-    ~/.zprofile:
     ~/.zshrc:
+    ~/.profile:
 - shell:
         - xkbcomp ~/.config/keyboard/xkbmap $DISPLAY; xmodmap ~/.config/keyboard/xmodmaprc

@@ -1,7 +1,0 @@
-- link:
-    "C:/laragon/usr/sites.conf": laragon/sites.conf
-    "C:/laragon/usr/laragon.ini": laragon/laragon.ini
-
-- shell:
-  - [bash ./bin/wp-cli-install, Installing WP-CLI]
-  - [bash ./bin/laragon-system, Creating Own Laragon Environment]

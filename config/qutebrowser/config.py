@@ -102,7 +102,7 @@ c.tabs.close_mouse_button = "right"
 
 # search engine shortneners
 c.url.searchengines = {
-"DEFAULT": "https://www.google.com/search?q={}",
+"DEFAULT": "https://duckduckgo.com/?q={}",
 "!g": "https://www.google.de/search?&q={}",
 "!w": "http://www.wikiwand.com/en/{}",
 "!d": "https://duckduckgo.com/?q={}",

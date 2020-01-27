@@ -1,0 +1,17 @@
+- link:
+    ~/.npmrc: config/npmrc
+    ~/.config/xfce4/terminal/terminalrc: config/xfce4/terminalrc
+    ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml: config/xfce4/xfce4-panel.xml
+    ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml: config/xfce4/xfce4-power-manager.xml
+    ~/.config/cvim/cvimrc : config/cvim/cvimrc
+    ~/.config/ncmpcpp: config/ncmpcpp
+
+    ~/.config/newsboat/urls: config/newsboat/urls
+    ~/.config/newsboat/config: config/newsboat/config
+    ~/.config/calcurse : config/calcurse
+    ~/.config/redshift.conf: config/redshift.conf
+    ~/.config/mpd/mpd.conf : config/mpd/mpd.conf
+    ~/.xprofile: profile
+    ~/.vrapperrc: vrapperrc
+    ~/.keynavrc: keynavrc
+    ~/.tmux.conf:

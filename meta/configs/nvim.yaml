@@ -2,15 +2,12 @@
     link:
       create: true
       relink: true
-- shell:
-  # the following have to run after linking ~/.gitconfig
-  - git submodule update --init --recursive
-  - git submodule sync --recursive
 
 - clean: ['~', '~/.config']
 
 - link:
     ~/.config/nvim : config/nvim
+    ~/.config/coc/ultisnips: config/coc/ultisnips
 
 - shell:
   - command: curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

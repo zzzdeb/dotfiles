@@ -6,67 +6,37 @@
 - link:
     ~/.gitconfig:
     ~/.gitignore_global:
-- shell:
-  # the following have to run after linking ~/.gitconfig
-  - git submodule update --init --recursive
-  - git submodule sync --recursive
-
 
 - clean: ['~', '~/.config']
 
 - link:
-    ~/.config/sxhkd/sxhkdrc: config/sxhkd/sxhkdrc
-    ~/.config/coc/ultisnips: config/coc/ultisnips
-    ~/.config/ranger/rifle.conf: config/ranger/rifle.conf
-    ~/.config/ranger/rc.conf: config/ranger/rc.conf
-    ~/.config/ranger/commands.py: config/ranger/commands.py
-    ~/.config/rofi: config/rofi
-    ~/.config/ranger/plugins/devicons.py: config/ranger/ranger_devicons/devicons.py
-    ~/.config/ranger/plugins/devicons_linemode.py: config/ranger/ranger_devicons/devicons_linemode.py
-    ~/.config/zathura/zathurarc: config/zathura/zathurarc
-    ~/.config/xfce4/terminal/terminalrc: config/xfce4/terminalrc
-    ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml: config/xfce4/xfce4-panel.xml
-    ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml: config/xfce4/xfce4-power-manager.xml
     ~/.config/variety/variety.conf: config/variety/variety.conf
     ~/.config/variety/ui.conf : config/variety/ui.conf
     ~/.config/polybar/config: config/polybar/config
     ~/.config/polybar/launch.sh: config/polybar/launch.sh
+    ~/.config/sxhkd/sxhkdrc: config/sxhkd/sxhkdrc
+    ~/.config/rofi: config/rofi
+    ~/.config/zathura/zathurarc: config/zathura/zathurarc
     ~/.config/mpv/input.conf : config/mpv/input.conf
     ~/.config/mpv/mpv.conf : config/mpv/mpv.conf
     ~/.config/mpv/scripts : config/mpv/scripts
     ~/.config/mpv/install_plugins.sh : config/mpv/install_plugins.sh
     ~/.config/compton/compton.conf : config/compton/compton.conf
-    ~/.config/cvim/cvimrc : config/cvim/cvimrc
     ~/.config/gtk-3.0 : config/gtk-3.0
     ~/.config/gtk-2.0 : config/gtk-2.0
-    ~/.config/ncmpcpp: config/ncmpcpp
     ~/.config/dunst: config/dunst
-    ~/.config/newsboat/urls: config/newsboat/urls
-    ~/.config/newsboat/config: config/newsboat/config
     ~/.config/bmdirs: config/bmdirs
     ~/.config/bmfiles: config/bmfiles
     ~/.config/i3/config : config/i3/config
     ~/.config/i3blocks : config/i3blocks
-    ~/.config/qutebrowser : config/qutebrowser
-    ~/.config/calcurse : config/calcurse
     ~/.config/fontconfig : config/fontconfig
-    ~/.config/mpd/mpd.conf : config/mpd/mpd.conf
-    ~/.config/aliasrc: config/aliasrc
-    ~/.config/redshift.conf: config/redshift.conf
-    ~/.config/keyboard: config/keyboard
 
     ~/.screenlayout : screenlayout
     # ~/.aria2/aria2.conf:
     # ~/.axelrc:
     # ~/.bash:
-    ~/.bashrc:
     ~/.profile:
-    ~/.bash_profile: profile
-    ~/.zprofile: profile
-    ~/.xprofile: profile
     ~/.scripts:
-    ~/.vrapperrc: vrapperrc
-    ~/.keynavrc: keynavrc
     # ~/.gnupg/gpg.conf:
     # ~/.haskeline:
     # ~/.hgrc:
@@ -81,10 +51,8 @@
     # ~/.pythonrc:
     # ~/.rtorrent.rc:
     # ~/.shell:
-    ~/.tmux.conf:
     # ~/.vim:
     # ~/.zsh:
-    ~/.zshrc:
     ~/.Xdefaults:
     ~/.inputrc:
     ~/.xinitrc:
@@ -92,8 +60,6 @@
     ~/.fontawesome:
     ~/.icons:
     ~/.local/share/applications: local/share/applications
-    ~/.local/share/qutebrowser/userscripts: local/share/qutebrowser/userscripts
-    ~/.local/share/qutebrowser/greasemonkey: local/share/qutebrowser/greasemonkey
 
     ~/.config/mimeapps.list: config/mimeapps.list
     ~/.config/user-dirs.dirs: config/user-dirs.dirs
@@ -112,8 +78,6 @@
   - ~/.scripts/tools/shortcuts
   # - xdg-mime default zathura.desktop application/pdf
   # - xdg-settings set default-web-browser qutebrowser.desktop
-  - "[ ! -f ~/.fzf.zsh ] || [ ! -f ~/.fzf.bash ] && ~/.dotfiles/fzf/install"
-  - "wget https://raw.githubusercontent.com/LaurenceWarne/qute-code-hint/master/code_select.py -O ~/.local/share/qutebrowser/userscripts/code_select.py"
-  - "chmod +x ~/.local/share/qutebrowser/userscripts/code_select.py"
+  - "[ -f ~/.fzf.zsh ] && [ -f ~/.fzf.bash ] || ~/.dotfiles/fzf/install"
   - "git clone https://github.com/powerline/fonts /tmp/powerline_fonts; cd /tmp/powerline_fonts; ./install.sh"
 

@@ -31,3 +31,6 @@
 [submodule "scripts/i3cmds/i3-layout-manager"]
 	path = scripts/i3-layout-manager
 	url = https://github.com/klaxalk/i3-layout-manager
+[submodule "config/qutebrowser/themes/base16-qutebrowser"]
+	path = config/qutebrowser/themes/base16-qutebrowser
+	url = https://github.com/theova/base16-qutebrowser
