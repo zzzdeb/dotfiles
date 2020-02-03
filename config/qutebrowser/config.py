@@ -125,7 +125,8 @@ config.bind('<Ctrl-m>', "prompt-yank -s;;spawn uget-gtk --quiet --folder=Downloa
 config.bind('<Ctrl-shift-m>', "prompt-yank -s;;spawn uget-gtk '{primary}';;enter-mode normal", mode='prompt')
 
 config.bind('gd', 'spawn uget-gtk')
-config.bind('gD', 'spawn st -e ranger /home/zzz/Downloads')
+
+config.bind('gD', 'spawn st -e ranger --cmd="chain set sort=atime ; set sort_directories_first=false" /home/zzz/Downloads')
 config.bind('<ctrl-b>', "set-cmd-text -s :quickmark-add {url}")
 config.bind('<ctrl-shift-j>', "tab-focus 1")
 config.bind('<ctrl-shift-k>', "tab-move +")
@@ -185,6 +186,9 @@ c.hints.selectors["*"]= [
 c.hints.selectors["div"] = [
     "div",
 ]
+
+config.source('custom_config.py')
+
 
 # jblock
 #  import sys, os

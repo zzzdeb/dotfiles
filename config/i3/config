@@ -391,9 +391,10 @@ bindsym $mod+Shift+$0 move container to workspace $workspace10
 # assign [class="Firefox"] $workspace2
 assign [class="Thunderbird"] $workspace8
 assign [class="Calise" instance="calise" title="Calise"] $workspace7
-assign [class="Chromium-browser" instance="mail.google.com"] $workspace8
-assign [class="Chromium-browser" instance="calendar.google.com"] $workspace8
-assign [class="Chromium-browser" instance="home_zzz_hiwi_henson_index.html" window_role="pop-up"] $workspace8
+assign [class="Google-chrome" instance="mail.google.com"] $workspace10
+assign [class="Google-chrome" instance="calendar.google.com"] $workspace10
+assign [class="Google-chrome" instance="home_zzz_hiwi_henson_index.html" window_role="pop-up"] $workspace8
+# assign [class="Chromium-browser" instance="home_zzz_hiwi_henson_index.html" window_role="pop-up"] $workspace8
 assign [class="VirtualBox Machine"] $workspace4
 assign [class="Org.gnome.DejaDup" title="Déjà Dup Backup Tool"] $workspace7
 

@@ -5,5 +5,7 @@
 	default = simple
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	autocrlf = false
+	autolf = true
 [diff]
 	tool = vcode

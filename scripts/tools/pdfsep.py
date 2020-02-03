@@ -20,7 +20,7 @@ def split_pages(src, dst):
 
         x1, x2 = p.mediaBox.lowerLeft
         x3, x4 = p.mediaBox.upperRight
-        print('{} {} {} {}'.format(x1, x2, x3, x4))
+        #print('{} {} {} {}'.format(x1, x2, x3, x4))
 
         x1, x2 = math.floor(x1), math.floor(x2)
         x3, x4 = math.floor(x3), math.floor(x4)
@@ -37,12 +37,12 @@ def split_pages(src, dst):
             # vertical
             p.mediaBox.upperRight = (x3-m['d'], x4-m['r'])
             p.mediaBox.lowerLeft = (x1+m['u'], x6+m['l'])
-            print('p {} {}'.format(p.mediaBox.upperRight,
-                                         p.mediaBox.lowerLeft))
+            #rint('p {} {}'.format(p.mediaBox.upperRight,
+            #                             p.mediaBox.lowerLeft))
 
             q.mediaBox.upperRight = (x3-m['d'], x6-m['r'])
             q.mediaBox.lowerLeft = (x1+m['u'], x2+m['l'])
-            print('q {} {}'.format(q.mediaBox.upperRight, q.mediaBox.lowerLeft))
+            #rint('q {} {}'.format(q.mediaBox.upperRight, q.mediaBox.lowerLeft))
 
         if current:
             output.insertPage(p, index=i)

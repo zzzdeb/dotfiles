@@ -11,3 +11,5 @@ killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape'
 # Map the menu button to right super as well.
 xmodmap -e 'keycode 135 = Super_R'
 #setxkbmap -layout u s,mn -variant altgr-intl, -option grp:rctrl_rshift_toggle
+i3 'reload'
+restart sxhkd

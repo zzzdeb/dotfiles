@@ -35,3 +35,7 @@ map ; scroll right
 
 set recolor-lightcolor "#ffeecc"
 set recolor-darkcolor "#000000"
+
+map v feedkeys ":exec bash -c \"pdftotext -f $PAGE -l $PAGE \\\"$FILE\\\" /tmp/tmpzathura.txt; st -e nvim /tmp/tmpzathura.txt\"<Return>"
+map V feedkeys ":exec bash -c \"pdftotext \\\"$FILE\\\" /tmp/tmpzathura.txt; st -e nvim /tmp/tmpzathura.txt\"<Return>"
+map y exec notify-send a
