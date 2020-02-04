@@ -1,28 +1,33 @@
-#!/bin/bash
+#!/usr/bin/env python
+import copy
+import sys
+import math
+import PyPDF2
 
-if [ $# -lt 1 ]
-then
-  echo "Usage example: ./bashscript src.pdf [src1.pdf, ]"
-  exit $E_BADARGS
-else
-  for var in "$@"
-	do
-	  echo "$var"
-	  NUM=$(pdftk "$var" dump_data | grep 'NumberOfPages' | awk '{split($0,a,": "); print a[2]}')
-	  COMMSTR=''
-	  UNITESTR=''
+def split_pages(src, dst):
+    m = {'l':10, 'u':10, 'r':20, 'd':15}
+    src_f = open(src, 'r+b')
+    dst_f = open(dst, 'w+b')
 
-	  for i in $(seq 1 $NUM);
-	  do
-	    COMMSTR="$COMMSTR A$i B$i " 
-	    UNITESTR="$UNITESTR pageblanche.pdf" 
-	  done
-	  $(echo "" | ps2pdf14 -sPAPERSIZE=a4 - pageblanche.pdf)
+    input = PyPDF2.PdfFileReader(src_f)
+    output = PyPDF2.PdfFileWriter()
+    current = 1
 
-	  $(pdfunite $UNITESTR united.pdf)
-	  $(pdftk A="$var" B=united.pdf cat $COMMSTR output "mod_$var")
-	  (pdfnup "mod_$var" --nup 2x1 --landscape --outfile "print_$var")
-	  $(rm united.pdf pageblanche.pdf "mod_$var")
-	done
+    for i in range(input.getNumPages()):
+        p = input.getPage(i)
+        x1, x2 = p.mediaBox.lowerLeft
+        x3, x4 = p.mediaBox.upperRight
+        p.mediaBox.upperRight = x3*2, x4
+        output.addPage(p)
+        #  output.addBlankPage()
 
-fi
+    output.write(dst_f)
+
+    #  output1.write(dst_f)
+    src_f.close()
+    dst_f.close()
+
+input_file = sys.argv[1]
+output_file = sys.argv[2]
+
+split_pages(input_file, output_file)
