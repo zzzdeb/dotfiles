@@ -143,5 +143,3 @@ export ACPLT_HOME=~/hiwi/ACPLT-DevKit-linux64/acplt
 export ACPLT_GIT=$ACPLT_HOME/git
 export LD_LIBRARY_PATH=$ACPLT_HOME/system/addonlibs:$ACPLT_HOME/system/syslibs:$LD_LIBRARY_PATH
 export PATH=$ACPLT_HOME/system/sysbin:$PATH
-
-source /opt/ros/melodic/setup.zsh
