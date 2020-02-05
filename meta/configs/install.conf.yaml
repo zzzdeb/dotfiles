@@ -25,10 +25,10 @@
     ~/.config/gtk-3.0 : config/gtk-3.0
     ~/.config/gtk-2.0 : config/gtk-2.0
     ~/.config/dunst: config/dunst
-    ~/.config/bmdirs: config/bmdirs
-    ~/.config/bmfiles: config/bmfiles
+    ~/.config/directories: config/directories
+    ~/.config/files: config/files
     ~/.config/i3/config : config/i3/config
-    ~/.config/i3blocks/config : config/i3blocks/config
+    ~/.config/i3blocks : config/i3blocks
     ~/.config/fontconfig : config/fontconfig
 
     ~/.screenlayout : screenlayout

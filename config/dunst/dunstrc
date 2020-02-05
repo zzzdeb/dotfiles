@@ -12,6 +12,7 @@
     frame_width = 3
     frame_color = "#BD93F9"
     background = "#282A36"
+    bounce_freq = 5
 
     # Define a color for the separator.
     # possible values are:
@@ -27,7 +28,7 @@
     idle_threshold = 120
     font = Monospace 14
     line_height = 0
-    markup = full
+    markup = yes
 
     # The format of the message.  Possible variables are:
     #   %a  appname
@@ -51,6 +52,9 @@
     show_indicators = yes
     icon_position = left
     max_icon_size = 40
+    icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
+    # Limit icons size.
+    max_icon_size=128
     #icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/Adwaita/256x256/status/
     sticky_history = yes
     history_length = 20
@@ -149,5 +153,31 @@
 #    appname = Pidgin
 #    summary = *twitter.com*
 #    urgency = normal
-#
+[irc]
+        appname = weechat
+        timeout = 0
+        background = "#0033bb"
+        foreground = "#dddddd"
+
+[shortcuts]
+    # Shortcuts are specified as [modifier+][modifier+]...key
+    # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
+    # "mod3" and "mod4" (windows-key).
+    # Xev might be helpful to find names for keys.
+    
+    # Close notification.
+    close = mod1+space
+    
+    # Close all notifications.
+    # close_all = ctrl+shift+space
+    close_all = ctrl+mod1+space
+
+    # Redisplay last message(s).
+    # On the US keyboard layout "grave" is normally above TAB and left
+    # of "1".
+    history = ctrl+mod4+h 
+    
+    # Context menu.
+    context = ctrl+mod1+c
+
 # vim: ft=cfg
