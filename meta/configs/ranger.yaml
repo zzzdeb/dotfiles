@@ -6,6 +6,7 @@
 - link:
     ~/.config/ranger/rifle.conf: config/ranger/rifle.conf
     ~/.config/ranger/rc.conf: config/ranger/rc.conf
+    ~/.config/ranger/jkl.conf: config/ranger/jkl.conf
     ~/.config/ranger/commands.py: config/ranger/commands.py
     ~/.config/ranger/plugins/devicons.py: config/ranger/ranger_devicons/devicons.py
     ~/.config/ranger/plugins/devicons_linemode.py: config/ranger/ranger_devicons/devicons_linemode.py

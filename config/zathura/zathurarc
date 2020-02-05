@@ -1,3 +1,11 @@
+" jk;
+map j scroll left
+map k scroll down
+map l scroll up
+map ; scroll right
+"map J scroll down
+"map K scroll up
+
 set show-scrollbars
 set selection-clipboard clipboard
 set first-page-column 1:1
@@ -7,12 +15,6 @@ set window-title-home-tilde
 set statusbar-home-tilde
 map w adjust_window width
 map W adjust_window best-fit
-
-map = zoom in
-"map j navigate next
-"map k navigate previous
-"map J scroll down
-"map K scroll up
 
 map D toggle_page_mode
 
@@ -25,17 +27,10 @@ map p print
 map d navigate next
 map u navigate previous
 
-" jk;
-map j scroll left
-map k scroll down
-map l scroll up
-map ; scroll right
-"map J scroll down
-"map K scroll up
-
 set recolor-lightcolor "#ffeecc"
 set recolor-darkcolor "#000000"
 
 map v feedkeys ":exec bash -c \"pdftotext -f $PAGE -l $PAGE \\\"$FILE\\\" /tmp/tmpzathura.txt; st -e nvim /tmp/tmpzathura.txt\"<Return>"
 map V feedkeys ":exec bash -c \"pdftotext \\\"$FILE\\\" /tmp/tmpzathura.txt; st -e nvim /tmp/tmpzathura.txt\"<Return>"
 map y exec notify-send a
+

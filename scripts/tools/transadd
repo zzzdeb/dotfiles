@@ -4,6 +4,6 @@
 
 # transmission-daemon sometimes fails to take remote requests in its first moments.
 
-pgrep -x transmission-da || (sudo systemctl start transmission && notify-send "Starting transmission daemon..." && sleep 3 && pkill -RTMIN+7 i3blocks)
+# pgrep -x transmission-da || (sudo systemctl start transmission && notify-send "Starting transmission daemon..." && sleep 3 && pkill -RTMIN+7 i3blocks)
 
-transmission-remote -a "$@" && notify-send "🔽 Torrent added."
+transmission-remote homes:9091 -a "$@" && notify-send "🔽 Torrent added."

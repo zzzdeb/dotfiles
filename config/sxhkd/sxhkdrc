@@ -28,7 +28,7 @@ super+ctrl+v
   changeAudioOutput.sh
 
 super + g; {a, b, B, c, e, f, h, k, m, n, N, p, P, q, r, s, t, T, v, x}
-  {arandr, firefox --private-window, btmenu, gcalendar, gmail, $TERMINAL -e $FILE, $TERMINAL -e htop, anki -p 'zzz1', $TERMINAL -e ncmpcpp, networkmanager_dmenu, $TERMINAL -e nmtui, $TERMINAL -e pulsemixer,~/softwares/pycharm-professional-2019.1.tar/pycharm-2019.1/bin/pycharm.sh, python3 -m qutebrowser, zathura "$HOME/Owncloud/Books/Calibre/Yuval Noah Harari/Homo Deus_ A Brief History of Tomorrow (3)/Homo Deus_ A Brief History of Tomorrow - Yuval Noah Harari.epub" ,  baobab, $TERMINAL -e tg, telegram-desktop, code, ddspawn genius -f mono:pixelsize=24}
+  {arandr, firefox --private-window, btmenu, gcalendar, gmail, $TERMINAL -e $FILE, $TERMINAL -e htop, anki -p "$USER", $TERMINAL -e ncmpcpp, networkmanager_dmenu, $TERMINAL -e nmtui, $TERMINAL -e pulsemixer,~/softwares/pycharm-professional-2019.1.tar/pycharm-2019.1/bin/pycharm.sh, python3 -m qutebrowser, zathura "$HOME/Owncloud/Books/Calibre/Yuval Noah Harari/Homo Deus_ A Brief History of Tomorrow (3)/Homo Deus_ A Brief History of Tomorrow - Yuval Noah Harari.epub" ,  baobab, $TERMINAL -e tg, telegram-desktop, code, ddspawn genius -f mono:pixelsize=24}
 
 super + Q; {l, e, s, h, r, S}
   wm_exit {lock, logout, suspend, hibernate, reboot, shutdown}

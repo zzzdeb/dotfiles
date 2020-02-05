@@ -1,0 +1,6 @@
+#vpn
+# Disable IPv6
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.nic0.disable_ipv6 = 1
+...
+net.ipv6.conf.nicN.disable_ipv6 = 1

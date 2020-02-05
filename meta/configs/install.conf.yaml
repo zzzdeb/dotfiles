@@ -28,7 +28,7 @@
     ~/.config/bmdirs: config/bmdirs
     ~/.config/bmfiles: config/bmfiles
     ~/.config/i3/config : config/i3/config
-    ~/.config/i3blocks : config/i3blocks
+    ~/.config/i3blocks/config : config/i3blocks/config
     ~/.config/fontconfig : config/fontconfig
 
     ~/.screenlayout : screenlayout
@@ -56,8 +56,8 @@
     ~/.Xdefaults:
     ~/.inputrc:
     ~/.xinitrc:
-    ~/.emoji:
-    ~/.fontawesome:
+    ~/.config/emoji: config/emoji
+    ~/.config/fontawesome: config/fontawesome
     ~/.icons:
     ~/.local/share/applications: local/share/applications
 
@@ -78,6 +78,6 @@
   - ~/.scripts/tools/shortcuts
   # - xdg-mime default zathura.desktop application/pdf
   # - xdg-settings set default-web-browser qutebrowser.desktop
-  - "[ -f ~/.fzf.zsh ] && [ -f ~/.fzf.bash ] || ~/.dotfiles/fzf/install"
-  - "git clone https://github.com/powerline/fonts /tmp/powerline_fonts; cd /tmp/powerline_fonts; ./install.sh"
+  - "[ -f ~/.fzf.zsh ] && [ -f ~/.fzf.bash ] || ~/.dotfiles/submodules/fzf/install"
+  # - "git clone https://github.com/powerline/fonts /tmp/powerline_fonts; cd /tmp/powerline_fonts; ./install.sh"
 

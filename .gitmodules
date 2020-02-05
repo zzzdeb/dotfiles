@@ -34,3 +34,9 @@
 [submodule "config/qutebrowser/themes/base16-qutebrowser"]
 	path = config/qutebrowser/themes/base16-qutebrowser
 	url = https://github.com/theova/base16-qutebrowser
+[submodule "submodules/st"]
+	path = submodules/st
+	url = https://github.com/zzzdeb/st
+[submodule "submodules/fzf"]
+	path = submodules/fzf
+	url = https://github.com/junegunn/fzf

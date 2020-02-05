@@ -34,3 +34,4 @@ jq
 compton
 adobe-source-han-sans-ch-fonts
 history | grep -E -e '.[^history]*pacman -S|.*p -S|.*yaourt.* -S' > .dotfiles/after_backup/arch/packages.txt
+autorandr

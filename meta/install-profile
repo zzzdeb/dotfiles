@@ -13,7 +13,7 @@ DOTBOT_DIR="dotbot"
 DOTBOTPLUGIN_DIR="dotbot_plugins"
 DOTBOT_BIN="bin/dotbot"
 
-BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../" && pwd)"
 
 cd "${BASE_DIR}"
 git submodule update --init --recursive --remote --merge

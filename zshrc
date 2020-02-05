@@ -78,31 +78,31 @@ stty -ixon # Disable ctrl-s and ctrl-q.
 [ -f "$HOME/.shortcuts" ] && source "$HOME/.shortcuts" # Load shortcut aliases
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
-export CONFIG_DIR=~/.config
-
-# source
-alias sz="source ~/.zshrc"
-###############################################################
-# binding
-###############################################################
-#vimlike
-# bindkey -v
-# set show-mode-in-prompt on
-# bindkey '^P' up-line-or-search
-# bindkey '^N' down-line-or-search
-set -s escape-time 0
-#
-bindkey -M vicmd "j" vi-backward-char
-bindkey -M vicmd "k" down-line-or-history
-bindkey -M vicmd "l" up-line-or-history
-bindkey -M vicmd ";" vi-forward-char
 bindkey -M vicmd "s" vi-repeat-find
 bindkey -M vicmd "S" vi-rev-repeat-find
 
-bindkey -M visual "j" vi-backward-char
-bindkey -M visual "k" down-line
-bindkey -M visual "l" up-line
-bindkey -M visual ";" vi-forward-char
+export DIRMODUS='jkl;'
+if [[ ! -z "$DIRMODUS" ]]; then
+  ###############################################################
+  # binding
+  ###############################################################
+  #vimlike
+  # bindkey -v
+  # set show-mode-in-prompt on
+  # bindkey '^P' up-line-or-search
+  # bindkey '^N' down-line-or-search
+  set -s escape-time 0
+  #
+  bindkey -M vicmd "j" vi-backward-char
+  bindkey -M vicmd "k" down-line-or-history
+  bindkey -M vicmd "l" up-line-or-history
+  bindkey -M vicmd ";" vi-forward-char
+
+  bindkey -M visual "j" vi-backward-char
+  bindkey -M visual "k" down-line
+  bindkey -M visual "l" up-line
+  bindkey -M visual ";" vi-forward-char
+fi
 
 ###############################################################
 # Custom functions
@@ -120,6 +120,7 @@ ranger() {
 mcd() {
     mkdir "${1}" && cd "${1}"
 }
+
 
 ###############################################################
 # Software settings

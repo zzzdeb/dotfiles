@@ -230,7 +230,7 @@ bindsym $mod+ctrl+r restart
 bindsym $mod+s mode "resize"
 bindsym $mod+shift+s mode "$mode_system"
 
-bindsym $mod+t layout tabbed stacked
+bindsym $mod+t layout toggle tabbed stacked
 
 bindsym $mod+v split horizontal
 # bindsym $mod+shift+v split toggle
