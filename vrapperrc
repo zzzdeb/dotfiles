@@ -44,7 +44,7 @@ set gvimargs=+{line} -f -n {file}
 
 set contentassistmode
 set startnormalmode
-iset hlscope=local
+set hlscope=local
 
 let mapleader=,
 

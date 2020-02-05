@@ -1,61 +1,75 @@
 #!/bin/sh
-alias ka="killall" \
+# Use neovim for vim if present.
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
+
+# Uses non default software
+alias \
 	find="fd" \
-	fzf="fzf --preview=\"bat {} --color=always\"" \
-	mkd="mkdir -pv" \
-	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
-	magit="nvim -c Magit" \
-	p="sudo pacman" \
-	y="yay" \
-	SS="sudo systemctl" \
-	f="$FILE" \
-	g="git" \
-	e="$EDITOR" \
-	v="$EDITOR" \
-	x="sxiv -ft *" \
-	gua="git remote | xargs -L1 git push --all" \
-	ls="ls -hN --color=auto --group-directories-first" \
 	ls="lsd --group-dirs first" \
+	cat="bat" \
+	fzf="fzf --preview=\"bat {} --color=always\"" \
+	diff="diff-so-fancy" \
+
+# Verbosity and settings that you pretty much just always are going to want.
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -v" \
+	mkd="mkdir -pv" \
+	yt="youtube-dl --add-metadata -i" \
+	yta="yt -x -f bestaudio/best" \
+	df="df -h"  \
+	free="free -m"  \
+	ffmpeg="ffmpeg -hide_banner" \
+	# yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
+
+# Colorize commands when possible.
+alias \
+	ls="ls -hN --color=auto --group-directories-first" \
 	la="ls -a" \
 	l="ls -l" \
 	lla="ls -la" \
 	lt="ls --tree" \
 	grep="grep --color=auto" \
-	diff="diff-so-fancy" \
 	ccat="highlight --out-format=ansi" \
-	cat="bat" \
-	yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
-	yta="yt -x -f bestaudio/best" \
+
+# These common commands are just too long! Abbreviate them.
+alias \
+	ka="killall" \
+	g="git" \
+	trem="transmission-remote" \
 	YT="youtube-viewer" \
-	upc="sudo pacman -Syu; pkill -RTMIN+8 i3blocks" \
-	lsp="pacman -Qett --color=always | less" \
-	ffmpeg="ffmpeg -hide_banner" \
-	speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -" \
+	sdn="sudo shutdown -h now" \
+	f="$FILE" \
+	e="$EDITOR" \
+	v="$EDITOR" \
+	p="sudo pacman" \
+	y="yay" \
+	pi="pip install" \
+	piu="pip install --user" \
+	xi="sudo xbps-install" \
+	xr="sudo xbps-remove -R" \
+	SS="sudo systemctl" \
+	S="systemctl --user" \
+	shortcuts_st="grep 'static Shortcut shortcuts'  -A 1000 -m 1 ~/.dotfiles/st/config.h | grep '};' -m 1 -B 1000"  \
+	o="xdg-open" \
 	pc="pass -c" \
 	q="exit" \
-	o="xdg-open" \
+
+
+# This alias is important. It enables the `pauseallmpv` command.
+alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
+
+# Some other stuff
+alias \
+	magit="nvim -c MagitOnly" \
+	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
+	weath="less -S ~/.local/share/weatherreport" \
 	ipython="ipython --TerminalInteractiveShell.editing_mode=vi" \
-	cp="cp -i"  \
-	mv="mv -i"  \
-	df="df -h"  \
-	free="free -m"  \
-	shortcuts_st="grep 'static Shortcut shortcuts'  -A 1000 -m 1 ~/.dotfiles/st/config.h | grep '};' -m 1 -B 1000"  \
+	speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -" \
 
-# export TERM=xterm-256color
+,e() { du -a ~/.scripts/* ~/.config/* ~/.dotfiles/*(N) /var/lib/transmission/.config/*(N) | cut -d$'\t' -f2- | fzf | xargs  -r $EDITOR ;}
+,t() { fzf | xargs -r -I % $EDITOR % ;}
+cdf() { cd -- "$(du | cut -d$'\t' -f2- | fzf)"}
 
-
-# Mirror a website
-alias mirrorsite='wget -m -k -K -E -e robots=off'
-# Mirror stdout to stderr, useful for seeing data going through a pipe
-alias peek='tee >(cat 1>&2)'
-
-
-command -v nvim >/dev/null && alias vim="nvim" v="nvim" vimdiff="nvim -d" vd="nvim -d" # Use neovim for vim if present.
-
-shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
-se() { du -a ~/.scripts/* ~/.config/* ~/.dotfiles/* /var/lib/transmission/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
-so() { du -a ~/Owncloud/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
-ef() { fzf | xargs -r -I % $EDITOR % ;}
-cdf() { cd -- "$(fzf)"}
-
-st() { cd -- "$HOME/Downloads/Torrent/$(/usr/bin/ls -C --format=single-column ~/Downloads/Torrent | fzf;)"}
+cdt() { cd -- "$HOME/Downloads/Torrent/$(/usr/bin/ls -C --format=single-column ~/Downloads/Torrent | fzf;)"}

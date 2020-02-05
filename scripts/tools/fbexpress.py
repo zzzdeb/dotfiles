@@ -7,9 +7,11 @@ from subprocess import PIPE
 
 import clipboard
 import ast
+import os
 
 DMENU = ['rofi','-dmenu','-theme',"/usr/share/rofi/themes/DarkBlue.rasi"]
-FBUSERSPATH = '/home/zzz/.config/fbexpress/fbusers.list'
+home = os.environ['HOME']
+FBUSERSPATH = home+'/.config/fbexpress/fbusers.list'
 
 import os.path
 

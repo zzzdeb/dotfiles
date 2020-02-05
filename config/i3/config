@@ -111,7 +111,7 @@ no_focus [title="mpvfloat"]
 # #---Starting External Scripts---# #
 exec --no-startup-id autorandr -c
 exec --no-startup-id blueman-applet
-exec --no-startup-id compton --config "/home/zzz/.config/compton/compton.conf"
+exec --no-startup-id compton --config ~/.config/compton/compton.conf
 # exec --no-startup-id clight
 exec --no-startup-id dunst
 exec --no-startup-id devmon
@@ -201,8 +201,7 @@ bindsym $mod+Tab		workspace back_and_forth
 # bindsym $mod+a split vertical
 # bindsym $mod+shift+a
 
-bindsym $mod+b layout toggle tabbed splith splitv stacked
-bindsym $mod+shift+b layout tabbed
+bindsym $mod+b layout toggle splith splitv
 
 # bindsym $mod+shift+c split h
 bindsym $mod+ctrl+c reload
@@ -230,6 +229,8 @@ bindsym $mod+ctrl+r restart
 
 bindsym $mod+s mode "resize"
 bindsym $mod+shift+s mode "$mode_system"
+
+bindsym $mod+t layout tabbed stacked
 
 bindsym $mod+v split horizontal
 # bindsym $mod+shift+v split toggle
@@ -320,7 +321,7 @@ bindsym $mod+ctrl+$right focus parent; focus right
 set $workspace2 "2: "
 set $workspace3 "3: 日本"
 set $workspace4 "4: "
-set $workspace5 "5: "
+# set $workspace5 "5: "
 set $workspace6 "6: "
 set $workspace7 "7: "
 set $workspace8 "8: "
@@ -351,7 +352,7 @@ set $0 p
 bindsym $mod+$2 workspace $workspace2
 bindsym $mod+$3 workspace $workspace3
 bindsym $mod+$4 workspace $workspace4
-bindsym $mod+$5 workspace $workspace5
+# bindsym $mod+$5 workspace $workspace5
 bindsym $mod+$6 mode "Studium"
 bindsym $mod+$7 workspace $workspace7
 bindsym $mod+$8 workspace $workspace8
@@ -381,7 +382,7 @@ mode "Studium" {
 bindsym $mod+Shift+$2 move container to workspace $workspace2
 bindsym $mod+Shift+$3 move container to workspace $workspace3
 bindsym $mod+Shift+$4 move container to workspace $workspace4
-bindsym $mod+Shift+$5 move container to workspace $workspace5
+# bindsym $mod+Shift+$5 move container to workspace $workspace5
 bindsym $mod+Shift+$7 move container to workspace $workspace7
 bindsym $mod+Shift+$8 move container to workspace $workspace8
 bindsym $mod+Shift+$9 move container to workspace $workspace9
@@ -402,7 +403,7 @@ assign [class="Org.gnome.DejaDup" title="Déjà Dup Backup Tool"] $workspace7
 workspace $workspace2 output $hdminame
 workspace $workspace3 output $hdminame
 workspace $workspace4 output $hdminame
-workspace $workspace5 output $hdminame
+# workspace $workspace5 output $hdminame
 workspace $workspace6 output $hdminame
 workspace $workspace7 output $edpname
 workspace $workspace8 output $edpname

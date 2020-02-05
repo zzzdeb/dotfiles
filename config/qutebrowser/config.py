@@ -1,4 +1,7 @@
 import subprocess
+import os
+USER = os.environ['USER']
+HOME = os.environ['HOME']
 
 # Uncomment this to still load settings configured via autoconfig.yml
 config.load_autoconfig()
@@ -57,9 +60,9 @@ config.bind(',tj', 'spawn --userscript translate.py auto ja', mode='caret')
 config.bind(',td', 'spawn --userscript translate.py auto de', mode='caret')
 # configs are for downloading videos and music
 config.bind(',yD', 'hint links spawn yt "{hint-url}"')
-config.bind(',ym', "spawn ytMusic m '{url}'")
+config.bind(',ym', "spawn ytDownload m '{url}'")
 #  config.bind('zp', 'hint links spawn ~/.bin/ytdlp {hint-url} ~/Downloads/qbdownloads')
-config.bind(',yv', 'spawn ytMusic v "{url}"')
+config.bind(',yv', 'spawn ytDownload v "{url}"')
 
 # Ctrl shortcuts run scripts / applications
 config.bind(',m', 'spawn --detach mpv --force-window yes {url}')
@@ -126,7 +129,7 @@ config.bind('<Ctrl-shift-m>', "prompt-yank -s;;spawn uget-gtk '{primary}';;enter
 
 config.bind('gd', 'spawn uget-gtk')
 
-config.bind('gD', 'spawn st -e ranger --cmd="chain set sort=atime ; set sort_directories_first=false" /home/zzz/Downloads')
+config.bind('gD', 'spawn st -e ranger --cmd="chain set sort=atime ; set sort_directories_first=false" {}/Downloads'.format(HOME))
 config.bind('<ctrl-b>', "set-cmd-text -s :quickmark-add {url}")
 config.bind('<ctrl-shift-j>', "tab-focus 1")
 config.bind('<ctrl-shift-k>', "tab-move +")

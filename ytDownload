@@ -1,0 +1,25 @@
+#!/bin/sh
+
+if [ "$#" -ne 2 ]; then
+  echo "usage: ytDownload [m|v] link"
+  exit 1
+fi
+
+notify-send "YT $1 $2"
+
+case "$1" in
+	m*) youtube-dl --download-archive ~/Music/downloaded.txt --no-post-overwrites --embed-thumbnail --add-metadata -i -o "$HOME/Music/%(title)s.%(ext)s" -x -f bestaudio/best --audio-format mp3 $2;;
+	v*) youtube-dl --download-archive ~/Videos/downloaded.txt --no-post-overwrites --add-metadata -i -o "$HOMR/Videos/%(title)s.%(ext)s" $2;;
+	*) cat << EOF
+lmc: cli music interface for mpd and pulse for those with divine intellect too
+grand to remember the mpc/pamixer commands.
+
+Allowed options:
+  up NUM	Increase volume (2 secs default)
+All of these commands, except for \`truemute\`, \`prev\` and \`play\` can be truncated,
+i.e. \`lmc r\` for \`lmc restart\`.
+EOF
+esac
+
+notify-send 'YT done'
+exit 0
