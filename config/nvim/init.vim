@@ -85,8 +85,7 @@ endif
 " erase everything
 set backspace=indent,eol,start
 
-
-
+set whichwrap+=h,l
 
 " neovim
 if !has('nvim')
@@ -163,6 +162,7 @@ Plug 'vim-scripts/utl.vim'
 
 " Git Support
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 Plug 'gregsexton/gitv'
 
@@ -723,18 +723,6 @@ let g:startify_session_before_save = [
         \ 'silent! NERDTreeTabsClose'
         \ ]
 let g:startify_session_dir = '~/.config/nvim/session'
-" suckless 
-let g:suckless_mappings = {
-\        '<c-[QQf]>'      :   'SetTilingMode("[sdf]")'    ,
-\        '<m-[hjkl]>'     :    'SelectWindow("[hjkl]")'   ,
-\        '<M-[HJKL]>'     :      'MoveWindow("[hjkl]")'   ,
-\      '<C-M-[hjkl]>'     :    'ResizeWindow("[hjkl]")'   ,
-\        'v[ov]'       :    'CreateWindow("[sv]")'     ,
-\        '<c-w>'          :     'CloseWindow()'           ,
-\   'gt[123456789]' :       'SelectTab([123456789])',
-\  'Mt[123456789]' : 'MoveWindowToTab([123456789])',
-\  'MT[123456789]' : 'CopyWindowToTab([123456789])',
-\}
 
 " Pythonmode
 " let g:pymode_python = 'python3'
@@ -906,8 +894,68 @@ nnoremap Y y$
 " map j to gj and k to gk, so line navigation ignores line wrap
 " ...but only if the count is undefined (otherwise, things like 4j
 " break if wrapped LINES are present)
-nmap <expr> j (v:count == 0 ? 'gj' : 'j')
-nmap <expr> k (v:count == 0 ? 'gk' : 'k')
+
+if ($DIRMODUS == 'jkl;')
+  noremap j h
+  noremap k j
+  noremap l k
+  noremap ; l
+  nnoremap <expr> k (v:count == 0 ? 'gj' : 'j')
+  nnoremap <expr> l (v:count == 0 ? 'gk' : 'k')
+  let g:suckless_mappings = {
+  \        '<c-[QQf]>'      :   'SetTilingMode("[sdf]")'    ,
+  \        '<c-[jkl_]>'     :    'SelectWindow("[hjkl]")'   ,
+  \        '<c-[left, down, up, right]>'     :      'MoveWindow("[hjkl]")'   ,
+  \      '<C-m-[left, down, up, right]>'     :    'ResizeWindow("[hjkl]")'   ,
+  \        'v[ov]'       :    'CreateWindow("[sv]")'     ,
+  \   'gt[123456789]' :       'SelectTab([123456789])',
+  \  'Mt[123456789]' : 'MoveWindowToTab([123456789])',
+  \  'MT[123456789]' : 'CopyWindowToTab([123456789])',
+  \}
+  inoremap <c-j> <c-Left>
+  inoremap <c-_> <c-Right>
+
+  "text editing shortcuts
+  inoremap <c-a-k> <esc>:m +1<CR>i
+  nnoremap <c-a-l> :m -2<CR>
+  nnoremap <c-a-k> :m +1<CR>
+  inoremap <c-a-l> <esc>:m -2<CR>i
+
+  " Easier split navigation
+  tnoremap <s-space> <C-\><C-N>
+  tnoremap <c-j> <C-\><C-N><C-w>h
+  tnoremap <c-k> <C-\><C-N><C-w>j
+  tnoremap <c-l> <C-\><C-N><C-w>k
+  tnoremap <c-_> <C-\><C-N><C-w>l
+else
+  nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
+  nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+  let g:suckless_mappings = {
+  \        '<c-[QQf]>'      :   'SetTilingMode("[sdf]")'    ,
+  \        '<c-[hjkl]>'     :    'SelectWindow("[hjkl]")'   ,
+  \        '<c-[left, down, up, right]>'     :      'MoveWindow("[hjkl]")'   ,
+  \      '<C-M-[hjkl]>'     :    'ResizeWindow("[hjkl]")'   ,
+  \        'v[ov]'       :    'CreateWindow("[sv]")'     ,
+  \   'gt[123456789]' :       'SelectTab([123456789])',
+  \  'Mt[123456789]' : 'MoveWindowToTab([123456789])',
+  \  'MT[123456789]' : 'CopyWindowToTab([123456789])',
+  \}
+  inoremap <c-h> <c-Left>
+  inoremap <c-l> <c-Right>
+
+  "text editing shortcuts
+  inoremap <c-a-j> <esc>:m +1<CR>i
+  nnoremap <c-a-k> :m -2<CR>
+  nnoremap <c-a-j> :m +1<CR>
+  inoremap <c-a-k> <esc>:m -2<CR>i
+
+  " Easier split navigation
+  tnoremap <s-space> <C-\><C-N>
+  tnoremap <c-h> <C-\><C-N><C-w>h
+  tnoremap <c-j> <C-\><C-N><C-w>j
+  tnoremap <c-k> <C-\><C-N><C-w>k
+  tnoremap <c-l> <C-\><C-N><C-w>l
+endif
 
 " Expand %% into the directory of the current file
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -915,8 +963,6 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " nnoremap <c-w> :q<cr>
 " nnoremap <a-w> <c-w>
 nnoremap <a-t> <c-t>
-"simulating ctrl
-nnoremap <a-j> :join<cr>
 
 nnoremap gp :pu<cr>
 nnoremap gP :pu!<cr>
@@ -1031,16 +1077,16 @@ nnoremap <silent> <leader>lk  :<C-u>CocPrev<CR>
 
 " Git
 " tpope
-nnoremap <leader>gdi :Gdiff<cr>
+nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>ge :Gedit<cr>
 nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gdl :Gdelete<cr>
-nnoremap <leader>gm :Gmove<cr>
+nnoremap <leader>gb :Gbrowse<cr>
+" nnoremap <leader>gdl :Gdelete<cr>
+nnoremap <leader>gm :Gmove 
 nnoremap <leader>gg :Ggrep<cr>
 nnoremap <leader>gl :Glog<cr>
 nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>gr :Gread<cr>
+" nnoremap <leader>gr :Gread<cr>
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gps :Gpush<cr>
 nnoremap <leader>gpl :Gpull<cr>
@@ -1080,60 +1126,15 @@ vnoremap <c-/> <Plug>NERDCommenterToggle
 nnoremap <silent> <C-S> :<C-u>Update<CR>
 inoremap <silent> <C-S> <ESC>:Update<CR>
 
-" window size toggle
-" map <s-w> :call MaxRestoreWindow()<CR>
-" Disable arrow movement, resize splits instead.
-if get(g:, 'elite_mode')
-    nnoremap <Up>    :resize +2<CR>
-    nnoremap <Down>  :resize -2<CR>
-    nnoremap <Left>  :vertical resize -2<CR>
-    nnoremap <Right> :vertical resize +2<CR>
-endif
-
-" Easier split navigation
-tnoremap <s-space> <C-\><C-N>
-tnoremap <c-j> <C-\><C-N><C-w>h
-tnoremap <c-k> <C-\><C-N><C-w>j
-tnoremap <c-l> <C-\><C-N><C-w>k
-tnoremap <c-;> <C-\><C-N><C-w>l
-" inoremap <A-h> <C-\><C-N><C-w>h
-" inoremap <A-j> <C-\><C-N><C-w>j
-" inoremap <A-k> <C-\><C-N><C-w>k
-" inoremap <A-l> <C-\><C-N><C-w>l
-" nnoremap <c-s-h> <C-w><s-h>
-" nnoremap <c-s-j> <C-w><s-j>
-" nnoremap <c-s-k> <C-w><s-k>
-" nnoremap <c-s-l> <C-w><s-l>
-" nnoremap <c-h> <C-w>h
-" nnoremap <c-j> <C-w>j
-" nnoremap <c-k> <C-w>k
-" nnoremap <c-l> <C-w>l
-
 tnoremap <a-x> <C-\><C-N>
 
 nnoremap <silent> vv <c-w>v
 
-"text editing shortcuts
-nnoremap <c-a-j> :m +1<CR>
-inoremap <c-a-j> <esc>:m +1<CR>i
-nnoremap <c-a-k> :m -2<CR>
-inoremap <c-a-k> <esc>:m -2<CR>i
-
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
-"editing navigation
-inoremap <c-h> <c-Left>
-inoremap <c-l> <c-Right>
-inoremap <a-h> <Left>
-inoremap <a-j> <Down>
-inoremap <a-l> <Right>
-inoremap <a-k> <Up>
 
 " Terminal
-
-" Python
-autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 
 " Ultisnips
 nmap <leader>eu :UltiSnipsEdit<cr>
@@ -1151,29 +1152,6 @@ augroup END
 "type nlog followed by space to start new log
 iab <expr> nlog strftime("---\n\n%H:%M:%S")
 
-noremap j h
-noremap k j
-noremap l k
-noremap ; l
-noremap k gj
-noremap l gk
-" suckless 
-let g:suckless_mappings = {
-\        '<c-[QQf]>'      :   'SetTilingMode("[sdf]")'    ,
-\        '<c-[jklh]>'     :    'SelectWindow("[hjkl]")'   ,
-\        '<M-[left,down,up,right]>'     :      'MoveWindow("[hjkl]")'   ,
-\      '<C-M-[jkl.]>'     :    'ResizeWindow("[hjkl]")'   ,
-\        'v[ov]'       :    'CreateWindow("[sv]")'     ,
-\   'gt[123456789]' :       'SelectTab([123456789])',
-\  'gT[123456789]' : 'MoveWindowToTab([123456789])',
-\  'gTT[123456789]' : 'CopyWindowToTab([123456789])',
-\}
-nmap <f1> h
-
-nnoremap <c-left> :call MoveWindow("h")<cr>
-nnoremap <c-down> :call MoveWindow("j")<cr>
-nnoremap <c-up> :call MoveWindow("k")<cr>
-nnoremap <c-right> :call MoveWindow("l")<cr>
 
 inoremap {<cr> {<cr>}<esc>O
 
@@ -1205,3 +1183,4 @@ endfunction
 
 " Keymapping for grep word under cursor with interactive mode
 nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
+
