@@ -82,7 +82,7 @@ bindkey -M vicmd "s" vi-repeat-find
 bindkey -M vicmd "S" vi-rev-repeat-find
 
 export DIRMODUS='jkl;'
-if [[ ! -z "$DIRMODUS" ]]; then
+if [[ "$DIRMODUS" == 'jkl;' ]]; then
   ###############################################################
   # binding
   ###############################################################

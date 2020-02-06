@@ -385,7 +385,7 @@ bindsym $mod+Shift+$4 move container to workspace $workspace4
 # bindsym $mod+Shift+$5 move container to workspace $workspace5
 bindsym $mod+Shift+$7 move container to workspace $workspace7
 bindsym $mod+Shift+$8 move container to workspace $workspace8
-bindsym $mod+Shift+$9 move container to workspace $workspace9
+# bindsym $mod+Shift+$9 move container to workspace $workspace9
 bindsym $mod+Shift+$0 move container to workspace $workspace10
 
 # assign [class="Chromium-browser"] 7
@@ -400,14 +400,14 @@ assign [class="VirtualBox Machine"] $workspace4
 assign [class="Org.gnome.DejaDup" title="Déjà Dup Backup Tool"] $workspace7
 
 # workspace $workspace1 output primary
-workspace $workspace2 output $hdminame
-workspace $workspace3 output $hdminame
-workspace $workspace4 output $hdminame
+workspace $workspace2 output primary
+workspace $workspace3 output primary
+workspace $workspace4 output primary
 # workspace $workspace5 output $hdminame
-workspace $workspace6 output $hdminame
+workspace $workspace6 output primary
 workspace $workspace7 output $edpname
 workspace $workspace8 output $edpname
-workspace $workspace9 output primary
+# workspace $workspace9 output primary
 workspace $workspace10 output primary
 
 # #---Modes ---# #
