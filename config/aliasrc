@@ -56,6 +56,13 @@ alias \
 	xi="sudo xbps-install" \
 	xr="sudo xbps-remove -R" \
 	y="yay" \
+	,gs="git status" \
+	,gc="git commit -m" \
+	,gpl="git pull" \
+	,gps="git push" \
+	,ga="git add" \
+	,gl="git log" \
+	,gd="git diff" \
 
 
 # This alias is important. It enables the `pauseallmpv` command.
