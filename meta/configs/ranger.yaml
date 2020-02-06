@@ -10,6 +10,6 @@
     ~/.config/ranger/commands.py: config/ranger/commands.py
     ~/.config/ranger/plugins/devicons.py: config/ranger/ranger_devicons/devicons.py
     ~/.config/ranger/plugins/devicons_linemode.py: config/ranger/ranger_devicons/devicons_linemode.py
-- shell:
-          - [ cd ~/.local/share/fonts && wget "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf"]
-          - [ cd /tmp; git clone https://github.com/alexanderjeurissen/ranger_devicons; cd ./ranger_devicons; make install ]
+# - shell:
+          # - [ cd ~/.local/share/fonts && wget "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf"]
+          # - [ cd /tmp; git clone https://github.com/alexanderjeurissen/ranger_devicons; cd ./ranger_devicons; make install ]
