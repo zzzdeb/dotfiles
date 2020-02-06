@@ -2,6 +2,11 @@ import subprocess
 import os
 USER = os.environ['USER']
 HOME = os.environ['HOME']
+try:
+    DIRMODUS = os.environ['DIRMODUS']
+except KeyError:
+    DIRMODUS = ''
+
 
 # Uncomment this to still load settings configured via autoconfig.yml
 config.load_autoconfig()
@@ -10,6 +15,10 @@ config.load_autoconfig()
 config.source('shortcuts.py')
 #Theme
 config.source('themes/base16-qutebrowser/themes/minimal/base16-dracula.config.py')
+#  c.colors.statusbar.insert.fg = base00
+#  c.colors.statusbar.insert.bg = base09
+#  c.colors.statusbar.caret.fg = base00
+#  c.colors.statusbar.caret.bg = base0D
 
 # c.? are options set at launch.
 c.auto_save.session = True
@@ -73,25 +82,6 @@ config.bind(',r', 'spawn --userscript readability')
 config.bind('d', 'scroll-page 0 0.3')
 config.bind('u', 'scroll-page 0 -0.5')
 
-config.bind('<ctrl-j>', 'back')
-config.bind('<ctrl-k>', 'tab-next')
-config.bind('<ctrl-l>', 'tab-prev')
-config.bind('<ctrl-;>', 'forward')
-config.bind('J', 'back')
-config.bind('K', 'tab-next')
-config.bind('L', 'tab-prev')
-config.bind('j', 'scroll left')
-config.bind('k', 'scroll down')
-config.bind('l', 'scroll up')
-config.bind(';', 'scroll right')
-config.bind('J', 'scroll left', mode='caret')
-config.bind('K', 'scroll down', mode='caret')
-config.bind('L', 'scroll up', mode='caret')
-config.bind(':', 'scroll right', mode='caret')
-config.bind('j', 'move-to-prev-char', mode='caret')
-config.bind('k', 'move-to-next-line', mode='caret')
-config.bind('l', 'move-to-prev-line', mode='caret')
-config.bind(';', 'move-to-next-char', mode='caret')
 
 config.bind('q', 'tab-close')
 
@@ -132,8 +122,6 @@ config.bind('gd', 'spawn uget-gtk')
 config.bind('gD', 'spawn st -e ranger --cmd="chain set sort=atime ; set sort_directories_first=false" {}/Downloads'.format(HOME))
 config.bind('<ctrl-b>', "set-cmd-text -s :quickmark-add {url}")
 config.bind('<ctrl-shift-j>', "tab-focus 1")
-config.bind('<ctrl-shift-k>', "tab-move +")
-config.bind('<ctrl-shift-l>', "tab-move -")
 
 config.bind('za', 'config-cycle content.host_blocking.enabled')
 config.bind('zt', 'config-cycle tabs.position left top')
@@ -150,25 +138,6 @@ try:
 except ImportError:
     pass
 
-config.unbind('h')
-#  config.unbind('hy')
-config.bind('hI','hint images tab')
-config.bind('hO','hint links fill :open -t -r {hint-url}')
-config.bind('hR','hint --rapid links window')
-config.bind('hY','hint links yank-primary')
-config.bind('hb','hint all tab-bg')
-config.bind('hc','hint code userscript copy_selected.py')
-config.bind('hd','hint all delete')
-config.bind('hf','hint iframe fill :open -t {hint-url}')
-config.bind('hh','hint all hover')
-config.bind('hi','hint images')
-config.bind('ho','hint links fill :open {hint-url}')
-config.bind('hr','hint --rapid links tab-bg')
-config.bind('hs','hint div userscript tts.py')
-config.bind('ht','hint all userscript translate.py')
-config.bind('hv','hint video yank')
-config.bind('hyy','hint links yank')
-config.bind('hyd','hint div userscript copy_selected.py')
 
 c.hints.selectors["code"] = [
     # Selects all code tags whose direct parent is not a pre tag
@@ -189,6 +158,51 @@ c.hints.selectors["*"]= [
 c.hints.selectors["div"] = [
     "div",
 ]
+
+if DIRMODUS == 'jkl':
+    config.bind('<ctrl-j>', 'back')
+    config.bind('<ctrl-k>', 'tab-next')
+    config.bind('<ctrl-l>', 'tab-prev')
+    config.bind('<ctrl-;>', 'forward')
+
+    config.bind('<ctrl-shift-k>', "tab-move +")
+    config.bind('<ctrl-shift-l>', "tab-move -")
+
+    config.bind('J', 'back')
+    config.bind('K', 'tab-next')
+    config.bind('L', 'tab-prev')
+    config.bind('j', 'scroll left')
+    config.bind('k', 'scroll down')
+    config.bind('l', 'scroll up')
+    config.bind(';', 'scroll right')
+    config.bind('J', 'scroll left', mode='caret')
+    config.bind('K', 'scroll down', mode='caret')
+    config.bind('L', 'scroll up', mode='caret')
+    config.bind(':', 'scroll right', mode='caret')
+    config.bind('j', 'move-to-prev-char', mode='caret')
+    config.bind('k', 'move-to-next-line', mode='caret')
+    config.bind('l', 'move-to-prev-line', mode='caret')
+    config.bind(';', 'move-to-next-char', mode='caret')
+
+    config.unbind('h')
+    #  config.unbind('hy')
+    config.bind('hI','hint images tab')
+    config.bind('hO','hint links fill :open -t -r {hint-url}')
+    config.bind('hR','hint --rapid links window')
+    config.bind('hY','hint links yank-primary')
+    config.bind('hb','hint all tab-bg')
+    config.bind('hc','hint code userscript copy_selected.py')
+    config.bind('hd','hint all delete')
+    config.bind('hf','hint iframe fill :open -t {hint-url}')
+    config.bind('hh','hint all hover')
+    config.bind('hi','hint images')
+    config.bind('ho','hint links fill :open {hint-url}')
+    config.bind('hr','hint --rapid links tab-bg')
+    config.bind('hs','hint div userscript tts.py')
+    config.bind('ht','hint all userscript translate.py')
+    config.bind('hv','hint video yank')
+    config.bind('hyy','hint links yank')
+    config.bind('hyd','hint div userscript copy_selected.py')
 
 config.source('custom_config.py')
 
