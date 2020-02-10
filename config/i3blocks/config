@@ -67,9 +67,17 @@ interval=5
 command=python ~/.dotfiles/config/i3blocks/i3-pomodoro/pomodoro.py
 interval=1
 
-[clock]
+#[clock]
+#label=📅
+#interval=30
+
+[datetime]
 label=📅
 interval=30
+
+[time_status]
+label=⏲
+interval=1
 
 #[internet]
 #interval=10

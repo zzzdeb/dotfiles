@@ -99,9 +99,9 @@ try:
                                         universal_newlines=True)
                             gcalRet = p.communicate()[0][:-1]
                             print(str(gcalRet))
-                driver.find_element_by_xpath('//a[@role="button" and @ng-click="nextWeek()"]').click()
-                print('NextWeek: Waiting 10 more seconds')
-                time.sleep(10)
+        driver.find_element_by_xpath('//a[@role="button" and @ng-click="nextWeek()"]').click()
+        print('NextWeek: Waiting 10 more seconds')
+        time.sleep(10)
 except:
     notify('gastro', 'error')
 

@@ -232,6 +232,7 @@ Plug 'w0rp/ale'
 " Plug 'python-mode/python-mode', { 'branch': 'develop' }
 " Plug 'ivanov/vim-ipython'
 Plug 'Vigemus/iron.nvim'
+Plug 'jupyter-vim/jupyter-vim'
 
 Plug 'fabi1cazenave/suckless.vim'
 Plug 'mboughaba/i3config.vim'

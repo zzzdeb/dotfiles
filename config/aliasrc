@@ -70,7 +70,7 @@ alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
 
 # Some other stuff
 alias \
-	ipython="ipython --TerminalInteractiveShell.editing_mode=vi" \
+	ipython="ipython3 --TerminalInteractiveShell.editing_mode=vi" \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
 	speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -" \

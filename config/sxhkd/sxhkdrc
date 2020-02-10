@@ -28,13 +28,13 @@ super+ctrl+v
   changeAudioOutput.sh
 
 super + g; {a, b, B, c, e, f, h, k, m, n, N, p, P, q, r, s, t, T, v, x}
-  {arandr, firefox --private-window, btmenu, gcalendar, gmail, $TERMINAL -e $FILE, $TERMINAL -e htop, anki -p "$USER", $TERMINAL -e ncmpcpp, networkmanager_dmenu, $TERMINAL -e nmtui, $TERMINAL -e pulsemixer,~/softwares/pycharm-professional-2019.1.tar/pycharm-2019.1/bin/pycharm.sh, python3 -m qutebrowser, zathura "$HOME/Owncloud/Books/Calibre/Yuval Noah Harari/Homo Deus_ A Brief History of Tomorrow (3)/Homo Deus_ A Brief History of Tomorrow - Yuval Noah Harari.epub" ,  baobab, $TERMINAL -e tg, telegram-desktop, code, ddspawn genius -f mono:pixelsize=24}
+  {arandr, firefox --private-window, btmenu, gcalendar, gmail, $TERMINAL -e $FILE, $TERMINAL -e htop, anki -p "$USER", $TERMINAL -e ncmpcpp, networkmanager_dmenu, $TERMINAL -e nmtui, $TERMINAL -e pulsemixer,~/softwares/pycharm-professional-2019.1.tar/pycharm-2019.1/bin/pycharm.sh, python3 -m qutebrowser, zathura "$HOME/Owncloud/Books/current.epub",baobab, $TERMINAL -e tg,telegram-desktop,code,ddspawn genius -f mono:pixelsize=24}
 
 super + Q; {l, e, s, h, r, S}
   wm_exit {lock, logout, suspend, hibernate, reboot, shutdown}
 
 super + comma; {b, B, d, k, l, m, M, r, S, s, t, u, v, V, w, W, slash}
-  {rofi -show windowcd -lines 15, vertical_bar_pos.sh,i3-msg "bar mode toggle", i3-msg 'sticky toggle', layout_manager.sh, i3-msg 'move workspace to output right', i3-msg 'move workspace to output up', sudo systemctl restart NetworkManager.service, i3-msg 'move scratchpad', i3-msg 'scratchpad show', rofi -show window -lines 15, dmenuunicode, vpntoggle 'vpn-default', vpntoggle 'PIA - Switzerland', sxiv -t "$HOME/.config/variety/Downloaded/reddit_www_reddit_com_r_MinimalWallpaper_top__sort_top_t_year/", i3-msg 'floating enable ;; exec --no-startup-id 21_9_width', ducksearch}
+  {rofi -show windowcd -lines 15,vertical_bar_pos.sh,i3 "bar mode toggle",i3 'sticky toggle',layout_manager.sh,i3-msg 'move workspace to output right',i3-msg 'move workspace to output up',sudo systemctl restart NetworkManager.service,i3 'move scratchpad',i3 'scratchpad show',rofi -show window -lines 15,dmenuunicode,vpntoggle 'vpn-default',vpntoggle 'PIA - Switzerland',sxiv -t "$HOME/.config/variety/Downloaded/reddit_www_reddit_com_r_MinimalWallpaper_top__sort_top_t_year",i3 'floating enable;;exec 21_9_width',ducksearch}
 
 
 super + m; {a, j, o, p, l, n, t, q, space, N, r, semicolon, XF86AudioLowerVolume, XF86AudioRaiseVolume}
@@ -76,6 +76,3 @@ super + Next
   # backlight {up, down}; exec dunstify --replace=11 -t 2000 ": $(backlight current)% $(progressString.sh 10  - $(backlight current))"
 super + XF86MonBrightness{Up,Down}
   xbacklight.py HDMI-1 {+,-}0.1
-
-
-

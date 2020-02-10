@@ -28,7 +28,7 @@
     idle_threshold = 120
     font = Monospace 14
     line_height = 0
-    markup = yes
+    markup = full
 
     # The format of the message.  Possible variables are:
     #   %a  appname
@@ -72,6 +72,12 @@
     per_monitor_dpi = false
 
 [shortcuts]
+    # Shortcuts are specified as [modifier+][modifier+]...key
+    # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
+    # "mod3" and "mod4" (windows-key).
+    # Xev might be helpful to find names for keys.
+    
+    # Close notification.
     close = ctrl+space
     close_all = ctrl+shift+period
     context = shift+space
@@ -153,31 +159,6 @@
 #    appname = Pidgin
 #    summary = *twitter.com*
 #    urgency = normal
-[irc]
-        appname = weechat
-        timeout = 0
-        background = "#0033bb"
-        foreground = "#dddddd"
 
-[shortcuts]
-    # Shortcuts are specified as [modifier+][modifier+]...key
-    # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
-    # "mod3" and "mod4" (windows-key).
-    # Xev might be helpful to find names for keys.
-    
-    # Close notification.
-    close = mod1+space
-    
-    # Close all notifications.
-    # close_all = ctrl+shift+space
-    close_all = ctrl+mod1+space
-
-    # Redisplay last message(s).
-    # On the US keyboard layout "grave" is normally above TAB and left
-    # of "1".
-    history = ctrl+mod4+h 
-    
-    # Context menu.
-    context = ctrl+mod1+c
 
 # vim: ft=cfg

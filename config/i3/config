@@ -10,9 +10,9 @@ new_window pixel
 # font pango:Hack 10
 # font pango:ProFont 11
 font pango:Hack, FontAwesome, Ubuntu Nerd Font 13
-gaps inner 10
-gaps outer 5
-gaps right 25
+gaps inner 0
+gaps outer 0
+gaps right 0
 # smart_gaps on
 
 #bindsym $mod+comma border none
@@ -139,7 +139,7 @@ exec --no-startup-id sxhkd
 exec_always --no-startup-id mpdupdate
 # Podboat automatic queue and download
 exec_always --no-startup-id podentr
-exec_always --no-startup-id launch_polybar
+# exec_always --no-startup-id launch_polybar
 # exec_always --no-startup-id ~/.config/i3/polybar.sh &
 
 # Keys
@@ -147,21 +147,21 @@ exec_always --no-startup-id launch_polybar
 # exec_always xkbcomp "~/.xkbmap $DISPLAY"
 # exec_always xmodmap "~/.xmodmaprc"
 
-# bar {
+bar {
     # launch_polybar
-        # output primary
+        output primary
         # position top
-        # tray_output             primary
-        # colors {
-                # background $term_background
-                # statusline $term_color12
-                # focused_workspace   $term_color5  $term_background $term_color5
-                # active_workspace  $term_color4 $term_background $term_color4
-                # inactive_workspace $term_background $term_background $term_color8
-                # urgent_workspace   $term_color1 $term_background $term_color1
-            # }
-        # status_command i3blocks
-# }
+        tray_output             primary
+        colors {
+                background $term_background
+                statusline $term_color12
+                focused_workspace   $term_color5  $term_background $term_color5
+                active_workspace  $term_color4 $term_background $term_color4
+                inactive_workspace $term_background $term_background $term_color8
+                urgent_workspace   $term_color1 $term_background $term_color1
+            }
+        status_command i3blocks
+}
 # bar {
         # output eDP-1
         # position top
