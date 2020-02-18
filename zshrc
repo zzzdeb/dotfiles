@@ -37,7 +37,7 @@ if ! zgen saved; then
     zgen oh-my-zsh
 
     # plugins
-    zgen oh-my-zsh plugins/git
+    # zgen oh-my-zsh plugins/git
     zgen oh-my-zsh plugins/vi-mode
     zgen load laurenkt/zsh-vimto
     zgen oh-my-zsh plugins/extract

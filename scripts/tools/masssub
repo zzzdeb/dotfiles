@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+for i in ./*.mkv
+do
+   subname=$(echo $i | sed 's/\.mkv/\.srt/')
+   if [ ! -f $subname ]
+   then
+     echo "Creatiing sub for $i"
+     autosub -S de -D de "$i"
+   fi
+done

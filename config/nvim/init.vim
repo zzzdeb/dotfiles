@@ -111,6 +111,7 @@ Plug 'junegunn/vim-plug'
 " Plug 'zzzdeb/vim-better-default'
 " fancy start
 Plug 'mhinz/vim-startify'
+" Plug 'farmergreg/vim-lastplace'
 Plug 'tpope/vim-sleuth' "autoshiftwidth
 
 Plug 'kana/vim-textobj-user'
@@ -175,7 +176,6 @@ Plug 'lervag/vimtex'
 Plug 'craigemery/vim-autotag'
 
 Plug 'robertbasic/snipbar'
-
 
 "doesntworsemantichihliht
 "Plug 'davits/DyeVim'
