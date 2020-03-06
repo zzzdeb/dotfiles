@@ -1,11 +1,16 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-for i in ./*.mkv
+if [ "$#" -ne 2 ]; then
+  echo "usage: masssub slang dlang"
+  exit 1
+fi
+
+for i in ./*.(mkv|mp4)
 do
-   subname=$(echo $i | sed 's/\.mkv/\.srt/')
+   subname=$(echo $i | sed 's/\.mkv/\.srt/;s/\.mp4/\.srt')
    if [ ! -f $subname ]
    then
-     echo "Creatiing sub for $i"
-     autosub -S de -D de "$i"
+     echo "Creating sub for $i"
+     python2 ~/.local/bin/autosub -S $1 -D $2 "$i"
    fi
 done

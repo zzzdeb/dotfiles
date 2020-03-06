@@ -1,0 +1,16 @@
+snippet script "script template"
+if [ "$#" -ne 2 ]; then
+  echo "usage: ytDownload [m|v] link"
+  exit 1
+fi
+
+while getopts ":i:n:m:e:" arg; do
+  case $arg in
+    i) ID=$OPTARG;;
+    n) Name=$OPTARG;;
+    m) Manufacturing_date=$OPTARG;;
+    e) Expire_date=$OPTARG;;
+  esac
+done
+echo -e "\n$ID  $Name   $Manufacturing_date $Expire_date\n"
+endsnippet

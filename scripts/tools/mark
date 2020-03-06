@@ -5,6 +5,7 @@ import pandas as pd
 
 FILESPATH = '~/.config/files.csv'
 DIRPATH = '~/.config/dirs.csv'
+HOMES = [os.path.expanduser('~'), '/mnt/all'+os.path.expanduser('~')]
 
 def main():
     """
@@ -16,7 +17,7 @@ def main():
         print('usage: mark symbol [path]')
         return 1
 
-    path = '.'
+    path = os.getcwd()
     if len(sys.argv) == 3:
         path = sys.argv[2]
 
@@ -32,7 +33,16 @@ def main():
 
 
     sym = sys.argv[1]
-    data = pd.read_csv(file_to_use, sep='\t', index_col=0)
+    try:
+        data = pd.read_csv(file_to_use, sep='\t', index_col=0)
+    except FileNotFoundError:
+        data = pd.DataFrame(columns=['path'], index=['sym'])
+
+
+    for home in HOMES:
+        if abspath.startswith(home):
+            abspath = '~' + abspath[len(home):]
+            break
 
     if sym in data.index:
         print("{} exists in {} as: {}".format(sym, file_to_use, data.loc[sym]))
@@ -50,8 +60,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
-
-
-
+    sys.exit(main())
 

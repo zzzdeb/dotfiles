@@ -124,7 +124,7 @@ exec --no-startup-id qutebrowser
 exec --no-startup-id keynav
 exec --no-startup-id mpd
 exec --no-startup-id nm-applet
-exec --no-startup-id owncloud
+# exec --no-startup-id owncloud
 exec --no-startup-id remaps
 exec --no-startup-id setbg
 exec --no-startup-id st
@@ -134,6 +134,7 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xrdb ~/.Xdefaults
 # exec --no-startup-id redshift-gtk
 exec --no-startup-id sxhkd
+exec --no-startup-id echo "$HOME/.config/dirs.csv\n$HOME/.config/files.csv" | entr -np shortcuts
 
 # Run the script to update the mpd i3block on change.
 exec_always --no-startup-id mpdupdate

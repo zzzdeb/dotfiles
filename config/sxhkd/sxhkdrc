@@ -27,8 +27,8 @@ super+ctrl+o
 super+ctrl+v
   changeAudioOutput.sh
 
-super + g; {a, b, B, c, e, f, h, k, m, n, N, p, P, q, r, s, t, T, v, x}
-  {arandr, firefox --private-window, btmenu, gcalendar, gmail, $TERMINAL -e $FILE, $TERMINAL -e htop, anki -p "$USER", $TERMINAL -e ncmpcpp, networkmanager_dmenu, $TERMINAL -e nmtui, $TERMINAL -e pulsemixer,~/softwares/pycharm-professional-2019.1.tar/pycharm-2019.1/bin/pycharm.sh, python3 -m qutebrowser, zathura "$HOME/Owncloud/Books/current.epub",baobab, $TERMINAL -e tg,telegram-desktop,code,ddspawn genius -f mono:pixelsize=24}
+super + g; {a, b, B, c, e, f, h, k, m, n, N, o, p, P, q, r, s, t, T, v, x}
+  {arandr, firefox --private-window, btmenu, gcalendar, gmail, $TERMINAL -e $FILE, $TERMINAL -e htop, anki -p "$USER", $TERMINAL -e ncmpcpp, networkmanager_dmenu, $TERMINAL -e nmtui,$TERMINAL -e journalctl --user-unit onedrive -f,$TERMINAL -e pulsemixer,~/softwares/pycharm-professional-2019.1.tar/pycharm-2019.1/bin/pycharm.sh, python3 -m qutebrowser, zathura "$HOME/Owncloud/Books/current.epub",baobab, $TERMINAL -e tg,telegram-desktop,code,ddspawn genius -f mono:pixelsize=24}
 
 super + Q; {l, e, s, h, r, S}
   wm_exit {lock, logout, suspend, hibernate, reboot, shutdown}

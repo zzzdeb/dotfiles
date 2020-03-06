@@ -901,8 +901,8 @@ if ($DIRMODUS == 'jkl;')
   noremap k j
   noremap l k
   noremap ; l
-  nnoremap <expr> k (v:count == 0 ? 'gj' : 'j')
-  nnoremap <expr> l (v:count == 0 ? 'gk' : 'k')
+  nnoremap <expr> k (v:count == 0 ? 'gjzz' : 'jzz')
+  nnoremap <expr> l (v:count == 0 ? 'gkzz' : 'kzz')
   let g:suckless_mappings = {
   \        '<c-[QQf]>'      :   'SetTilingMode("[sdf]")'    ,
   \        '<c-[jkl_]>'     :    'SelectWindow("[hjkl]")'   ,
