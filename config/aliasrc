@@ -27,11 +27,10 @@ alias \
 alias \
 	ccat="highlight --out-format=ansi" \
 	grep="grep --color=auto" \
-	l="ls -l" \
-	la="ls -a" \
-	lla="ls -la" \
-	ls="ls -hN --color=auto --group-directories-first" \
-	lt="ls --tree" \
+	l="lsd -l" \
+	la="lsd -a" \
+	lla="lsd -la" \
+	lt="lsd --tree" \
 
 # These common commands are just too long! Abbreviate them.
 alias \

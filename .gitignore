@@ -4,6 +4,9 @@ config/qutebrowser/quickmarks
 config/qutebrowser/bookmarks
 config/qutebrowser/shortcuts.py
 
+config/dirs.csv
+config/files.csv
+
 config/nvim/dirs
 Session.vim
 config/nvim/tags

@@ -7,5 +7,6 @@
     ~/.scripts:
     ~/.zshrc:
     ~/.profile:
+    ~/.zprofile: profile
 - shell:
         - xkbcomp ~/.config/keyboard/xkbmap $DISPLAY; xmodmap ~/.config/keyboard/xmodmaprc
