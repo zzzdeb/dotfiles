@@ -6,6 +6,7 @@ try:
     DIRMODUS = os.environ['DIRMODUS']
 except KeyError:
     DIRMODUS = ''
+DIRMODUS='jkl'
 
 
 # Uncomment this to still load settings configured via autoconfig.yml
@@ -95,7 +96,7 @@ c.tabs.close_mouse_button = "right"
 
 # search engine shortneners
 c.url.searchengines = {
-"DEFAULT": "https://duckduckgo.com/?q={}",
+"DEFAULT": "https://www.google.de/search?&q={}",
 "!g": "https://www.google.de/search?&q={}",
 "!w": "http://www.wikiwand.com/en/{}",
 "!d": "https://duckduckgo.com/?q={}",
@@ -186,6 +187,7 @@ if DIRMODUS == 'jkl':
 
     config.unbind('h')
     #  config.unbind('hy')
+    config.bind('ha','hint * userscript copy_selected.py')
     config.bind('hI','hint images tab')
     config.bind('hO','hint links fill :open -t -r {hint-url}')
     config.bind('hR','hint --rapid links window')

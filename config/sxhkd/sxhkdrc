@@ -67,7 +67,7 @@ XF86TouchpadOff
 XF86Suspend
   wm_exit suspend
 XF86MonBrightness{Up,Down}
-  sudo backlight {up, down}; exec dunstify --replace=11 -t 2000 ": $(backlight current)% $(progressString.sh 10  - $(backlight current))"
+  xbacklight -{inc, dec} 5; exec dunstify --replace=11 -t 2000 ": $(xbacklight -get)% $(progressString.sh 10  - $(xbacklight -get))"
 super + Prior
   xdotool click --repeat 10 4
 super + Next
