@@ -1,0 +1,41 @@
+#!/bin/bash
+
+if [ "$#" -ne 3 ]; then
+	echo "usage: virtualdisplay MODENAME WIDTH HEIGHT"
+	exit 1
+fi
+
+NAME=$1
+WIDTH=$2
+HEIGHT=$3
+# x11_cmd=x11vnc
+
+# if [[ ! -z $(pgrep ${x11_cmd}) ]]; then
+	# pkill ${x11_cmd}
+# fi
+
+MODE=$(gtf ${WIDTH} ${HEIGHT} 24 | egrep 'Modeline' |  awk '{first = $1; $1 = ""; print $0, first; }')
+# MODE_NAME=$(echo ${MODE} | awk '{ print $1}')
+MODE_NAME=$1
+MODE=$(echo $MODE | sed "s/\".*\"/$NAME/")
+
+
+OFFSET=$(xrandr | grep primary | awk '{ print $4}' | sed 's/\([0-9]*\)\(.*\)/\1/')
+PRIMARY=$(xrandr | grep primary | awk '{print $1}')
+VIRTUAL=VIRTUAL1
+
+xrandr --newmode ${MODE} 2> /dev/null
+xrandr --addmode ${VIRTUAL} ${MODE_NAME} 2> /dev/null
+xrandr --output ${VIRTUAL} --mode "$1" --right-of ${PRIMARY}
+
+# LOG=/var/log/x11vnc.log
+
+# if [[ ! -f "${LOG}" ]]; then
+	# sudo touch ${LOG}
+	# sudo chown ${USER}. ${LOG}
+# fi
+
+# x11vnc -usepw -noxdamage -bg -forever -display $DISPLAY -clip "${WIDTH}x${HEIGHT}+${OFFSET}+0" -o ${LOG}
+# x0vncserver -rfbauth ~/.vnc/passwd -Geometry=${HEIGHT}x${WIDTH}
+monitor_vnc $VIRTUAL
+xset r

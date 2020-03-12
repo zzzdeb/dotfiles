@@ -9,17 +9,16 @@ cyan=$(tput setaf 6)
 white=$(tput setaf 7)
 
 normal=$(tput sgr0)
-
-journalctl -o cat --user-unit onedrive -f  |
+journalctl -o cat --user-unit ${1:-onedrive} -f  |
    ag -v 'Remaining free space' |                   # removing unwanted lines from log
-   ccze -A -c default=white |                        # nice program to colorize log
   sed -u "s/Uploading/$(printf "${blue}Uploading${normal}")/;
           s/Successfully created/$(printf "${blue}Successfully created${normal}")/;
           s/Downloading/$(printf "${magenta}Downloading${normal}")/;
           s/Moving/$(printf "${magenta}Moving${normal}")/;
           s/Deleting/$(printf "${yellow}Deleting${normal}")/;
-          s/deleted/$(printf "${yellow}deleted${normal}")/gI;   
-          "                                         # changing colors of words
+          s/deleted/$(printf "${yellow}deleted${normal}")/gI;
+          " |                                         # changing colors of words
+   ccze -A -c default=white  # |                        # nice program to colorize log
           #>> /tmp/tmp1.txt
   # ag --passthru "↗ |Stopping|Stopped|Uploading|Downloading|Error|Deleting"
           # s/error/$(printf "${red}❎ERROR${normal}")/gI;

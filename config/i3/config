@@ -135,6 +135,7 @@ exec --no-startup-id xrdb ~/.Xdefaults
 # exec --no-startup-id redshift-gtk
 exec --no-startup-id sxhkd
 exec --no-startup-id echo "$HOME/.config/dirs.csv\n$HOME/.config/files.csv" | entr -np shortcuts
+exec --no-startup-id zenwindow
 
 # Run the script to update the mpd i3block on change.
 exec_always --no-startup-id mpdupdate
@@ -292,8 +293,8 @@ bindsym $mod+Delete		exec $stoprec
 # change focus
 bindsym $mod+$left exec i3fullscreenDirections left
 bindsym $mod+$down exec i3fullscreenDirections down
-bindsym $mod+$up exec i3fullscreenDirections.py up
-bindsym $mod+$right exec i3fullscreenDirections.py right
+bindsym $mod+$up exec i3fullscreenDirections up
+bindsym $mod+$right exec i3fullscreenDirections right
 # move focused window
 bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
@@ -366,6 +367,7 @@ mode "Studium" {
         bindsym s workspace $wsST; mode "default"
         bindsym c workspace $wsCC; mode "default"
         bindsym a workspace $wsAS; mode "default"
+        bindsym z exec --no-startup-id i3zen switch; mode "default"
 
 
         bindsym Shift+b move container to workspace $wsBuK

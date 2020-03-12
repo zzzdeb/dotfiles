@@ -1,11 +1,17 @@
 [user]
-	email = zolboo.deb@gmail.com
-	name = Zolboo
+  email = zolboo.deb@gmail.com
+  name = Zolboo
 [push]
-	default = simple
+  default = simple
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
-	autocrlf = false
-	autolf = true
-[diff]
-	tool = vcode
+  pager = diff-so-fancy | less --tabs=4 -RFX
+  autocrlf = false
+  autolf = true
+[merge]
+  tool = nvim
+[mergetool]
+  prompt = true
+[difftool]
+  prompt = false
+[mergetool "nvim"]
+	cmd = nvim -d $LOCAL $REMOTE

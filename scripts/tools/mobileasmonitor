@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [ "$#" -ne 1 ]; then
+  echo "usage: mobileasmonitor MOBILENAME"
+  exit 1
+fi
+VIRT=VIRTUAL1
+PRIM=$(xrandr | grep primary | awk '{print $1}')
+
+xrandr --output $VIRT --mode "$1" --right-of $PRIM
+
+monitor_vnc $VIRT

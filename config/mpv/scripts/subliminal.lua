@@ -237,4 +237,4 @@ end
 
 mp.add_key_binding('Ctrl+s', 'download_subs', download_subs)
 mp.add_key_binding('Ctrl+Shift+s', 'download_subs2', download_subs2)
-mp.register_event('file-loaded', control_downloads)
+-- mp.register_event('file-loaded', control_downloads)

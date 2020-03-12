@@ -1,4 +1,5 @@
 [MIME Cache]
+application/pdf=pdf.desktop;
 application/rdf+xml=qutebrowser.desktop;
 application/rss+xml=qutebrowser.desktop;
 application/x-xpinstall=qutebrowser.desktop;
@@ -8,9 +9,11 @@ image/gif=qutebrowser.desktop;
 image/jpeg=qutebrowser.desktop;
 image/png=qutebrowser.desktop;
 text/html=qutebrowser.desktop;
+text/plain=text.desktop;
 text/xml=qutebrowser.desktop;
 video/webm=qutebrowser.desktop;
 x-scheme-handler/chrome=qutebrowser.desktop;
+x-scheme-handler/discord-455712169795780630=discord-455712169795780630.desktop;
 x-scheme-handler/ftp=qutebrowser.desktop;
 x-scheme-handler/http=qutebrowser.desktop;
 x-scheme-handler/https=qutebrowser.desktop;

@@ -10,6 +10,7 @@ asss.sort()
 
 for fn in asss:
     if fn.endswith('.ass'):
+        print(fn)
         with open(fn, encoding='utf_8_sig') as f:
             doc.events += ass.parse(f).events
 

@@ -1,0 +1,55 @@
+#!/usr/bin/env python
+
+from i3ipc.aio import Connection
+from i3ipc import Event
+
+import asyncio
+from subprocess import run, check_output
+from time import sleep
+
+WALL_PAPER = "variety;--set-section-option;filters;filter2;{}|Grayscale|-type Grayscale;--set-option;clock_enabled;{}"
+async def main():
+    #  def on_window(self, e):
+        #  print(e.change)
+        #  print(e.old.name if e.old else e.old)
+        #  print(e.current.name if e.current else e.current)
+        #  print('  ')
+
+    async def on_workspace(self, e):
+        ws = e.current
+        if ws.name == '99: zen':
+            if e.old and e.old.name != '99: zen':
+                #  wall_cmd = ['xwallpaper', '--zoom', '/tmp/tmp.jpg']
+                wall_cmd=WALL_PAPER.format('True', 'False').split(';')
+                run(wall_cmd)
+        else:
+            if e.old and e.old.name == '99: zen':
+                wall_cmd = WALL_PAPER.format('False', 'True').split(';')
+                run(wall_cmd)
+                await ws.command(';'.join([
+                    'bar mode dock',
+                ]))
+
+    async def on_wsinit(self, e):
+        ws = e.current
+        if ws.name == '99: zen':
+            sleep(0.05)
+            #  print(ws.name)
+            await ws.command(';'.join([
+                'gaps vertical current set 80',
+                'gaps horizontal current set 180',
+                'gaps inner current set 10',
+                'bar mode hide'
+            ]))
+
+    c = await Connection(auto_reconnect=True).connect()
+
+    workspaces = await c.get_workspaces()
+
+    #  c.on(Event.WORKSPACE, on_window)
+    c.on(Event.WORKSPACE_FOCUS, on_workspace)
+    c.on(Event.WORKSPACE_INIT, on_wsinit)
+
+    await c.main()
+
+asyncio.get_event_loop().run_until_complete(main())

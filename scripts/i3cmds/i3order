@@ -1,0 +1,88 @@
+#!/usr/bin/env python
+from i3ipc import Connection
+import json
+import asyncio
+import random
+from subprocess import run, check_output
+import time
+from copy import deepcopy
+
+def main():
+    """TODO: Docstring for main.
+    :returns: TODO
+
+    """
+    i3 = Connection()
+
+    # get_tree() returns the root container
+    tree = i3.get_tree()
+
+    # get some information about the focused window
+    focused = tree.find_focused()
+    print(f'Focused window: {focused.name}')
+    workspace = focused.workspace()
+    print(f'Focused workspace: {workspace.name}')
+
+    windows = []
+    # iterate through all the container windows (or use tree.leaves() for just
+    # application windows)
+    for container in workspace:
+        if len(container.nodes) == 0:
+            windows.append(container)
+
+
+    cur =   {
+                "type": "con",
+                "name": "",
+                "class": "tmp",
+                "swallows": [
+                    {
+                        "class": "^notmuch$"
+                    }
+                ]
+            }
+
+    layout = {
+        "layout": "tabbed",
+        "percent": 0.5,
+        "type": "con",
+        'role': 'i3order',
+        "nodes": []
+    }
+    layouts = []
+    print([a.id for a in windows])
+    num = len(windows)
+    nlayout = deepcopy(layout)
+    for con in windows[:int(num/2)]:
+        cur['name'] = str(con.id)
+        cur['role'] = str(con.id)
+        nlayout['nodes'].append(deepcopy(cur))
+    layouts.append(nlayout)
+
+    nlayout = deepcopy(layout)
+    for con in windows[int(num/2):]:
+        cur['name'] = str(con.id)
+        cur['role'] = str(con.id)
+        nlayout['nodes'].append(deepcopy(cur))
+    layouts.append(nlayout)
+
+    lname = '/tmp/i3order{}.json'.format(random.randint(100000, 999999))
+    for lay in layouts:
+        with open(lname, 'a') as f:
+            f.write(json.dumps(lay))
+
+    run(['i3-msg', 'append_layout {}'.format(lname)])
+    print([a.id for a in windows])
+    workspace = i3.get_tree().find_focused().workspace()
+    for con in windows:
+        print(con.id)
+        swl = workspace.find_named(str(con.id))
+        sw = swl[0]
+        con.command('swap with id {}'.format(sw.window))
+        sw.command('kill')
+
+
+    return 0
+
+if __name__ == "__main__":
+    main()

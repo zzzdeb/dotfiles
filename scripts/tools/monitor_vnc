@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [ "$#" -ne 1 ]; then
+  echo "usage: monitor_vnc MONITORNAME"
+  exit 1
+fi
+
+x0vncserver -rfbauth ~/.vnc/passwd -Geometry=$(monitorres.py $1)

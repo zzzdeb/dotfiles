@@ -49,7 +49,7 @@ alias \
 	q="exit" \
 	sc="source ~/.zshrc" \
 	sdn="sudo shutdown -h now" \
-	shortcuts_st="grep 'static Shortcut shortcuts'  -A 1000 -m 1 ~/.dotfiles/st/config.h | grep '};' -m 1 -B 1000"  \
+	shortcuts_st="grep 'static Shortcut shortcuts'  -A 1000 -m 1 ~/.dotfiles/submodules/st/config.h | grep '};' -m 1 -B 1000"  \
 	trem="transmission-remote" \
 	v="$EDITOR" \
 	xi="sudo xbps-install" \
@@ -69,11 +69,15 @@ alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
 
 # Some other stuff
 alias \
-	ipython="ipython3 --TerminalInteractiveShell.editing_mode=vi" \
+	ipy="ipython3 --TerminalInteractiveShell.editing_mode=vi" \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
 	speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -" \
 	weather="less -S ~/.local/share/weatherreport" \
+
+function vs() {
+	nvim ~/.scripts/tools/$1
+}
 
 ,e() { du -a ~/.scripts/* ~/.config/* ~/.dotfiles/*(N) /var/lib/transmission/.config/*(N) | cut -d$'\t' -f2- | fzf | xargs  -r $EDITOR ;}
 ,t() { fzf | xargs -r -I % $EDITOR % ;}

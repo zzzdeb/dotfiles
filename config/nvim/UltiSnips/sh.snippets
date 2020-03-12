@@ -1,0 +1,22 @@
+snippet green "green"
+	$(printf "\033[32m$0\033[0m")
+endsnippet
+
+snippet red "red"
+	$(printf "\033[31m$0\033[0m")
+endsnippet
+
+snippet black "black"
+	$(printf "\033[30m$0\033[0m")
+endsnippet
+
+snippet blue "blue"
+	$(printf "\033[34m$0\033[0m")
+endsnippet
+
+snippet check "checks arg"
+if [ "$#" -ne ${1} ]; then
+	echo "usage: ${0}"
+	exit 1
+fi
+endsnippet

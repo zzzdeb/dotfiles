@@ -1,0 +1,19 @@
+#!/bin/sh
+
+notify-send 'yt'
+
+case "$1" in
+	m*) youtube-dl --download-archive ~/Music/downloaded.txt --no-post-overwrites --embed-thumbnail --add-metadata -i -o '/home/zzz/Music/%(title)s.%(ext)s' -x -f bestaudio/best --audio-format mp3 $2;;
+	v*) notify-send "$1"; youtube-dl --download-archive ~/Videos/downloaded.txt --no-post-overwrites --add-metadata -i -o '/home/zzz/Videos/%(title)s.%(ext)s' $2;;
+	*) cat << EOF
+lmc: cli music interface for mpd and pulse for those with divine intellect too
+grand to remember the mpc/pamixer commands.
+
+Allowed options:
+  up NUM	Increase volume (2 secs default)
+All of these commands, except for \`truemute\`, \`prev\` and \`play\` can be truncated,
+i.e. \`lmc r\` for \`lmc restart\`.
+EOF
+esac
+
+notify-send 'yt done'
