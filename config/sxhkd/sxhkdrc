@@ -34,7 +34,7 @@ super + Q; {l, e, s, h, r, S}
   wm_exit {lock, logout, suspend, hibernate, reboot, shutdown}
 
 super + comma; {b, B, d, k, l, m, M, o, r, S, s, t, u, v, V, w, W, z, slash}
-  {rofi -show windowcd -lines 15,vertical_bar_pos.sh,i3 "bar mode toggle",i3 'sticky toggle',layout_manager.sh,i3-msg 'move workspace to output right',i3-msg 'move workspace to output up',i3order,sudo systemctl restart NetworkManager.service,i3 'move scratchpad',i3 'scratchpad show',rofi -show window -lines 15,dmenuunicode,vpntoggle 'vpn-default',vpntoggle 'PIA - Switzerland',sxivw,i3 'floating enable;;exec 21_9_width',i3zen toggle,ducksearch}
+  {rofi -show windowcd -lines 15,vertical_bar_pos.sh,i3 "bar mode toggle",i3 'sticky toggle',extbacklight,i3-msg 'move workspace to output right',i3-msg 'move workspace to output up',i3order,sudo systemctl restart NetworkManager.service,i3 'move scratchpad',i3 'scratchpad show',rofi -show window -lines 15,dmenuunicode,vpntoggle 'vpn-default',vpntoggle 'PIA - Switzerland',sxivw,i3 'floating enable;;exec 21_9_width',i3zen toggle,ducksearch}
 
 
 super + m; {a, j, o, p, l, n, t, q, space, N, r, semicolon, XF86AudioLowerVolume, XF86AudioRaiseVolume}
@@ -56,8 +56,10 @@ XF86Audio{Raise,Lower}Volume
 # XF86AudioMedia
   # $TERMINAL -e ncmpcpp
 
+XF86Display
+  autorandr orig
 XF86PowerOff
-  prompt "Shutdown computer?" "$shutdown"
+  wm_exit hibernate
 XF86TouchpadToggle
   toggletouchpad
 XF86TouchpadOn
@@ -67,7 +69,7 @@ XF86TouchpadOff
 XF86Suspend
   wm_exit suspend
 XF86MonBrightness{Up,Down}
-  xbacklight -{inc, dec} 5; exec dunstify --replace=11 -t 2000 ": $(xbacklight -get)% $(progressString.sh 10  - $(xbacklight -get))"
+  xbacklight -{inc,dec} 5; exec dunstify --replace=11 -t 2000 ": $(xbacklight -get)% $(progressString.sh 10  - $(xbacklight -get))"
 super + Prior
   xdotool click --repeat 10 4
 super + Next
