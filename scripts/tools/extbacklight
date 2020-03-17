@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+ddcutil setvcp 10 $(rofi -dmenu -l 0 -width 7 -p Brightness in % -theme blue)
