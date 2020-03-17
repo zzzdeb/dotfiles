@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 
-ddcutil setvcp 10 $(rofi -dmenu -l 0 -width 7 -p Brightness in % -theme blue)
+if [ "$#" -gt 1 ]; then
+  echo "usage: extbacklight [value]"
+  exit 1
+elif [ "$#" -eq 1 ]; then
+  sudo /usr/bin/ddcutil setvcp 10 $1
+  exit 0
+fi
+sudo /usr/bin/ddcutil setvcp 10 $(rofi -dmenu -l 0 -width -17 -p Brightness in % -theme blue)
