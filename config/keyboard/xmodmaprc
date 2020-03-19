@@ -10,4 +10,5 @@ add control = Control_R
 
 clear shift
 add shift = Shift_L
+add shift = Shift_R
 

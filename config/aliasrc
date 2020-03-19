@@ -84,5 +84,6 @@ function vs() {
 ,e() { du -a ~/.scripts/* ~/.config/* ~/.dotfiles/*(N) /var/lib/transmission/.config/*(N) | cut -d$'\t' -f2- | fzf | xargs  -r $EDITOR ;}
 ,t() { fzf | xargs -r -I % $EDITOR % ;}
 cdf() { cd -- "$(du | cut -d$'\t' -f2- | fzf)"}
+cdp() { cd -- "$(/usr/bin/ls -C -d ~/git/* ~/projects/* | fzf;)"}
 
 cdt() { cd -- "$HOME/Downloads/Torrent/$(/usr/bin/ls -C --format=single-column ~/Downloads/Torrent | fzf;)"}

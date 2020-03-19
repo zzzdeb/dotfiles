@@ -108,7 +108,7 @@ partial modifier_keys
       key <AD07> {[	  u,	U,		ampersand	  ,		ampersand,	  	 udiaeresis,		Udiaeresis]	};
       key <AD08> {[	  i,	I,		asterisk	  ,		asterisk,	  	 Next,		Next]	};
       key <AD09> {[	  o,	O,	 backslash, backslash, Prior,		Prior]	};
-      key <AD10> {[	  p,	P,	 dead_diaeresis, dead_diaeresis]	};
+      key <AD10> {[	  p,	P,	 EuroSign, ssharp]	};
       key <AD11> {[	  y,	Y,		asciicircum	,		asciicircum]	};
       key <ESC> {[ Escape, Escape, question,  question]	};
       key <BKSP> {[ BackSpace, BackSpace, Delete,  Delete]	};
@@ -123,7 +123,7 @@ partial modifier_keys
       key <AC08> {[	  k,	K,	 braceleft,  braceleft , Down 	,Down]	};
       key <AC09> {[	  l,	L,	 equal,		equal,   Up 	,Up ]	};
       key <AC10> {[	  semicolon,	colon,	 bar,		bar,  Right 	,Right  ]	};
-      key <AC11> {[	  apostrophe,	quotedbl,	 quotedbl,		quotedbl]	};
+      key <AC11> {[	  apostrophe,	quotedbl,	 dead_diaeresis, dead_diaeresis]	};
       key <RTRN> {[ Return, Return, asciitilde,  asciitilde]	};
       //key <AC11> {[	  apostrophe,	quotedbl,	 backslash,		backslash,	bar		,		bar	]	};
 
