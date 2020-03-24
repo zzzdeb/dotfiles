@@ -248,6 +248,8 @@ Plug 'jreybert/vimagit'
 Plug 'chrisbra/csv.vim'
 " Use release branch (Recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'SkyLeach/pudb.vim'
+Plug 'gotcha/vimpdb'
 call plug#end()
 
 
@@ -965,8 +967,8 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " nnoremap <a-w> <c-w>
 nnoremap <a-t> <c-t>
 
-nnoremap gp :pu<cr>
-nnoremap gP :pu!<cr>
+nnoremap gp o<c-r>+
+nnoremap gP O<c-r>+
 inoremap <c-v> <c-r>*
 cnoremap <c-v> <c-r>"
 
@@ -1185,3 +1187,10 @@ endfunction
 " Keymapping for grep word under cursor with interactive mode
 nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
 
+" Nvim python environment settings
+" set the virtual env python used to launch the debugger
+let g:pudb_python='~/.virtualenvs/poweruser_tools/bin/python'
+" set the entry point (script) to use for pudb
+let g:pudb_entry_point='~/src/poweruser_tools/test/test_templates.py'
+" Unicode symbols work fine (nvim, iterm, tmux, nyovim tested)
+let g:pudb_breakpoint_symbol='☠'

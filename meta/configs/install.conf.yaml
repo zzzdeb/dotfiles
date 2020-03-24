@@ -37,6 +37,7 @@
     # ~/.axelrc:
     # ~/.bash:
     ~/.profile:
+    ~/.xprofile:
     ~/.scripts:
     # ~/.gnupg/gpg.conf:
     # ~/.haskeline:

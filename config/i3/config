@@ -108,34 +108,26 @@ for_window [title="mpvfloat"] sticky enable
 for_window [title="mpvfloat"] border pixel 0
 no_focus [title="mpvfloat"]
 
+# set $workspace1 "1: "
+# set $workspace2 w: "
+set $workspace2 "2: "
+set $workspace3 "3: 日本"
+set $workspace4 "4: "
+# set $workspace5 "5: "
+set $workspace6 "6: "
+set $workspace7 "7: "
+set $workspace8 "8: "
+# set $workspace9 "9: "
+set $workspace10 "10: "
+
+exec i3-msg "workspace $workspace2"
+
 # #---Starting External Scripts---# #
-exec --no-startup-id autorandr -c
-exec --no-startup-id blueman-applet
-exec --no-startup-id compton --config ~/.config/compton/compton.conf
 # exec --no-startup-id clight
-exec --no-startup-id dunst
-exec --no-startup-id devmon
-exec --no-startup-id deja-dup
-exec --no-startup-id gmail
-exec --no-startup-id gcalendar
-exec --no-startup-id gnome-screensaver
-exec --no-startup-id telegram-desktop
-exec --no-startup-id qutebrowser
-exec --no-startup-id keynav
-exec --no-startup-id mpd
-exec --no-startup-id nm-applet
-# exec --no-startup-id owncloud
-exec --no-startup-id remaps
-exec --no-startup-id setbg
-exec --no-startup-id st
-exec --no-startup-id unclutter # mouse invinsible
-exec --no-startup-id variety
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id xrdb ~/.Xdefaults
-# exec --no-startup-id redshift-gtk
-exec --no-startup-id sxhkd
-exec --no-startup-id echo "$HOME/.config/dirs.csv\n$HOME/.config/files.csv" | entr -np shortcuts
 exec --no-startup-id zenwindow
+exec --no-startup-id zenwindow
+exec --no-startup-id app-on-ws-init.py --workspace "10: " --command 'gmail & gcalendar'
+
 
 # Run the script to update the mpd i3block on change.
 exec_always --no-startup-id mpdupdate
@@ -318,19 +310,6 @@ bindsym $mod+Shift+ctrl+$right move up; move right, move left
 bindsym $mod+ctrl+$left focus parent; focus left
 bindsym $mod+ctrl+$right focus parent; focus right
 
-# set $workspace1 "1: "
-# set $workspace2 w: "
-set $workspace2 "2: "
-set $workspace3 "3: 日本"
-set $workspace4 "4: "
-# set $workspace5 "5: "
-set $workspace6 "6: "
-set $workspace7 "7: "
-set $workspace8 "8: "
-# set $workspace9 "9: "
-set $workspace10 "10: "
-
-exec i3-msg "workspace $workspace2"
 
 set $wsBuK    "S: BuK"
 set $wsNumRe       "S: NumRe"
@@ -394,6 +373,7 @@ bindsym $mod+Shift+$0 move container to workspace $workspace10
 # assign [class="Chromium-browser"] 7
 # assign [class="Firefox"] $workspace2
 assign [class="Thunderbird"] $workspace8
+assign [class="Anki"] $workspace3
 assign [class="Calise" instance="calise" title="Calise"] $workspace7
 assign [class="Google-chrome" instance="mail.google.com"] $workspace10
 assign [class="Google-chrome" instance="calendar.google.com"] $workspace10

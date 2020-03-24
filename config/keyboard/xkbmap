@@ -55,8 +55,8 @@ xkb_keymap {
     <AB10> = 48;
     <AB11> = 51;
 
-    <LALT> = 53;
     <LFSH> = 54;
+    <LALT> = 55;
     <SPCE> = 58;
     <RCTL> = 59;
     <RWIN> = 60;
@@ -78,7 +78,7 @@ xkb_keymap {
 
 partial modifier_keys
   xkb_symbols  {
-      include "pc+us(altgr-intl)+inet(evdev)+capslock(hyper)"
+      include "pc+us(de_se_fi)+mn:2+inet(evdev)+group(alt_shift_toggle)"
     //  name[group1]="English (intl., with AltGr dead keys)";
 
       name[Group1]="zzz";
