@@ -21,7 +21,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status root_indicator background_job
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context dir vcs)
 # User configuration
 # Load zgen only if a user types a zgen command
-export ZGEN_DIR=${HOME}/.zgen
+export ZGEN_DIR=${HOME}/.config/zsh/.zgen
 zgen () {
   if [[ ! -s ${ZGEN_DIR}/zgen.zsh ]]; then
     git clone --recursive https://github.com/tarjoilija/zgen.git ${ZGEN_DIR}
@@ -67,7 +67,7 @@ if ! zgen saved; then
 fi
 
 #has to come after zplug
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $XDG_CONFIG_HOME/zsh/.fzf.zsh ] && source $XDG_CONFIG_HOME/zsh/.fzf.zsh
 
 ###############################################################
 # Settings
@@ -75,8 +75,8 @@ fi
 stty -ixon # Disable ctrl-s and ctrl-q.
 # HISTSIZE= HISTFILESIZE= # Infinite history.
 
-[ -f "$HOME/.shortcuts" ] && source "$HOME/.shortcuts" # Load shortcut aliases
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+[ -f "$XDG_CONFIG_HOME/shortcutrc" ] && source "$XDG_CONFIG_HOME/shortcutrc" # Load shortcut aliases
+[ -f "$XDG_CONFIG_HOME/aliasrc" ] && source "$XDG_CONFIG_HOME/aliasrc"
 
 bindkey -M vicmd "s" vi-repeat-find
 bindkey -M vicmd "S" vi-rev-repeat-find
@@ -144,3 +144,7 @@ export ACPLT_HOME=~/hiwi/ACPLT-DevKit-linux64/acplt
 export ACPLT_GIT=$ACPLT_HOME/git
 export LD_LIBRARY_PATH=$ACPLT_HOME/system/addonlibs:$ACPLT_HOME/system/syslibs:$LD_LIBRARY_PATH
 export PATH=$ACPLT_HOME/system/sysbin:$PATH
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

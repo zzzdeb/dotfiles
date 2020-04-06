@@ -11,9 +11,11 @@ new_window pixel
 # font pango:ProFont 11
 font pango:Hack, FontAwesome, Ubuntu Nerd Font 13
 gaps inner 0
-gaps outer 0
-gaps right 0
-# smart_gaps on
+gaps right 300
+gaps left 300
+gaps top 40
+gaps bottom 40
+smart_gaps inverse_outer
 
 #bindsym $mod+comma border none
 # bindsym $mod+comma bar mode toggle
@@ -124,7 +126,6 @@ exec i3-msg "workspace $workspace2"
 
 # #---Starting External Scripts---# #
 # exec --no-startup-id clight
-exec --no-startup-id zenwindow
 exec --no-startup-id zenwindow
 exec --no-startup-id app-on-ws-init.py --workspace "10: " --command 'gmail & gcalendar'
 
@@ -381,6 +382,7 @@ assign [class="Google-chrome" instance="home_zzz_hiwi_henson_index.html" window_
 # assign [class="Chromium-browser" instance="home_zzz_hiwi_henson_index.html" window_role="pop-up"] $workspace8
 assign [class="VirtualBox Machine"] $workspace4
 assign [class="Org.gnome.DejaDup" title="Déjà Dup Backup Tool"] $workspace7
+assign [title="\[telmedia\] *"] $workspace8
 
 # workspace $workspace1 output primary
 workspace $workspace2 output primary

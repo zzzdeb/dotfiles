@@ -10,3 +10,7 @@ config/files.csv
 config/nvim/dirs
 Session.vim
 config/nvim/tags
+
+config/gtk-2.0/gtkfilechooser.ini
+tags
+config/gtk-3.0/bookmarks

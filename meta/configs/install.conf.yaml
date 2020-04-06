@@ -31,12 +31,12 @@
     ~/.config/i3blocks : config/i3blocks
     ~/.config/fontconfig : config/fontconfig
     ~/.config/networkmanager-dmenu/config.ini : config/networkmanager-dmenu/config.ini
+    ~/.config/wget/wgetrc : config/wget/wgetrc
 
-    ~/.screenlayout : screenlayout
     # ~/.aria2/aria2.conf:
     # ~/.axelrc:
     # ~/.bash:
-    ~/.profile:
+    # ~/.profile:
     ~/.xprofile:
     ~/.scripts:
     # ~/.gnupg/gpg.conf:
@@ -56,7 +56,6 @@
     # ~/.vim:
     # ~/.zsh:
     ~/.Xdefaults:
-    ~/.inputrc:
     ~/.xinitrc:
     ~/.config/emoji: config/emoji
     ~/.config/fontawesome: config/fontawesome

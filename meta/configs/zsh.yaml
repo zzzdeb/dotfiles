@@ -5,8 +5,8 @@
 - link:
     ~/.config/aliasrc: config/aliasrc
     ~/.scripts:
-    ~/.zshrc:
-    ~/.profile:
+    ~/.config/zsh/.zshrc: config/zsh/.zshrc
     ~/.zprofile: profile
+    ~/.config/inputrc: config/inputrc
 - shell:
         - xkbcomp ~/.config/keyboard/xkbmap $DISPLAY; xmodmap ~/.config/keyboard/xmodmaprc
