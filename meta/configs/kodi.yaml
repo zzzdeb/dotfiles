@@ -1,0 +1,7 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+- link:
+    ~/.local/share/kodi/userdata/keymaps/gen.xml: local/share/kodi/userdata/keymaps/gen.xml
+    ~/.local/share/kodi/userdata/advancedsettings.xml: local/share/kodi/userdata/advancedsettings.xml

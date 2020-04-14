@@ -1,0 +1,5 @@
+<cache>
+  <memorysize>1000000000</memorysize>
+  <buffermode>1</buffermode>
+  <readfactor>10.0</readfactor>
+</cache>

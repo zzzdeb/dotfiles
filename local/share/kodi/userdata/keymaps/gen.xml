@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<keymap>
+  <global>
+    <keyboard>
+      <k>down</k>
+      <j>left</j>
+      <semicolon>right</semicolon>
+      <l>up</l>
+
+      <p>Pause</p>
+      <forwardslash>VideoLibrary.Search</forwardslash>
+      <escape>back</escape>
+      <f>FullScreen</f>
+      <p mod="shift">Playlist</p>
+      <m mod="ctrl">ActivateWindow(videos)</m>
+      <r mod="ctrl,shift">ReloadKeymaps</r>
+      <q>ActivateWindow(ShutdownMenu)</q>
+      <t mod="ctrl">ActivateWindow(TVChannels)</t>
+      <c mod="ctrl">ActivateWindow(Settings)</c>
+      <a mod="ctrl">ActivateWindow(addonbrowser)</a>
+    </keyboard>
+  </global>
+  <VideoPlaylist>
+    <keyboard>
+      <x>Delete</x>
+      <l mod="shift">MoveItemUp</l>
+      <k mod="shift">MoveItemDown</k>
+    </keyboard>
+  </VideoPlaylist>
+  <VirtualKeyboard>
+    <keyboard>
+      <j>Symbols</j>
+      <k>Symbols</k>
+      <l>Symbols</l>
+      <semicolon>Symbols</semicolon>
+    </keyboard>
+  </VirtualKeyboard>
+  <FullscreenVideo>
+    <keyboard>
+      <f>Fullscreen</f>
+      <b>OSD</b>
+      <s>NextSubtitle</s>
+      <j>StepBack</j>
+      <semicolon>StepForward</semicolon>
+      <up>ChapterOrBigStepForward</up>
+      <down>ChapterOrBigStepBack</down>
+      <v mod="ctrl">VideoNextStream</v>
+      <n>SkipNext</n>
+      <p>SkipPrevious</p>
+    </keyboard>
+  </FullscreenVideo>
+</keymap>
