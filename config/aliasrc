@@ -75,14 +75,19 @@ alias \
 	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
 	speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -" \
 	weather="less -S ~/.local/share/weatherreport" \
+	webtorrent="webtorrent -o $HOME/Downloads/Torrent --mpv" \
+
 
 function vs() {
 	nvim ~/.scripts/tools/$1
+}
+function rms() {
+	mv -iv $1 ~/.local/share/Trash/files
 }
 
 ,e() { du -a ~/.scripts/* ~/.config/* ~/.dotfiles/*(N) /var/lib/transmission/.config/*(N) | cut -d$'\t' -f2- | fzf | xargs  -r $EDITOR ;}
 ,t() { fzf | xargs -r -I % $EDITOR % ;}
 cdf() { cd -- "$(du | cut -d$'\t' -f2- | fzf)"}
-cdp() { cd -- "$(/usr/bin/ls -C -d ~/git/* ~/projects/* | fzf;)"}
+cdp() { cd -- "$(/usr/bin/ls -C -d ~/dev/git/* ~/dev/projects/* | fzf;)"}
 
 cdt() { cd -- "$HOME/Downloads/Torrent/$(/usr/bin/ls -C --format=single-column ~/Downloads/Torrent | fzf;)"}

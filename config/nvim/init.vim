@@ -750,7 +750,7 @@ let g:table_mode_tableize_d_map= '<localleader>T'
 " let g:highlight_cursor=1
 "
 "  Languagetool
-let g:languagetool_jar = '/home/zzz/softwares/LanguageTool-4.5-SNAPSHOT/languagetool-commandline.jar'
+let g:languagetool_jar = '/home/zzz/dev/softwares/LanguageTool-4.5-SNAPSHOT/languagetool-commandline.jar'
 " Tex Preview
 let g:livepreview_previewer = 'zathura'
 """""""""""""""""""""""""""""""""""""

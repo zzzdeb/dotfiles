@@ -53,10 +53,6 @@ command=disk / 
 
 [disk]
 interval=60
-command=disk /mnt/all 
-
-[disk]
-interval=60
 command=disk /media/sdcard 
 
 [battery]

@@ -11,9 +11,7 @@ autorandr -c &
 blueman-applet &
 compton --config ~/.config/compton/compton.conf &
 deja-dup &
-devmon &
 dunst &
-echo "/home/zzz/.config/dirs.csv\n/home/zzz/.config/files.csv" | entr -np shortcuts &
 gcalendar &
 gmail &
 gnome-screensaver &
@@ -29,6 +27,7 @@ remaps &	# run the remaps script, switching caps/esc and more; check it for more
 st &
 sxhkd &
 telegram-desktop &
+udiskie -t & # automount
 unclutter & # mouse invinsible
 variety &
 xfce4-power-manager &

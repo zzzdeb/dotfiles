@@ -60,6 +60,7 @@ config.bind('sc', 'config-source')
 
 
 config.unbind(',t')
+config.bind('<ctrl-t>', 'yank -s --quiet selection;; open -t !d {primary}')
 config.bind(',tt', 'spawn --userscript translate.py auto en')
 config.bind(',tk', 'spawn --userscript translate.py auto ko')
 config.bind(',tj', 'spawn --userscript translate.py auto ja')

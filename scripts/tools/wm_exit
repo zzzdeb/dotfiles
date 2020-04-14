@@ -1,7 +1,8 @@
 #!/bin/sh
 lock() {
     # i3lock -t -i ~/.config/wall.png
-    gnome-screensaver-command -l
+    # gnome-screensaver-command -l
+    loginctl lock-session
     # scrot /tmp/screen_locked.png
     # convert /tmp/screen_locked.png -scale 10% -scale 1000% /tmp/screen_locked2.png
     # i3lock -i /tmp/screen_locked2.png
@@ -16,10 +17,10 @@ case "$1" in
         i3-msg exit
         ;;
     suspend)
-        lock && systemctl suspend
+        systemctl suspend
         ;;
     hibernate)
-        lock && systemctl hibernate
+        systemctl hibernate
         ;;
     reboot)
         systemctl reboot

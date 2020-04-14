@@ -10,8 +10,6 @@
 - clean: ['~', '~/.config']
 
 - link:
-    ~/.config/variety/variety.conf: config/variety/variety.conf
-    ~/.config/variety/ui.conf : config/variety/ui.conf
     ~/.config/polybar/config: config/polybar/config
     ~/.config/polybar/launch.sh: config/polybar/launch.sh
     ~/.config/sxhkd/sxhkdrc: config/sxhkd/sxhkdrc
@@ -79,6 +77,6 @@
   - ~/.scripts/tools/shortcuts
   # - xdg-mime default zathura.desktop application/pdf
   # - xdg-settings set default-web-browser qutebrowser.desktop
-  - "[ -f ~/.fzf.zsh ] && [ -f ~/.fzf.bash ] || ~/.dotfiles/submodules/fzf/install"
+  - "[ -f ~/.config/fzf/fzf.zsh ]  || ~/.dotfiles/submodules/fzf/install --xdg"
   # - "git clone https://github.com/powerline/fonts /tmp/powerline_fonts; cd /tmp/powerline_fonts; ./install.sh"
 

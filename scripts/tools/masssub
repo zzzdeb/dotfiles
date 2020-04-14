@@ -7,7 +7,7 @@ fi
 
 for i in ./*.(mkv|mp4)
 do
-   subname=$(echo $i | sed 's/\.mkv/\.srt/;s/\.mp4/\.srt')
+   subname=$(echo $i | sed 's/\.mkv/\.srt/;s/\.mp4/\.srt/')
    if [ ! -f $subname ]
    then
      echo "Creating sub for $i"

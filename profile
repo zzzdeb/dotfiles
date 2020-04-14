@@ -36,6 +36,12 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export KODI_DATA="$XDG_DATA_HOME/kodi"
 export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export IPYTHONDIR="$XDG_CONFIG_HOME"/ipython
+export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
+export MPLAYER_HOME="$XDG_CONFIG_HOME"/mplayer
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export GEM_HOME="$XDG_DATA_HOME"/gem
+export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 
 # Other program settings:
 # less/man colors
