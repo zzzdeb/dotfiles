@@ -6,7 +6,7 @@
     ~/.config/aliasrc: config/aliasrc
     ~/.scripts:
     ~/.config/zsh/.zshrc: config/zsh/.zshrc
-    ~/.zprofile: profile
+    ~/.zshenv: profile
     ~/.config/inputrc: config/inputrc
 - shell:
         - xkbcomp ~/.config/keyboard/xkbmap $DISPLAY; xmodmap ~/.config/keyboard/xmodmaprc

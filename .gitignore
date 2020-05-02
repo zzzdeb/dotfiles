@@ -5,6 +5,7 @@ config/qutebrowser/autoconfig.yml
 config/qutebrowser/quickmarks
 config/qutebrowser/bookmarks
 config/qutebrowser/shortcuts.py
+config/qutebrowser/qsettings/QtProject.conf
 
 config/dirs.csv
 config/files.csv
