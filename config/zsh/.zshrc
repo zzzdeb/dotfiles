@@ -140,7 +140,7 @@ export PATH=$PATH:/home/zzz/softwares/clang+llvm-7.0.0-x86_64-linux-gnu-ubuntu-1
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/zzz/softwares/clang+llvm-7.0.0-x86_64-linux-gnu-ubuntu-16.04/lib:
 
 # acplt
-export ACPLT_HOME=~/hiwi/ACPLT-DevKit-linux64/acplt
+export ACPLT_HOME=~/dev/hiwi/ACPLT-DevKit-linux64/acplt
 export ACPLT_GIT=$ACPLT_HOME/git
 export LD_LIBRARY_PATH=$ACPLT_HOME/system/addonlibs:$ACPLT_HOME/system/syslibs:$LD_LIBRARY_PATH
 export PATH=$ACPLT_HOME/system/sysbin:$PATH
