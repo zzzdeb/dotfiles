@@ -7,6 +7,8 @@
 # Add this when you include flatpak in your system
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
+xrdb ~/.Xdefaults &
+
 autorandr -c &
 blueman-applet &
 compton --config ~/.config/compton/compton.conf &
@@ -31,7 +33,6 @@ udiskie -t & # automount
 unclutter & # mouse invinsible
 variety &
 xfce4-power-manager &
-xrdb ~/.Xdefaults &
 xset r rate 300 50 &	# Speed xrate up
 #  podentr &
 

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-source $HOME/.zprofile
 killall dunst; dunst &
 killall keynav; keynav &
 killall sxhkd; sxhkd &

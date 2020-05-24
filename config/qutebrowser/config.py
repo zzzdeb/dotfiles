@@ -76,8 +76,8 @@ config.bind(',ym', "spawn ytDownload m '{url}'")
 config.bind(',yv', 'spawn ytDownload v "{url}"')
 
 # Ctrl shortcuts run scripts / applications
-config.bind(',m', 'spawn --detach mpv --force-window yes {url}')
-config.bind(',M', 'hint links spawn --detach mpv --force-window yes {hint-url}')
+config.bind(',m', 'spawn --detach mpv --force-window=immediate {url}')
+config.bind(',M', 'hint links spawn --detach mpv --force-window=immediate {hint-url}')
 config.bind(',r', 'spawn --userscript readability')
 
 

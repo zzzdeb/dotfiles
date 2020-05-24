@@ -8,7 +8,6 @@ alias \
 	diff="diff-so-fancy" \
 	find="fd" \
 	fzf="fzf --preview=\"bat {} --color=always\"" \
-	ls="lsd --group-dirs first" \
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
@@ -21,16 +20,14 @@ alias \
 	rm="rm -v" \
 	yt="youtube-dl --add-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
+	rs="rsync -rP" \
+	rse="rsync -rpltP" \
 	# yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
 
 # Colorize commands when possible.
 alias \
 	ccat="highlight --out-format=ansi" \
 	grep="grep --color=auto" \
-	l="lsd -l" \
-	la="lsd -a" \
-	lla="lsd -la" \
-	lt="lsd --tree" \
 
 # These common commands are just too long! Abbreviate them.
 alias \

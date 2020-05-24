@@ -125,25 +125,11 @@ mcd() {
 ###############################################################
 # Software settings
 ###############################################################
-export PATH=$PATH::/home/zzz/softwares/node-v6.11.1-linux-x64/bin/
 #latex
 #export PATH=/usr/local/texlive/2017/bin/x86_64-linux/:$PATH
 
-# added by Anaconda3 4.4.0 installer
-#export PATH="/home/zzz/softwares/anaconda3/bin:$PATH"
-
 #java
 #export PATH=/home/zzz/softwares/jdk1.8.0_162/bin:$PATH
-
-# clang
-export PATH=$PATH:/home/zzz/softwares/clang+llvm-7.0.0-x86_64-linux-gnu-ubuntu-16.04/bin:
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/zzz/softwares/clang+llvm-7.0.0-x86_64-linux-gnu-ubuntu-16.04/lib:
-
-# acplt
-export ACPLT_HOME=~/dev/hiwi/ACPLT-DevKit-linux64/acplt
-export ACPLT_GIT=$ACPLT_HOME/git
-export LD_LIBRARY_PATH=$ACPLT_HOME/system/addonlibs:$ACPLT_HOME/system/syslibs:$LD_LIBRARY_PATH
-export PATH=$ACPLT_HOME/system/sysbin:$PATH
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 

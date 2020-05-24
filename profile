@@ -62,5 +62,5 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx && remaps
 
 # Switch escape and caps if tty:
-sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
+loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
 
