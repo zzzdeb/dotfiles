@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+cd $(dirname "${1}")
+mdpdf "$1" .README.pdf && zathura .README.pdf; rm .README.pdf

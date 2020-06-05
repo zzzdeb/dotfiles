@@ -60,6 +60,9 @@ alias \
 	,ga="git add" \
 	,gl="git log" \
 	,gd="git diff" \
+	lt="tree -L 2" \
+	ac="autorandr -c" \
+	xc="xclip -sel clip" \
 
 
 # This alias is important. It enables the `pauseallmpv` command.
@@ -80,6 +83,9 @@ function vs() {
 }
 function rms() {
 	mv -iv $1 ~/.local/share/Trash/files
+}
+function qe() {
+	v ~/.local/share/qutebrowser_$1/config/custom_config.py
 }
 
 ,e() { du -a ~/.scripts/* ~/.config/* ~/.dotfiles/*(N) /var/lib/transmission/.config/*(N) | cut -d$'\t' -f2- | fzf | xargs  -r $EDITOR ;}

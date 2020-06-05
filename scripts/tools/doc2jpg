@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# cd $(dirname "${1}")
+extension="${1##*.}"
+filename="${1%.*}"
+libreoffice --convert-to jpg "$1" && mv "${filename}.jpg" "$2"

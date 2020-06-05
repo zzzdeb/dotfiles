@@ -17,10 +17,9 @@ config.source('shortcuts.py')
 #Theme
 config.source('themes/base16-qutebrowser/themes/minimal/base16-dracula.config.py')
 c.colors.webpage.bg = 'white'
-#  c.colors.statusbar.insert.fg = base00
-#  c.colors.statusbar.insert.bg = base09
-#  c.colors.statusbar.caret.fg = base00
-#  c.colors.statusbar.caret.bg = base0D
+c.colors.statusbar.insert.bg = 'darkgreen'
+c.colors.statusbar.caret.bg = 'purple'
+c.colors.statusbar.caret.selection.bg = 'purple'
 
 # c.? are options set at launch.
 c.auto_save.session = True

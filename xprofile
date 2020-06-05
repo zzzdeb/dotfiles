@@ -8,6 +8,7 @@
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
 xrdb ~/.Xdefaults &
+remaps &	# run the remaps script, switching caps/esc and more; check it for more info
 
 autorandr -c &
 blueman-applet &
@@ -24,7 +25,6 @@ mpdupdate &
 nm-applet &
 qutebrowser &
 # redshift-gtk &
-remaps &	# run the remaps script, switching caps/esc and more; check it for more info
 # setbg &
 st &
 sxhkd &

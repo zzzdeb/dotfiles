@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+notify-send $1
+qutebrowser -B ~/.local/share/qutebrowser_$1

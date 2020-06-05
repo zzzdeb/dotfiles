@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+mdpdf $1 /tmp/tmpmdpdf.pdf && pdftoppm -jpeg -singlefile /tmp/tmpmdpdf.pdf $2

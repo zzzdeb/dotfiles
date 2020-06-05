@@ -12,6 +12,8 @@
 
 super+Return
   $TERMINAL
+super+a; {b, c, m, j}
+  {qb_session bachelor,qb_session cpp,qb_session malo,qb_session japanese}
 super+d
   rofi -show combi -display-drun "" -display-run "" -combi-modi "drun#run" -modi combi -show-icons
 super+ctrl+i
@@ -59,7 +61,7 @@ XF86Audio{Raise,Lower}Volume
 XF86Display
   autorandr orig
 XF86PowerOff
-  wm_exit hibernate
+  wm_exit suspend
 XF86TouchpadToggle
   toggletouchpad
 XF86TouchpadOn
