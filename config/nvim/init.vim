@@ -564,7 +564,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " setting indent markers-------------------------------------------------------------------
 set list " Show invisible characters
-let &listchars = "tab:.,trail:\u2591,extends:>,precedes:<,nbsp:\u00b7"
+set listchars=tab:┊\ ,extends:›,precedes:‹,nbsp:·,trail:·
 
 autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType htmldjango setlocal shiftwidth=4 tabstop=4 softtabstop=4
