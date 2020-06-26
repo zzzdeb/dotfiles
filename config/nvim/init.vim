@@ -127,6 +127,7 @@ Plug 'jceb/vim-textobj-uri'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'unkiwii/vim-nerdtree-sync'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'scrooloose/nerdcommenter'
@@ -137,7 +138,7 @@ Plug 'majutsushi/tagbar'
 "Plug 'wesQ3/vim-windowswap'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 "Plug '
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.config/fzf', 'do': './install --all --xdg' }
 Plug 'junegunn/fzf.vim'
 "Plug 'godlygeek/tabular'
 "Plug 'benmills/vimux'
@@ -630,23 +631,11 @@ let g:NERDTreeWinSize=40
 let g:NERDSpaceDelims = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
-" sync open file with NERDTree
-" " Check if NERDTree is open or active
-function! IsNERDTreeOpen()
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" file, and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
-
-" Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncTree()
+let NERDTreeAutoDelteBuffer = 1
+let g:NERDTreeHighlightCursorline = 1
+let g:nerdtree_sync_cursorline = 1
+" Autoclose on one nerdtree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " CommandT
 " let g:CommandTTraverseSCM="dir"
@@ -864,6 +853,8 @@ let maplocalleader =" "
 noremap s ;
 noremap <s-s> ,
 
+nnoremap <c-b> :make<cr>
+
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
@@ -1025,7 +1016,6 @@ nmap <leader>Fgc :BCommits<CR>
 nmap <leader>fh :History<CR>
 nmap <leader>f: :History:<CR>
 nmap <leader>f/ :History/<CR>
-nmap <leader>fh :Lines<CR>
 nmap <leader>fs :Snippets<CR>
 nmap <leader>ft :Tags<CR>
 nmap <leader>fm :Marks<CR>
@@ -1171,6 +1161,7 @@ let g:coc_global_extensions = [
   \ 'coc-ultisnips', 
   \ 'coc-highlight', 
   \ 'coc-texlab',
+  \ 'coc-spell-checker',
   \ ]
 
 " grep word under cursor
