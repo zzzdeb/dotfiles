@@ -14,6 +14,7 @@ config/vifm/viminfo
 config/nvim/dirs
 Session.vim
 config/nvim/tags
+config/nvim/session
 
 config/gtk-2.0/gtkfilechooser.ini
 tags

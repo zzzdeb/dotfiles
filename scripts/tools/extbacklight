@@ -7,4 +7,6 @@ elif [ "$#" -eq 1 ]; then
   sudo /usr/bin/ddcutil setvcp 10 $1
   exit 0
 fi
-sudo /usr/bin/ddcutil setvcp 10 $(rofi -dmenu -l 0 -width -17 -p Brightness in % -theme blue)
+value=$(rofi -dmenu -l 0 -width -17 -p Brightness in % -theme blue)
+sudo /usr/bin/ddcutil setvcp 10 $value
+xbacklight $value

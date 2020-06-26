@@ -13,13 +13,15 @@ DIRMODUS='jkl'
 config.load_autoconfig()
 
 # Config
-config.source('shortcuts.py')
+#  config.source('shortcuts.py')
 #Theme
 config.source('themes/base16-qutebrowser/themes/minimal/base16-dracula.config.py')
 c.colors.webpage.bg = 'white'
 c.colors.statusbar.insert.bg = 'darkgreen'
 c.colors.statusbar.caret.bg = 'purple'
 c.colors.statusbar.caret.selection.bg = 'purple'
+c.colors.tabs.selected.even.bg = '#194d19'
+c.colors.tabs.selected.odd.bg = c.colors.tabs.selected.even.bg
 
 # c.? are options set at launch.
 c.auto_save.session = True
@@ -205,6 +207,7 @@ if DIRMODUS == 'jkl':
     config.bind('hv','hint video yank')
     config.bind('hyy','hint links yank')
     config.bind('hyd','hint div userscript copy_selected.py')
+
 
 config.source('custom_config.py')
 

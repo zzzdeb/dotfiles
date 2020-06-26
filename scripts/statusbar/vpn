@@ -1,7 +1,7 @@
 #!/bin/sh
 nmcli -t connection show --active | awk -F ':' '
 /tun0/{color="#5AF78E"} /vpn/{name=" "$1}
-END{if(!color) color="#FF6E67"; if(name==" vpn-default") name=""; printf("廬%s\n%s\n%s\n", name, "廬", color)}'
+END{if(!color) color="#FF6E67"; if(name==" vpn-default") name=""; printf("%s\n%s\n%s\n", name, "", color)}'
 #polybar
 # nmcli -t connection show --active | awk -F ':' '
 # /tun|tun0/{color="#5AF78E"} /vpn/{name=" "$1}
@@ -14,6 +14,6 @@ END{if(!color) color="#FF6E67"; if(name==" vpn-default") name=""; printf("廬%s\
    # echo "#5AF78E"
    # exit
 # fi
-# echo "廬"
-# echo "廬"
+# echo " "
+# echo " "
 # echo "#FF6E67"
