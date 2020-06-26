@@ -687,6 +687,7 @@ let g:UltiSnipsEditSplit = "vertical"
 
 " Clang
 let g:clang_format#code_style="llvm"
+let g:clang_format#command="/usr/bin/clang-format-8"
 
 "Git
 "git-gutter
