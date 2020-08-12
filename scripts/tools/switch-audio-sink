@@ -20,7 +20,7 @@ SINK_DESCRIPTIONS=$(pactl list sinks | ag Description | cut --complement -c 1-13
 SINK_INPUTS=$(pactl list sink-inputs | ag "Sink Input #")
 
 # Get the descriptions from the sinks without the default sink to display to the user and have the user pick a sink
-SINK_DESCRIPTION=$(printf "%s" "$SINK_DESCRIPTIONS" | sed "${DEFAULT_INDEX}d" | dmenu -i -fn "Roboto Mono for Powerline-11" -p "Select sink:")
+SINK_DESCRIPTION=$(printf "%s" "$SINK_DESCRIPTIONS" | sed "${DEFAULT_INDEX}d" | rofi -dmenu -i -fn "Roboto Mono for Powerline-11" -p "Select sink:")
 SINK_DESCRIPTION=$(printf "%s" "$SINK_DESCRIPTION" | sed 's/(/\\(/' | sed 's/)/\\)/')
 
 # Get the index for the answer that the user wrote
