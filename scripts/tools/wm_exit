@@ -22,6 +22,9 @@ case "$1" in
     hibernate)
         systemctl hibernate
         ;;
+    hybrid-sleep)
+        systemctl hybrid-sleep
+        ;;
     reboot)
         systemctl reboot
         ;;

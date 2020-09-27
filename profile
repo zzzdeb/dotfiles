@@ -16,7 +16,7 @@ export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="st"
+export TERMINAL="xfce4-terminal"
 export BROWSER="qutebrowser"
 export READER="zathura"
 export FILE="ranger"

@@ -1,4 +1,4 @@
 #!/bin/sh
 
 # google-chrome-stable --app="https://calendar.google.com"
-qutebrowser -B ~/.local/share/qutebrowser_gcalendar
+qutebrowser -B ~/.local/share/qutebrowser_gcalendar --qt-arg name calendar.google.com

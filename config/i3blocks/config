@@ -53,7 +53,7 @@ command=disk / 
 
 [disk]
 interval=60
-command=disk /media/sdcard 
+command=disk /home
 
 [battery]
 command=battery BAT0
@@ -63,16 +63,12 @@ interval=5
 command=python ~/.dotfiles/config/i3blocks/i3-pomodoro/pomodoro.py
 interval=1
 
-#[clock]
-#label=📅
-#interval=30
-
 [datetime]
-label=📅
+label=📆 
 interval=30
 
 [time_status]
-label=⏲
+label=🕓
 interval=1
 
 #[internet]

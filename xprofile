@@ -7,13 +7,14 @@
 # Add this when you include flatpak in your system
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
+[[ -f ~/.zshenv ]] && source ~/.zshenv
+
 xrdb ~/.Xdefaults &
 remaps &	# run the remaps script, switching caps/esc and more; check it for more info
 
 autorandr -c &
 blueman-applet &
 compton --config ~/.config/compton/compton.conf &
-deja-dup &
 dunst &
 gcalendar &
 gmail &

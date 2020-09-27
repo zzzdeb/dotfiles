@@ -3,33 +3,36 @@
 #workspace_auto_back_and_forth yes
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-new_window pixel
-# set default_border normal
+# new_window pixel
+default_border pixel
 
-# font pango:System San Francisco Display, FontAwesome 10
-# font pango:Hack 10
+# font pango:System San Francisco Display, FontAwesome 13
+# font pango:Hack 13
 # font pango:ProFont 11
-font pango:Hack, FontAwesome, Ubuntu Nerd Font 13
+font pango: mono, JoyPoxels, DejaVu Sans Mono for Powerline 13
 gaps inner 0
-gaps right 300
-gaps left 300
+gaps right 0
+# gaps right 400
+# gaps left 640
+gaps left 0
 gaps top 0
 gaps bottom 0
-smart_gaps inverse_outer
+# smart_gaps inverse_outer
 
 #bindsym $mod+comma border none
 # bindsym $mod+comma bar mode toggle
+# for_window [class="^.*"] border pixel 0
 
 set $mod        Mod4
 floating_modifier $mod
-set $term --no-startup-id $TERMINAL
+set $term --no-startup-id xfce4-terminal
 set $stoprec --no-startup-id dmenurecord kill
 set $shutdown sudo -A shutdown -h now
 set $reboot sudo -A reboot
 set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
 set $hibernate sudo -A systemctl suspend
-set $hdminame   HDMI-1
-set $edpname    eDP-1
+set $hdminame   DisplayPort-2
+set $edpname    eDP
 set $left       j
 set $right      semicolon
 set $up         l
@@ -184,7 +187,6 @@ bindsym $mod+button9 --whole-window resize  grow width 5 px or 5 ppt
 
 # keyboard
 bindsym $mod+apostrophe		split horizontal ;; exec $term
-bindsym $mod+Shift+Return	exec --no-startup-id samedir
 
 bindsym $mod+slash		split vertical ;; exec $term
 
@@ -204,7 +206,7 @@ bindsym $mod+ctrl+c reload
 # bindsym $mod+shift+d
 
 bindsym $mod+f fullscreen toggle
-# bindsym $mod+shift+f fullscreen toggle
+bindsym $mod+shift+f floating toggle; move position 650 150; resize set 1900 1060
 
 # bindsym $mod+g mode "$mode_run"
 # bindsym $mod+shift+g mode "$mode_run"
@@ -309,7 +311,9 @@ bindsym $mod+Shift+ctrl+$left move up; move left, move right
 bindsym $mod+Shift+ctrl+$right move up; move right, move left
 
 bindsym $mod+ctrl+$left focus parent; focus left
+bindsym $mod+ctrl+$down focus right; focus down; move left; focus up; move right; focus left
 bindsym $mod+ctrl+$right focus parent; focus right
+bindsym $mod+ctrl+$up focus right; focus down; focus up; move left; focus up; move right; move up; focus up; focus left
 
 
 set $wsBuK    "S: BuK"
@@ -376,10 +380,8 @@ bindsym $mod+Shift+$0 move container to workspace $workspace10
 assign [class="Thunderbird"] $workspace8
 assign [class="Anki"] $workspace3
 assign [class="Calise" instance="calise" title="Calise"] $workspace7
-assign [class="Google-chrome" instance="mail.google.com"] $workspace10
-assign [class="Google-chrome" instance="calendar.google.com"] $workspace10
-assign [class="Google-chrome" instance="home_zzz_hiwi_henson_index.html" window_role="pop-up"] $workspace8
-# assign [class="Chromium-browser" instance="home_zzz_hiwi_henson_index.html" window_role="pop-up"] $workspace8
+assign [class="Google-chrome|qutebrowser" instance="mail.google.com"] $workspace10
+assign [class="Google-chrome|qutebrowser" instance="calendar.google.com"] $workspace10
 assign [class="VirtualBox Machine"] $workspace4
 assign [class="Org.gnome.DejaDup" title="Déjà Dup Backup Tool"] $workspace7
 assign [class="mpv" title="telmedia_mpv"] $workspace8

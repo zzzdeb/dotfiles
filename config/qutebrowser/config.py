@@ -20,7 +20,8 @@ c.colors.webpage.bg = 'white'
 c.colors.statusbar.insert.bg = 'darkgreen'
 c.colors.statusbar.caret.bg = 'purple'
 c.colors.statusbar.caret.selection.bg = 'purple'
-c.colors.tabs.selected.even.bg = '#194d19'
+#  c.colors.tabs.selected.even.bg = '#194d19'
+c.colors.tabs.selected.even.bg = 'blue'
 c.colors.tabs.selected.odd.bg = c.colors.tabs.selected.even.bg
 
 # c.? are options set at launch.
@@ -160,6 +161,9 @@ c.hints.selectors["*"]= [
 ]
 c.hints.selectors["div"] = [
     "div",
+]
+c.hints.selectors["ad"] = [
+    "a.pull-right > span.glyphicons-remove",
 ]
 
 if DIRMODUS == 'jkl':

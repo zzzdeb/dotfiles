@@ -1,4 +1,4 @@
 #!/bin/sh
 
 # google-chrome-stable --app="https://mail.google.com"
-qutebrowser -B ~/.local/share/qutebrowser_gmail
+qutebrowser -B ~/.local/share/qutebrowser_gmail --qt-arg name mail.google.com
