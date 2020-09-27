@@ -62,7 +62,10 @@ alias \
 	,gd="git diff" \
 	lt="tree -L 2" \
 	ac="autorandr -c" \
+	p1="ping 1.1.1.1" \
 	xc="xclip -sel clip" \
+	kx="killall xcape" \
+	/="ag" \
 
 
 # This alias is important. It enables the `pauseallmpv` command.

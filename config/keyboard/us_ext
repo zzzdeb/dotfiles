@@ -1,0 +1,16 @@
+partial alphanumeric_keys
+xkb_symbols "zzz"  {
+
+    include "us(basic)"
+    include "eurosign(e)"
+    name[Group1] = "German (US)";
+
+    key <AC01> {[ a,          A,          adiaeresis, Adiaeresis ]};
+    key <AD09> {[ o,          O,          odiaeresis, Odiaeresis ]};
+    key <AC02> {[ s,          S,          ssharp,     U1E9E      ]};
+    key <AC11> {	[ apostrophe,	quotedbl	,	     dead_diaeresis]	};
+    key <AD07> {[ u,          U,          udiaeresis, Udiaeresis ]};
+    key <AD10> {[ p,          P,          aring,      Aring      ]};
+
+    include "level3(ralt_switch)"
+};
