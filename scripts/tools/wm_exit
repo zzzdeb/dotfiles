@@ -26,10 +26,10 @@ case "$1" in
         systemctl hybrid-sleep
         ;;
     reboot)
-        systemctl reboot
+        systemctl --user stop dbus ; systemctl reboot
         ;;
     shutdown)
-        systemctl poweroff
+        systemctl --user stop dbus ; systemctl poweroff
         ;;
     *)
         echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"

@@ -364,8 +364,8 @@
 #def_key "x"
 #  toggle_crossfade
 #
-#def_key "X"
-#  set_crossfade
+def_key "X"
+  toggle_crossfade
 #
 #def_key "u"
 #  update_database
@@ -622,3 +622,13 @@ def_key "x"
   delete_playlist_items
 def_key "P"
   show_playlist
+def_key "Q"
+  add_item_to_playlist
+def_key "D"
+  run_external_command "mpc_tools delete_current &"
+def_key "T"
+  run_external_command "sxiv -b /tmp/mpd_cover_tmp.jpg &"
+def_key "L"
+ seek_forward
+def_key "K"
+ seek_backward

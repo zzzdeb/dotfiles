@@ -54,12 +54,15 @@ alias \
 	xr="sudo xbps-remove -R" \
 	y="yay" \
 	,gs="git status" \
-	,gc="git commit -m" \
+	,gc="git commit" \
+	,gcm="git commit -m" \
 	,gpl="git pull" \
 	,gps="git push" \
 	,ga="git add" \
 	,gl="git log" \
 	,gd="git diff" \
+	,gcan="git commit --amend --no-edit" \
+	,gpsf="git push --force" \
 	lt="tree -L 2" \
 	ac="autorandr -c" \
 	p1="ping 1.1.1.1" \
@@ -91,8 +94,8 @@ function qe() {
 	v ~/.local/share/qutebrowser_$1/config/custom_config.py
 }
 
-,e() { du -a ~/.scripts/* ~/.config/* ~/.dotfiles/*(N) /var/lib/transmission/.config/*(N) | cut -d$'\t' -f2- | fzf | xargs  -r $EDITOR ;}
-,t() { fzf | xargs -r -I % $EDITOR % ;}
+,e() { du --exclude-from=$HOME/.config/du_excludes  -a ~/.scripts/* ~/.config/* ~/.dotfiles/*(N) /var/lib/transmission/.config/*(N) | cut -d$'\t' -f2- | fzf | xargs -d '\n' -r $EDITOR ;}
+,t() { fzf | xargs -d '\n' -r -I % $EDITOR % ;}
 cdf() { cd -- "$(du | cut -d$'\t' -f2- | fzf)"}
 cdp() { cd -- "$(/usr/bin/ls -C -d ~/dev/git/* ~/dev/projects/* | fzf;)"}
 

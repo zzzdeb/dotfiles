@@ -17,7 +17,7 @@ super+shift+Return
 super+a; {b, c, m, j}
   {qb_session bachelor,qb_session cpp,qb_session malo,qb_session japanese}
 super+d
-  dmenu_run -l 20
+  rofi -show combi -display-drun "" -display-run "" -combi-modi "drun#run" -modi combi -show-icons
 super+ctrl+i
   dark_mode.sh
 super+q
@@ -42,8 +42,8 @@ super + Q; {l, e, s, h, H, r, S}
 super + Q; g
   hiberboot.sh
 
-super + comma; {b, B, d, k, l, m, M, o, r, S, s, t, u, v, V, w, W, x, X, z, slash}
-  {rofi -show windowcd -lines 15,vertical_bar_pos.sh,i3 "bar mode toggle",i3 'sticky toggle',extbacklight,i3-msg 'move workspace to output right',i3-msg 'move workspace to output up',i3order,sudo /usr/bin/systemctl restart NetworkManager,i3 'move scratchpad',i3 'scratchpad show',rofi -show window -lines 15,dmenuunicode,vpntoggle 'vpn-default',vpntoggle 'PIA - Switzerland',sxivw,i3 'floating enable;;exec 21_9_width',fixit.sh l,fixit.sh d,i3zen toggle,ducksearch}
+super + comma; {a,b, B, d, k, l, m, M, o, r, S, s, t, u, v, V, w, W, x, X, z, slash}
+  {dmenurecord, rofi -show windowcd -lines 15,vertical_bar_pos.sh,i3 "bar mode toggle",i3 'sticky toggle',extbacklight,i3-msg 'move workspace to output right',i3-msg 'move workspace to output up',i3order,sudo /usr/bin/systemctl restart NetworkManager,i3 'move scratchpad',i3 'scratchpad show',rofi -show window -lines 15,dmenuunicode,vpntoggle 'vpn-default',vpntoggle 'PIA - Switzerland',sxivw,i3 'floating enable;;exec 21_9_width',fixit.sh l,fixit.sh d,i3zen toggle,ducksearch}
 
 
 super + m; {a, j, o, p, l, n, t, q, space, N, r, semicolon, XF86AudioLowerVolume, XF86AudioRaiseVolume}

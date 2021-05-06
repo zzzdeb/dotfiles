@@ -4,6 +4,7 @@
       relink: true
 - link:
     ~/.config/aliasrc: config/aliasrc
+    ~/.config/du_excludes: config/du_excludes
     ~/.scripts:
     ~/.config/zsh/.zshrc: config/zsh/.zshrc
     ~/.zshenv: profile

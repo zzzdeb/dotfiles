@@ -12,3 +12,4 @@ clear shift
 add shift = Shift_L
 add shift = Shift_R
 
+pointer = 3 2 1

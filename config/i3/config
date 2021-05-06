@@ -25,7 +25,7 @@ gaps bottom 0
 
 set $mod        Mod4
 floating_modifier $mod
-set $term --no-startup-id xfce4-terminal
+set $term --no-startup-id st
 set $stoprec --no-startup-id dmenurecord kill
 set $shutdown sudo -A shutdown -h now
 set $reboot sudo -A reboot
@@ -377,7 +377,7 @@ bindsym $mod+Shift+$0 move container to workspace $workspace10
 
 # assign [class="Chromium-browser"] 7
 # assign [class="Firefox"] $workspace2
-assign [class="Thunderbird"] $workspace8
+assign [class="Thunderbird"] $workspace10
 assign [class="Anki"] $workspace3
 assign [class="Calise" instance="calise" title="Calise"] $workspace7
 assign [class="Google-chrome|qutebrowser" instance="mail.google.com"] $workspace10
