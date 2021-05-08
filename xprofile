@@ -16,8 +16,7 @@ autorandr -c &
 blueman-applet &
 compton --config ~/.config/compton/compton.conf &
 dunst &
-gcalendar &
-gmail &
+feh --bg-fill .config/wall.jpg &
 calendar &
 mail &
 gnome-screensaver &
