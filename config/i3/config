@@ -9,16 +9,7 @@ default_border pixel
 # font pango:System San Francisco Display, FontAwesome 13
 # font pango:Hack 13
 # font pango:ProFont 11
-font pango: mono, JoyPoxels, DejaVu Sans Mono for Powerline 13
-gaps inner 0
-gaps right 0
-# gaps right 400
-# gaps left 640
-gaps left 0
-gaps top 0
-gaps bottom 0
-# smart_gaps inverse_outer
-
+font pango:Hack, FontAwesome, Ubuntu Nerd Font 13
 #bindsym $mod+comma border none
 # bindsym $mod+comma bar mode toggle
 # for_window [class="^.*"] border pixel 0
@@ -103,6 +94,8 @@ for_window [title="mpvfloat"] floating enable
 for_window [title="mpvfloat"] sticky enable
 for_window [title="mpvfloat"] border pixel 0
 no_focus [title="mpvfloat"]
+
+for_window [class="^Ires20$"] floating disable
 
 set $workspace2 "2: "
 set $workspace3 "3: 日本"
