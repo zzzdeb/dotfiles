@@ -78,7 +78,7 @@ alias \
 # indurad
 alias \
 	cD="(calvin --color -D -M ../../monolith -n builds/calvin && notify-send 'cD done.  Success;') || notify-send 'cD done. Error'" \
-	main="export LD_LIBRARY_PATH=$PWD/lib && ./main -c ./config/main.ini" \
+	main="export LD_LIBRARY_PATH=$PWD/lib && ./main" \
 
 
 # This alias is important. It enables the `pauseallmpv` command.
