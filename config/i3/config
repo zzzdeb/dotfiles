@@ -106,6 +106,8 @@ for_window [title="mpvfloat"] sticky enable
 for_window [title="mpvfloat"] border pixel 0
 no_focus [title="mpvfloat"]
 
+for_window [class="^Ires20$"] floating disable
+
 set $workspace2 "2: "
 set $workspace3 "3: "
 set $workspace4 "4: "
