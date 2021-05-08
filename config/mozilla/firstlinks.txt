@@ -1,0 +1,4 @@
+https://addons.mozilla.org/de/firefox/addon/vim-vixen/
+https://addons.mozilla.org/de/firefox/addon/window-titler/?src=search
+https://addons.mozilla.org/en-US/firefox/addon/codecopy/
+https://addons.mozilla.org/de/firefox/themes/

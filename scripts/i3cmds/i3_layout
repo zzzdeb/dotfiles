@@ -1,0 +1,110 @@
+#!/usr/bin/env python3
+from i3ipc.aio import Connection
+from i3ipc import Event
+import json
+import asyncio
+import random
+from subprocess import run, check_output
+import time
+from copy import deepcopy
+
+from time import sleep
+
+FEATURE_WINDOWS = ['Timeline Graph', 'Local Settings', 'Notifications', 'Camera', 'Anymap']
+
+async def ires():
+    """TODO: Docstring for main.
+    :returns: TODO
+
+    """
+    i3 = await Connection(auto_reconnect=True).connect()
+
+    # get_tree() returns the root container
+    tree = await i3.get_tree()
+
+    # get some information about the focused window
+    focused = tree.find_focused()
+    #  print(f'Focused window: {focused.name}')
+    workspace = focused.workspace()
+    #  print(f'Focused workspace: {workspace.name}')
+
+    ires_windows = workspace.find_classed('Ires20')
+    feature_wss = []
+    main_wss = []
+    for ws in ires_windows:
+        if ws.name in FEATURE_WINDOWS:
+            feature_wss.append(ws)
+            continue
+        main_wss.append(ws)
+
+    layout = {
+        "layout": "splith",
+        "type": "con",
+        'role': 'i3order',
+        'fullscreen_mode': 1,
+        "marks":["ires"],
+        "nodes": [
+        {
+            "layout": "tabbed",
+            "percent": 0.8,
+            "marks":["iresm"],
+            "type":"con"
+        },
+        {
+            "layout": "tabbed",
+            "type":"con",
+            "marks":["iresfc"],
+            "nodes": [{
+               "layout": "tabbed",
+               "marks":["iresfc"],
+            }]
+        }
+        ]
+    }
+
+    lname = '/tmp/i3order{}.json'.format(random.randint(100000, 999999))
+    with open(lname, 'a') as f:
+        f.write(json.dumps(layout))
+
+    run(['i3-msg', 'append_layout {}'.format(lname)])
+    print([a.id for a in ires_windows])
+    for con in feature_wss:
+        print(con.id)
+        await con.command('focus; floating disable; move window to mark iresfc')
+    for con in main_wss:
+        print(con.id)
+        await con.command('focus; floating disable; move window to mark iresm')
+
+    # get_tree() returns the root container
+    tree = await i3.get_tree()
+    ires = tree.find_marked('iresff')[0]
+    await ires.command('fullscreen enable')
+
+    return 0
+
+
+async def main():
+    #  def on_window(self, e):
+        #  print(e.change)
+        #  print(e.old.name if e.old else e.old)
+        #  print(e.current.name if e.current else e.current)
+        #  print('  ')
+
+    async def on_newwindow(self, e):
+        con = e.container
+        if (con.window_class == 'Ires20' and con.name not in FEATURE_WINDOWS):
+            time.sleep(1)
+            await ires()
+
+    c = await Connection(auto_reconnect=True).connect()
+
+    workspaces = await c.get_workspaces()
+
+    #  c.on(Event.WORKSPACE, on_window)
+    c.on(Event.WINDOW_NEW, on_newwindow)
+
+    await c.main()
+
+asyncio.get_event_loop().run_until_complete(main())
+if __name__ == "__main__":
+    main()
