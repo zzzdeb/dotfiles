@@ -125,11 +125,6 @@ mcd() {
 ###############################################################
 # Software settings
 ###############################################################
-#latex
-#export PATH=/usr/local/texlive/2017/bin/x86_64-linux/:$PATH
-
-#java
-#export PATH=/home/zzz/softwares/jdk1.8.0_162/bin:$PATH
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 
