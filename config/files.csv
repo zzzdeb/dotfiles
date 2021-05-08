@@ -1,0 +1,15 @@
+sym	path
+d	~/.config/dirs.csv
+f	~/.config/files.csv
+ss	~/.dotfiles/shortcut-sync/shortcuts.sh
+I	~/.dotfiles/install.conf.yaml
+z	~/.config/zsh/.zshrc
+v	~/.config/nvim/init.vim
+r	~/.config/ranger/rc.conf
+rrifle	~/.config/ranger/rifle.conf
+rcommands	~/.config/ranger/commands.py
+i	~/.config/i3/config
+q	~/.config/qutebrowser/config.py
+s	~/.config/sxhkd/sxhkdrc
+x	~/.Xdefaults
+c	~/.dotfiles/meta/configs

@@ -1,0 +1,32 @@
+	path
+sym	
+.c	~/.config
+.d	~/.dotfiles
+C	/mnt/homes
+D	~/Documents
+M	~/Music
+O	~/OneDrive_pers
+P	~/Pictures
+S	~/dev/VirtualBox VMs/shared
+T	~/.local/share/Trash/files
+V	~/Videos
+b	~/OneDrive/Books
+c	~/.config
+d	~/Downloads
+h	~/
+k	~/.kodi
+o	~/OneDrive
+pl	~/dev/projects/telbot
+pm	~/dev/projects/multimanga/data
+pp	~/dev/projects
+ps	~/dev/projects/multisub
+ri	~/Videos/ori
+sb	~/OneDrive/Studium/Schriftliche_Arbeiten/BachelorArbeitInformatik
+sj	~/Studium/ss20_ja
+sm	~/Studium/ss20/Mathematische Logik (TU) [11.19269]
+sp	~/OneDrive/Studium/ws19/ProcessDiscovery
+ss	~/OneDrive/Studium/ws19/Systemprogrammierung (PR) [12.11939]
+to	~/Downloads/Torrent
+te	/tmp
+v	~/dev/softwares/voidrice
+me	/run/media/zzz
