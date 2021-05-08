@@ -1,0 +1,11 @@
+command=~/.scripts/statusbar/$BLOCK_NAME
+separator_block_width=15
+markup=pango
+
+[focused window]
+command=xtitle -s
+interval=persist
+
+[time_status]
+label=🕓
+interval=1

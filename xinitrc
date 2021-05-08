@@ -8,6 +8,7 @@
 # file is run automatically if someone uses a display manager (login screen)
 # and so they are needed there. To prevent doubling up commands, I source them
 # here with the line below.
+[ -f ~/.zshenv ] && . ~/.zshenv
 export XDG_CURRENT_DESKTOP=i3
 [ -f ~/.xprofile ] && . ~/.xprofile
 exec i3

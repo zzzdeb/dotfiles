@@ -1,0 +1,222 @@
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+" Remap for rename current word
+" nmap ,rn <Plug>(coc-rename)
+" " Remap for format selected region
+" xmap ,f  <Plug>(coc-format-selected)
+" nmap ,f  <Plug>(coc-format-selected)
+" " Remap for do codeAction of selected region, ex: `,aap` for current paragraph
+" xmap ,a  <Plug>(coc-codeaction-selected)
+" nmap ,a  <Plug>(coc-codeaction-selected)
+" " Remap for do codeAction of current line
+" nmap ,ac  <Plug>(coc-codeaction)
+" nmap ,qf  <Plug>(coc-fix-current)
+" nmap <silent> <C-d> <Plug>(coc-range-select)
+" xmap <silent> <C-d> <Plug>(coc-range-select)
+
+noremap s ;
+" noremap <s-s> ,
+nnoremap <c-b> :make<cr>
+" nnoremap ,xl :exe getline(".")<cr>
+" vnoremap ,x join(getline("'<","'>"),'<bar>')<cr>
+" nnoremap ,sv :source! ~/.config/fakevim/vimrc<cr>
+" nnoremap <silent> <expr> ,/ Highlighting()
+" nmap ,/ :let @/ = '\<'.expand('<cword>').'\>'<cr>
+imap kj <esc>
+nnoremap Y y$
+" map j to gj and k to gk, so line navigation ignores line wrap
+  noremap j h
+  noremap k j
+  noremap l k
+  noremap ; l
+  nnoremap <expr> k (v:count == 0 ? 'gjzz' : 'jzz')
+  nnoremap <expr> l (v:count == 0 ? 'gkzz' : 'kzz')
+  inoremap <c-j> <c-Left>
+  inoremap <c-_> <c-Right>
+  inoremap <c-a-k> <esc>:m +1<CR>i
+  nnoremap <c-a-l> :m -2<CR>
+  nnoremap <c-a-k> :m +1<CR>
+  inoremap <c-a-l> <esc>:m -2<CR>i
+  tnoremap <s-space> <C-\><C-N>
+  tnoremap <c-j> <C-\><C-N><C-w>h
+  tnoremap <c-k> <C-\><C-N><C-w>j
+  tnoremap <c-l> <C-\><C-N><C-w>k
+  tnoremap <c-_> <C-\><C-N><C-w>l
+  nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
+  nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+  inoremap <c-h> <c-Left>
+  inoremap <c-l> <c-Right>
+  inoremap <c-a-j> <esc>:m +1<CR>i
+  nnoremap <c-a-k> :m -2<CR>
+  nnoremap <c-a-j> :m +1<CR>
+  inoremap <c-a-k> <esc>:m -2<CR>i
+  tnoremap <s-space> <C-\><C-N>
+  tnoremap <c-h> <C-\><C-N><C-w>h
+  tnoremap <c-j> <C-\><C-N><C-w>j
+  tnoremap <c-k> <C-\><C-N><C-w>k
+  tnoremap <c-l> <C-\><C-N><C-w>l
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+" nnoremap <c-w> :q<cr>
+" nnoremap <a-w> <c-w>
+nnoremap <a-t> <c-t>
+nnoremap gp o<c-r>+
+nnoremap gP O<c-r>+
+inoremap <c-v> <c-r>*
+cnoremap <c-v> <c-r>"
+imap <c-e> <c-o>$
+imap <c-a> <c-o>^
+nmap <a-w>+ <C-w>+<SID>ws
+nmap <a-w>- <C-w>-<SID>ws
+nmap <a-w>> <C-w>><SID>ws
+nmap <a-w>< <C-w><<SID>ws
+nnoremap <script> <SID>ws+ <a-w>+<SID>ws
+nnoremap <script> <SID>ws- <a-w>-<SID>ws
+nnoremap <script> <SID>ws> <a-w>><SID>ws
+nnoremap <script> <SID>ws< <a-w><<SID>ws
+nmap <SID>ws <Nop>
+vnoremap <a-y> "+y
+nnoremap <a-y> "+y
+nnoremap <f2> :NERDTreeToggle<CR>
+nnoremap <f4> :TagbarToggle<CR>
+" nnoremap ,crl :<c-u>cl<CR>
+nnoremap <c-n> :bnext<CR>
+nnoremap <c-p> :bp<CR>
+nnoremap <a-d> <c-w>}
+inoremap <a-d> <esc><c-w>}a
+" Functional mapping """""""""""""""""""""""""""""""""""""
+" " nmap ,fc <Plug>(CommandTCommand)
+" " nmap ,fl <Plug>(CommandTLine)
+" " nmap ,fs <Plug>(CommandTSearch)
+" " nmap ,fh <Plug>(CommandTHistory)
+" " nmap ,ft <Plug>(CommandTTag)
+" " nmap <silent> ,b <Plug>(CommandTMRU)
+" nmap ,<tab> <plug>(fzf-maps-n)
+" xmap ,<tab> <plug>(fzf-maps-x)
+" omap ,<tab> <plug>(fzf-maps-o)
+" nmap ,t :Files<cr>
+" nmap ,b :Buffers<CR>
+" nmap ,fc :Commands<CR>
+" nmap ,fl :Lines<CR>
+" nmap ,fgf :GFiles<CR>
+" nmap ,fg :GFiles?<CR>
+" nmap ,fgc :Commits<CR>
+" nmap ,Fgc :BCommits<CR>
+" nmap ,fh :History<CR>
+" nmap ,f: :History:<CR>
+" nmap ,f/ :History/<CR>
+" nmap ,fs :Snippets<CR>
+" nmap ,ft :Tags<CR>
+" nmap ,fm :Marks<CR>
+" nmap ,Fl :BLines<CR>
+" nmap ,Ft :BTags<CR>
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+" "" same as previous mappings, but calling with current word as default text
+" "nmap ,wg :call CtrlPWithSearchText(expand('<cword>'), 'BufTag')<CR>
+" "nmap ,wG :call CtrlPWithSearchText(expand('<cword>'), 'BufTagAll')<CR>
+" "nmap ,wf :call CtrlPWithSearchText(expand('<cword>'), 'Line')<CR>
+" "nmap ,we :call CtrlPWithSearchText(expand('<cword>'), '')<CR>
+" "nmap ,pe :call CtrlPWithSearchText(expand('<cfile>'), '')<CR>
+" "nmap ,wm :call CtrlPWithSearchText(expand('<cword>'), 'MRUFiles')<CR>
+" "nmap ,wc :call CtrlPWithSearchText(expand('<cword>'), 'CmdPalette')<CR>
+" nnoremap ,rl :cli<CR>
+" nnoremap ,rn :cn<CR>
+" nnoremap ,rp :cp<CR>
+" nnoremap ,ri :cfir<CR>
+" nnoremap ,ro :cop<CR>
+" nnoremap ,rc :ccl<CR>
+" nnoremap ,rw :cw<CR>
+nnoremap <localleader>rl :lli<CR>
+nnoremap <localleader>rn :lne<CR>
+nnoremap <localleader>rp :lp<CR>
+nnoremap <localLeader>ri :lfir<CR>
+nnoremap <localLeader>ro :lop<CR>
+nnoremap <localLeader>rc :lcl<CR>
+nnoremap <localLeader>rw :lw<CR>
+" nnoremap <silent> ,la  :CocList diagnostics<cr>
+" nnoremap <silent> ,le  :CocList extensions<cr>
+" nnoremap <silent> ,lc  :CocList commands<cr>
+" nnoremap <silent> ,lo  :CocList outline<cr>
+" nnoremap <silent> ,lr  :CocListResume<CR>
+" nnoremap <silent> ,lS  :CocList snippets<CR>
+" nnoremap <silent> ,lj  :CocNext<CR>
+" nnoremap <silent> ,lk  :CocPrev<CR>
+" nnoremap ,gd :Gdiff<cr>
+" nnoremap ,ge :Gedit<cr>
+" nnoremap ,gs :Gstatus<cr>
+" nnoremap ,gb :Gbrowse<cr>
+" " nnoremap ,gdl :Gdelete<cr>
+" nnoremap ,gm :Gmove
+" nnoremap ,gg :Ggrep<cr>
+" nnoremap ,gl :Glog<cr>
+" nnoremap ,gw :Gwrite<cr>
+" " nnoremap ,gr :Gread<cr>
+" nnoremap ,gc :Gcommit<cr>
+" nnoremap ,gps :Gpush<cr>
+" nnoremap ,gpl :Gpull<cr>
+" nmap ,gh :GitGutterLineHighlightsToggle<cr>
+" nmap ,gf :GitGutterFold<cr>
+" nmap ,g+ <Plug>(GitGutterStageHunk)
+" nmap ,g- <Plug>(GitGutterUndoHunk)
+" nmap ,gv :Gitv<cr>
+" map ,d  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" nnoremap ,a :Ack<cr>
+" nnoremap ,k :Ack 'fix(me)?\|todo'<cr>
+" Editor mapping """""""""""""""""""""""""""""""""""""
+" nnoremap <c-x> <C-W>c
+map <a-s-p> :tabp<cr>
+map <a-s-n> :tabn<cr>
+map <c-PageDown> :tabn<CR>
+map <c-PageUp> :tabp<CR>
+tnoremap <c-PageDown> <C-\><C-N>:tabn<CR>
+tnoremap <c-PageUp> <C-\><C-N>:tabp<CR>
+nnoremap <c-t> :tabnew<CR>
+nnoremap <c-/> <Plug>NERDCommenterMinimal
+vnoremap <c-/> <Plug>NERDCommenterToggle
+nnoremap <silent> <C-S> :Update<CR>
+inoremap <silent> <C-S> <ESC>:Update<CR>
+tnoremap <a-x> <C-\><C-N>
+inoremap <C-U> <C-G>u<C-U>
+" nmap ,eu :UltiSnipsEdit<cr>
+" Keymapping for grep word under cursor with interactive mode
+" nnoremap <silent> ,cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
+
+
+set autoindent
+set backspace=indent,eol,start
+set blinkingcursor
+set clipboard=unnamed
+set hlsearch
+set ignorecase
+set incsearch
+set relativenumber
+set scrolloff=3
+set shiftwidth=4
+set showcmd
+set smartcase
+set smartindent
+set smarttab
+
+" nmap ,fu  :FindUsages<cr>
+nnoremap <c-j> <c-w>h
+nnoremap <c-k> <c-w>j
+nnoremap <c-l> <c-w>k
+nnoremap <c-semicolon> <c-w>l
+nnoremap q :q<cr>
+
+nnoremap <silent> vv <c-w>v
+nnoremap <silent> vo <c-w>s
+map <c-f> :e<cr>
+nnoremap ,eh :OpenHeaderSourceInNextSplit<cr>
+nnoremap <c-}> :tag<cr>
+
+nnoremap ,ec :EditWithCode<cr>
+nnoremap ,yp :CopyFullPath<cr>
+nnoremap ,yn :CopyFileName<cr>

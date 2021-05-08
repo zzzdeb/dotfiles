@@ -20,8 +20,7 @@ alias \
 	rm="rm -v" \
 	yt="youtube-dl --add-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
-	rs="rsync -rP" \
-	rse="rsync -rpltP" \
+	rs="rsync -avP --update" \
 	# yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
 
 # Colorize commands when possible.
@@ -56,6 +55,7 @@ alias \
 	,gs="git status" \
 	,gc="git commit" \
 	,gcm="git commit -m" \
+	,gfa="git fetch --all" \
 	,gpl="git pull" \
 	,gps="git push" \
 	,ga="git add" \
@@ -68,6 +68,7 @@ alias \
 	p1="ping 1.1.1.1" \
 	xc="xclip -sel clip" \
 	kx="killall xcape" \
+	/="ack" \
 	/="ag" \
 
 

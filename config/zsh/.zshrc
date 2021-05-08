@@ -15,8 +15,8 @@ POWERLEVEL9K_STATUS_OK_BACKGROUND='8'
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND='11'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='8'
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='10'
-# POWERLEVEL9K_MODE='awesome-fontconfig'
-POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL9K_MODE='awesome-fontconfig'
+# POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status root_indicator background_jobs)
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv context dir vcs)
 # User configuration
@@ -110,7 +110,7 @@ fi
 # preventing nested ranger opening with_$
 ranger() {
     if [ -z "$RANGER_LEVEL" ]; then
-        /usr/bin/ranger "$@"
+        ~/.local/bin/ranger "$@"
     else
         exit
     fi

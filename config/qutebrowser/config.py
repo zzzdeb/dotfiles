@@ -62,7 +62,7 @@ config.bind('B', 'set-cmd-text -s :bookmark-load')
 config.bind('sc', 'config-source')
 
 
-config.bind('<ctrl-t>', 'yank -s --quiet selection;; open -t !d {primary}')
+config.bind('<ctrl-t>', 'yank -s --quiet selection;; open -t {primary}')
 config.bind(',tt', 'spawn --userscript translate.py auto en')
 config.bind(',tk', 'spawn --userscript translate.py auto ko')
 config.bind(',tj', 'spawn --userscript translate.py auto ja')
