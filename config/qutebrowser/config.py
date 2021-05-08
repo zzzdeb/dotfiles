@@ -127,6 +127,8 @@ c.url.searchengines = {
 "!sp": "https://www.startpage.com/do/dsearch?query={}",
 "!pirate": "https://www.pirate-bay.net/search?q={}",
 "!torrent": "https://www.pirate-bay.net/search?q={}",
+    "g" :"https://git.indurad.x/search?utf8=%E2%9C%93&search={}&group_id=&project_id=&snippets=false&repository_ref=&nav_source=navbar",
+    "w" :"https://wiki.indurad.x/foswiki/bin/view/Main/WebSearch?tab=search&search={}&scope=all",
 }
 if ENVMODE == 'indurad':
     c.url.searchengines.update({

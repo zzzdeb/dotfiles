@@ -76,6 +76,10 @@ alias \
 	fs='flameshot gui -r | tee ~/Pictures/Flameshot_$(date +%Y-%m-%d_%H-%M-%S).jpg | xcp' \
 	/="ack" \
 
+# indurad
+alias \
+	cD="(calvin --color -D -M ./build/monolith -n && notify-send 'cD done.  Success;') || notify-send 'cD done. Error'" \
+
 
 # This alias is important. It enables the `pauseallmpv` command.
 alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
@@ -102,6 +106,8 @@ function qe() {
 
 ,e() { du --exclude-from=$HOME/.config/du_excludes  -a ~/.scripts/* ~/.config/* ~/.dotfiles/*(N) /var/lib/transmission/.config/*(N) | cut -d$'\t' -f2- | fzf | xargs -d '\n' -r $EDITOR ;}
 ,t() { fzf | xargs -d '\n' -r -I % $EDITOR % ;}
+gp() { ([ -z "$1" ] && cd -- "$HOME/localstorage/workspace/$(cd ~/localstorage/workspace; /usr/bin/find P* -maxdepth 2 -type d | cut -d$'\t' -f2- | fzf)") || cd "$HOME/localstorage/workspace/$1" }
+
 cdf() { cd -- "$(du | cut -d$'\t' -f2- | fzf)"}
 cdp() { cd -- "$(/usr/bin/ls -C -d ~/dev/git/*(N) ~/dev/projects/*(N) ~/localstorage/dev/*(N) | fzf;)"}
 
