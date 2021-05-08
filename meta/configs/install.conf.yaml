@@ -58,7 +58,7 @@
     ~/.config/emoji: config/emoji
     ~/.config/fontawesome: config/fontawesome
     ~/.icons:
-    ~/.local/share/applications: local/share/applications
+    ~/.local/share/applications/custom: local/share/applications/custom
 
     ~/.config/mimeapps.list: config/mimeapps.list
     ~/.config/user-dirs.dirs: config/user-dirs.dirs
