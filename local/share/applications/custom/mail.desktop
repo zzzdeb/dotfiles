@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Mail
-Exec=google-chrome-stable %u
+Exec=mail %u

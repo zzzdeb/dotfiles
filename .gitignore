@@ -15,16 +15,8 @@ config/nvim/dirs
 Session.vim
 config/nvim/tags
 config/nvim/session
-config/nvim/.netwhist
+config/nvim/.netrwhist
 
 config/gtk-2.0/gtkfilechooser.ini
 tags
 config/gtk-3.0/bookmarks
-
-local/share/applications/anki.desktop
-local/share/applications/variety.desktop
-local/share/applications/wine
-local/share/applications/wine-extension-*
-local/share/qutebrowser/greasemonkey/requires/
-
-
