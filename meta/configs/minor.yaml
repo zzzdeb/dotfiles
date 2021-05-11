@@ -11,7 +11,7 @@
     ~/.config/calcurse : config/calcurse
     ~/.config/redshift.conf: config/redshift.conf
     ~/.config/mpd/mpd.conf : config/mpd/mpd.conf
-    ~/.xprofile: profile
+    ~/.xprofile: xprofile
     ~/.vrapperrc: vrapperrc
     ~/.keynavrc: keynavrc
     ~/.tmux.conf:
