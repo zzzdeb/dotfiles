@@ -13,3 +13,5 @@ q	~/.config/qutebrowser/config.py
 s	~/.config/sxhkd/sxhkdrc
 x	~/.Xdefaults
 c	~/.dotfiles/meta/configs
+n	~/Dokumente/note.org
+t	~/Dokumente/today.org

@@ -2,11 +2,17 @@ import subprocess
 import os
 USER = os.environ['USER']
 HOME = os.environ['HOME']
+DIRMODUS=''
 try:
     DIRMODUS = os.environ['DIRMODUS']
 except KeyError:
-    DIRMODUS = ''
-DIRMODUS='jkl'
+    pass
+
+ENVMODE=''
+try:
+    ENVMODE = os.environ['ENVMODE']
+except KeyError:
+    pass
 
 
 # Uncomment this to still load settings configured via autoconfig.yml
@@ -115,6 +121,12 @@ c.url.searchengines = {
 "!pirate": "https://www.pirate-bay.net/search?q={}",
 "!torrent": "https://www.pirate-bay.net/search?q={}",
 }
+if ENVMODE == 'indurad':
+    c.url.searchengines.update({
+        "g": "https://git.indurad.x/search?utf8=%E2%9C%93&search={}&group_id=&project_id=&snippets=false&repository_ref=&nav_source=navbar",
+        "w": "https://wiki.indurad.x/foswiki/bin/view/Main/WebSearch?search={}&scope=all&web=Main",
+        "j": "https://jenkins.indurad.x/search/?q={}&Jenkins-Crumb=8bfe1ab4d1d762edca143d9a7be37aae752c17de126e62349d4a2d2604993772",
+    })
 
 
 #Test
@@ -129,11 +141,14 @@ config.bind('<ctrl-shift-j>', "tab-focus 1")
 
 config.bind('za', 'config-cycle content.host_blocking.enabled')
 config.bind('zt', 'config-cycle tabs.position left top')
-config.bind('zl', 'spawn --userscript qute-pass')
 config.bind('zb', 'config-cycle tabs.show switching always;;config-cycle statusbar.hide')
+
+config.bind('zl', 'spawn --userscript qute-pass')
 config.bind('zul', 'spawn --userscript qute-pass --username-only')
 config.bind('zpl', 'spawn --userscript qute-pass --password-only')
+
 config.bind('zol', 'spawn --userscript qute-pass --otp-only')
+
 
 try:
     from qutebrowser.api import message
@@ -166,7 +181,7 @@ c.hints.selectors["ad"] = [
     "a.pull-right > span.glyphicons-remove",
 ]
 
-if DIRMODUS == 'jkl':
+if DIRMODUS == 'jkl;':
     config.bind('<ctrl-j>', 'back')
     config.bind('<ctrl-k>', 'tab-next')
     config.bind('<ctrl-l>', 'tab-prev')

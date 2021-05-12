@@ -10,6 +10,9 @@
 
 [ -d "$HOME/.Xdefaults" ] && xrdb $HOME/.Xdefaults
 
+export DIRMODUS='jkl;'
+export ENVMODE='indurad'
+
 # set PATH so it includes user's private bin if it exists
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
@@ -63,4 +66,3 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 
 # Switch escape and caps if tty:
 loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
-
