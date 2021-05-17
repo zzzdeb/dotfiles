@@ -7,11 +7,21 @@ from subprocess import run, check_output
 import time
 from copy import deepcopy
 
+import argparse
+
+
 def main():
     """TODO: Docstring for main.
     :returns: TODO
 
     """
+    parser = argparse.ArgumentParser(description='Orders i3.')
+    parser.add_argument('--split', dest='split', type=int, default=2, help='how many split')
+
+    args = parser.parse_args()
+
+    splitnum = args.split
+
     i3 = Connection()
 
     # get_tree() returns the root container
@@ -44,34 +54,25 @@ def main():
 
     layout = {
         "layout": "tabbed",
-        "percent": 0.5,
+        "percent": 0.9999/splitnum,
         "type": "con",
         'role': 'i3order',
         "nodes": []
     }
-    layouts = []
+    layouts = [deepcopy(layout) for _ in range(0,splitnum)]
     print([a.id for a in windows])
-    num = len(windows)
     nlayout = deepcopy(layout)
-    for con in windows[:int(num/2)]:
+    for i, con in enumerate(windows):
         cur['name'] = str(con.id)
         cur['role'] = str(con.id)
-        nlayout['nodes'].append(deepcopy(cur))
-    layouts.append(nlayout)
-
-    nlayout = deepcopy(layout)
-    for con in windows[int(num/2):]:
-        cur['name'] = str(con.id)
-        cur['role'] = str(con.id)
-        nlayout['nodes'].append(deepcopy(cur))
-    layouts.append(nlayout)
+        layouts[i%splitnum]['nodes'].append(deepcopy(cur))
 
     lname = '/tmp/i3order{}.json'.format(random.randint(100000, 999999))
     for lay in layouts:
         with open(lname, 'a') as f:
             f.write(json.dumps(lay))
 
-    run(['i3-msg', 'append_layout {}'.format(lname)])
+    run(['i3-msg', 'append_layout', lname])
     print([a.id for a in windows])
     workspace = i3.get_tree().find_focused().workspace()
     for con in windows:
