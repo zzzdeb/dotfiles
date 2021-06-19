@@ -14,6 +14,12 @@ try:
 except KeyError:
     pass
 
+TERMINAL='st'
+try:
+    TERMINAL = os.environ['TERMINAL']
+except KeyError:
+    pass
+
 
 # Uncomment this to still load settings configured via autoconfig.yml
 config.load_autoconfig()
@@ -43,9 +49,8 @@ c.scrolling.smooth = True
 c.confirm_quit =['multiple-tabs', 'downloads']
 c.session.lazy_restore = True
 
-c.content.host_blocking.enabled = True
-c.content.host_blocking.lists.append("http://sbc.io/hosts/hosts")
-c.content.host_blocking.whitelist = ["thepiratebay.org"]
+c.content.blocking.enabled = True
+c.content.blocking.whitelist = ["thepiratebay.org"]
 
 c.url.start_pages = ["https://duckduckgo.com"]
 
@@ -95,7 +100,7 @@ config.bind('u', 'scroll-page 0 -0.5')
 
 config.bind('q', 'tab-close')
 
-config.bind(',b', 'set-cmd-text -s :buffer')
+config.bind(',b', 'set-cmd-text -s :tab-select')
 
 config.bind('T', 'config-cycle tabs.width 35 400')
 
@@ -130,16 +135,21 @@ if ENVMODE == 'indurad':
 
 
 #Test
-config.bind('<Ctrl-m>', "prompt-yank -s;;spawn uget-gtk --quiet --folder=Downloads '{primary}';;enter-mode normal", mode='prompt')
-config.bind('<Ctrl-shift-m>', "prompt-yank -s;;spawn uget-gtk '{primary}';;enter-mode normal", mode='prompt')
+config.bind('<Ctrl-m>', "prompt-yank -s;;spawn uget-gtk --quiet --folder=Downloads '{primary}';;mode-enter normal", mode='prompt')
+config.bind('<Ctrl-shift-m>', "prompt-yank -s;;spawn uget-gtk '{primary}';;mode-enter normal", mode='prompt')
 
 config.bind('gd', 'spawn uget-gtk')
+
+c.fileselect.handler = 'external'
+c.fileselect.folder.command = [TERMINAL, '-e', 'ranger', '--choosedir={}']
+c.fileselect.single_file.command = [TERMINAL, '-e', 'ranger', '--choosefile={}']
+c.fileselect.multiple_files.command = [TERMINAL, '-e', 'ranger', '--choosefiles={}']
 
 config.bind('gD', 'spawn st -e ranger --cmd="chain set sort=atime ; set sort_directories_first=false" {}/Downloads'.format(HOME))
 config.bind('<ctrl-b>', "set-cmd-text -s :quickmark-add {url}")
 config.bind('<ctrl-shift-j>', "tab-focus 1")
 
-config.bind('za', 'config-cycle content.host_blocking.enabled')
+config.bind('za', 'config-cycle content.blocking.enabled')
 config.bind('zt', 'config-cycle tabs.position left top')
 config.bind('zb', 'config-cycle tabs.show switching always;;config-cycle statusbar.hide')
 
@@ -237,7 +247,7 @@ config.source('custom_config.py')
 #  sys.path.append(os.path.join(sys.path[0], "jblock"))
 #  config.source("jblock/jblock/integrations/qutebrowser.py")
 #  config.set(
-    #  "content.host_blocking.lists",
+    #  "content.blocking.lists",
     #  [
         #  "https://easylist.to/easylist/easylist.txt",
         #  "https://easylist.to/easylist/easyprivacy.txt",
