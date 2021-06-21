@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 post=""
 if [[ "$1" == "def" ]]; then
   post="_def"

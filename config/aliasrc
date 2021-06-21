@@ -61,6 +61,7 @@ alias \
 	,ga="git add" \
 	,gl="git log" \
 	,gd="git diff" \
+	,gds="git diff --staged" \
 	,gcan="git commit --amend --no-edit" \
 	,gpsf="git push --force" \
 	lt="tree -L 2" \

@@ -55,3 +55,5 @@
 	fixup = "!sh -c 'git commit --no-verify --fixup ${0} && git rebase -i --autostash --autosquash ${0}^ && echo --------git status---------- && git status'"
 [cola]
 	spellcheck = false
+[pull]
+	rebase = true

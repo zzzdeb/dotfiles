@@ -78,7 +78,7 @@ xkb_keymap {
 
 partial modifier_keys
   xkb_symbols  {
-      include "pc+us(de_se_fi)+mn:2+inet(evdev)+group(alt_shift_toggle)"
+      include "pc+us(basic)+mn:2+inet(evdev)+group(alt_shift_toggle)"
     //  name[group1]="English (intl., with AltGr dead keys)";
 
       name[Group1]="zzz";

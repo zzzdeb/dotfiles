@@ -577,13 +577,22 @@ function! AutoRelativeNumber()
 endfunction
 
 function! Retab(count)
-  exe 'set tabstop='. a:count
   exe 'set tabstop='.a:count
   exe 'set softtabstop='.a:count
   exe 'set shiftwidth='.a:count
   set smarttab
   set expandtab
   retab
+endfunction
+
+function! RetabTab(count)
+  exe 'set tabstop='.a:count
+  exe 'set softtabstop='.a:count
+  exe 'set shiftwidth='.a:count
+  set smarttab
+  set preserveindent
+  set noexpandtab
+  %retab!
 endfunction
 
 augroup numbertoggle
@@ -805,6 +814,7 @@ au BufNewFile,BufRead *.py:
     \ set autoindent
     \ set fileformat=unix
     au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+au FileType python let b:ale_linters = ['pylint', 'pyflakes']
 augroup END
 
 augroup cprograms 
@@ -888,6 +898,10 @@ nnoremap Y y$
 " ...but only if the count is undefined (otherwise, things like 4j
 " break if wrapped LINES are present)
 
+noremap j h
+noremap k j
+noremap l k
+noremap ; l
 if ($DIRMODUS == 'jkl;')
   noremap j h
   noremap k j
@@ -1163,6 +1177,7 @@ let g:coc_global_extensions = [
   \ 'coc-highlight', 
   \ 'coc-texlab',
   \ 'coc-spell-checker',
+  \ 'coc-python',
   \ ]
 
 " grep word under cursor
@@ -1176,4 +1191,3 @@ endfunction
 
 " Keymapping for grep word under cursor with interactive mode
 nnoremap <silent> <Leader>cf :exe 'CocList -I --input='.expand('<cword>').' grep'<CR>
-
