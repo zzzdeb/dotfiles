@@ -125,12 +125,15 @@ c.url.searchengines = {
 "!sp": "https://www.startpage.com/do/dsearch?query={}",
 "!pirate": "https://www.pirate-bay.net/search?q={}",
 "!torrent": "https://www.pirate-bay.net/search?q={}",
+    "g" :"https://git.indurad.x/search?utf8=%E2%9C%93&search={}&group_id=&project_id=&snippets=false&repository_ref=&nav_source=navbar",
+    "w" :"https://wiki.indurad.x/foswiki/bin/view/Main/WebSearch?tab=search&search={}&scope=all",
 }
 if ENVMODE == 'indurad':
     c.url.searchengines.update({
         "g": "https://git.indurad.x/search?utf8=%E2%9C%93&search={}&group_id=&project_id=&snippets=false&repository_ref=&nav_source=navbar",
         "w": "https://wiki.indurad.x/foswiki/bin/view/Main/WebSearch?search={}&scope=all&web=Main",
         "j": "https://jenkins.indurad.x/search/?q={}&Jenkins-Crumb=8bfe1ab4d1d762edca143d9a7be37aae752c17de126e62349d4a2d2604993772",
+        "r": "https://redmine.indurad.x/issues/{}"
     })
 
 
