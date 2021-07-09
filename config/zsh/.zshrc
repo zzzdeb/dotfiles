@@ -133,4 +133,10 @@ mcd() {
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ -f "~/.bashrc" ]; then
+  # from Zeile 101
+  autoload bashcompinit
+  bashcompinit
+  eval "$(tail -n +112 ~/.bashrc)"
+fi
+compctl -W ~/localstorage/workspace/ -/ gp
