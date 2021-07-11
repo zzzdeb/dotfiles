@@ -26,17 +26,8 @@ gaps bottom 0
 set $mod        Mod4
 floating_modifier $mod
 set $term --no-startup-id st
-set $stoprec --no-startup-id dmenurecord kill
-set $shutdown sudo -A shutdown -h now
-set $reboot sudo -A reboot
-set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
-set $hibernate sudo -A systemctl suspend
 set $hdminame   DisplayPort-2
 set $edpname    eDP
-set $left       j
-set $right      semicolon
-set $up         l
-set $down       k
 
 # Same logic applied to everything else.
 set_from_resource $term_background background #000000
@@ -113,37 +104,27 @@ for_window [title="mpvfloat"] sticky enable
 for_window [title="mpvfloat"] border pixel 0
 no_focus [title="mpvfloat"]
 
-# set $workspace1 "1: "
-# set $workspace2 w: "
 set $workspace2 "2: "
 set $workspace3 "3: 日本"
 set $workspace4 "4: "
-# set $workspace5 "5: "
 set $workspace6 "6: "
 set $workspace7 "7: "
 set $workspace8 "8: "
-# set $workspace9 "9: "
-set $workspace10 "10: "
+set $workspace0 "10: "
+
+workspace $workspace2 output primary
+workspace $workspace3 output primary
+workspace $workspace4 output primary
+workspace $workspace6 output primary
+workspace $workspace7 output $edpname
+workspace $workspace8 output $edpname
+workspace $workspace0 output primary
 
 exec i3-msg "workspace $workspace2"
 
 # #---Starting External Scripts---# #
-# exec --no-startup-id clight
 exec --no-startup-id zenwindow
-exec --no-startup-id app-on-ws-init.py --workspace "10: " --command 'gmail & gcalendar'
-
-
-# Run the script to update the mpd i3block on change.
-exec_always --no-startup-id mpdupdate
-# Podboat automatic queue and download
-exec_always --no-startup-id podentr
-# exec_always --no-startup-id launch_polybar
-# exec_always --no-startup-id ~/.config/i3/polybar.sh &
-
-# Keys
-#exec_always setxkbmap -layout us,mn -variant altgr-intl, -option grp:rctrl_rshift_toggle
-# exec_always xkbcomp "~/.xkbmap $DISPLAY"
-# exec_always xmodmap "~/.xmodmaprc"
+exec --no-startup-id app-on-ws-init.py --workspace "10: " --command "$EMAIL & $CALENDAR"
 
 bar {
     # launch_polybar
@@ -177,173 +158,12 @@ bar {
 # #---Basic Bindings---# #
 bindsym button3 --border kill
 bindsym $mod+button1 --whole-window floating toggle
-bindsym $mod+button3 --whole-window resize grow height 5 px or 5 ppt
-bindsym $mod+button4 --whole-window resize grow height 5 px or 5 ppt
-bindsym $mod+button5 --whole-window resize  shrink height 5 px or 5 ppt
-bindsym $mod+button6 --whole-window resize  shrink width 5 px or 5 ppt
-bindsym $mod+button7 --whole-window resize   grow width 5 px or 5 ppt
-bindsym $mod+button8 --whole-window resize shrink width 5 px or 5 ppt
-bindsym $mod+button9 --whole-window resize  grow width 5 px or 5 ppt
-
-# keyboard
-bindsym $mod+apostrophe		split horizontal ;; exec $term
-
-bindsym $mod+slash		split vertical ;; exec $term
-
-bindsym $mod+space focus mode_toggle
-bindsym $mod+Shift+space floating toggle
-
-bindsym $mod+Tab		workspace back_and_forth
-
-# bindsym $mod+a split vertical
-# bindsym $mod+shift+a
-
-bindsym $mod+b layout toggle splith splitv
-
-# bindsym $mod+shift+c split h
-bindsym $mod+ctrl+c reload
-
-# bindsym $mod+shift+d
-
-bindsym $mod+f fullscreen toggle
-bindsym $mod+shift+f floating toggle; move position 650 150; resize set 1900 1060
-
-# bindsym $mod+g mode "$mode_run"
-# bindsym $mod+shift+g mode "$mode_run"
-
-
-# bindsym $mod+m mode "$mode_music"
-bindsym $mod+shift+m move workspace to output right
-
-# bindsym $mod+shift+n
-
-bindsym $mod+o split v
-
-bindsym $mod+ctrl+p focus parent
-bindsym $mod+ctrl+shift+p focus child
-
-bindsym $mod+ctrl+r restart
-
-bindsym $mod+s mode "resize"
-bindsym $mod+shift+s mode "$mode_system"
-
-bindsym $mod+t layout toggle tabbed stacked
-
-bindsym $mod+v split horizontal
-# bindsym $mod+shift+v split toggle
-
-bindsym $mod+x			gaps inner current plus 5
-bindsym $mod+Shift+x		gaps inner current minus 5
-
-bindsym $mod+z			gaps outer current plus 5
-bindsym $mod+Shift+z		gaps outer current minus 5
-
-# bindsym $mod+apostrophe mode "$mode_system"
-# bindsym $mod+shift+apostrophe kill
-
-# bindsym $mod+comma mode "$mode_leader"
-
-bindsym $mod+minus scratchpad show
-bindsym $mod+Shift+minus move scratchpad
-
-bindsym $mod+equal resize set 1440 px 900 px, move absolute position center
-bindsym $mod+Shift+equal resize set 960 px 900 px, move absolute position center
-
-# #---Media Keys---# #
-
-# Volume keys
-# bindsym $mod+less 		exec --no-startup-id lmc prev
-bindsym $mod+Shift+less		exec --no-startup-id lmc prev
-# bindsym $mod+greater		exec --no-startup-id lmc next
-bindsym $mod+Shift+greater	exec --no-startup-id lmc next
-
-# For advancing forward/backward in an mpd song
-bindsym $mod+bracketleft 	exec --no-startup-id lmc back 10
-bindsym $mod+Shift+bracketleft 	exec --no-startup-id lmc back 120
-bindsym $mod+bracketright 	exec --no-startup-id lmc forward 10
-bindsym $mod+Shift+bracketright exec --no-startup-id lmc forward 120
-
-# For screenshots and recording
-bindsym Print 			exec --no-startup-id maim Pictures/screenshot-"$(date '+%y%m%d-%H%M-%S').png"
-bindsym Shift+Print 		exec --no-startup-id maimpick
-bindsym $mod+Print		exec --no-startup-id dmenurecord
-bindsym $mod+Shift+Print		exec --no-startup-id maim -s | xclip -selection clipboard -t image/png ;
-bindsym $mod+Scroll_Lock	exec --no-startup-id "killall screenkey || screenkey"
-bindsym $mod+Delete		exec $stoprec
-# bindsym XF86Launch1		exec --no-startup-id xset dpms force off
-
-# #---Extra XF86 Keys---# #
-# These are the extra media keys that some keyboards have.
-# bindsym XF86AudioMute		exec --no-startup-id lmc mute
-# bindsym XF86AudioLowerVolume	exec --no-startup-id lmc down 5; exec dunstify --replace=91284 -t 1000 ": $(lmc volume)% $(progressString.sh 10  - $(lmc volume))"
-# bindsym XF86AudioLowerVolume	exec --no-startup-id lmc down 5; exec dunstify --replace=91284 -t 1000 ": $(lmc volume)% $(bar 10 $(lmc volume))"
-# bindsym Shift+XF86AudioLowerVolume	exec --no-startup-id lmc down 10
-# bindsym Control+XF86AudioLowerVolume	exec --no-startup-id lmc down 1
-# bindsym XF86AudioRaiseVolume	exec --no-startup-id lmc up 5; exec dunstify --replace=91284 -t 1000 ": $(lmc volume)% $(progressString.sh 10  - $(lmc volume))"
-# bindsym Shift+XF86AudioRaiseVolume	exec --no-startup-id lmc Up 5; exec dunstify --replace=91284 -t 1000 "🔊: $(lmc volume)% $(progressString.sh 10  - $(lmc volume))"
-# bindsym XF86AudioPlay exec qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-# bindsym XF86AudioNext exec qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-# bindsym XF86AudioPrev exec qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-
-# change focus
-bindsym $mod+$left exec i3fullscreenDirections left
-bindsym $mod+$down exec i3fullscreenDirections down
-bindsym $mod+$up exec i3fullscreenDirections up
-bindsym $mod+$right exec i3fullscreenDirections right
-# move focused window
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-
-# easily resizing
-bindsym $mod+Left resize shrink width 10 px or 10 ppt
-bindsym $mod+Up resize grow height 10 px or 10 ppt
-bindsym $mod+Down resize shrink height 10 px or 10 ppt
-bindsym $mod+Right resize grow width 10 px or 10 ppt
-bindsym $mod+shift+Left resize shrink width 1 px or 1 ppt
-bindsym $mod+shift+Up resize grow height 1 px or 1 ppt
-bindsym $mod+shift+Down resize shrink height 1 px or 1 ppt
-bindsym $mod+shift+Right resize grow width 1 px or 1 ppt
-
-
-bindsym $mod+Shift+ctrl+$left move up; move left, move right
-bindsym $mod+Shift+ctrl+$right move up; move right, move left
-
-bindsym $mod+ctrl+$left focus parent; focus left
-bindsym $mod+ctrl+$down focus right; focus down; move left; focus up; move right; focus left
-bindsym $mod+ctrl+$right focus parent; focus right
-bindsym $mod+ctrl+$up focus right; focus down; focus up; move left; focus up; move right; move up; focus up; focus left
-
 
 set $wsBuK    "S: BuK"
 set $wsNumRe       "S: NumRe"
 set $wsST      "S: ST"
 set $wsCC     "S: CC"
 set $wsAS    "S: AS"
-
-# set $1 q
-set $2 w
-set $3 e
-set $4 r
-set $5 t
-set $6 y
-set $7 u
-set $8 i
-set $9 o
-set $0 p
-
-# switch to workspace
-# bindsym $mod+$1 workspace $workspace1
-bindsym $mod+$2 workspace $workspace2
-bindsym $mod+$3 workspace $workspace3
-bindsym $mod+$4 workspace $workspace4
-# bindsym $mod+$5 workspace $workspace5
-bindsym $mod+$6 mode "Studium"
-bindsym $mod+$7 workspace $workspace7
-bindsym $mod+$8 workspace $workspace8
-# bindsym $mod+$9 workspace $workspace9
-bindsym $mod+$0 workspace $workspace10
 
 mode "Studium" {
         bindsym b workspace $wsBuK ; mode "default"
@@ -364,75 +184,16 @@ mode "Studium" {
         bindsym Escape mode "default"
 }
 
-# move focused container to workspace
-# bindsym $mod+Shift+$1 move container to workspace $workspace1
-bindsym $mod+Shift+$2 move container to workspace $workspace2
-bindsym $mod+Shift+$3 move container to workspace $workspace3
-bindsym $mod+Shift+$4 move container to workspace $workspace4
-# bindsym $mod+Shift+$5 move container to workspace $workspace5
-bindsym $mod+Shift+$7 move container to workspace $workspace7
-bindsym $mod+Shift+$8 move container to workspace $workspace8
-# bindsym $mod+Shift+$9 move container to workspace $workspace9
-bindsym $mod+Shift+$0 move container to workspace $workspace10
-
 # assign [class="Chromium-browser"] 7
 # assign [class="Firefox"] $workspace2
-assign [class="thunderbird"] $workspace10
+assign [class="thunderbird"] $workspace0
 assign [class="Anki"] $workspace3
 assign [class="Calise" instance="calise" title="Calise"] $workspace7
-assign [class="Google-chrome|qutebrowser" instance="mail.google.com"] $workspace10
-assign [class="Google-chrome|qutebrowser" instance="calendar.google.com"] $workspace10
+assign [class="Google-chrome|qutebrowser" instance="mail.google.com"] $workspace0
+assign [class="Google-chrome|qutebrowser" instance="calendar.google.com"] $workspace0
 assign [class="VirtualBox Machine"] $workspace4
 assign [class="Org.gnome.DejaDup" title="Déjà Dup Backup Tool"] $workspace7
 assign [class="mpv" title="telmedia_mpv"] $workspace8
-
-# workspace $workspace1 output primary
-workspace $workspace2 output primary
-workspace $workspace3 output primary
-workspace $workspace4 output primary
-# workspace $workspace5 output $hdminame
-workspace $workspace6 output primary
-workspace $workspace7 output $edpname
-workspace $workspace8 output $edpname
-# workspace $workspace9 output primary
-workspace $workspace10 output primary
-
-# #---Modes ---# #
-mode "resize" {
-        bindsym $left resize shrink width 10 px or 10 ppt
-        bindsym $down resize grow height 10 px or 10 ppt
-        bindsym $up resize shrink height 10 px or 10 ppt
-        bindsym $right resize grow width 10 px or 10 ppt
-
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-mode "moveit" {
-    bindsym Up move up 20px
-    bindsym Left move left 20px
-    bindsym Down move down 20px
-    bindsym Right move right 20px
-    bindsym Mod4+m mode "default"
-}
-
-# set $mode_MediaPlayer (s)(u)(d)(n) next, (p) prev, (space) play
-# mode "$mode_MediaPlayer" {
-    # bindsym s exec flatpak run eu.tiliado.NuvolaAppAmazonCloudPlayer ; mode "default"
-    # bindsym space exec --no-startup-id qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause 	; mode "default"
-    # bindsym n exec --no-startup-id qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next		; mode "default"
-    # bindsym p exec --no-startup-id qdbus org.mpris.MediaPlayer2.NuvolaAppAmazonCloudPlayer /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous	; mode "default"
-	# bindsym u exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +5% & pactl set-sink-volume alsa_output.pci-0000_00_1f.3.hdmi-stereo +5%
-	# bindsym d exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -5% & pactl set-sink-volume alsa_output.pci-0000_00_1f.3.hdmi-stereo -5%
-    # back to normal: Enter or Escape
-    # bindsym Return mode "default"
-    # bindsym Escape mode "default"
-# }
 
 
 # vim:filetype=i3config

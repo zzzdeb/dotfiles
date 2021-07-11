@@ -87,3 +87,63 @@ super + Next
   # backlight {up, down}; exec dunstify --replace=11 -t 2000 ": $(backlight current)% $(progressString.sh 10  - $(backlight current))"
 super + XF86MonBrightness{Up,Down}
   xbacklight.py HDMI-1 {+,-}0.1
+
+
+super + Print
+  maim Pictures/screenshot-"$(date '+%y%m%d-%H%M-%S').png"
+super + shift+Print
+  maimpick
+super +Print
+  dmenurecord
+super+shift+Print		
+  maim -s | xclip -selection clipboard -t image/png ;
+super+Scroll_Lock	
+  killall screenkey || screenkey
+super+Delete
+  dmenurecord kill
+
+super + {_,shift+}{Left,Up,Down,Right}
+  by={10,1};\
+  what="{width ,height ,height -,width -}";\
+  i3-msg resize grow $what$by px
+
+# WM
+# i3-msg
+# focus the node in the given direction
+super + {_,shift + }{j,k,l,semicolon}
+  {i3fullscreenDirections,i3-msg move} {left,down,up,right}
+super + {apostrophe,slash}
+  i3-msg split {horizontal,vertical}; exec $TERMINAL
+super + {_,shift + }space
+  i3-msg {"focus mode_toggle", "floating toggle"}
+super + b
+  i3-msg 'layout toggle splith splitv'
+super + ctrl + c
+  i3-msg 'reload'
+super + {_, shift + } f
+  i3-msg {'fullscreen toggle', 'floating toggle; move position 650 150; resize set 1900 1060'}
+super + shift + m
+  i3-msg "move workspace to output right"
+super + {o,v}
+  i3-msg "split {v,h}"
+super + ctrl + {_, shift + } p
+  i3-msg "focus {parent, child}"
+super+ctrl+r 
+  i3-msg "restart"
+super + t
+  i3-msg "layout toggle tabbed stacked"
+super+shift+ctrl+{j,semicolon}
+  i3-msg "{move up; move left; move right, move up; move right; move left}"
+
+super+ctrl+{j,k,l,semicolon} 
+  i3-msg "focus parent; focus {left,down,up,right}"
+super+{_,shift+}{w,e,r,y,u,i,p}
+  mode="{ ,move container to}";\
+  wsnumber="$WORKSPACE{2,3,4,6,7,8,0}";\
+  i3-msg "$mode workspace $wsnumber"
+
+
+
+# super + {_,shift + }{j,k,l,semicolon}
+# super + {_,shift + }{j,k,l,semicolon}
+# super + {_,shift + }{j,k,l,semicolon}

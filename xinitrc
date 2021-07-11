@@ -10,5 +10,12 @@
 # here with the line below.
 [ -f ~/.zshenv ] && . ~/.zshenv
 export XDG_CURRENT_DESKTOP=i3
+export WORKSPACE2="2: "
+export WORKSPACE3="3: 日本"
+export WORKSPACE4="4: "
+export WORKSPACE6="6: "
+export WORKSPACE7="7: "
+export WORKSPACE8="8: "
+export WORKSPACE0="10: "
 [ -f ~/.xprofile ] && . ~/.xprofile
 exec i3
