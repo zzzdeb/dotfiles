@@ -26,7 +26,7 @@ export FILE="ranger"
 export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
 export DMENU="rofi -dmenu -i"
 export CALENDAR="gcalendar"
-export EMAIL="gmail"
+export EMAIL="thunderbird"
 
 # ~/ Clean-up:
 # export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" # This line will break some DMs.
