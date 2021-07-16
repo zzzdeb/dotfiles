@@ -14,8 +14,8 @@ super+Return
   $TERMINAL
 super+shift+Return
   samedir
-super+a; {b, c, m, j}
-  {qb_session bachelor,qb_session cpp,qb_session malo,qb_session japanese}
+super+a; {a, b, c, m, j}
+  {ls .local/share | grep qutebrowser_ | sed 's/qutebrowser_//' | rofi -dmenu | xargs qb_session, qb_session bachelor,qb_session cpp,qb_session malo,qb_session japanese}
 super+d
   rofi -show combi -display-drun "" -display-run "" -combi-modi "drun#run" -modi combi -show-icons
 super+ctrl+i

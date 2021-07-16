@@ -70,10 +70,11 @@ alias \
 	xc="xclip -sel clip" \
 	kx="killall xcape" \
 	/="ack" \
+	fs='flameshot gui -r > ~/Bilder/Flameshot_$(date +%Y-%m-%d_%H-%M-%S).jpg' \
 
 # indurad
 alias \
-	cD="(calvin --color -D -M ../../monolith -n && notify-send 'cD done.  Success;') || notify-send 'cD done. Error'" \
+	cD="(calvin --color -D -M ../../monolith -n builds/calvin && notify-send 'cD done.  Success;') || notify-send 'cD done. Error'" \
 
 
 # This alias is important. It enables the `pauseallmpv` command.
