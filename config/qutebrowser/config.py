@@ -195,6 +195,9 @@ c.hints.selectors["div"] = [
 c.hints.selectors["ad"] = [
     "a.pull-right > span.glyphicons-remove",
 ]
+c.hints.selectors["issuesubject"] = [
+    'span[data-name="issue[subject]"]'
+]
 
 if DIRMODUS == 'jkl;':
     config.bind('<ctrl-j>', 'back')
@@ -241,6 +244,8 @@ if DIRMODUS == 'jkl;':
     config.bind('hv','hint video yank')
     config.bind('hyy','hint links yank')
     config.bind('hyd','hint div userscript copy_selected.py')
+
+    config.bind('h,s','hint --first issuesubject userscript copy_selected.py')
 
 
 config.source('custom_config.py')

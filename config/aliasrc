@@ -78,7 +78,7 @@ alias \
 
 # indurad
 alias \
-	cD="(calvin --color -D -M ../../monolith -n && notify-send 'cD done.  Success;') || notify-send 'cD done. Error'" \
+	cD="(calvin --color -D -M ../../monolith -n builds/calvin && notify-send 'cD done.  Success;') || notify-send 'cD done. Error'" \
 
 
 # This alias is important. It enables the `pauseallmpv` command.
