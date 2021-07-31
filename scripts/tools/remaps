@@ -1,7 +1,9 @@
 #!/bin/bash
-post=""
+post="_def"
 if [[ "$1" == "def" ]]; then
   post="_def"
+elif [[ "$1" == "n" ]]; then
+  post=""
 fi
 
 # This script is called by i3 on startup to remap keys.
