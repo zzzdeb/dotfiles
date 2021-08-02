@@ -18,7 +18,7 @@ super+shift+Return
   samedir
 # Qutebrowser sessions
 super+a; {b, c, m, j}
-  {qb_session bachelor,qb_session cpp,qb_session malo,qb_session japanese}
+  {ls $HOME/.local/share | grep qutebrowser_ | sed 's/qutebrowser_//' | rofi -dmenu | xargs qb_session, qb_session bachelor,qb_session cpp,qb_session malo,qb_session japanese}
 # Clipmenu
 super+c
   clipmenu
@@ -124,8 +124,10 @@ super + {_,shift+}{Left,Up,Down,Right}
 # focus the node in the given direction
 super + {_,shift + }{j,k,l,semicolon}
   {i3fullscreenDirections.py,i3-msg move} {left,down,up,right}
-super + {apostrophe,slash}
-  i3-msg split {horizontal,vertical}; exec $TERMINAL
+super + {_,shift + }{apostrophe,slash}
+  same="{$TERMINAL,samedir}";\
+  dir="{horizontal,vertical}";\
+  i3-msg split $dir; $same
 super + {_,shift + }space
   i3-msg {"focus mode_toggle", "floating toggle"}
 super + b

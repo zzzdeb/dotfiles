@@ -133,7 +133,7 @@ mcd() {
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 
-if [ -f "~/.bashrc" ]; then
+if [ -f "$HOME/.bashrc" ]; then
   # from Zeile 101
   autoload bashcompinit
   bashcompinit

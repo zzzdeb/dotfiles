@@ -64,6 +64,7 @@ alias \
 	,gds="git diff --staged" \
 	,gcan="git commit --amend --no-edit" \
 	,gpsf="git push --force" \
+	,grc="git rebase --continue" \
 	lt="tree -L 2" \
 	ac="autorandr -c" \
 	p1="ping 1.1.1.1" \
