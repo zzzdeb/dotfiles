@@ -40,7 +40,7 @@ def main():
         return container
 
     group = get_group(focused)
-    group.command('focus '+args.dir)
+    group.command('focus; focus '+args.dir)
     if args.type == 'move':
         #  new_focused = i3.get_tree().find_focused()
         #  aim_group = get_group(new_focused)

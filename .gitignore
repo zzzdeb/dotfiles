@@ -1,4 +1,5 @@
 __pycache__
+.mypy_cache
 
 ./tmp
 config/qutebrowser/autoconfig.yml
@@ -18,3 +19,4 @@ config/nvim/.netrwhist
 config/gtk-2.0/gtkfilechooser.ini
 tags
 config/gtk-3.0/bookmarks
+

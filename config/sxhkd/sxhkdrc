@@ -17,7 +17,7 @@ super+Return
 super+shift+Return
   samedir
 # Qutebrowser sessions
-super+a; {b, c, m, j}
+super+a; {a, b, c, m, j}
   {ls $HOME/.local/share | grep qutebrowser_ | sed 's/qutebrowser_//' | rofi -dmenu | xargs qb_session, qb_session bachelor,qb_session cpp,qb_session malo,qb_session japanese}
 # Clipmenu
 super+c

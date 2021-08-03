@@ -65,7 +65,7 @@ def main():
     for i, con in enumerate(windows):
         cur['name'] = str(con.id)
         cur['role'] = str(con.id)
-        layouts[i%splitnum]['nodes'].append(deepcopy(cur))
+        layouts[int(i/(len(windows)/splitnum))]['nodes'].append(deepcopy(cur))
 
     lname = '/tmp/i3order{}.json'.format(random.randint(100000, 999999))
     for lay in layouts:
