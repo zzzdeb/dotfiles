@@ -165,25 +165,6 @@ set $wsST      "S: ST"
 set $wsCC     "S: CC"
 set $wsAS    "S: AS"
 
-mode "Studium" {
-        bindsym b workspace $wsBuK ; mode "default"
-        bindsym n workspace $wsNumRe; mode "default"
-        bindsym s workspace $wsST; mode "default"
-        bindsym c workspace $wsCC; mode "default"
-        bindsym a workspace $wsAS; mode "default"
-        bindsym z exec --no-startup-id i3zen switch; mode "default"
-
-
-        bindsym Shift+b move container to workspace $wsBuK
-        bindsym Shift+n move container to workspace $wsNumRe
-        bindsym Shift+s move container to workspace $wsST
-        bindsym Shift+c move container to workspace $wsCC
-        bindsym Shift+a move container to workspace $wsAS
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
 # assign [class="Chromium-browser"] 7
 # assign [class="Firefox"] $workspace2
 assign [class="thunderbird"] $workspace0
