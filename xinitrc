@@ -18,4 +18,4 @@ export WORKSPACE7="7: "
 export WORKSPACE8="8: "
 export WORKSPACE0="10: "
 [ -f ~/.xprofile ] && . ~/.xprofile
-exec i3
+exec qtile start
