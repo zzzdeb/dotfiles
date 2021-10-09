@@ -52,8 +52,10 @@
 	next = rebase --continue
 	find-merge = "!sh -c 'commit=$0 && branch=${1:-HEAD} && (git rev-list $commit..$branch --ancestry-path | cat -n; git rev-list $commit..$branch --first-parent | cat -n) | sort -k2 -s | uniq -f1 -d | sort -n | tail -1 | cut -f2'" 
 	show-merge = "!sh -c 'merge=$(git find-merge $0 $1) && [ -n \"$merge\" ] && git show $merge'"
-	fixup = "!sh -c 'git commit --no-verify --fixup ${0} && git rebase -i --autostash --autosquash ${0}^ && echo --------git status---------- && git status'"
+	fixup = "!sh -c 'rev=$(git rev-parse ${0}) && git commit --no-verify --fixup ${rev} && git rebase -i --autostash --autosquash ${rev}^ && echo --------git status---------- && git status'"
 [cola]
 	spellcheck = false
 [pull]
 	rebase = true
+[init]
+	templateDir = /home/zerdenebayar/.git-template

@@ -6,6 +6,8 @@ elif [[ "$1" == "n" ]]; then
   post=""
 fi
 
+export RANGER_LEVEL=
+cd ${HOME}
 # This script is called by i3 on startup to remap keys.
 # Increase key speed via a rate change
 # setxkbmap de

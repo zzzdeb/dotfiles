@@ -140,3 +140,4 @@ if [ -f "$HOME/.bashrc" ]; then
   eval "$(tail -n +112 ~/.bashrc)"
 fi
 compctl -W ~/localstorage/workspace/ -/ gp
+export PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"

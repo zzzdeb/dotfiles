@@ -1022,7 +1022,7 @@ nnoremap <silent> <leader>lk  :<C-u>CocPrev<CR>
 " tpope
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>ge :Gedit<cr>
-nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gs :Git<cr>
 nnoremap <leader>gb :Gbrowse<cr>
 " nnoremap <leader>gdl :Gdelete<cr>
 nnoremap <leader>gm :Gmove 

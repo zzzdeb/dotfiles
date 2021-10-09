@@ -1,0 +1,91 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+snippet Entry "Description" b
+{
+	name: "${1}",
+	type: BOOL,
+	byteOffset: 0,
+	bitOffset: 0,
+	tooltip:
+		{
+			de_DE: "",
+			en_US: "${1}",
+		},
+	enableStat: true,
+},
+endsnippet
+
+snippet EntryFull "Description" b
+{
+	name: "${1}",
+	type: BOOL,
+	byteOffset: 0,
+	bitOffset: 0,
+	disableSimulation: true,
+	tooltip:
+		{
+			de_DE: "",
+			en_US: "${1}",
+		},
+	enableStat: true,
+	unit: "1",
+	scale: 1,
+	count: 1,
+	description: {
+			en_US: "Description"
+	},
+	annotations: [
+			"Note",
+			"Note1",
+	],
+	sendScalar: false,
+},
+endsnippet
+snippet Document "Description" b
+Document: {
+		title: "",
+		project: "",
+		busType: "",
+		client: "",
+		site: "",
+		author: "",
+		authorToken: "",
+		solutions: [],
+		date: "2021-08-26",
+		revision: "",
+		release: false,
+		reservedLabel: "reserved",
+		tableView: {
+				BusOutput: "byte",
+				BusInput: "byte",
+				BusOutput_DiscreteInput: "byte",
+				BusOutput_InputRegisters: "byte",
+				BusInput_HoldingRegisters: "byte",
+				BusInputCoils: "byte"
+		}
+},
+endsnippet

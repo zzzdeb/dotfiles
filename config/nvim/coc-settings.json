@@ -12,5 +12,6 @@
                 "highlight": { "lsRanges" : true }
             }
         }
-    }
+    },
+    "yaml.format.enable": true
 }

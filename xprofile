@@ -39,10 +39,11 @@ unclutter & # mouse invinsible
 variety &
 xfce4-power-manager &
 xset r rate 300 50 &	# Speed xrate up
-xmodmap -e "pointer = 3 2 1"
+zulip_notifier.py &
+([[ $HOST == 'kellerberg' ]] || xmodmap -e "pointer = 3 2 1") &
+([[ $HOST == 'kellerberg' ]] && feh --bg-fill .config/wall.jpg ) &
+
 #  podentr &
-
-
 
 # This is the list for lf icons:
 export LF_ICONS="di=📁:\
