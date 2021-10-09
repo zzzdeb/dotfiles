@@ -1,7 +1,7 @@
 #!/bin/sh
 lock() {
     # i3lock -i ~/.config/wall.png
-    ~/dev/git/i3lock-multimonitor/lock -i ~/.config/wall.png
+    ~/localstorage/dev/i3lock-multimonitor/lock -i ~/.config/wall.png
     # gnome-screensaver-command -l
     # loginctl lock-session
     # scrot /tmp/screen_locked.png

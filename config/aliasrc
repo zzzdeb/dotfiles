@@ -77,7 +77,8 @@ alias \
 
 # indurad
 alias \
-	cD="(calvin --color -D -M ../../monolith -n builds/calvin && notify-send 'cD done.  Success;') || notify-send 'cD done. Error'" \
+	cDf="(calvin --color -D -M ../../monolith -n builds/calvin && notify-send 'cD done.  Success;') || notify-send 'cD done. Error'" \
+	cD="(calvin -O --skip-project-version-validation --skip-python-validation --color -M ../../monolith -n builds/calvin && notify-send 'cD done.  Success;') || notify-send 'cD done. Error'" \
 	main="export LD_LIBRARY_PATH=$PWD/lib && ./main" \
 
 

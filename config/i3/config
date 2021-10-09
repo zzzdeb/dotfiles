@@ -151,12 +151,22 @@ bar {
 # #---Basic Bindings---# #
 bindsym button3 --border kill
 bindsym $mod+button1 --whole-window floating toggle
+bindsym $mod+s mode "indurad"
 
-set $wsBuK    "S: BuK"
-set $wsNumRe       "S: NumRe"
-set $wsST      "S: ST"
-set $wsCC     "S: CC"
-set $wsAS    "S: AS"
+set $devops    "devops"
+set $33617       "33617"
+set $33020      "33020"
+
+mode "indurad" {
+        bindsym d workspace $devops ; mode "default"
+        bindsym z exec --no-startup-id i3zen switch; mode "default"
+
+
+        bindsym Shift+d move container to workspace $devops
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
 
 # assign [class="Chromium-browser"] 7
 # assign [class="Firefox"] $workspace2
