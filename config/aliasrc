@@ -70,7 +70,7 @@ alias \
 	p1="ping 1.1.1.1" \
 	xc="xclip -sel clip" \
 	kx="killall xcape" \
-	fs="flameshot gui -r > ~/Pictures/Flameshot_$(date +%Y-%m-%d_%H-%M-%S).jpg" \
+	fs='flameshot gui -r > ~/Pictures/Flameshot_$(date +%Y-%m-%d_%H-%M-%S).jpg' \
 	/="ack" \
 	/="ag" \
 
