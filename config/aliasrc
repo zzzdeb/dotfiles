@@ -64,6 +64,7 @@ alias \
 	,gds="git diff --staged" \
 	,gcan="git commit --amend --no-edit" \
 	,gpsf="git push --force" \
+	,gr="git rebase" \
 	,grc="git rebase --continue" \
 	lt="tree -L 2" \
 	ac="autorandr -c" \
@@ -72,7 +73,6 @@ alias \
 	kx="killall xcape" \
 	fs='flameshot gui -r > ~/Pictures/Flameshot_$(date +%Y-%m-%d_%H-%M-%S).jpg' \
 	/="ack" \
-	/="ag" \
 
 
 # This alias is important. It enables the `pauseallmpv` command.
@@ -101,6 +101,6 @@ function qe() {
 ,e() { du --exclude-from=$HOME/.config/du_excludes  -a ~/.scripts/* ~/.config/* ~/.dotfiles/*(N) /var/lib/transmission/.config/*(N) | cut -d$'\t' -f2- | fzf | xargs -d '\n' -r $EDITOR ;}
 ,t() { fzf | xargs -d '\n' -r -I % $EDITOR % ;}
 cdf() { cd -- "$(du | cut -d$'\t' -f2- | fzf)"}
-cdp() { cd -- "$(/usr/bin/ls -C -d ~/dev/git/* ~/dev/projects/* | fzf;)"}
+cdp() { cd -- "$(/usr/bin/ls -C -d ~/dev/git/*(N) ~/dev/projects/*(N) ~/localstorage/dev/*(N) | fzf;)"}
 
 cdt() { cd -- "$HOME/Downloads/Torrent/$(/usr/bin/ls -C --format=single-column ~/Downloads/Torrent | fzf;)"}

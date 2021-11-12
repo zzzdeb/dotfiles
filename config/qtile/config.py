@@ -86,7 +86,7 @@ groups_short="weruip"
 for i, k in zip(groups, groups_short):
     keys.extend([
         # mod1 + letter of group = switch to group
-        Key([mod], k, lazy.group[i.name].toscreen(),
+        Key([mod], k, lazy.group[i.name].toscreen(toggle=False),
             desc="Switch to group {}".format(i.name)),
         Key([mod, "shift"], k, lazy.window.togroup(i.name),
            desc="move focused window to group {}".format(i.name)),
@@ -128,7 +128,7 @@ fake_screens = [
       right=bar.Gap(5),
       x=0,
       y=0,
-      width=2560,
+      width=2060,
       height=1440
   ),
   Screen(
@@ -141,9 +141,9 @@ fake_screens = [
           40,
       ),
       left=bar.Gap(5),
-      x=2560,
+      x=2060,
       y=0,
-      width=880,
+      width=1380,
       height=1440
   ),
 ]

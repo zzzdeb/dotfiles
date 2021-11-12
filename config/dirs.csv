@@ -2,6 +2,7 @@
 sym	
 .c	~/.config
 .d	~/.dotfiles
+.s	~/.ssh
 C	/mnt/homes
 D	~/Documents
 M	~/Music
