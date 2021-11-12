@@ -54,6 +54,7 @@ alias \
 	y="yay" \
 	,gs="git status" \
 	,gc="git commit" \
+	,gch="git checkout" \
 	,gcm="git commit -m" \
 	,gfa="git fetch --all" \
 	,gpl="git pull" \
