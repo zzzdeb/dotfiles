@@ -26,7 +26,9 @@ tail -n +3 "$HOME/.config/dirs.csv" | sed "s/\s*#.*$//;/^\s*$/d" | tee >(awk -F'
 	# >(awk '{print "abbr", $1, "\"cd " $2 "; and ls -a\""}' >> "$fish_shortcuts") \
 	# >(awk '{print "map g" $1, ":cd", $2 "<CR>\nmap t" $1, "<tab>:cd", $2 "<CR><tab>\nmap M" $1, "<tab>:cd", $2 "<CR><tab>:mo<CR>\nmap Y" $1, "<tab>:cd", $2 "<CR><tab>:co<CR>" }' >> "$vifm_shortcuts") \
 # Format the `configs` file in the correct syntax and sent it to both configs.
+
 tail -n +3 "$HOME/.config/files.csv" | sed "s/\s*#.*$//;/^\s*$/d"   | tee >(awk '{print ",e"$1"=\"$EDITOR "$2"\" \\"}' >> "$shell_shortcuts") \
 	>(awk '{print "map ,e"$1" shell $EDITOR "$2}' >> "$ranger_shortcuts")
+
 	# >(awk '{print "abbr", $1, "\"$EDITOR "$2"\""}' >> "$fish_shortcuts") \
 	# >(awk '{print "map", $1, ":e", $2 "<CR>" }' >> "$vifm_shortcuts") \

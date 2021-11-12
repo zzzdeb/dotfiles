@@ -9,6 +9,7 @@
 # and so they are needed there. To prevent doubling up commands, I source them
 # here with the line below.
 [ -f ~/.zshenv ] && . ~/.zshenv
+export $(dbus-launch)
 export XDG_CURRENT_DESKTOP=i3
 export WORKSPACE2="2: "
 export WORKSPACE3="3: 日本"
