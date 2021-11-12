@@ -17,8 +17,8 @@ super+Return
 super+shift+Return
   samedir
 # Qutebrowser sessions
-super+a; {a, b, c, m, j}
-  {ls $HOME/.local/share | grep qutebrowser_ | sed 's/qutebrowser_//' | rofi -dmenu | xargs qb_session, qb_session bachelor,qb_session cpp,qb_session malo,qb_session japanese}
+super+a; {a, d, c, m, j}
+  {ls $HOME/.local/share | grep qutebrowser_ | sed 's/qutebrowser_//' | rofi -dmenu | xargs qb_session, qb_session devops,qb_session cas2d,qb_session malo,qb_session japanese}
 # Clipmenu
 super+c
   clipmenu
@@ -157,6 +157,16 @@ super+{_,shift+}{w,e,r,y,u,i,p}
   mode="{ ,move container to}";\
   wsnumber="$WORKSPACE{2,3,4,6,7,8,0}";\
   i3-msg "$mode workspace $wsnumber"
+Print
+  xdotool getmouselocation --shell; \
+  scrot -a 482,272,1074,767 # cw
+  # scrot -a 440,281,1266,755 # under 23100
+  # scrot -a 5,349,1902,709 # rhs 23100
+  # scrot -a 50,280,1852,750 # lhs 23100
+  # scrot -a 10,273,1899,794 # lhs
+  # scrot -a 318,324,1420,696 # rhs
+  # scrot -a 258,289,1140,750
+  # flameshot gui -r > ~/Bilder/Flameshot_$(date +%Y-%m-%d_%H-%M-%S).jpg
 
 super+z
   pass generate -c

@@ -11,8 +11,8 @@ add control = Control_R
 clear shift
 add shift = Shift_L
 
-add mod3 = Shift_R
+! add mod3 = Shift_R
 
-! add shift = Shift_R
+add shift = Shift_R
 
-pointer = 3 2 1
+!pointer = 3 2 1
