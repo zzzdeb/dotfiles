@@ -29,8 +29,8 @@ super+d
 super+ctrl+i
   dark_mode.sh
 # Kill window
-super+q
-  window_kill
+# super+q
+  # window_kill
 # Force kill
 super+ctrl+q
   kill -9 `xdotool getwindowfocus getwindowpid`
@@ -114,47 +114,47 @@ super+Scroll_Lock
 super+Delete
   dmenurecord kill
 
-super + {_,shift+}{Left,Up,Down,Right}
-  by={10,1};\
-  what="{width ,height ,height -,width -}";\
-  i3-msg resize grow $what$by px
+# super + {_,shift+}{Left,Up,Down,Right}
+  # by={10,1};\
+  # what="{width ,height ,height -,width -}";\
+  # i3-msg resize grow $what$by px
 
 # WM
 # i3-msg
 # focus the node in the given direction
-super + {_,shift + }{j,k,l,semicolon}
-  {i3fullscreenDirections.py,i3-msg move} {left,down,up,right}
-super + {_,shift + }{apostrophe,slash}
-  same="{$TERMINAL,samedir}";\
-  dir="{horizontal,vertical}";\
-  i3-msg split $dir; $same
-super + {_,shift + }space
-  i3-msg {"focus mode_toggle", "floating toggle"}
-super + b
-  i3-msg 'layout toggle splith splitv'
-super + ctrl + c
-  i3-msg 'reload'
-super + {_, shift + } f
-  i3-msg {'fullscreen toggle', 'floating toggle; move position 650 150; resize set 1900 1060'}
-super + shift + m
-  i3-msg "move workspace to output right"
-super + {o,v}
-  i3-msg "split {v,h}"
-super + ctrl + {_, shift + } p
-  i3-msg "focus {parent, child}"
-super+ctrl+r 
-  i3-msg "restart"
-super + t
-  i3-msg "layout toggle tabbed stacked"
+# super + {_,shift + }{j,k,l,semicolon}
+  # {i3fullscreenDirections.py,i3-msg move} {left,down,up,right}
+# super + {_,shift + }{apostrophe,slash}
+  # same="{$TERMINAL,samedir}";\
+  # dir="{horizontal,vertical}";\
+  # i3-msg split $dir; $same
+# super + {_,shift + }space
+  # i3-msg {"focus mode_toggle", "floating toggle"}
+# super + b
+  # i3-msg 'layout toggle splith splitv'
+# super + ctrl + c
+  # i3-msg 'reload'
+# super + {_, shift + } f
+  # i3-msg {'fullscreen toggle', 'floating toggle; move position 650 150; resize set 1900 1060'}
+# super + shift + m
+  # i3-msg "move workspace to output right"
+# super + {o,v}
+  # i3-msg "split {v,h}"
+# super + ctrl + {_, shift + } p
+  # i3-msg "focus {parent, child}"
+# super+ctrl+r
+  # i3-msg "restart"
+# super + t
+  # i3-msg "layout toggle tabbed stacked"
 
-super+ctrl+{_,shift+}{j,k,l,semicolon}
-  typ="{focus,move}"; \
-  direction="{left,down,up,right}"; \
-  i3split_focus -t $typ -d $direction
-super+{_,shift+}{w,e,r,y,u,i,p}
-  mode="{ ,move container to}";\
-  wsnumber="$WORKSPACE{2,3,4,6,7,8,0}";\
-  i3-msg "$mode workspace $wsnumber"
+# super+ctrl+{_,shift+}{j,k,l,semicolon}
+  # typ="{focus,move}"; \
+  # direction="{left,down,up,right}"; \
+  # i3split_focus -t $typ -d $direction
+# super+{_,shift+}{w,e,r,y,u,i,p}
+  # mode="{ ,move container to}";\
+  # wsnumber="$WORKSPACE{2,3,4,6,7,8,0}";\
+  # i3-msg "$mode workspace $wsnumber"
 
 super+z
   pass generate -c
