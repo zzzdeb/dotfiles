@@ -1,0 +1,35 @@
+snippet script_template "Script template" b
+#!/usr/bin/env
+
+import sys
+import argparse
+
+def main():
+    """
+    main.
+    """
+    aparser = argparse.ArgumentParser(
+        formatter_class=argparse.RawTextHelpFormatter,
+        description="Checks if content of ini files are same. \n"
+        "Example:\n"
+        "ini_comparer.py iRPU-01/calvin.conf iRPU-02/calvin.conf iRPU-03/calvin.conf\n"
+        "Checks if these 3 calvin.conf are identical\n"
+        " \n"
+        'ini_comparer.py --part \'{"ishiploader":{"revision":0}, "NTP":{"type":0}}\'  \n'
+        "../iRPU-01/calvin.conf ../iRPU-02/calvin.conf ../iRPU-03/calvin.conf\n"
+        "Checks if '[ishiploader] revision' and '[NTP] type' are identical in all 3 of them\n"
+        "0 are just place holders to create valid json. Have no effect.\n"
+        " \n"
+        "Warning: this is very alpha one. Enough to be used as in the examples.\n"
+        "Contact: zolboo.erdenebayar@indurad.com",
+    )
+    aparser.add_argument("inis", nargs="+")
+    aparser.add_argument(
+        "--part", nargs="?", default="", help="In json format. See example."
+    )
+
+    args = aparser.parse_args()
+
+if __name__ == "__main__":
+    sys.exit(main())
+endsnippet
