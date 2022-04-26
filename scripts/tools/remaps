@@ -16,7 +16,7 @@ xkbcomp -w 0 ~/.config/keyboard/xkbmap${post} $DISPLAY; xmodmap ~/.config/keyboa
 # But when it is pressed only once, treat it as escape.
 killall xcape 2>/dev/null;
 if [[ ! $post == "_def" ]]; then
-  xcape -e 'Super_L=Escape;Control_L=ISO_Level3_Shift|Shift_L|p'
+  xcape -e 'Super_L=Escape;Control_L=ISO_Level3_Shift|Shift_L|p;ISO_Level3_Shift=space'
 fi
 #setxkbmap -layout u s,mn -variant altgr-intl, -option grp:rctrl_rshift_toggle
 i3 'reload'
