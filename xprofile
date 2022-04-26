@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # This file runs when a DM logs you into a graphical session.
 # If you use startx/xinit like a Chad, this file will also be sourced.
@@ -40,8 +40,8 @@ variety &
 xfce4-power-manager &
 xset r rate 300 50 &	# Speed xrate up
 zulip_notifier.py &
-([[ $HOST == 'kellerberg' ]] || xmodmap -e "pointer = 3 2 1") &
-([[ $HOST == 'kellerberg' ]] && feh --bg-fill .config/wall.jpg ) &
+([[ $(cat /etc/hostname) =~ kellerberg|heidenpeters ]] || xmodmap -e "pointer = 3 2 1") &
+([[ $(cat /etc/hostname) =~ kellerberg|heidenpeters ]] && feh --bg-fill .config/wall.jpg ) &
 
 #  podentr &
 

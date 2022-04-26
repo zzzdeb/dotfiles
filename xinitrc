@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # xinitrc runs automatically when you run startx.
 

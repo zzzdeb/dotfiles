@@ -53,10 +53,10 @@ xkb_keymap {
     <AB08> = 46;
     <AB09> = 47;
     <AB10> = 48;
-    <AB11> = 51;
+    <AB11> = 55;
 
     <LFSH> = 54;
-    <LALT> = 55;
+    <LALT> = 51;
     <SPCE> = 58;
     <RCTL> = 59;
     <RWIN> = 60;

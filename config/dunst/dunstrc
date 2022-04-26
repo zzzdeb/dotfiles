@@ -76,12 +76,11 @@
     # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
     # "mod3" and "mod4" (windows-key).
     # Xev might be helpful to find names for keys.
-    
     # Close notification.
-    close = ctrl+space
+    close = ctrl+BackSpace
     close_all = ctrl+shift+period
-    context = shift+space
-    history = ctrl+shift+space
+    context = shift+BackSpace
+    history = ctrl+shift+BackSpace
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
