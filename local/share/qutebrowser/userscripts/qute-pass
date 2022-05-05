@@ -72,7 +72,7 @@ def get_url():
     iweb_regex = re.compile('.*iWEB2')
     title = os.getenv('QUTE_TITLE')
     if iweb_regex.match(title):
-        return 'indurad'
+        return 'iweb2'
     return os.getenv('QUTE_URL')
 
 
