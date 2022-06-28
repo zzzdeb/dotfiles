@@ -1,9 +1,7 @@
 #!/bin/bash
-post="_def"
-if [[ "$1" == "def" ]]; then
+post="_$1"
+if [[ "$1" == "" ]]; then
   post="_def"
-elif [[ "$1" == "n" ]]; then
-  post=""
 fi
 
 export RANGER_LEVEL=
@@ -23,3 +21,4 @@ fi
 #setxkbmap -layout u s,mn -variant altgr-intl, -option grp:rctrl_rshift_toggle
 i3 'reload'
 restart sxhkd
+xinput set-prop $(xinput | grep SynPS | awk '{print $6}' | awk -F '=' '{print $2}') "libinput Tapping Enabled" 1

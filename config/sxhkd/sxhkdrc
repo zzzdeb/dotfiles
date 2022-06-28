@@ -138,6 +138,8 @@ super + {_, shift + } f
   i3-msg {'fullscreen toggle', 'floating toggle; move position 650 150; resize set 1900 1060'}
 super + shift + m
   i3-msg "move workspace to output right"
+super + shift + ctrl + m
+  i3-msg "move workspace to output up"
 super + {o,v}
   i3-msg "split {v,h}"
 super + ctrl + {_, shift + } p

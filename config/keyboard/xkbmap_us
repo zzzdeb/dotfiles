@@ -1,0 +1,183 @@
+xkb_keymap {
+  xkb_keycodes {
+    include "evdev+aliases(qwerty)"
+      minimum = 8;
+      maximum = 255;
+    <AC08> = 32;
+    <AC09> = 33;
+    <AC10> = 34;
+    <AC11> = 35;
+    <RTRN> = 51;
+    //<AC12> = 35;
+    <TAB> = 49;
+    <AD01> = 10;
+    <AD02> = 11;
+    <AD03> = 12;
+    <AD04> = 13;
+    <AD05> = 14;
+    //<AD05> = 15;
+    //<AD06> = 16;
+    <AD07> = 17;
+    <AD08> = 18;
+    <AD09> = 19;
+    <AD10> = 20;
+    <AD11> = 21;
+    <BKSP> = 22;
+    //<AD12> = 21;
+    //<BKSP> = 22;
+
+    <LWIN> = 23;
+    //<ESC> = 23;
+    <AC01> = 24;
+    <AC02> = 25;
+    <AC03> = 26;
+    <AC04> = 27;
+    <AC05> = 28;
+    //<AC05> = 29;
+    <AC06> = 30;
+    <AC07> = 31;
+    //<BKSL> = 51;
+    //alias <AC12> = <BKSL>;
+    // <RTRN> = 36;
+
+    <LCTL> = 66;
+    //<LSGT> = 38;
+    <AB01> = 38;
+    <AB02> = 39;
+    <AB03> = 40;
+    <AB04> = 41;
+    <AB05> = 42;
+    //<AB05> = 43;
+    <AB06> = 44;
+    <AB07> = 45;
+    <AB08> = 46;
+    <AB09> = 47;
+    <AB10> = 48;
+    <AB11> = 55;
+
+    <LFSH> = 54;
+    <LALT> = 36;
+    <SPCE> = 58;
+    <RCTL> = 59;
+    <RWIN> = 60;
+
+    <RALT> = 65;
+
+    alias <DNFN> = <RCTL>;
+    alias <UPFN> = <RALT>;
+
+    <COMP> = 135;
+    alias <MENU> = <COMP>;
+
+    <AE09> = 133;
+  };
+
+  xkb_types     { include "complete"	};
+  xkb_compat    { include "complete"	};
+  xkb_geometry  { include "pc(pc105)"	};
+
+partial modifier_keys
+  xkb_symbols  {
+      include "pc+us(basic)+mn:2+inet(evdev)+group(alt_shift_toggle)"
+    //  name[group1]="English (intl., with AltGr dead keys)";
+
+      name[Group1]="zzz";
+      key.type[Group1] = "EIGHT_LEVEL";
+
+      key <TAB> {	[ Tab, Tab,  grave,	grave]	};
+  //    key <CAPS> {
+  //       type= "ONE_LEVEL",
+  //      symbols=[Hyper_L]
+  //     };
+      //key  <LALT> {
+      //    type= "ONE_LEVEL",
+      //    actions[Group1] = [ SetControls(controls=overlay2)  ]
+      //};
+      //key  <TAB> {
+      //    type= "ONE_LEVEL",
+      //    actions[Group1] = [ SetControls(controls=overlay1)  ]
+      //};
+
+      key <AD01> {[	  	 q,	Q,		exclam		      ,		exclam, F9, F9]	};
+      key <AD02> {
+      //overlay2= <VOL->,
+          symbols[Group1]	=[w,	W,		at		      ,		at,	 F10,		F10		      ]	};
+      key <AD03> {[	  e,	E,		numbersign	,		numbersign,		 F11,		F11]	};
+      key <AD04> {[	  r,	R,		dollar		  ,		dollar,		  	 F12,		F12]	};
+      key <AD05> {[	  t,	T,		percent		  ,		percent,		  	 adiaeresis,		Adiaeresis]	};
+      key <AD07> {[	  u,	U,		ampersand	  ,		ampersand,	  	 udiaeresis,		Udiaeresis]	};
+      key <AD08> {[	  i,	I,		asterisk	  ,		asterisk,	  	 Next,		Next]	};
+      key <AD09> {[	  o,	O,	 backslash, backslash, Prior,		Prior]	};
+      key <AD10> {[	  p,	P,	 EuroSign, ssharp]	};
+      key <AD11> {[	  y,	Y,		asciicircum	,		asciicircum]	};
+      key <ESC> {[ Escape, Escape, question,  question]	};
+      key <BKSP> {[ BackSpace, BackSpace, Delete,  Delete]	};
+
+      key <AC01> {[	  a,	A,	 bracketleft,		bracketleft,		F5,		F5	]	};
+      key <AC02> {[	  s,	S,	 bracketright,		bracketright,		F6,		F6	]	};
+      key <AC03> {[	  d,	D,	 parenleft,   parenleft,		F7,		F7]	};
+      key <AC04> {[	  f,	F,	 parenright,  parenright,		F8,		F8]	};
+      key <AC05> {[	  g,	G,	 minus,		minus	,odiaeresis, Odiaeresis]	};
+      key <AC06> {[	  h,	H,	 plus,		plus, ssharp,          ssharp ]	};
+      key <AC07> {[	  j,	J,	 braceright, braceright,   Left 	,Left ]	};
+      key <AC08> {[	  k,	K,	 braceleft,  braceleft , Down 	,Down]	};
+      key <AC09> {[	  l,	L,	 equal,		equal,   Up 	,Up ]	};
+      key <AC10> {[	  semicolon,	colon,	 bar,		bar,  Right 	,Right  ]	};
+      key <AC11> {[	  apostrophe,	quotedbl,	 dead_diaeresis, dead_diaeresis]	};
+      key <RTRN> {[ Return, Return, asciitilde,  asciitilde]	};
+      //key <AC11> {[	  apostrophe,	quotedbl,	 backslash,		backslash,	bar		,		bar	]	};
+
+
+      //<LFSH> = 50;
+      key <AB01> {[	  z,	Z,	 1,		1, F1, F1]	};
+      key <AB02> {[	  x,	X, 2,	2, F2, F2]	};
+      key <AB03> {[	  c,	C,	 3,		3, F3, F3]	};
+      key <AB04> {[  v,	V,  4,   4, F4, F4]	};
+      key <AB05> {[	  b,	B,	5, 5]	};
+      key <AB06> {[	  n,	N,		6,	6, Next, Next]};
+      key <AB07> {[	  m,	M,	7,	7, Prior,		Prior		]	};
+      key <AB08> {[	  comma,	less		 ,	8,		8,	 Next,		Next]	};
+      key <AB09> {[	 period,	greater	, 9, 9]	};
+      key <AB10> {[	  slash,	question,  0,   0]	};
+      key <AB11> {[ backslash, bar, bar, bar]	};
+
+      key <SPCE> {[ space, space, underscore, underscore	]	};
+
+
+      //key <RTSH> {	[	 XF86WakeUp		]	};
+      key <LSGT> {		 
+          type= "ONE_LEVEL",
+          symbols= [ Control_L ]
+          };
+      key <AA01> {	[	 XF86WakeUp 		]	};
+      //key <AA02> {	[	  Super_L		]	};
+      //key <AA03> {	[	  Control_R		]	};
+      //key <AA04> {	[	  space	]	};
+      key <AA05> {	[	  space	]	};
+      key <AA06> {	[	  Alt_R 		]	};
+      //key <AA07> {	[	  Left	,Left 	,XF86AudioNext 	,XF86AudioNext 	,Left 	,Left  ]	};
+      key <AA08> {	[   Prior	,Prior 	,XF86AudioLowerVolume ,XF86AudioLowerVolume ,Down 	,Down  ]	};
+      key <AA09> {	[   Next		,Next	 		,XF86AudioRaiseVolume	 ,XF86AudioRaiseVolume	 	,Up	 		,Up	 	 ]	};
+      //key <AA10> {	[   Next,Next, XF86AudioPlay 	,XF86AudioPlay 	,Right 	,Right ]	};
+
+      modifier_map Shift { <LFSH> };
+      modifier_map Shift { <RTSH> };
+      modifier_map Mod1 { <LALT> };
+      modifier_map Mod4 { <CAPS> };
+      modifier_map Mod2 { <NMLK> };
+      modifier_map Mod5 { <LVL3> };
+      modifier_map Control { <RCTL> };
+      modifier_map Mod4 { <LWIN> };
+      modifier_map Mod4 { <RWIN> };
+      modifier_map Mod5 { <MDSW> };
+      modifier_map Mod1 { <META> };
+      modifier_map Mod4 { <SUPR> };
+      modifier_map Mod4 { <HYPR> };
+
+      include "level3(ralt_switch)"
+      include "level5(rctrl_switch)"
+
+      modifier_map Control { <LCTL> };
+      modifier_map Control { Control_L };
+   };
+};
