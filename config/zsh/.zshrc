@@ -127,12 +127,5 @@ mcd() {
 ###############################################################
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
-
-if [ -f "$HOME/.bashrc" ]; then
-  # from Zeile 101
-  autoload bashcompinit
-  bashcompinit
-  eval "$(tail -n +112 ~/.bashrc)"
-fi
 compctl -W ~/localstorage/workspace/ -/ gp
 export PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"

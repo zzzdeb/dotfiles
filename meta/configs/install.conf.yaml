@@ -63,6 +63,7 @@
     ~/.config/mimeapps.list: config/mimeapps.list
     ~/.config/user-dirs.dirs: config/user-dirs.dirs
     ~/.config/vifm: config/vifm
+    ~/.ideavimrc: ideavimrc
 
 - shell:
   # - mkdir -p ~/.rtorrent/session ~/.rtorrent/watch ~/.rtorrent/downloads

@@ -12,7 +12,7 @@
 export $(dbus-launch)
 export XDG_CURRENT_DESKTOP=i3
 export WORKSPACE2="2: "
-export WORKSPACE3="3: 日本"
+export WORKSPACE3="3: "
 export WORKSPACE4="4: "
 export WORKSPACE6="6: "
 export WORKSPACE7="7: "

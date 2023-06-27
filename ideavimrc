@@ -1,0 +1,9 @@
+noremap j h
+noremap k j
+noremap l k
+noremap ; l
+
+nnoremap <c-j> <c-w>h
+nnoremap <c-;> <c-w>l
+nnoremap vv <c-w>v
+nnoremap q :wq<cr>

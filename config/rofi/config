@@ -3,7 +3,7 @@ configuration {
 	width: 30;
 	lines: 3;
 /*	columns: 1;*/
-/*	font: "mono 12";*/
+  font: "mono 20";
 	bw: 0;
 /*	location: 0;*/
 /*	padding: 5;*/
@@ -138,4 +138,4 @@ run-shell-command: "{terminal} -e {cmd}";
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
 /* rofi.theme: /usr/share/rofi/themes/DarkBlue.rasi */
-rofi.theme: /usr/share/rofi/themes/purple.rasi
+/* rofi.theme: /usr/share/rofi/themes/purple.rasi */

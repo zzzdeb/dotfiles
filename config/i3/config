@@ -1,3 +1,4 @@
+# i3 config file (v4)
 #hide_edge_borders both
 #focus_follows_mouse no
 #workspace_auto_back_and_forth yes
@@ -5,11 +6,12 @@
 # is used in the bar {} block below.
 # new_window pixel
 default_border pixel
+set_from_resource $fontsize fontsize 13
 
 # font pango:System San Francisco Display, FontAwesome 13
 # font pango:Hack 13
 # font pango:ProFont 11
-font pango:Hack, FontAwesome, Ubuntu Nerd Font 13
+font pango:Hack, FontAwesome, Ubuntu Nerd Font $fontsize
 #bindsym $mod+comma border none
 # bindsym $mod+comma bar mode toggle
 # for_window [class="^.*"] border pixel 0
@@ -98,7 +100,7 @@ no_focus [title="mpvfloat"]
 for_window [class="^Ires20$"] floating disable
 
 set $workspace2 "2: "
-set $workspace3 "3: 日本"
+set $workspace3 "3: "
 set $workspace4 "4: "
 set $workspace6 "6: "
 set $workspace7 "7: "
