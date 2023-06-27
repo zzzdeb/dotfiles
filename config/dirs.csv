@@ -28,6 +28,7 @@ me	/run/media/zzz
 p9	~/localstorage/workspace/P90900E/repos/project
 p3	~/localstorage/workspace/P33617/repos/project
 L	~/localstorage
-w	~/localstorage/workspace
+w	~/work
 S	~/shares
 .t	~/.tools
+cv	~/Studium/CV2
