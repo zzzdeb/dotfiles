@@ -18,13 +18,13 @@ super+shift+Return
   samedir
 # Qutebrowser sessions
 super+a; {a, b, c, m, j}
-  {ls $HOME/.local/share | grep qutebrowser_ | sed 's/qutebrowser_//' | rofi -dmenu | xargs qb_session, qb_session bachelor,qb_session cpp,qb_session malo,qb_session japanese}
+  {ls $HOME/.local/share | grep qutebrowser_ | sed 's/qutebrowser_//' | rofi -dmenu $HOME/.config/rofi/config | xargs qb_session, qb_session bachelor,qb_session cpp,qb_session malo,qb_session japanese}
 # Clipmenu
 super+c
   clipmenu
 # Launcher
 super+d
-  rofi -show combi -display-drun "" -display-run "" -combi-modi "drun#run" -modi combi -show-icons
+  rofi -show combi -display-drun "" -display-run "" -combi-modi "drun#run" -modi combi -show-icons -config $HOME/.config/rofi/config
 # Xrandr invert color, dark mode
 super+ctrl+i
   dark_mode.sh
@@ -102,7 +102,8 @@ super + Next
 super + XF86MonBrightness{Up,Down}
   xbacklight.py HDMI-1 {+,-}0.1
 
-
+Print
+  flameshot gui -r | tee ~/Pictures/Flameshot_$(date +%Y-%m-%d_%H-%M-%S).jpg | xcp
 super + Print
   maim Pictures/screenshot-"$(date '+%y%m%d-%H%M-%S').png"
 super + shift+Print

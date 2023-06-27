@@ -71,8 +71,9 @@ alias \
 	ac="autorandr -c" \
 	p1="ping 1.1.1.1" \
 	xc="xclip -sel clip" \
+	xcp="xclip -sel clip -target image/png -i" \
 	kx="killall xcape" \
-	fs='flameshot gui -r > ~/Pictures/Flameshot_$(date +%Y-%m-%d_%H-%M-%S).jpg' \
+	fs='flameshot gui -r | tee ~/Pictures/Flameshot_$(date +%Y-%m-%d_%H-%M-%S).jpg | xcp' \
 	/="ack" \
 
 

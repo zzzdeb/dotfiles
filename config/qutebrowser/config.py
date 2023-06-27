@@ -35,6 +35,8 @@ c.colors.statusbar.caret.selection.bg = 'purple'
 #  c.colors.tabs.selected.even.bg = '#194d19'
 c.colors.tabs.selected.even.bg = 'blue'
 c.colors.tabs.selected.odd.bg = c.colors.tabs.selected.even.bg
+c.fonts.default_size = '15pt'
+c.zoom.default = '125%'
 
 # c.? are options set at launch.
 c.auto_save.session = True

@@ -6,11 +6,12 @@
 # is used in the bar {} block below.
 # new_window pixel
 default_border pixel
+set_from_resource $fontsize fontsize 13
 
 # font pango:System San Francisco Display, FontAwesome 13
 # font pango:Hack 13
 # font pango:ProFont 11
-font pango: mono, JoyPoxels, DejaVu Sans Mono for Powerline 13
+font pango: mono, JoyPoxels, DejaVu Sans Mono for Powerline $fontsize
 #gaps inner 0
 #gaps right 0
 # gaps right 400

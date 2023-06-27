@@ -59,3 +59,5 @@
 	rebase = true
 [init]
 	templateDir = /home/zerdenebayar/.git-template
+[credential]
+	helper = cache --timeout=720000
