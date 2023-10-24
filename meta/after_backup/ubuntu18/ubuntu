@@ -1,9 +1,9 @@
 # softwares
-apt install vim qjoypad firefox chromium-browser sshfs gimp xfce4-terminal git zsh curl variety redshift-gtk synaptic keynav mpv   htop  classicmenu-indicator  pdfgrep udevil
-snap install telegram-desktop
+apt install vim qjoypad firefox chromium-browser sshfs gimp xfce4-terminal git zsh curl variety redshift-gtk synaptic keynav mpv   htop  classicmenu-indicator  pdfgrep udevil libx11-xcb-dev libxft-dev sxhkd bat qtwebengine5-dev python3-pip xclip flameshot pass compton sxiv
+snap install telegram-desktop 
 
 
 # ranger
-apt install xsel #for copy path
- python-pip
- gnome-screensaver
+apt install xsel \
+ python3-pip \
+ gnome-screensaver \
