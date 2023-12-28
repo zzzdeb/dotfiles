@@ -76,6 +76,12 @@ alias \
 	fs='flameshot gui -r | tee ~/Pictures/Flameshot_$(date +%Y-%m-%d_%H-%M-%S).jpg | xcp' \
 	/="ack" \
 
+# indurad
+alias \
+	cDf="(calvin --color -D -M ../../monolith -n builds/calvin && notify-send 'cD done.  Success;') || notify-send 'cD done. Error'" \
+	cD="(calvin -O --skip-project-version-validation --skip-python-validation --color -M ../../monolith -n builds/calvin && notify-send 'cD done.  Success;') || notify-send 'cD done. Error'" \
+	main="export LD_LIBRARY_PATH=$PWD/lib && ./main" \
+
 
 # This alias is important. It enables the `pauseallmpv` command.
 alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
@@ -100,8 +106,10 @@ function qe() {
 	v ~/.local/share/qutebrowser_$1/config/custom_config.py
 }
 
-,e() { du --exclude-from=$HOME/.config/du_excludes  -a ~/.scripts/* ~/.config/* ~/.dotfiles/*(N) /var/lib/transmission/.config/*(N) | cut -d$'\t' -f2- | fzf | xargs -d '\n' -r $EDITOR ;}
+,e() { du --exclude-from=$HOME/.config/du_excludes  -a ~/.scripts/* ~/scripts/*(N) ~/.config/* ~/.dotfiles/*(N) /var/lib/transmission/.config/*(N) | cut -d$'\t' -f2- | fzf | xargs -d '\n' -r $EDITOR ;}
 ,t() { fzf | xargs -d '\n' -r -I % $EDITOR % ;}
+gp() { ([ -z "$1" ] && cd -- "$HOME/localstorage/workspace/$(cd ~/localstorage/workspace; /usr/bin/find P* -maxdepth 2 -type d | cut -d$'\t' -f2- | fzf)") || cd "$HOME/localstorage/workspace/$1" }
+
 cdf() { cd -- "$(du | cut -d$'\t' -f2- | fzf)"}
 cdp() { cd -- "$(/usr/bin/ls -C -d ~/dev/git/*(N) ~/dev/projects/*(N) ~/localstorage/dev/*(N) | fzf;)"}
 

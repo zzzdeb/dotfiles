@@ -68,9 +68,16 @@ def expanded_path(path):
     # Add trailing slash if not present
     return os.path.join(expanded, '')
 
+def get_url():
+    iweb_regex = re.compile('.*iWEB2')
+    title = os.getenv('QUTE_TITLE')
+    if iweb_regex.match(title):
+        return 'iweb2'
+    return os.getenv('QUTE_URL')
+
 
 argument_parser = argparse.ArgumentParser(description=__doc__, usage=USAGE, epilog=EPILOG)
-argument_parser.add_argument('url', nargs='?', default=os.getenv('QUTE_URL'))
+argument_parser.add_argument('url', nargs='?', default=get_url())
 argument_parser.add_argument('--password-store', '-p',
                              default=expanded_path(os.getenv('PASSWORD_STORE_DIR', default='~/.password-store')),
                              help='Path to your pass password-store (only used in pass-mode)', type=expanded_path)

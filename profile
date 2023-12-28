@@ -15,7 +15,7 @@ export ENVMODE='indurad'
 
 # set PATH so it includes user's private bin if it exists
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="$PATH:$(du "$HOME/.scripts/" "$HOME/localstorage/homebrew/bin/*(N)" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
 # Default programs:
 export EDITOR="nvim"
@@ -26,7 +26,7 @@ export FILE="ranger"
 export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
 export DMENU="rofi -dmenu -i"
 export CALENDAR="gcalendar"
-export EMAIL="gmail"
+export EMAIL="thunderbird"
 
 # ~/ Clean-up:
 # export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" # This line will break some DMs.

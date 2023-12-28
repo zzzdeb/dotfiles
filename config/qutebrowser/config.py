@@ -127,12 +127,15 @@ c.url.searchengines = {
 "!sp": "https://www.startpage.com/do/dsearch?query={}",
 "!pirate": "https://www.pirate-bay.net/search?q={}",
 "!torrent": "https://www.pirate-bay.net/search?q={}",
+    "g" :"https://git.indurad.x/search?utf8=%E2%9C%93&search={}&group_id=&project_id=&snippets=false&repository_ref=&nav_source=navbar",
+    "w" :"https://wiki.indurad.x/foswiki/bin/view/Main/WebSearch?tab=search&search={}&scope=all",
 }
 if ENVMODE == 'indurad':
     c.url.searchengines.update({
         "g": "https://git.indurad.x/search?utf8=%E2%9C%93&search={}&group_id=&project_id=&snippets=false&repository_ref=&nav_source=navbar",
         "w": "https://wiki.indurad.x/foswiki/bin/view/Main/WebSearch?search={}&scope=all&web=Main",
         "j": "https://jenkins.indurad.x/search/?q={}&Jenkins-Crumb=8bfe1ab4d1d762edca143d9a7be37aae752c17de126e62349d4a2d2604993772",
+        "r": "https://redmine.indurad.x/issues/{}"
     })
 
 
@@ -192,6 +195,9 @@ c.hints.selectors["div"] = [
 c.hints.selectors["ad"] = [
     "a.pull-right > span.glyphicons-remove",
 ]
+c.hints.selectors["issuesubject"] = [
+    'span[data-name="issue[subject]"]'
+]
 
 if DIRMODUS == 'jkl;':
     config.bind('<ctrl-j>', 'back')
@@ -238,6 +244,8 @@ if DIRMODUS == 'jkl;':
     config.bind('hv','hint video yank')
     config.bind('hyy','hint links yank')
     config.bind('hyd','hint div userscript copy_selected.py')
+
+    config.bind('h,s','hint --first issuesubject userscript copy_selected.py')
 
 
 config.source('custom_config.py')
