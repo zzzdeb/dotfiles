@@ -10,9 +10,6 @@
 [submodule "fzf"]
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
-[submodule "meta/dotbot_plugins/aptget"]
-	path = meta/dotbot_plugins/aptget
-	url = https://github.com/dein0s/dotbot_plugin_aptget
 [submodule "meta/dotbot_plugins/pip"]
 	path = meta/dotbot_plugins/pip
 	url = https://github.com/sobolevn/dotbot-pip
