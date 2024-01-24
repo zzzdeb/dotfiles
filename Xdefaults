@@ -4,7 +4,7 @@ st.xfps: 390
 st.alpha: 0.82
 
 !! Set a default font and font size as below:
-*.font: Monospace-15;
+*.font: DejaVuSansM Nerd Font-15
 *.fontsize: 15
 
 ! st.termname: st-256color
