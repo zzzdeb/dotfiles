@@ -1,2 +1,4 @@
 __pycache__/*
 CMakeLists_idat.txt
+**/build
+**/cmake-build-debug*/
