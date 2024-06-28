@@ -61,3 +61,5 @@
 	templateDir = /home/zerdenebayar/.git-template
 [credential]
 	helper = cache --timeout=720000
+[checkout]
+	defaultRemote = origin
