@@ -10,6 +10,8 @@
 
 [ -d "$HOME/.Xdefaults" ] && xrdb $HOME/.Xdefaults
 
+eval $(keychain --eval main)
+
 export DIRMODUS='jkl;'
 export ENVMODE='indurad'
 

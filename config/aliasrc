@@ -82,6 +82,7 @@ alias \
 	cDf="(calvin --color -D -M ../../monolith -n builds/calvin && notify-send 'cD done.  Success;') || notify-send 'cD done. Error'" \
 	clm="(calvin -D -n -M \`git rev-parse --show-toplevel\`/../monolith  -m="-j16" build/calvin_lm && notify-send 'cD done.  Success;') || notify-send 'clm done. Error'" \
 	clmld="(calvin -D -n -M \`git rev-parse --show-toplevel\`/../monolith --target localdev -m="-j16" --platform local build/calvin_local_lm && notify-send 'clmld done.  Success;') || notify-send 'clmld done. Error'" \
+	cld="(calvin -D -n --target localdev -m="-j16" --platform local build/calvin_local_lm && notify-send 'clmld done.  Success;') || notify-send 'clmld done. Error'" \
 	main_old="export LD_LIBRARY_PATH=$PWD/lib && ./main -v 5" \
 	main="build/_ARTIFACT/SOFT/bin/indurad-launcher --main='-v 5 -m replay'" \
 	mainh="build/_ARTIFACT/SOFT/bin/indurad-launcher --main='-v 5 -m replay' --hermes-proxy" \
