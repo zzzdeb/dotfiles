@@ -30,6 +30,7 @@
     ~/.config/fontconfig : config/fontconfig
     ~/.config/networkmanager-dmenu/config.ini : config/networkmanager-dmenu/config.ini
     ~/.config/wget/wgetrc : config/wget/wgetrc
+    ~/.config/ccache : config/ccache
 
     # ~/.aria2/aria2.conf:
     # ~/.axelrc:
