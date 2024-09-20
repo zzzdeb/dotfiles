@@ -23,7 +23,7 @@ export PATH="$PATH:$(du "$HOME/scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="qutebrowser"
+export BROWSER="firefox-esr"
 export READER="zathura"
 export FILE="ranger"
 export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
