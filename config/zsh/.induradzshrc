@@ -1,0 +1,2 @@
+compctl -W ~/localstorage/workspace/ -/ gp
+export PATH=$PATH:${HOME}/localstorage/dev/project-cli

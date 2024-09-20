@@ -122,11 +122,11 @@ mcd() {
 }
 
 
+source ~/.config/zsh/.induradzshrc
+
 ###############################################################
 # Software settings
 ###############################################################
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
-compctl -W ~/localstorage/workspace/ -/ gp
-export PATH=$PATH:${HOME}/localstorage/dev/project-cli
 export PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"
