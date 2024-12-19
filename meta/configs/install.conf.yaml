@@ -60,6 +60,7 @@
     ~/.config/fontawesome: config/fontawesome
     ~/.icons:
     ~/.local/share/applications/custom: local/share/applications/custom
+    ~/.local/share/gnupg/gpg-agent.conf: local/share/gnupg/gpg-agent.conf
 
     ~/.config/mimeapps.list: config/mimeapps.list
     ~/.config/user-dirs.dirs: config/user-dirs.dirs

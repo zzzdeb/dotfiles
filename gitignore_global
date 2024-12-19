@@ -5,3 +5,5 @@ CMakeLists_idat.txt
 **/.idea/
 __pycache__
 cmake-build-*
+components/iweb4/node_modules
+.venv
