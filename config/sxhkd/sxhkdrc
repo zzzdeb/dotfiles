@@ -58,10 +58,6 @@ super + Q; {l, e, s, h, H, r, S, g}
 super + comma; {a,b, B, d, h, k, l, m, M, o, O, r, S, s, t, u, v, V, w, W, x, X, z, slash}
   {dmenurecord, rofi -show windowcd -lines 15,vertical_bar_pos.sh,i3 "bar mode toggle",help-shortcut,i3 'sticky toggle',extbacklight,i3-msg 'move workspace to output right',i3-msg 'move workspace to output up',i3order, i3order --split 3,sudo /usr/bin/systemctl restart NetworkManager,i3 'move scratchpad',i3 'scratchpad show',rofi -show window -lines 15,dmenuunicode,vpntoggle 'vpn-default',vpntoggle 'PIA - Switzerland',sxivw,i3 'floating enable;;exec 21_9_width',fixit.sh l,fixit.sh d,i3zen toggle,ducksearch}
 
-# music
-super + m; {a, j, o, p, l, n, t, q, space, N, r, semicolon, XF86AudioLowerVolume, XF86AudioRaiseVolume}
-  {mpd_controll -a, lmc backward, mpd_controll -o, mpd_controll -p, mpd_controll -l, lmc next, mpd_controll -t, mpc stop, lmc toggle, lmc prev, lmc replay, lmc forward, mpc volume -5, mpc volume +5}
-
 # # Audiokeys
 XF86AudioMute
   lmc mute

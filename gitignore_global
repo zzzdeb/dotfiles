@@ -7,3 +7,5 @@ __pycache__
 cmake-build-*
 components/iweb4/node_modules
 .venv
+components/iweb4/public
+config-local.js

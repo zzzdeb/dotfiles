@@ -10,6 +10,7 @@ export INDURAD_PRECOMMIT_AUTO_FIX=1
 
 compctl -W ~/localstorage/workspace/ -/ gp
 export PATH=$PATH:${HOME}/localstorage/dev/project-cli
+export PATH=$PATH:${HOME}/localstorage/dev/monolith/install/bin
 
 # indurad
 alias \

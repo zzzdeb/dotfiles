@@ -73,7 +73,7 @@ alias \
 	xc="xclip -sel clip" \
 	xcp="xclip -sel clip -target image/png -i" \
 	kx="killall xcape" \
-	fs='flameshot gui -r | tee ~/Pictures/Flameshot_$(date +%Y-%m-%d_%H-%M-%S).jpg | xcp' \
+	fs='env QT_SCREEN_SCALE_FACTORS="0.66667" flameshot gui -r | tee ~/Pictures/Flameshot_$(date +%Y-%m-%d_%H-%M-%S).jpg | xcp' \
 	/="ack" \
 
 # This alias is important. It enables the `pauseallmpv` command.
