@@ -12,3 +12,9 @@ if:
 then: 
     local/share/gnupg/gnu-agent pinentry
     remove ~/.gnupg
+
+
+if:
+    vscode authentification does not work
+then:
+    cancel 3 times until it shows code to use for other login
