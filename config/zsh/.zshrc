@@ -60,6 +60,7 @@ if ! zgen saved; then
     # zgen oh-my-zsh themes/arrow
     # zgen load bhilburn/powerlevel9k powerlevel9k
     zgen load romkatv/powerlevel10k powerlevel9k
+    zgen load svenXY/timewarrior
 
     # save all to init script
     zgen save
@@ -128,5 +129,5 @@ source ~/.config/zsh/.induradzshrc
 # Software settings
 ###############################################################
 
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 export PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"
+source $HOME/.dotfiles/submodules/fzf-git.sh
