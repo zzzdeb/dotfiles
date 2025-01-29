@@ -13,13 +13,15 @@ compctl -W ~/localstorage/workspace/ -/ gp
 export PATH=$PATH:${HOME}/localstorage/dev/project-cli
 export PATH=$PATH:${HOME}/localstorage/dev/monolith/install/bin
 
+export CALVIN_CORE=4
+
 # indurad
 alias \
 	cDc="calvin -D" \
 	cDf="(calvin --color -D -M ../../monolith -n builds/calvin && notify-send 'cD done.  Success;') || notify-send 'cD done. Error'" \
-	clm="(calvin -D -n -M \`git rev-parse --show-toplevel\`/../monolith  -m="-j16" build/calvin_lm && notify-send 'cD done.  Success;') || notify-send 'clm done. Error'" \
-	clmld="(calvin -D -n -M \`git rev-parse --show-toplevel\`/../monolith --target localdev -m="-j16" --platform local build/calvin_local_lm && notify-send 'clmld done.  Success;') || notify-send 'clmld done. Error'" \
-	cld="(calvin -D -n -m="-j16" --platform local --target localdev build/calvin_local && notify-send 'clmld done.  Success;') || notify-send 'clmld done. Error'" \
+	clm="(calvin -D -n -M \`git rev-parse --show-toplevel\`/../monolith  -m='-j${CALVIN_CORE}' build/calvin_lm && notify-send 'cD done.  Success;') || notify-send 'clm done. Error'" \
+	clmld="(calvin -D -n -M \`git rev-parse --show-toplevel\`/../monolith --target localdev -m='-j${CALVIN_CORE}' --platform local build/calvin_local_lm && notify-send 'clmld done.  Success;') || notify-send 'clmld done. Error'" \
+	cld="(calvin -D -n -m='-j${CALVIN_CORE}' --platform local --target localdev build/calvin_local && notify-send 'clmld done.  Success;') || notify-send 'clmld done. Error'" \
 	main_old="export LD_LIBRARY_PATH=$PWD/lib && ./main -v 5" \
 	main="build/_ARTIFACT/SOFT/bin/indurad-launcher --main='-v 5 -m replay'" \
 	mainh="build/_ARTIFACT/SOFT/bin/indurad-launcher --main='-v 5 -m replay' --hermes-proxy" \
@@ -27,6 +29,7 @@ alias \
 	mainlh="build/_ARTIFACT/SOFT/bin/indurad-launcher --main='-m live -v 5' --hermes-proxy" \
 	hermesp="build/_ARTIFACT/SOFT/bin/indurad-launcher --hermes-proxy" \
 	cidat="build/_ARTIFACT/SOFT/bin/indurad-launcher --idat" \
+	il="build/_ARTIFACT/SOFT/bin/indurad-launcher" \
 
 
 gp() { ([ -z "$1" ] && cd -- "$HOME/localstorage/workspace/$(cd ~/localstorage/workspace; /usr/bin/find P* -maxdepth 2 -type d | cut -d$'\t' -f2- | fzf)") || cd "$HOME/localstorage/workspace/$1" }
