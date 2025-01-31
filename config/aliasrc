@@ -6,7 +6,6 @@ command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 alias \
 	cat="bat" \
 	diff="diff-so-fancy" \
-	find="fd" \
 	fzf="fzf --preview=\"bat {} --color=always\"" \
 
 # Verbosity and settings that you pretty much just always are going to want.

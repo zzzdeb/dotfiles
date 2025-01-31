@@ -36,6 +36,7 @@ if [ -f "$archive" ] ; then
 		*.exe) cabextract "$archive" ;;
 		*.jar) jar xf "$archive" ;;
 		*.ifus2) ifus2soft.py --extract-path "." "$archive" ;;
+		*.zst) zstd -d --output-dir-flat . "$archive" ;;
 		*) printf "extract: '%s' - unknown archive method\\n" "$archive" ;;
 	esac
 else

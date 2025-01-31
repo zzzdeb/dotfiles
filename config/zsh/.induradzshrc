@@ -31,6 +31,11 @@ alias \
 	cidat="build/_ARTIFACT/SOFT/bin/indurad-launcher --idat" \
 	il="build/_ARTIFACT/SOFT/bin/indurad-launcher" \
 
+function twdone() {
+	local id="$1"
+	tw tag ${id} x && tw untag ${id} o
+	twsi o
+}
 
 gp() { ([ -z "$1" ] && cd -- "$HOME/localstorage/workspace/$(cd ~/localstorage/workspace; /usr/bin/find P* -maxdepth 2 -type d | cut -d$'\t' -f2- | fzf)") || cd "$HOME/localstorage/workspace/$1" }
 cdp() { cd -- "$(/usr/bin/ls -C -d ~/dev/git/*(N) ~/dev/projects/*(N) ~/localstorage/dev/*(N) | fzf;)"}

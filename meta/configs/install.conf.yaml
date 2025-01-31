@@ -31,6 +31,7 @@
     ~/.config/networkmanager-dmenu/config.ini : config/networkmanager-dmenu/config.ini
     ~/.config/wget/wgetrc : config/wget/wgetrc
     ~/.config/ccache : config/ccache
+    ~/.config/timewarrior : config/timewarrior
 
     # ~/.aria2/aria2.conf:
     # ~/.axelrc:
