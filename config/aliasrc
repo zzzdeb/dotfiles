@@ -53,7 +53,7 @@ alias \
 	y="yay" \
 	,gs="git status" \
 	,gc="git commit" \
-	,gch="git checkout" \
+	,gck="git checkout" \
 	,gcm="git commit -m" \
 	,gfa="git fetch --all" \
 	,gpl="git pull" \
@@ -103,3 +103,14 @@ function qe() {
 
 cdf() { cd -- "$(du | cut -d$'\t' -f2- | fzf)"}
 cdt() { cd -- "$HOME/Downloads/Torrent/$(/usr/bin/ls -C --format=single-column ~/Downloads/Torrent | fzf;)"}
+
+gfixup() {
+	rev=$(_fzf_git_hashes)
+	[[ $rev == "" ]] && return
+	git commit --fixup ${rev} && git rebase -i --autostash --autosquash ${rev}^ && echo --------git status---------- && git status
+}
+gdrop() {
+	rev=$(_fzf_git_hashes)
+	[[ $rev == "" ]] && return
+	git rebase -i --autostash --autosquash ${rev}^ && echo --------git status---------- && git status
+}
