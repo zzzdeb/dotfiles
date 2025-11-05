@@ -99,7 +99,7 @@ super + XF86MonBrightness{Up,Down}
   xbacklight.py HDMI-1 {+,-}0.1
 
 Print
-  flameshot gui -r | tee ~/Pictures/Flameshot_$(date +%Y-%m-%d_%H-%M-%S).jpg | xcp
+  flameshot gui -c -p ~/Pictures/Flameshot_$(date +%Y-%m-%d_%H-%M-%S).jpg
 super + Print
   maim Pictures/screenshot-"$(date '+%y%m%d-%H%M-%S').png"
 super + shift+Print

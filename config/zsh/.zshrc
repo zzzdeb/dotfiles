@@ -131,3 +131,5 @@ source ~/.config/zsh/.induradzshrc
 
 export PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"
 source $HOME/.dotfiles/submodules/fzf-git.sh
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

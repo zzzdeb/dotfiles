@@ -68,3 +68,5 @@
 	gpgsign = true
 [checkout]
 	defaultRemote = origin
+[diff]
+	submodule = log

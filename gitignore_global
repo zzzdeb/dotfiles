@@ -12,3 +12,5 @@ components/iweb4/public
 config-local.js
 *.egg-info
 .artifacts
+_ARTIFACT
+.vscode
