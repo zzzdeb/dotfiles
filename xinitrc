@@ -12,14 +12,14 @@
 export $(dbus-launch)
 export XDG_CURRENT_DESKTOP=i3
 export WORKSPACE1="1"
-export WORKSPACE2="2: "
-export WORKSPACE3="3: "
-export WORKSPACE4="4: "
+export WORKSPACE2="2"
+export WORKSPACE3="3"
+export WORKSPACE4="4"
 export WORKSPACE5="5"
-export WORKSPACE6="6: "
-export WORKSPACE7="7: "
-export WORKSPACE8="8: "
+export WORKSPACE6="6"
+export WORKSPACE7="7"
+export WORKSPACE8="8"
 export WORKSPACE9="9"
-export WORKSPACE0="10: "
+export WORKSPACE0="10"
 [ -f ~/.xprofile ] && . ~/.xprofile
 exec i3

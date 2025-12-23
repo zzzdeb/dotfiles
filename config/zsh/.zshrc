@@ -133,3 +133,12 @@ export PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV
 source $HOME/.dotfiles/submodules/fzf-git.sh
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(register-python-argcomplete pipx)"
+
+# discover_other_daemon: 1GNOME_KEYRING_CONTROL=/run/user/5470/keyring
+# export SSH_AUTH_SOCK=/run/user/5470/keyring/ssh
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -d "$HOME/node_modules/.bin" ] && export PATH="$HOME/node_modules/.bin:$PATH"

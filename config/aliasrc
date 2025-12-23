@@ -4,7 +4,6 @@ command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 
 # Uses non default software
 alias \
-	cat="bat" \
 	diff="diff-so-fancy" \
 	fzf="fzf --preview=\"bat {} --color=always\"" \
 

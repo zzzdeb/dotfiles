@@ -50,6 +50,7 @@ export MPLAYER_HOME="$XDG_CONFIG_HOME"/mplayer
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export GEM_HOME="$XDG_DATA_HOME"/gem
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
+export NPM_PACKAGES="${XDG_DATA_HOME}/npm-packages"
 
 # Other program settings:
 # less/man colors
