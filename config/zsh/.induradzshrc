@@ -3,10 +3,10 @@
 # export GDK_SCALE=1.5
 # export GDK_DPI_SCALE=0.5
 # export QT_AUTO_SCREEN_SET_FACTOR=0
-export QT_SCALE_FACTOR=1.5
-export QT_FONT_DPI=96
-export CMAKE_GENERATOR=Ninja
+[[ $(cat /etc/hostname) =~ kellerberg ]] && export QT_SCALE_FACTOR=1.5 && export REVERSE_SCALE=0.66
+[[ $(cat /etc/hostname) =~ kellerberg ]] && export QT_FONT_DPI=96
 
+export CMAKE_GENERATOR=Ninja
 export INDURAD_PRECOMMIT_AUTO_FIX=1
 
 compctl -W ~/localstorage/workspace/ -/ gp
@@ -28,6 +28,8 @@ function _get_irpu_root() {
 alias \
 	clD="calvin -D" \
 	cald="(calvin -D -n -m='-j${CALVIN_CORE}' build/calvin && notify-send 'cald done.  Success;') || notify-send 'clmld done. Error'" \
+	cC="calvin -C build/calvin_checkout" \
+	cDf="(calvin --color -D -M ../../monolith -n build/calvin && notify-send 'cD done.  Success;') || notify-send 'cD done. Error'" \
 	clm="(calvin -D -n -M \`git rev-parse --show-toplevel\`/../monolith  -m='-j${CALVIN_CORE}' build/calvin_lm && notify-send 'cD done.  Success;') || notify-send 'clm done. Error'" \
 	clmld="(calvin -D -n -M \`git rev-parse --show-toplevel\`/../monolith --target localdev -m='-j${CALVIN_CORE}' --platform local build/calvin_local_lm && notify-send 'clmld done.  Success;') || notify-send 'clmld done. Error'" \
 	cld="(calvin -D -n -m='-j${CALVIN_CORE}' --platform local --target localdev build/calvin_local && notify-send 'clmld done.  Success;') || notify-send 'clmld done. Error'" \
@@ -64,4 +66,3 @@ function fix_node_modules() {
  ln -s ${build_node_modules} ${monolith_node_modules}
 }
 
-[ -d "$HOME/.local/bin" ] && PATH="$HOME/node_modules/.bin:$PATH"
