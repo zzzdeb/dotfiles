@@ -1,0 +1,16 @@
+__pycache__/*
+CMakeLists_idat.txt
+**/build
+**/cmake-build-debug*/
+**/.idea/
+**/iWEB2/config-local.js
+__pycache__
+cmake-build-*
+components/iweb4/node_modules
+.venv
+components/iweb4/public
+config-local.js
+*.egg-info
+.artifacts
+_ARTIFACT
+.vscode

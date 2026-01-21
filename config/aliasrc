@@ -4,9 +4,7 @@ command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 
 # Uses non default software
 alias \
-	cat="bat" \
 	diff="diff-so-fancy" \
-	find="fd" \
 	fzf="fzf --preview=\"bat {} --color=always\"" \
 
 # Verbosity and settings that you pretty much just always are going to want.
@@ -54,7 +52,7 @@ alias \
 	y="yay" \
 	,gs="git status" \
 	,gc="git commit" \
-	,gch="git checkout" \
+	,gck="git checkout" \
 	,gcm="git commit -m" \
 	,gfa="git fetch --all" \
 	,gpl="git pull" \
@@ -64,7 +62,7 @@ alias \
 	,gd="git diff" \
 	,gds="git diff --staged" \
 	,gcan="git commit --amend --no-edit" \
-	,gpsf="git push --force" \
+	,gpsf="git push --force-with-lease" \
 	,gr="git rebase" \
 	,grc="git rebase --continue" \
 	lt="tree -L 2" \
@@ -73,9 +71,8 @@ alias \
 	xc="xclip -sel clip" \
 	xcp="xclip -sel clip -target image/png -i" \
 	kx="killall xcape" \
-	fs='flameshot gui -r | tee ~/Pictures/Flameshot_$(date +%Y-%m-%d_%H-%M-%S).jpg | xcp' \
+	fs='env QT_SCREEN_SCALE_FACTORS="$REVERSE_SCALE" flameshot gui -r | tee ~/Pictures/Flameshot_$(date +%Y-%m-%d_%H-%M-%S).jpg | xcp' \
 	/="ack" \
-
 
 # This alias is important. It enables the `pauseallmpv` command.
 alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
@@ -100,9 +97,19 @@ function qe() {
 	v ~/.local/share/qutebrowser_$1/config/custom_config.py
 }
 
-,e() { du --exclude-from=$HOME/.config/du_excludes  -a ~/.scripts/* ~/.config/* ~/.dotfiles/*(N) /var/lib/transmission/.config/*(N) | cut -d$'\t' -f2- | fzf | xargs -d '\n' -r $EDITOR ;}
+,e() { du --exclude-from=$HOME/.config/du_excludes  -a ~/.scripts/* ~/scripts/*(N) ~/.config/* ~/.dotfiles/*(N) /var/lib/transmission/.config/*(N) | cut -d$'\t' -f2- | fzf | xargs -d '\n' -r $EDITOR ;}
 ,t() { fzf | xargs -d '\n' -r -I % $EDITOR % ;}
-cdf() { cd -- "$(du | cut -d$'\t' -f2- | fzf)"}
-cdp() { cd -- "$(/usr/bin/ls -C -d ~/dev/git/*(N) ~/dev/projects/*(N) ~/localstorage/dev/*(N) | fzf;)"}
 
+cdf() { cd -- "$(du | cut -d$'\t' -f2- | fzf)"}
 cdt() { cd -- "$HOME/Downloads/Torrent/$(/usr/bin/ls -C --format=single-column ~/Downloads/Torrent | fzf;)"}
+
+gfixup() {
+	rev=$(_fzf_git_hashes)
+	[[ $rev == "" ]] && return
+	git commit --fixup ${rev} && git rebase -i --autostash --autosquash ${rev}^ && echo --------git status---------- && git status
+}
+gdrop() {
+	rev=$(_fzf_git_hashes)
+	[[ $rev == "" ]] && return
+	git rebase -i --autostash --autosquash ${rev}^ && echo --------git status---------- && git status
+}

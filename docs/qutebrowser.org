@@ -1,0 +1,3 @@
+pip install pyqtwebengine==5.13
+pip install pyqt5==12.3
+pip install qutebrowser==1.14.1

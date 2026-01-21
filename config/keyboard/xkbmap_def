@@ -1,6 +1,7 @@
 xkb_keymap {
   xkb_keycodes {
     include "evdev+aliases(qwerty)"
+    <LWIN> = 66;
   };
 
   xkb_types     { include "complete"	};

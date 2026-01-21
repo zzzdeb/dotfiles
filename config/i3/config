@@ -5,7 +5,7 @@
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # new_window pixel
-default_border pixel
+default_border pixel 4
 set_from_resource $fontsize fontsize 13
 
 # font pango:DejaVu Sans Mono for Powerline, FontAwesome $fontsize
@@ -106,6 +106,8 @@ for_window [title="mpvfloat"] sticky enable
 for_window [title="mpvfloat"] border pixel 0
 no_focus [title="mpvfloat"]
 
+for_window [class="^Ires20$"] floating disable
+
 set $workspace2 "2: "
 set $workspace3 "3: "
 set $workspace4 "4: "
@@ -160,12 +162,22 @@ bar {
 # #---Basic Bindings---# #
 bindsym button3 --border kill
 bindsym $mod+button1 --whole-window floating toggle
+bindsym $mod+s mode "indurad"
 
-set $wsBuK    "S: BuK"
-set $wsNumRe       "S: NumRe"
-set $wsST      "S: ST"
-set $wsCC     "S: CC"
-set $wsAS    "S: AS"
+set $devops    "devops"
+set $33617       "33617"
+set $33020      "33020"
+
+mode "indurad" {
+        bindsym d workspace $devops ; mode "default"
+        bindsym z exec --no-startup-id i3zen switch; mode "default"
+
+
+        bindsym Shift+d move container to workspace $devops
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
 
 # assign [class="Chromium-browser"] 7
 # assign [class="Firefox"] $workspace2

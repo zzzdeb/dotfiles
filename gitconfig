@@ -1,11 +1,13 @@
 [user]
-  email = zolboo.deb@gmail.com
-  name = Zolboo
+  email = zolboo.erdenebayar@indurad.com
+  name = Zolboo Erdenebayar
+	signingkey = B4CA3E0AADBDBC45
 [push]
   default = simple
 [core]
   pager = diff-so-fancy | less --tabs=4 -RFX
   autolf = true
+	excludesFile = ~/.gitignore_global
 [merge]
   tool = nvim
 [mergetool]
@@ -52,7 +54,9 @@
 	next = rebase --continue
 	find-merge = "!sh -c 'commit=$0 && branch=${1:-HEAD} && (git rev-list $commit..$branch --ancestry-path | cat -n; git rev-list $commit..$branch --first-parent | cat -n) | sort -k2 -s | uniq -f1 -d | sort -n | tail -1 | cut -f2'" 
 	show-merge = "!sh -c 'merge=$(git find-merge $0 $1) && [ -n \"$merge\" ] && git show $merge'"
-	fixup = "!sh -c 'rev=$(git rev-parse ${0}) && git commit --no-verify --fixup ${rev} && git rebase -i --autostash --autosquash ${rev}^ && echo --------git status---------- && git status'"
+	; fixup = "!sh -c 'rev=$(git rev-parse ${0}) && git commit --fixup ${rev} && git rebase -i --autostash --autosquash ${rev}^ && echo --------git status---------- && git status'"
+	fixup = "!zsh -c 'gfixup'"
+	code = "!sh -c 'code $(git rev-parse --show-toplevel)'"
 [cola]
 	spellcheck = false
 [pull]
@@ -61,3 +65,7 @@
 	templateDir = /home/zerdenebayar/.git-template
 [credential]
 	helper = cache --timeout=720000
+[checkout]
+	defaultRemote = origin
+[diff]
+	submodule = log

@@ -1114,9 +1114,9 @@ let g:coc_global_extensions = [
   \ 'coc-ultisnips', 
   \ 'coc-highlight', 
   \ 'coc-texlab',
-  \ 'coc-spell-checker',
   \ 'coc-python',
   \ ]
+  " \ 'coc-spell-checker',
 
 " grep word under cursor
 command! -nargs=+ -complete=custom,s:GrepArgs Rg exe 'CocList grep '.<q-args>

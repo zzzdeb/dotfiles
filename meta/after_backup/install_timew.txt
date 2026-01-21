@@ -1,0 +1,10 @@
+
+# Download https://timewarrior.net/releases/
+
+# extract
+
+cmake ..
+make -j12
+cmake --install . --prefix $HOME/.local/
+
+

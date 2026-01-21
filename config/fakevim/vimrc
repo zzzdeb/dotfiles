@@ -218,5 +218,7 @@ nnoremap ,eh :OpenHeaderSourceInNextSplit<cr>
 nnoremap <c-}> :tag<cr>
 
 nnoremap ,ec :EditWithCode<cr>
-nnoremap ,yp :CopyFullPath<cr>
+nnoremap ,yp :CopyPath<cr>
 nnoremap ,yn :CopyFileName<cr>
+
+nnoremap ,fu :FindUsages<cr>

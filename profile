@@ -10,23 +10,26 @@
 
 [ -d "$HOME/.Xdefaults" ] && xrdb $HOME/.Xdefaults
 
+eval $(keychain --eval main)
+
 export DIRMODUS='jkl;'
 export ENVMODE='indurad'
 
 # set PATH so it includes user's private bin if it exists
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="$PATH:$(du "$HOME/scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="qutebrowser"
+export BROWSER="firefox-esr"
 export READER="zathura"
 export FILE="ranger"
 export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
 export DMENU="rofi -dmenu -i"
 export CALENDAR="gcalendar"
-export EMAIL="gmail"
+export EMAIL="thunderbird"
 
 # ~/ Clean-up:
 # export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" # This line will break some DMs.
@@ -47,6 +50,7 @@ export MPLAYER_HOME="$XDG_CONFIG_HOME"/mplayer
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export GEM_HOME="$XDG_DATA_HOME"/gem
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
+export NPM_PACKAGES="${XDG_DATA_HOME}/npm-packages"
 
 # Other program settings:
 # less/man colors

@@ -60,6 +60,7 @@ if ! zgen saved; then
     # zgen oh-my-zsh themes/arrow
     # zgen load bhilburn/powerlevel9k powerlevel9k
     zgen load romkatv/powerlevel10k powerlevel9k
+    zgen load svenXY/timewarrior
 
     # save all to init script
     zgen save
@@ -122,15 +123,22 @@ mcd() {
 }
 
 
+source ~/.config/zsh/.induradzshrc
+
 ###############################################################
 # Software settings
 ###############################################################
-#latex
-#export PATH=/usr/local/texlive/2017/bin/x86_64-linux/:$PATH
 
-#java
-#export PATH=/home/zzz/softwares/jdk1.8.0_162/bin:$PATH
-
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
-compctl -W ~/localstorage/workspace/ -/ gp
 export PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"
+source $HOME/.dotfiles/submodules/fzf-git.sh
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(register-python-argcomplete pipx)"
+
+# discover_other_daemon: 1GNOME_KEYRING_CONTROL=/run/user/5470/keyring
+# export SSH_AUTH_SOCK=/run/user/5470/keyring/ssh
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -d "${HOME}/node_modules/.bin" ] && export PATH="$HOME/node_modules/.bin:$PATH"

@@ -1,0 +1,68 @@
+#!/usr/bin/zsh
+
+# export GDK_SCALE=1.5
+# export GDK_DPI_SCALE=0.5
+# export QT_AUTO_SCREEN_SET_FACTOR=0
+[[ $(cat /etc/hostname) =~ kellerberg ]] && export QT_SCALE_FACTOR=1.5 && export REVERSE_SCALE=0.66
+[[ $(cat /etc/hostname) =~ kellerberg ]] && export QT_FONT_DPI=96
+
+export CMAKE_GENERATOR=Ninja
+export INDURAD_PRECOMMIT_AUTO_FIX=1
+
+compctl -W ~/localstorage/workspace/ -/ gp
+export PATH=$PATH:${HOME}/localstorage/dev/project-cli
+export PATH=$PATH:${HOME}/localstorage/dev/monolith/install/bin
+export PATH=$PATH:${HOME}/localstorage/dev/indurad-ci/staging/scripts/
+
+export CALVIN_CORE=$(($(nproc) - 2))
+
+function _get_irpu_root() {
+	if [[ -d "./_ARTIFACT" ]]; then
+		echo "./_ARTIFACT"
+	else
+		echo "build/_ARTIFACT"
+	fi
+}
+
+# indurad
+alias \
+	clD="calvin -D" \
+	cald="(calvin -D -n -m='-j${CALVIN_CORE}' build/calvin && notify-send 'cald done.  Success;') || notify-send 'clmld done. Error'" \
+	cC="calvin -C build/calvin_checkout" \
+	cDf="(calvin --color -D -M ../../monolith -n build/calvin && notify-send 'cD done.  Success;') || notify-send 'cD done. Error'" \
+	clm="(calvin -D -n -M \`git rev-parse --show-toplevel\`/../monolith  -m='-j${CALVIN_CORE}' build/calvin_lm && notify-send 'cD done.  Success;') || notify-send 'clm done. Error'" \
+	clmld="(calvin -D -n -M \`git rev-parse --show-toplevel\`/../monolith --target localdev -m='-j${CALVIN_CORE}' --platform local build/calvin_local_lm && notify-send 'clmld done.  Success;') || notify-send 'clmld done. Error'" \
+	cld="(calvin -D -n -m='-j${CALVIN_CORE}' --platform local --target localdev build/calvin_local && notify-send 'clmld done.  Success;') || notify-send 'clmld done. Error'" \
+	main_old="export LD_LIBRARY_PATH=$PWD/lib && ./main -v 5" \
+	main="$(_get_irpu_root)/SOFT/bin/indurad-launcher --main='-v 5 -m replay'" \
+	mainh="$(_get_irpu_root)/SOFT/bin/indurad-launcher --main='-v 5 -m replay' --hermes-proxy" \
+	mainl="$(_get_irpu_root)/SOFT/bin/indurad-launcher --main='-m live -v 5'" \
+	mainlh="$(_get_irpu_root)/SOFT/bin/indurad-launcher --main='-m live -v 5' --hermes-proxy" \
+	hermesp="$(_get_irpu_root)/SOFT/bin/indurad-launcher --hermes-proxy" \
+	cidat="$(_get_irpu_root)/SOFT/bin/indurad-launcher --idat" \
+	il="$(_get_irpu_root)/SOFT/bin/indurad-launcher" \
+	clc="calvin -C build/calvin_checkout" \
+
+
+function twdone() {
+	local id="$1"
+	tw tag ${id} x && tw untag ${id} o
+	twsi o
+}
+
+gp() { ([ -z "$1" ] && cd -- "$HOME/localstorage/workspace/$(cd ~/localstorage/workspace; /usr/bin/find P* -maxdepth 2 -type d | cut -d$'\t' -f2- | fzf)") || cd "$HOME/localstorage/workspace/$1" }
+cdp() { cd -- "$(/usr/bin/ls -C -d ~/dev/git/*(N) ~/dev/projects/*(N) ~/localstorage/dev/*(N) | fzf;)"}
+
+eval "$(register-python-argcomplete pcli)"
+eval "$(register-python-argcomplete gli)"
+
+function fix_node_modules() {
+ local git_root="$(git rev-parse --show-toplevel)"
+ local node_modules_path="components/iweb4/node_modules"
+ local monolith_root="${git_root}/../monolith"
+ local monolith_node_modules="${monolith_root}/${node_modules_path}"
+ local build_node_modules="$(find  . -type d -iname "iweb4" | head -n 1)/node_modules"
+ rm $monolith_node_modules
+ ln -s ${build_node_modules} ${monolith_node_modules}
+}
+
